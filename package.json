@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "private": "true",
+  "dependencies": {
+    "@csstools/postcss-sass": "https://github.com/sinankeskin/postcss-sass",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.7",
+    "postcss-cli": "^9.1.0",
+    "postcss-scss": "^4.0.3",
+    "uswds": "^2.13.1",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
+  },
+  "devDependencies": {
+    "pa11y-ci": "^3.0.1"
+  }
+}
