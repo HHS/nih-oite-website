@@ -5,7 +5,8 @@ module.exports = {
   mode: "production",
   devtool: "source-map",
   entry: {
-    application: "./app/javascript/application.js"
+    application: "./app/javascript/application.js",
+    "netlify-app": "./app/javascript/netlify-app.js"
   },
   output: {
     filename: "[name].js",

@@ -12,9 +12,9 @@ Rails.application.configure do
     policy.frame_ancestors :none
     policy.img_src :self, :data
     policy.object_src :none
-    policy.script_src :self
+    policy.script_src :self, "'unsafe-eval'"
     policy.connect_src :self
-    policy.style_src :self
+    policy.style_src :self, "'unsafe-inline'"
   end
 
   #

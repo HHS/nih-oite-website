@@ -4,6 +4,7 @@
   "dependencies": {
     "@csstools/postcss-sass": "https://github.com/sinankeskin/postcss-sass",
     "autoprefixer": "^10.4.2",
+    "netlify-cms-app": "^2.15.67",
     "postcss": "^8.4.7",
     "postcss-cli": "^9.1.0",
     "postcss-scss": "^4.0.3",

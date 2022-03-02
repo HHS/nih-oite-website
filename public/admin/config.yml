@@ -1,0 +1,14 @@
+backend:
+  name: github
+  repo: 18F/nih-oite-experiments
+  branch: netlify-cms
+publish_mode: editorial_workflow
+media_folder: public/images
+public_folder: /images
+collections:
+  - name: post
+    label: "Post"
+    folder: "_posts"
+    create: true
+    fields:
+      - {label: "Title", name: "title"}
