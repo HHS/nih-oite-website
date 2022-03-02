@@ -42,6 +42,13 @@ gem "sassc-rails"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "rspec-rails", "~> 5.1"
+  gem "dotenv-rails", "~> 2.7"
+  gem "brakeman", "~> 5.2"
+  gem "bundler-audit", "~> 0.9"
+  gem "standard", "~> 1.7"
+  gem "i18n-tasks", "~> 0.9"
+  gem "pry-byebug", "~> 3.9"
 end
 
 group :development do
@@ -53,23 +60,15 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "rails_template_18f"
 end
 
 gem "secure_headers", "~> 6.3"
-
-group :development, :test do
-  gem "rspec-rails", "~> 5.1"
-  gem "dotenv-rails", "~> 2.7"
-  gem "brakeman", "~> 5.2"
-  gem "bundler-audit", "~> 0.9"
-  gem "standard", "~> 1.7"
-end
-gem "rails_template_18f", group: :development
-
-group :development, :test do
-  gem "i18n-tasks", "~> 0.9"
-end
 gem "sidekiq", "~> 6.4"
+gem "devise", "~> 4.8"
+gem "omniauth", "~> 2.0"
+gem "omniauth-github", "~> 2.0"
+gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 group :test do
   gem "climate_control", "~> 1.0"

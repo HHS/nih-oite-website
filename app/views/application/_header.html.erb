@@ -14,9 +14,16 @@
         <%= image_tag "uswds/dist/img/usa-icons/close.svg", role: "img", alt: t('shared.header.close') %>
       </button>
       <ul class="usa-nav__primary usa-accordion">
-        <% I18n.available_locales.each do |l| %>
+        <% if user_signed_in? %>
           <li class="usa-nav__primary-item">
-            <%= format_active_locale(l) %>
+            <%= link_to "Admin", "/admin/", class: "usa-link" %>
+          </li>
+          <li class="usa-nav__primary-item">
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li class="usa-nav__primary-item">
+            <%= button_to "Sign in with Github", user_github_omniauth_authorize_path %>
           </li>
         <% end %>
       </ul>
