@@ -1,7 +1,9 @@
 backend:
   name: github
-  repo: 18F/nih-oite-experiments
+  repo: rahearn/nih-oite-experiments
   branch: netlify-cms
+  base_url: http://localhost:3000
+  auth_endpoint: /netlify/auth
 publish_mode: editorial_workflow
 media_folder: public/images
 public_folder: /images
@@ -12,3 +14,4 @@ collections:
     create: true
     fields:
       - {label: "Title", name: "title"}
+      - {label: "Body", name: "body", widget: "markdown"}
