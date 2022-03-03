@@ -8,9 +8,9 @@ publish_mode: editorial_workflow
 media_folder: public/images
 public_folder: /images
 collections:
-  - name: post
-    label: "Post"
-    folder: "_posts"
+  - name: page
+    label: "Page"
+    folder: "_pages"
     create: true
     fields:
       - {label: "Title", name: "title"}
