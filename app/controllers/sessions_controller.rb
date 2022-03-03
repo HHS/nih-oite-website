@@ -16,20 +16,25 @@ class SessionsController < ::Devise::OmniauthCallbacksController
   end
 
   def netlify
-    render inline: <<~SCRIPT
-      <script>
-        (function() {
-          function receiveMessage(e) {
-            window.opener.postMessage(
-              'authorization:github:success:{"token": "#{session["token"]}", "provider": "github"}',
-              e.origin
-            )
-          }
-          window.addEventListener("message", receiveMessage, false)
-          // Start handshare with parent
-          window.opener.postMessage("authorizing:github", "*")
-        })()
-      </script>
-    SCRIPT
+    if user_signed_in?
+      render inline: <<~SCRIPT
+        <script>
+          (function() {
+            function receiveMessage(e) {
+              window.opener.postMessage(
+                'authorization:github:success:{"token": "#{session["token"]}", "provider": "github"}',
+                e.origin
+              )
+            }
+            window.addEventListener("message", receiveMessage, false)
+            // Start handshare with parent
+            window.opener.postMessage("authorizing:github", "*")
+          })()
+        </script>
+      SCRIPT
+    else
+      store_location_for(:user, netlify_auth_path)
+      render layout: false
+    end
   end
 end
