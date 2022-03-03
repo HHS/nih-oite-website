@@ -106,6 +106,7 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.1)
     ffi (1.15.5)
+    front_matter_parser (1.0.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -132,6 +133,8 @@ GEM
     jsbundling-rails (1.0.2)
       railties (>= 6.0.0)
     jwt (2.3.0)
+    kramdown (2.3.1)
+      rexml
     loofah (2.14.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -336,9 +339,11 @@ DEPENDENCIES
   debug
   devise (~> 4.8)
   dotenv-rails (~> 2.7)
+  front_matter_parser (~> 1.0)
   i18n-tasks (~> 0.9)
   jbuilder
   jsbundling-rails
+  kramdown (~> 2.3)
   omniauth (~> 2.0)
   omniauth-github (~> 2.0)
   omniauth-rails_csrf_protection (~> 1.0)

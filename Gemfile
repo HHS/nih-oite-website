@@ -70,6 +70,9 @@ gem "omniauth", "~> 2.0"
 gem "omniauth-github", "~> 2.0"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
+gem "front_matter_parser", "~> 1.0"
+gem "kramdown", "~> 2.3"
+
 group :test do
   gem "climate_control", "~> 1.0"
 end
