@@ -14,4 +14,5 @@ collections:
     create: true
     fields:
       - {label: "Title", name: "title"}
+      - {label: "Public", name: "public", widget: "boolean", default: true}
       - {label: "Body", name: "body", widget: "markdown"}
