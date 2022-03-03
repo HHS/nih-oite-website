@@ -4,6 +4,7 @@
     "runners": ["axe"]
   },
   "urls": [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://localhost:3000/second-page"
   ]
 }
