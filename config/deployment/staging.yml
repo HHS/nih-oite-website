@@ -3,3 +3,6 @@ web_instances: 1
 web_memory: 256M
 worker_instances: 1
 worker_memory: 256M
+netlify_repo: rahearn/nih-oite-experiments
+netlify_branch: netlify-cms
+netlify_auth_host: https://nih_oite_experiments-staging.app.cloud.gov

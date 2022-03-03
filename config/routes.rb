@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
   end
 
+  get "admin/config", format: "yml", to: "pages#netlify_config"
   get "admin/", to: "pages#netlify"
+
   root "pages#home"
 
   get "*path", to: "pages#page"
