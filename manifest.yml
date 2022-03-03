@@ -9,6 +9,9 @@ applications:
     RAILS_ENV: ((env))
     RAILS_LOG_TO_STDOUT: true
     RAILS_SERVE_STATIC_FILES: true
+    NETLIFY_REPO: ((netlify_repo))
+    NETLIFY_BRANCH: ((netlify_branch))
+    NETLIFY_AUTH_HOST: ((netlify_auth_host))
   processes:
   - type: web
     instances: ((web_instances))
