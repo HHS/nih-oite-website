@@ -1,15 +1,16 @@
 class Page
   def self.find_by_path(path)
-    path = Rails.root.join "_pages", "#{path}.md"
-    if File.exist?(path)
-      new FrontMatterParser::Parser.parse_file(path)
+    full_path = Rails.root.join "_pages", "#{path}.md"
+    if File.exist?(full_path)
+      new path, FrontMatterParser::Parser.parse_file(full_path)
     else
       fail NotFound
     end
   end
 
-  attr_reader :parsed_file
-  def initialize(file)
+  attr_reader :parsed_file, :filename
+  def initialize(filename, file)
+    @filename = filename
     @parsed_file = file
   end
 
