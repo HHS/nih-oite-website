@@ -1,5 +1,6 @@
 ---
 title: First Post
+public: true
 ---
 ## Second level heading
 
