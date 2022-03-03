@@ -15,6 +15,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Setup languages
+        uses: ./.github/actions/setup-languages
+      - name: Vendor gems
+        run: bundle cache --all
+      - name: Precompile assets
+        env:
+          RAILS_ENV: staging
+          SECRET_KEY_BASE: not-actually-secret
+        run: bundle exec rake assets:precompile
+
       - name: Deploy app
         uses: 18F/cg-deploy-action@main
         env:
