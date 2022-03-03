@@ -1,5 +1,5 @@
 ---
-title: First Post
+title: Private Page
 public: false
 ---
 ## Second level heading

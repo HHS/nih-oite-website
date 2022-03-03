@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @pages = Dir[Rails.root.join("_pages", "**", "*.md")].map { |f| Pathname.new(f).basename(".md") }.map { |f| Page.find_by_path(f) }
   end
 
   def page
@@ -8,7 +9,7 @@ class PagesController < ApplicationController
       render formats: :html
     else
       store_location_for(:user, "/#{params[:path]}")
-      render :home, formats: :html
+      redirect_to root_path
     end
   rescue Page::NotFound
     raise ActionController::RoutingError.new("Not Found")

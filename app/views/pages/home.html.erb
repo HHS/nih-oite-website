@@ -1,6 +1,16 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
 <% if user_signed_in? %>
   <p>User: <%= current_user.email %></p>
 <% end %>
+
+<ul>
+  <% @pages.each do |p| %>
+    <li>
+      <% if user_signed_in? || p.public? %>
+        <%= link_to p.title, "/#{p.filename}" %>
+      <% else %>
+        <%= p.title %> (Private Access)
+      <% end %>
+    </li>
+  <% end %>
+</ul>
