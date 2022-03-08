@@ -66,6 +66,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
@@ -197,6 +199,7 @@ GEM
     pry-byebug (3.9.0)
       byebug (~> 11.0)
       pry (~> 0.13.0)
+    public_suffix (4.0.6)
     puma (5.6.2)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -227,6 +230,9 @@ GEM
     rails-i18n (7.0.3)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
+    rails-reverse-proxy (0.11.0)
+      actionpack
+      addressable
     rails_template_18f (0.4.1)
       activesupport (~> 7.0.0)
       colorize (~> 0.8)
@@ -343,6 +349,7 @@ DEPENDENCIES
   i18n-tasks (~> 0.9)
   jbuilder
   jsbundling-rails
+  jwt (~> 2.3)
   kramdown (~> 2.3)
   omniauth (~> 2.0)
   omniauth-github (~> 2.0)
@@ -351,6 +358,7 @@ DEPENDENCIES
   pry-byebug (~> 3.9)
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.2)
+  rails-reverse-proxy (~> 0.11)
   rails_template_18f
   rspec-rails (~> 5.1)
   sassc-rails

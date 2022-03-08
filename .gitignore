@@ -35,6 +35,7 @@
 spec/examples.txt
 
 /config/credentials/production.key
+/config/credentials/staging.key
 
 /app/assets/builds/*
 !/app/assets/builds/.keep

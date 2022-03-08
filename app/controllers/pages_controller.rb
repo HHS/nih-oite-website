@@ -16,12 +16,15 @@ class PagesController < ApplicationController
   end
 
   def netlify
-    render layout: false
+    if user_signed_in?
+      render layout: false
+    else
+      store_location_for(:user, "/admin/")
+      redirect_to root_path
+    end
   end
 
   def netlify_config
-    @repo = ENV["NETLIFY_REPO"]
     @target_branch = ENV["NETLIFY_BRANCH"]
-    @base_url = ENV["NETLIFY_AUTH_HOST"]
   end
 end
