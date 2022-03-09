@@ -12,9 +12,11 @@ Rails.application.routes.draw do
 
   scope ".netlify" do
     match "git/*path" => "proxy#git_gateway", :via => :all
-    scope "identity" do
-      post "token" => "proxy#token"
-      get "user" => "proxy#user"
+    devise_scope :user do
+      scope "identity" do
+        post "token" => "sessions#token"
+        get "user" => "sessions#user"
+      end
     end
   end
 
