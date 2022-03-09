@@ -28,12 +28,17 @@ const ErrorMessage = styled.p`
 `;
 
 export default class NihGatewayAuthenticationPage extends GitGatewayAuthenticationPage {
-  handleErrorLogin = async e => {
+  constructor(...args) {
+    super(...args)
+    this.doSSOLogin()
+  }
+
+  handleFormLogin = async e => {
     e.preventDefault();
-    return this.handleSSOLogin()
+    return this.doSSOLogin()
   };
 
-  handleSSOLogin = async () => {
+  doSSOLogin = async () => {
     try {
       const client = await GitGatewayAuthenticationPage.authClient();
       const user = await client.login()
@@ -49,27 +54,20 @@ export default class NihGatewayAuthenticationPage extends GitGatewayAuthenticati
     const { errors } = this.state;
     const { config, t } = this.props;
 
-    if (errors.server) {
-      return (
-        <AuthenticationPage
-          logoUrl={config.logo_url}
-          siteUrl={config.site_url}
-          renderPageContent={() => (
-            <AuthForm onSubmit={this.handleErrorLogin}>
-              {!errors.server ? null : <ErrorMessage>{String(errors.server)}</ErrorMessage>}
-              <LoginButton>Try again</LoginButton>
-            </AuthForm>
-          )}
-          t={t}
-        />
-      )
-    }
     return (
       <AuthenticationPage
         logoUrl={config.logo_url}
         siteUrl={config.site_url}
-        onLogin={this.handleSSOLogin}
-        renderButtonContent={() => t("auth.login")}
+        renderPageContent={() => (
+          <AuthForm onSubmit={this.handleFormLogin}>
+            {errors.server ? (
+              <>
+                <ErrorMessage>{String(errors.server)}</ErrorMessage>
+                <LoginButton>{t("auth.login")}</LoginButton>
+              </>
+            ) : <p>Logging in...</p>}
+          </AuthForm>
+        )}
         t={t}
       />
     )
