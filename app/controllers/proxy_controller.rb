@@ -35,7 +35,7 @@ class ProxyController < ApplicationController
     else
       params[:path]
     end
-    reverse_proxy ENV["GIT_GATEWAY_HOST"], path: path, headers: {Authorization: "Bearer #{jwt_token}"}
+    reverse_proxy ENV["GIT_GATEWAY_HOST"], path: path, headers: {Authorization: request.headers["Authorization"]}
   end
 
   private def jwt_token
