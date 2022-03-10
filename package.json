@@ -16,10 +16,12 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "netlify-cms-app": "^2.15.67",
+    "patch-package": "^6.4.7",
     "path-browserify": "^1.0.1",
     "postcss": "^8.4.7",
     "postcss-cli": "^9.1.0",
     "postcss-scss": "^4.0.3",
+    "postinstall-postinstall": "^2.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "uswds": "^2.13.1",
@@ -28,7 +30,8 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
+    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "pa11y-ci": "^3.0.1"
