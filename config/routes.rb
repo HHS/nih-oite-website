@@ -4,11 +4,20 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "sessions"}
   devise_scope :user do
     delete "sign_out", to: "devise/sessions#destroy", as: :destroy_user_session
-    get "/netlify/auth", to: "sessions#netlify"
   end
 
   if Rails.env.development?
     mount Sidekiq::Web => "/sidekiq"
+  end
+
+  scope ".netlify" do
+    match "git/*path" => "proxy#git_gateway", :via => :all
+    devise_scope :user do
+      scope "identity" do
+        post "token" => "sessions#token"
+        get "user" => "sessions#user"
+      end
+    end
   end
 
   get "admin/config", format: "yml", to: "pages#netlify_config"
