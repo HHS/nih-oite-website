@@ -10,6 +10,7 @@ guide for an introduction to the framework.
 
 ### Local Setup
 
+* Get `config/master.key` from Ryan
 * Install Ruby 3.0.3
 * Install NodeJS 16.13.1
 * Install PostgreSQL: `brew install postgresql`
@@ -18,6 +19,7 @@ guide for an introduction to the framework.
   * Start the server
   `brew services start postgresql`
 * Install Ruby dependencies: `bundle install`
+* Run git-gateway locally: See https://github.com/rahearn/git-gateway branch: `cloudgov-deploy`
 * Install chromedriver for integration tests: `brew install --cask chromedriver`
   * Chromedriver must be allowed to run. You can either do that by:
     * The command line: `xattr -d com.apple.quarantine $(which chromedriver)` (this is the only option if you are on Big Sur)
@@ -33,6 +35,8 @@ guide for an introduction to the framework.
 Environment variables can be set in development using the [dotenv](https://github.com/bkeepers/dotenv) gem.
 
 Consistent but sensitive credentials should be added to `config/credentials.yml.env` by using `$ rails credentials:edit`
+
+Staging credentials should be added to `config/credentials/staging.yml.env` by using `$ rails credentials:edit --environment staging`
 
 Production credentials should be added to `config/credentials/production.yml.env` by using `$ rails credentials:edit --environment production`
 
