@@ -1,9 +1,9 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: {omniauth_callbacks: "sessions"}
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth"}
   devise_scope :user do
-    delete "sign_out", to: "devise/sessions#destroy", as: :destroy_user_session
+    delete "sign_out", to: "sessions#destroy", as: :destroy_user_session
   end
 
   if Rails.env.development?

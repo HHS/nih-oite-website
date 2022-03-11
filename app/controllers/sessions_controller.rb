@@ -1,18 +1,5 @@
-class SessionsController < ::Devise::OmniauthCallbacksController
+class SessionsController < ::Devise::SessionsController
   skip_forgery_protection
-
-  def github
-    auth = request.env["omniauth.auth"]
-    @user = User.from_omniauth(auth)
-
-    if @user.persisted?
-      sign_in_and_redirect @user, event: :authentication
-      set_flash_message(:notice, :success, kind: "Github") if is_navigational_format?
-    else
-      session["devise.github_data"] = auth.except(:extra)
-      redirect_to root_path
-    end
-  end
 
   def token
     if user_signed_in?
@@ -20,7 +7,7 @@ class SessionsController < ::Devise::OmniauthCallbacksController
         access_token: jwt_token
       }
     else
-      redirect_to root_path
+      render json: {message: "User must be logged in first"}, status: :unauthorized
     end
   end
 
@@ -28,7 +15,7 @@ class SessionsController < ::Devise::OmniauthCallbacksController
     if user_signed_in?
       render json: user_json
     else
-      redirect_to root_path
+      render json: {message: "User must be logged in first"}, status: :unauthorized
     end
   end
 
