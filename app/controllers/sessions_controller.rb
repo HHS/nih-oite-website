@@ -44,7 +44,7 @@ class SessionsController < ::Devise::OmniauthCallbacksController
   end
 
   def jwt_token
-    payload = user_json.merge app_metadata: {roles: [current_user.role]}
+    payload = user_json.merge exp: 5.minutes.from_now.to_i, app_metadata: {roles: [current_user.role]}
     JWT.encode payload, Rails.application.credentials.jwt_secret
   end
 end
