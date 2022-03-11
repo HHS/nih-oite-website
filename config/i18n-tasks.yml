@@ -105,6 +105,7 @@ search:
 ignore_missing:
   - 'shared.languages.*'
   - 'shared.header.{title,close,demo_banner,menu}'
+  - 'auth.login'
 # - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
 # - '{devise,simple_form}.*'
 

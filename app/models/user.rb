@@ -6,4 +6,8 @@ class User < ApplicationRecord
       user.email = auth.info.email
     end
   end
+
+  def admin?
+    role == "admin"
+  end
 end
