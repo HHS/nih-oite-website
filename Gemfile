@@ -69,6 +69,7 @@ gem "devise", "~> 4.8"
 gem "omniauth", "~> 2.0"
 gem "omniauth-github", "~> 2.0"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem "pundit", "~> 2.2"
 
 gem "front_matter_parser", "~> 1.0"
 gem "kramdown", "~> 2.3"
