@@ -1,9 +1,9 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: {omniauth_callbacks: "sessions"}
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth"}
   devise_scope :user do
-    delete "sign_out", to: "devise/sessions#destroy", as: :destroy_user_session
+    delete "sign_out", to: "sessions#destroy", as: :destroy_user_session
   end
 
   if Rails.env.development?
@@ -11,7 +11,13 @@ Rails.application.routes.draw do
   end
 
   scope ".netlify" do
-    match "git/*path" => "proxy#git_gateway", :via => :all
+    scope "git" do
+      get "settings" => "proxy#gateway_settings"
+      scope "github" do
+        put "issues/:id/labels" => "proxy#git_labels"
+        match "*path" => "proxy#git_gateway", :via => :all
+      end
+    end
     devise_scope :user do
       scope "identity" do
         post "token" => "sessions#token"
