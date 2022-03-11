@@ -6,18 +6,10 @@ terraform {
       version = "0.15.0"
     }
   }
-
-  backend "s3" {
-    bucket  = "cg-c239b06e-b226-4f92-a84e-83e0b393bd27"
-    key     = "terraform.tfstate.stage"
-    encrypt = "true"
-    region  = "us-gov-west-1"
-    profile = "nih_oite_experiments-terraform-backend"
-  }
 }
 
 provider "cloudfoundry" {
-  api_url      = "https://api.fr.cloud.gov"
+  api_url      = local.cf_api_url
   user         = var.cf_user
   password     = var.cf_password
   app_logs_max = 30
