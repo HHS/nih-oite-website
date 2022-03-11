@@ -10,13 +10,13 @@ name: Brakeman Scan
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, netlify-cms ]
     paths-ignore:
       - 'doc/**'
       - 'README.md'
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ main ]
+    branches: [ main, netlify-cms ]
   schedule:
     # cron format: 'minute hour dayofmonth month dayofweek'
     # this will run at noon UTC each Monday (7am EST / 8am EDT)
