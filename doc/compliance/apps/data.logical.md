@@ -1,6 +1,6 @@
 # Logical Data Model
 
-![logical data model view](../rendered/apps/data.logical.svg)
+![logical data model view](../rendered/apps/data.logical.png)
 
 ```plantuml
 @startuml
@@ -9,8 +9,14 @@ scale 0.65
 ' avoid problems with angled crows feet
 skinparam linetype ortho
 
-class TKTK_Example {
+class User {
   * id : integer <<generated>>
+  * email : string
+  * provider : string
+  * uid : string
+  * role : string
+  * created_at : datetime
+  * updated_at : datetime
 }
 @enduml
 ```
