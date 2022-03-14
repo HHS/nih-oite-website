@@ -2,12 +2,12 @@ name: OWASP ZAP scan
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, netlify-cms ]
     paths-ignore:
       - 'doc/**'
       - 'README.md'
   pull_request:
-    branches: [ main ]
+    branches: [ main, netlify-cms ]
 
 jobs:
   owasp-scan:

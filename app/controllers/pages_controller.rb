@@ -1,4 +1,11 @@
 class PagesController < ApplicationController
+  content_security_policy only: :netlify do |policy|
+    policy.script_src :self, "'unsafe-eval'"
+    policy.style_src :self, "'unsafe-inline'"
+    policy.img_src :self, :data, :blob
+    policy.connect_src :self, :blob
+  end
+
   def home
     @pages = Dir[Rails.root.join("_pages", "**", "*.md")].map { |f| Pathname.new(f).basename(".md") }.map { |f| Page.find_by_path(f) }
   end
