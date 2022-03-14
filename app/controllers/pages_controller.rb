@@ -2,6 +2,8 @@ class PagesController < ApplicationController
   content_security_policy only: :netlify do |policy|
     policy.script_src :self, "'unsafe-eval'"
     policy.style_src :self, "'unsafe-inline'"
+    policy.img_src :self, :data, :blob
+    policy.connect_src :self, :blob
   end
 
   def home

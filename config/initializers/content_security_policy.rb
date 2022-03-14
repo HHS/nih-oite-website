@@ -10,10 +10,10 @@ Rails.application.configure do
     policy.font_src :self
     policy.form_action :self, "https://github.com/login/oauth/authorize"
     policy.frame_ancestors :none
-    policy.img_src :self, :data, :blob
+    policy.img_src :self, :data
     policy.object_src :none
     policy.script_src :self
-    policy.connect_src :self, :blob
+    policy.connect_src :self
     policy.style_src :self
   end
 
