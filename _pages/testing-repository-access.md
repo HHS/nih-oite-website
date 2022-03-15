@@ -8,4 +8,4 @@ public: false
 
 ## Can this be published by a normal user?
 
-_we'll see_
+no, needs an admin credentials in the gateway
