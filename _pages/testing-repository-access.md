@@ -8,4 +8,4 @@ public: false
 
 ## Can this be published by a normal user?
 
-no, needs an admin credentials in the gateway
+no, the gateway needs admin credentials at least as long as PRs are required to have approvals.
