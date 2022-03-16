@@ -7,11 +7,14 @@ class PagesController < ApplicationController
   end
 
   def home
-    @pages = Dir[Rails.root.join("_pages", "**", "*.md")].map { |f| Pathname.new(f).basename(".md") }.map { |f| Page.find_by_path(f) }
+    pages_dir = Rails.root.join("_pages")
+    @pages = Dir[pages_dir.join("**", "*.md")].map { |f|
+      Pathname.new(f).relative_path_from(pages_dir)
+    }.map { |p| Page.find_by_path(p) }
   end
 
   def page
-    @page = Page.find_by_path params[:path]
+    @page = Page.find_by_path Pathname.new(params[:path])
     if @page.public? || user_signed_in?
       render formats: :html
     else
