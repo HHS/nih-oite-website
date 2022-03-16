@@ -9,8 +9,10 @@ public_folder: /images
 collections:
   - name: page
     label: "Page"
-    folder: "_pages"
+    folder: "_pages/"
     create: true
+    nested: {depth: 4}
+    meta: {path: {widget: string, label: "Path", index_file: "index"}}
     fields:
       - {label: "Title", name: "title"}
       - {label: "Public", name: "public", widget: "boolean", default: true}
