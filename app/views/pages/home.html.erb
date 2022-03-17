@@ -1,9 +1,9 @@
-<h1>Pages#home</h1>
+<h1>All Pages</h1>
 <% if user_signed_in? %>
   <p>User: <%= current_user.email %></p>
 <% end %>
 
-<ul>
+<ul class="usa-list">
   <% @pages.each do |p| %>
     <li>
       <% if user_signed_in? || p.public? %>

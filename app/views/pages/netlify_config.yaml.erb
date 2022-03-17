@@ -16,10 +16,11 @@ collections:
     fields:
       - {label: "Title", name: "title"}
       - {label: "Public", name: "public", widget: "boolean", default: true}
-      - {label: "Expires At", name: "expires_at", widget: "datetime", default: ""}
+      - {label: "Expires At", name: "expires_at", widget: "datetime", default: "", required: false}
       - label: "Replaced By Page"
         name: "redirect_to"
         widget: "relation"
+        required: false
         collection: "page"
         search_fields: ["title", "{{slug}}"]
         value_field: "{{slug}}"

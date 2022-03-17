@@ -5,6 +5,7 @@
   },
   "urls": [
     "http://localhost:3000",
-    "http://localhost:3000/second-page"
+    "http://localhost:3000/public-page",
+    "http://localhost:3000/404"
   ]
 }
