@@ -14,14 +14,60 @@ class Page
     end
   end
 
-  attr_reader :parsed_file, :filename
-  def initialize(path, file, file_contents)
+  # constructs a hierarchy of Page objects from the filesystem at <dir>.
+  def self.build_hierarchy(dir, parent_path = "")
+    dir = Pathname.new(dir.to_s)
+    parent_path = Pathname.new(parent_path.to_s)
+
+    children = []
+    md_files = []
+    index_md = nil
+
+    loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time])
+
+    Dir.each_child(dir) do |f|
+      full_path = dir.join(f)
+
+      if File.directory? full_path
+        c = build_hierarchy full_path, parent_path.join(f)
+        children.push(*c)
+      elsif f == "index.md"
+        index_md = f
+      elsif f.ends_with? ".md"
+        md_files.push(f)
+      end
+    end
+
+    pages = md_files.map { |f|
+      full_path = dir.join(f)
+      front_matter = FrontMatterParser::Parser.parse_file full_path, loader: loader
+      new parent_path, full_path.basename(".md"), front_matter
+    }
+
+    if index_md
+      full_path = dir.join(index_md)
+      front_matter = FrontMatterParser::Parser.parse_file full_path, loader: loader
+      index = new parent_path, full_path.basename(".md"), front_matter, children
+      pages.push index
+    else
+      pages.push(*children)
+    end
+  end
+
+  attr_reader :parsed_file, :filename, :children
+
+  def initialize(path, file, file_contents, children = [])
     @filename = if file.to_s == "index"
       path
     else
       path.join(file)
     end
     @parsed_file = file_contents
+    @children = children
+  end
+
+  def has_children?
+    @children.length > 0
   end
 
   def public?

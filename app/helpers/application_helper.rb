@@ -6,4 +6,8 @@ module ApplicationHelper
     end
     link_to t("shared.languages.#{locale_string}"), root_path(locale: locale_string), class: link_classes
   end
+
+  def pages
+    @pages ||= Page.build_hierarchy Rails.root.join "_pages"
+  end
 end
