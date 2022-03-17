@@ -28,6 +28,16 @@ class Page
     parsed_file["public"]
   end
 
+  def obsolete?
+    redirect_page.present?
+  end
+
+  def redirect_page
+    if parsed_file["redirect_to"].present?
+      @redirect_page ||= self.class.find_by_path(Pathname.new(parsed_file["redirect_to"]), false).filename
+    end
+  end
+
   def expired?
     expires_at&.past?
   end

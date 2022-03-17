@@ -7,7 +7,7 @@
   <% @pages.each do |p| %>
     <li>
       <% if user_signed_in? || p.public? %>
-        <%= link_to p.title, "/#{p.filename}" %>
+        <%= link_to p.title, content_page_path(path: p.filename) %>
       <% else %>
         <%= p.title %> (Private Access)
       <% end %>

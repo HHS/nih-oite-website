@@ -15,6 +15,10 @@ class PagesController < ApplicationController
 
   def page
     @page = Page.find_by_path Pathname.new(params[:path])
+    if @page.obsolete?
+      redirect_to content_page_path(path: @page.redirect_page)
+      return
+    end
     if @page.public? || user_signed_in?
       render formats: :html
     else
