@@ -1,8 +1,7 @@
 <%= render "application/demo_site_banner" if Rails.configuration.x.show_demo_banner %>
 
 <div class="usa-overlay"></div>
-<header class="usa-header usa-header--basic">
-  <div class="usa-nav-container">
+<header class="usa-header usa-header--extended">
     <div class="usa-navbar">
       <div class="usa-logo">
         <em class="usa-logo__text">
@@ -12,23 +11,48 @@
       <button class="usa-menu-btn"><%= t('shared.header.menu') %></button>
     </div>
     <nav aria-label="<%= t('shared.header.primary') %>" class="usa-nav">
-      <button class="usa-nav__close">
-        <%= image_tag "uswds/dist/img/usa-icons/close.svg", role: "img", alt: t('shared.header.close') %>
-      </button>
-      <ul class="usa-nav__primary usa-accordion">
-        <% if user_signed_in? %>
-          <li class="usa-nav__primary-item">
-            <%= link_to "Admin", "/admin/", class: "usa-link" %>
-          </li>
-          <li class="usa-nav__primary-item">
-            <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-          </li>
-        <% else %>
-          <li class="usa-nav__primary-item">
-            <%= button_to "Sign in with Github", user_github_omniauth_authorize_path %>
-          </li>
-        <% end %>
-      </ul>
+      <div class="usa-nav__inner">
+        <button class="usa-nav__close">
+          <%= image_tag "uswds/dist/img/usa-icons/close.svg", role: "img", alt: t('shared.header.close') %>
+        </button>
+        <ul class="usa-nav__primary usa-accordion">
+          <% @pages.each_with_index do |p, index| %>
+            <% if @user_signed_in || p.public? %>
+              <li class="usa-nav__primary-item">
+                <% if p.has_children? %>
+                  <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-<%= index %>">
+                    <span><%= p.title %></span>
+                  </button>
+                  <ul id="extended-nav-section-<%= index %>" class="usa-nav__submenu" hidden="">
+                    <% p.children.each do |child| %>
+                      <li class="usa-nav__submenu-item">
+                        <%= link_to child.title, content_page_path(p.filename), class: "usa-nav__link" %>
+                      </li>
+                    <% end %>
+                  </ul>
+                <% else %>
+                  <%= link_to p.title, content_page_path(p.filename), class: "usa-nav__link" %>
+                <% end %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+        <div class="usa-nav__secondary">
+          <ul class="usa-nav__secondary-links">
+            <% if user_signed_in? %>
+              <li class="usa-nav__secondary-item">
+                <%= link_to "Admin", "/admin/" %>
+              </li>
+              <li class="usa-nav__secondary-item">
+                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "usa-button usa-button--unstyled", form_class: "display-inline" %>
+              </li>
+            <% else %>
+              <li class="usa-nav__secondary-item">
+                <%= button_to "Sign in with Github", user_github_omniauth_authorize_path, class: "usa-button usa-button--unstyled", form_class: "display-inline" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </nav>
-  </div>
 </header>

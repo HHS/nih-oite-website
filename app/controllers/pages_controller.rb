@@ -7,10 +7,6 @@ class PagesController < ApplicationController
   end
 
   def home
-    pages_dir = Rails.root.join("_pages")
-    @pages = Dir[pages_dir.join("**", "*.md")].map { |f|
-      Pathname.new(f).relative_path_from(pages_dir)
-    }.map { |p| Page.find_by_path(p) }
   end
 
   def page
