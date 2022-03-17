@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def page
-    @page = Page.find_by_path Pathname.new(params[:path])
+    @page = Page.find_by_path params[:path]
     if @page.obsolete?
       redirect_to content_page_path(path: @page.redirect_page)
       return

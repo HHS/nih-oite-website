@@ -1,7 +1,7 @@
 class Page
   def self.find_by_path(path, try_index = true)
-    dirname = path.dirname
-    filename = path.basename(".md")
+    dirname = Pathname(path).dirname
+    filename = Pathname(path).basename(".md")
     full_path = Rails.root.join "_pages", dirname, "#{filename}.md"
     if File.exist?(full_path)
       loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time])
@@ -34,7 +34,7 @@ class Page
 
   def redirect_page
     if parsed_file["redirect_to"].present?
-      @redirect_page ||= self.class.find_by_path(Pathname.new(parsed_file["redirect_to"]), false).filename
+      @redirect_page ||= self.class.find_by_path(parsed_file["redirect_to"], false).filename
     end
   end
 
