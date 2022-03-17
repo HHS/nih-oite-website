@@ -1,10 +1,14 @@
 {
   "defaults": {
     "standard": "WCAG2AA",
-    "runners": ["axe"]
+    "runners": ["axe"],
+    "hideElements": ".usa-nav__primary-item > .usa-accordion__button > span"
   },
   "urls": [
-    "http://localhost:3000",
+    {
+      "url": "http://localhost:3000",
+      "screenCapture": "test.png"
+    },
     "http://localhost:3000/public-page",
     "http://localhost:3000/404"
   ]
