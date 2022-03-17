@@ -4,7 +4,8 @@ class Page
     filename = path.basename(".md")
     full_path = Rails.root.join "_pages", dirname, "#{filename}.md"
     if File.exist?(full_path)
-      new dirname, filename, FrontMatterParser::Parser.parse_file(full_path)
+      loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time])
+      new dirname, filename, FrontMatterParser::Parser.parse_file(full_path, loader: loader)
     elsif try_index
       find_by_path(dirname.join(filename, "index.md"), false)
     else
@@ -25,6 +26,14 @@ class Page
 
   def public?
     parsed_file["public"]
+  end
+
+  def expired?
+    expires_at&.past?
+  end
+
+  def expires_at
+    parsed_file["expires_at"]
   end
 
   def title
