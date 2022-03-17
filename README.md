@@ -34,11 +34,11 @@ guide for an introduction to the framework.
 
 Environment variables can be set in development using the [dotenv](https://github.com/bkeepers/dotenv) gem.
 
-Consistent but sensitive credentials should be added to `config/credentials.yml.env` by using `$ rails credentials:edit`
+Consistent but sensitive credentials should be added to `config/credentials.yml.enc` by using `$ rails credentials:edit`
 
-Staging credentials should be added to `config/credentials/staging.yml.env` by using `$ rails credentials:edit --environment staging`
+Staging credentials should be added to `config/credentials/staging.yml.enc` by using `$ rails credentials:edit --environment staging`
 
-Production credentials should be added to `config/credentials/production.yml.env` by using `$ rails credentials:edit --environment production`
+Production credentials should be added to `config/credentials/production.yml.enc` by using `$ rails credentials:edit --environment production`
 
 Any changes to variables in `.env` that should not be checked into git should be set
 in `.env.local`.

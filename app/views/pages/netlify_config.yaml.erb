@@ -16,4 +16,12 @@ collections:
     fields:
       - {label: "Title", name: "title"}
       - {label: "Public", name: "public", widget: "boolean", default: true}
+      - {label: "Expires At", name: "expires_at", widget: "datetime", default: ""}
+      - label: "Replaced By Page"
+        name: "redirect_to"
+        widget: "relation"
+        collection: "page"
+        search_fields: ["title", "{{slug}}"]
+        value_field: "{{slug}}"
+        display_fields: ["title", "{{slug}}"]
       - {label: "Body", name: "body", widget: "markdown"}
