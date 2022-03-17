@@ -39,7 +39,7 @@ class Page
   end
 
   def expired?
-    expires_at&.past?
+    expires_at.present? && expires_at.past?
   end
 
   def expires_at
