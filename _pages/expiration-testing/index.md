@@ -1,7 +1,6 @@
 ---
-title: Expiration Testing
+title: Expiring Post
 public: true
-expires_at: 2022-03-16T21:30:15.386Z
-redirect_to: wellness/index
+expires_at: 2022-03-17T20:30:00.000Z
 ---
-This post will expire at 5:30pm on March 16
+This page will expire at 4:30pm on March 17, 2022.
