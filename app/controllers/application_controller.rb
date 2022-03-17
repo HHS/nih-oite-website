@@ -8,5 +8,4 @@ class ApplicationController < ActionController::Base
   def look_up_pages
     @pages = Page.build_hierarchy Rails.root.join "_pages"
   end
-
 end

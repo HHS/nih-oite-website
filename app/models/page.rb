@@ -38,7 +38,7 @@ class Page
       end
     end
 
-    pages = md_files.map {|f|
+    pages = md_files.map { |f|
       full_path = dir.join(f)
       front_matter = FrontMatterParser::Parser.parse_file full_path, loader: loader
       new parent_path, full_path.basename(".md"), front_matter
@@ -50,7 +50,7 @@ class Page
       index = new parent_path, full_path.basename(".md"), front_matter, children
       pages.push index
     else
-      pages.push *children
+      pages.push(*children)
     end
   end
 
