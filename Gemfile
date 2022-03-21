@@ -78,4 +78,5 @@ gem "jwt", "~> 2.3"
 
 group :test do
   gem "climate_control", "~> 1.0"
+  gem "simplecov", "~> 0.21", require: false
 end
