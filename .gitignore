@@ -33,6 +33,8 @@
 
 # Ignore rspec examples status file
 spec/examples.txt
+# Ignore code coverage files
+/coverage
 
 /config/credentials/production.key
 /config/credentials/staging.key

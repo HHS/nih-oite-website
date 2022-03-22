@@ -26,7 +26,7 @@
                   <ul id="extended-nav-section-<%= index %>" class="usa-nav__submenu" hidden="">
                     <% p.children.each do |child| %>
                       <li class="usa-nav__submenu-item">
-                        <%= link_to child.title, content_page_path(p.filename), class: "usa-nav__link" %>
+                        <%= link_to child.title, content_page_path(child.filename), class: "usa-nav__link" %>
                       </li>
                     <% end %>
                   </ul>

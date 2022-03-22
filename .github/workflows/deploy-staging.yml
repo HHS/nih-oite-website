@@ -28,7 +28,7 @@ jobs:
       - name: Deploy app
         uses: 18F/cg-deploy-action@main
         env:
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          RAILS_MASTER_KEY: ${{ secrets.STAGING_RAILS_MASTER_KEY }}
         with:
           cf_username: ${{ secrets.CF_USERNAME }}
           cf_password: ${{ secrets.CF_PASSWORD }}

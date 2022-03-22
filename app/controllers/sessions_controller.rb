@@ -24,9 +24,7 @@ class SessionsController < ::Devise::SessionsController
   def user_json
     {
       email: current_user.email,
-      user_metadata: {
-        avatar_url: "https://avatars.githubusercontent.com/u/285842"
-      }
+      user_metadata: {}
     }
   end
 
