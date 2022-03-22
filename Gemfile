@@ -82,4 +82,5 @@ group :test do
   gem "simplecov", "~> 0.21", require: false
   gem "shoulda-matchers", "~> 5.1"
   gem "rails-controller-testing", "~> 1.0"
+  gem "webmock", "~> 3.14"
 end
