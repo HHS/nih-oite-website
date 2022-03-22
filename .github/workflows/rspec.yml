@@ -31,4 +31,8 @@ jobs:
       - name: Run rspec
         env:
           DATABASE_URL: ${{ steps.setup.outputs.database_url }}
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: bundle exec rspec
+
+      - name: Run Standard Ruby
+        run: bundle exec rake standard
