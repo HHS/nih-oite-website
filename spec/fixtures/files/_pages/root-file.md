@@ -1,6 +1,6 @@
 ---
 title: "Root File"
-public: true
+public: false
 expires_at: ""
 redirect_to: ""
 ---

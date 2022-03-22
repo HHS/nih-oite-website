@@ -49,6 +49,7 @@ group :development, :test do
   gem "standard", "~> 1.7"
   gem "i18n-tasks", "~> 0.9"
   gem "pry-byebug", "~> 3.9"
+  gem "factory_bot_rails", "~> 6.2"
 end
 
 group :development do
@@ -80,4 +81,5 @@ group :test do
   gem "climate_control", "~> 1.0"
   gem "simplecov", "~> 0.21", require: false
   gem "shoulda-matchers", "~> 5.1"
+  gem "rails-controller-testing", "~> 1.0"
 end
