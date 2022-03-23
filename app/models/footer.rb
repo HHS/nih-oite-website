@@ -40,8 +40,11 @@ class Footer
         l = @data["link#{i}"]
         next if l.nil?
 
-        if l["url"] != "" && l["text"] != ""
-          link = Footer::Link.new l["url"], l["text"]
+        url = (l["url"] || "").strip
+        text = (l["text"] || "").strip
+
+        if url != "" && text != ""
+          link = Footer::Link.new url, text
           @links.push link
         end
       end
