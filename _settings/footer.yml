@@ -1,18 +1,12 @@
 agency_name: Office of Intramural Training & Education
 agency_phone: 1-800-GOVERNMENT
 agency_email: info@nih.gov
-link1:
-  text: "FOIA"
-  url: "/foia"
-link2:
-  text: "No FEAR Act"
-  url: "/no-fear"
-link3:
-  text: "Accessibility Statement"
-  url: "/accessibility"
-link4:
-  text: "Link 4"
-  url: "/link-4"
-link5:
-  text: "Link 5"
-  url: "/link-5"
+links:
+  - text: "FOIA"
+    url: "/foia"
+  - text: "No FEAR Act"
+    url: "/no-fear"
+  - text: "Accessibility Statement"
+    url: "/accessibility"
+  - text: "Link 4"
+    url: "/link-4"

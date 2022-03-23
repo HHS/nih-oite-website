@@ -1,12 +1,9 @@
-link1:
-  text: Link 1
-  url: /link-1
-link2:
-  text: Link with no url
-  url: ""
-link3:
-  text: ""
-  url: /link-with-no-text
-link5:
-  text: " Link with surrounding whitespace "
-  url: " /foo "
+links:
+  - text: Link 1
+    url: /link-1
+  - text: Link with no url
+    url: ""
+  - text: ""
+    url: /link-with-no-text
+  - text: " Link with surrounding whitespace "
+    url: " /foo "

@@ -1,5 +1,3 @@
-require "yaml"
-
 # Model wrapping a blob of YAML data describing settings related to the global site footer.
 class Footer
   class Link
@@ -34,21 +32,21 @@ class Footer
   end
 
   def links
-    unless @links
-      @links = []
-      (1..5).each do |i|
-        l = @data["link#{i}"]
-        next if l.nil?
+    @links ||= build_links_array data["links"]
+  end
 
-        url = (l["url"] || "").strip
-        text = (l["text"] || "").strip
+  :private
 
-        if url != "" && text != ""
-          link = Footer::Link.new url, text
-          @links.push link
-        end
+  def build_links_array(list)
+    list = (list || []).map do |l|
+      url = (l["url"] || "").strip
+      text = (l["text"] || "").strip
+
+      if url != "" && text != ""
+        Footer::Link.new url, text
       end
     end
-    @links
+
+    list.select { |l| !l.nil? }
   end
 end

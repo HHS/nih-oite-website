@@ -48,7 +48,6 @@ collections:
 
     files:
       - label: "Site footer"
-        name: "footer"
         description: "Configure the footer at the bottom of every page."
         file: "_settings/footer.yml"
         fields:
@@ -64,16 +63,13 @@ collections:
             label: "Email"
             hint: "Where can people reach out via email with general questions?"
             required: false
-          <% (1..5).each do |num| %>
-          - name: link<%= num %>
-            label: "Link <%= num %>"
-            widget: object
-            collapsed: true
+          - name: links
+            label: "Links"
+            widget: list
+            min: 0
+            max: 10
             fields:
               - name: url
                 widget: string
-                required: false
               - name: text
                 widget: string
-                required: false
-          <% end %>
