@@ -15,7 +15,7 @@ class Footer
     new data
   end
 
-  def initialize data
+  def initialize(data)
     @data = data
   end
 
@@ -35,7 +35,7 @@ class Footer
     @links ||= build_links_array data["links"]
   end
 
-  :private
+  private
 
   def build_links_array(list)
     list = (list || []).map do |l|
