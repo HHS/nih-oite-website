@@ -1,0 +1,14 @@
+// Allow using unstyled buttons (buttons that look like links) in secondary nav
+.usa-nav__secondary-item {
+  .usa-button--unstyled {
+    color: color("base");
+    display: inline-block;
+    font-size: font-size($theme-navigation-font-family, "2xs");
+    text-decoration: none;
+
+    &:hover {
+      color: color("primary");
+      text-decoration: underline;
+    }
+  }
+}

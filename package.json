@@ -1,0 +1,40 @@
+{
+  "name": "app",
+  "private": "true",
+  "dependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-react-constant-elements": "^7.17.6",
+    "@babel/plugin-transform-react-inline-elements": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/runtime": "^7.17.2",
+    "@csstools/postcss-sass": "^5.0.1",
+    "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "netlify-cms-app": "^2.15.67",
+    "path-browserify": "^1.0.1",
+    "postcss": "^8.4.7",
+    "postcss-cli": "^9.1.0",
+    "postcss-scss": "^4.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "uswds": "^2.13.1",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "build:dev": "yarn build --mode=development",
+    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
+  },
+  "devDependencies": {
+    "pa11y-ci": "^3.0.1"
+  },
+  "resolutions": {
+    "netlify-cms-app/**/trim": "0.0.3"
+  }
+}

@@ -1,0 +1,20 @@
+---
+applications:
+- name: nih_oite_experiments-((env))
+  buildpacks:
+    - nodejs_buildpack
+    - ruby_buildpack
+  env:
+    RAILS_MASTER_KEY: ((rails_master_key))
+    RAILS_ENV: ((env))
+    RAILS_LOG_TO_STDOUT: true
+    RAILS_SERVE_STATIC_FILES: true
+    NETLIFY_BRANCH: ((netlify_branch))
+    GIT_GATEWAY_HOST: ((git_gateway_host))
+  processes:
+  - type: web
+    instances: ((web_instances))
+    memory: ((web_memory))
+    command: bundle exec rake cf:on_first_instance db:migrate && bundle exec rails s -b 0.0.0.0 -p $PORT -e $RAILS_ENV
+  services:
+  - nih_oite_experiments-rds-((env))

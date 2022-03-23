@@ -1,0 +1,16 @@
+<h1>All Pages</h1>
+<% if user_signed_in? %>
+  <p>User: <%= current_user.email %></p>
+<% end %>
+
+<ul class="usa-list">
+  <% pages.each do |p| %>
+    <li>
+      <% if user_signed_in? || p.public? %>
+        <%= link_to p.title, content_page_path(path: p.filename) %>
+      <% else %>
+        <%= p.title %> (Private Access)
+      <% end %>
+    </li>
+  <% end %>
+</ul>
