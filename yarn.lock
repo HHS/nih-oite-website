@@ -982,12 +982,13 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@csstools/postcss-sass@https://github.com/sinankeskin/postcss-sass":
-  version "4.0.0"
-  resolved "https://github.com/sinankeskin/postcss-sass#0dead767e003f390ddbba42a84821624c8fc715e"
+"@csstools/postcss-sass@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-sass/-/postcss-sass-5.0.1.tgz#d5e67b4c81f1b634d722148fbe0e871b71b762a5"
+  integrity sha512-GgQAOe6KfABEIHGh9KFqn/7sX2Dmx554PElvyhRFNADo2QV2N/CzlS+QHrrJmVJzaBn829f4JFcOd67mmYb5Eg==
   dependencies:
     "@csstools/sass-import-resolve" "^1.0.0"
-    sass "^1.32.4"
+    sass "^1.49.7"
     source-map "~0.7.3"
 
 "@csstools/sass-import-resolve@^1.0.0":
@@ -5448,7 +5449,7 @@ sanitize-filename@^1.6.1:
   dependencies:
     truncate-utf8-bytes "^1.0.0"
 
-sass@^1.32.4:
+sass@^1.49.7:
   version "1.49.9"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.9.tgz#b15a189ecb0ca9e24634bae5d1ebc191809712f9"
   integrity sha512-YlYWkkHP9fbwaFRZQRXgDi3mXZShslVmmo+FVK3kHLUELHHEYrCmL1x6IUjC7wLS6VuJSAFXRQS/DxdsC4xL1A==

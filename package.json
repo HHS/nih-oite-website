@@ -11,7 +11,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/runtime": "^7.17.2",
-    "@csstools/postcss-sass": "https://github.com/sinankeskin/postcss-sass",
+    "@csstools/postcss-sass": "^5.0.1",
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
