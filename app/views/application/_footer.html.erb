@@ -1,0 +1,63 @@
+<footer class="usa-footer usa-footer--slim">
+  <div class="grid-container usa-footer__return-to-top">
+    <a href="#">Return to top</a>
+  </div>
+  <div class="usa-footer__primary-section">
+    <div class="usa-footer__primary-container grid-row">
+      <div class="mobile-lg:grid-col-8">
+        <nav class="usa-footer__nav" aria-label="Footer navigation,">
+          <ul class="grid-row grid-gap">
+            <% footer.links.each do |link| %>
+            <li
+              class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content"
+            >
+              <a class="usa-footer__primary-link" href="<%= link.url %>">
+                <%= link.text %>
+              </a>
+            </li>
+            <% end %>
+
+          </ul>
+        </nav>
+      </div>
+      <div class="mobile-lg:grid-col-4">
+        <address class="usa-footer__address">
+          <div class="grid-row grid-gap">
+            <% if footer.agency_phone %>
+                <div
+                class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto"
+                >
+                    <div class="usa-footer__contact-info">
+                        <a href="tel:<%= url_encode footer.agency_phone %>"><%= footer.agency_phone %></a>
+                    </div>
+                </div>
+            <% end %>
+            <% if footer.agency_email %>
+                <div
+                class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto"
+                >
+                    <div class="usa-footer__contact-info">
+                        <a href="mailto:<%= url_encode footer.agency_email %>">
+                        <%= footer.agency_email %>
+                        </a>
+                    </div>
+                </div>
+            <%end%>
+          </div>
+        </address>
+      </div>
+    </div>
+  </div>
+  <div class="usa-footer__secondary-section">
+    <div class="grid-container">
+      <div class="usa-footer__logo grid-row grid-gap-2">
+        <div class="grid-col-auto">
+          <%= image_tag "nih-logo.svg", class: "usa-footer__logo-img", alt: "National Institutes of Health" %>
+        </div>
+        <div class="grid-col-auto">
+          <p class="usa-footer__logo-heading"><%= footer.agency_name %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
