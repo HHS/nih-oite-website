@@ -8,4 +8,8 @@ module ApplicationHelper
   def footer
     @footer ||= Footer.load
   end
+
+  def menu
+    @menu ||= Menu.load(Rails.root.join("_settings", "navigation.yml"), pages)
+  end
 end

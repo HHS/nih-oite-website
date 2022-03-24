@@ -1,0 +1,6 @@
+items:
+  - page: page-one/index
+  - page: page-two/index
+    text: Custom text
+  - page: page-one/child-one/index
+    include_children: true

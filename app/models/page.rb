@@ -14,6 +14,24 @@ class Page
     end
   end
 
+  # Recursively searches a page hierarchy for a particular slug.
+  # Netlify slugs don't have leading or trailing '/' characters, and may
+  # end in `/index`.
+  def self.find_by_slug(slug, pages)
+    filename = Pathname(slug.to_s.gsub(/\/index$/, ""))
+
+    pages.each do |p|
+      if p.filename == filename
+        return p
+      else
+        child = find_by_slug slug, p.children
+        return child unless child.nil?
+      end
+    end
+
+    nil
+  end
+
   # constructs a hierarchy of Page objects from the filesystem at <dir>.
   def self.build_hierarchy(dir, parent_path = "")
     dir = Pathname(dir)

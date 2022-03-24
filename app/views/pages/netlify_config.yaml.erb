@@ -47,6 +47,31 @@ collections:
       preview: false
 
     files:
+
+      - name: "navigation"
+        label: "Navigation"
+        description: "Configure primary navigation at the top of every page."
+        file: "_settings/navigation.yml"
+        fields:
+          - name: items
+            label: Primary navigation items
+            label_singular: Primary navigation item
+            widget: list
+            summary: "{{fields.page}}"
+            fields: 
+              - name: page
+                widget: relation
+                collection: page
+                value_field: "{{slug}}"
+                display_fields: ["{{title}} ({{slug}})"]
+                search_fields: ["title"]
+              - name: text
+                required: false
+                hint: "Leave blank to use the page title."
+              - name: include_children
+                label: "Include children?"
+                widget: boolean
+                
       - name: footer
         label: "Site footer"
         description: "Configure the footer at the bottom of every page."
@@ -74,3 +99,4 @@ collections:
                 widget: string
               - name: text
                 widget: string
+

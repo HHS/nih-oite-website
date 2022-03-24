@@ -16,22 +16,22 @@
           <%= image_tag "uswds/dist/img/usa-icons/close.svg", role: "img", alt: t('shared.header.close') %>
         </button>
         <ul class="usa-nav__primary usa-accordion">
-          <% pages.each_with_index do |p, index| %>
-            <% if user_signed_in? || p.public? %>
+          <% menu.items.each_with_index do |item, index| %>
+            <% if user_signed_in? || item.public? %>
               <li class="usa-nav__primary-item">
-                <% if p.has_children? %>
+                <% if item.has_children? %>
                   <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-<%= index %>">
-                    <span><%= p.title %></span>
+                    <span><%= item.text %></span>
                   </button>
                   <ul id="extended-nav-section-<%= index %>" class="usa-nav__submenu" hidden="">
-                    <% p.children.each do |child| %>
+                    <% item.children.each do |child| %>
                       <li class="usa-nav__submenu-item">
-                        <%= link_to child.title, content_page_path(child.filename), class: "usa-nav__link" %>
+                        <%= link_to child.text, content_page_path(child.path), class: "usa-nav__link" %>
                       </li>
                     <% end %>
                   </ul>
                 <% else %>
-                  <%= link_to p.title, content_page_path(p.filename), class: "usa-nav__link" %>
+                  <%= link_to item.text, content_page_path(item.path), class: "usa-nav__link" %>
                 <% end %>
               </li>
             <% end %>
