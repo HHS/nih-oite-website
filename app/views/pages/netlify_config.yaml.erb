@@ -26,20 +26,6 @@ collections:
         value_field: "{{slug}}"
         display_fields: ["title", "{{slug}}"]
       - {label: "Body", name: "body", widget: "markdown"}
-      - name: footer
-        label: Footer navigation
-        widget: object
-        collapsed: true
-        fields:
-          - name: visiblility
-            widget: select
-            options:
-              - { label: "Show", value: "show" }
-              - { label: "Hide", value: "hide" }
-          - name: order
-            widget: number
-            hint: "Items with lower numbers are sorted before items with higher numbers."
-            default: "100"
 
   - name: settings
     label: Site settings
