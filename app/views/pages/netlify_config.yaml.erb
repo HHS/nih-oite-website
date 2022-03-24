@@ -26,3 +26,51 @@ collections:
         value_field: "{{slug}}"
         display_fields: ["title", "{{slug}}"]
       - {label: "Body", name: "body", widget: "markdown"}
+      - name: footer
+        label: Footer navigation
+        widget: object
+        collapsed: true
+        fields:
+          - name: visiblility
+            widget: select
+            options:
+              - { label: "Show", value: "show" }
+              - { label: "Hide", value: "hide" }
+          - name: order
+            widget: number
+            hint: "Items with lower numbers are sorted before items with higher numbers."
+            default: "100"
+
+  - name: settings
+    label: Site settings
+    editor:
+      preview: false
+
+    files:
+      - name: footer
+        label: "Site footer"
+        description: "Configure the footer at the bottom of every page."
+        file: "_settings/footer.yml"
+        fields:
+          - name: agency_name
+            label: Agency name
+            widget: string
+            required: false
+          - name: agency_phone
+            label: "Phone"
+            required: false
+            hint: "What number can people call with general questions?"
+          - name: agency_email
+            label: "Email"
+            hint: "Where can people reach out via email with general questions?"
+            required: false
+          - name: links
+            label: "Links"
+            widget: list
+            min: 0
+            max: 10
+            fields:
+              - name: url
+                widget: string
+              - name: text
+                widget: string

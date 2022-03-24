@@ -1,0 +1,24 @@
+agency_name: Office of Intramural Training & Education
+agency_phone: 1-800-GOVERNMENT
+agency_email: info@nih.gov
+links:
+  - url: https://www.nih.gov/
+    text: NIH
+  - url: https://www.hhs.gov/
+    text: DHHS
+  - url: https://www.usa.gov/
+    text: USA.gov
+  - url:  /contact
+    text: Contact Us
+  - url: /privacy
+    text: Privacy Notice
+  - url: https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office
+    text: FOIA
+  - url: https://www.edi.nih.gov/no-fear-act
+    text: No FEAR Act
+  - url: https://www.nih.gov/web-policies-notices
+    text: Accessibility
+  - url: /non-discrimination-policy
+    text: Non-discrimination Policy
+  - url: https://www.hhs.gov/vulnerability-disclosure-policy/index.html
+    text: HHS Vulnerability Disclosure
