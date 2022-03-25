@@ -1,0 +1,5 @@
+items:
+  - page: home/index
+  - page: wellness/index
+    include_children: true
+  - page: contact/index
