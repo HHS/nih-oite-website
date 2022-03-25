@@ -32,7 +32,8 @@
     "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
   },
   "devDependencies": {
-    "pa11y-ci": "^3.0.1"
+    "pa11y-ci": "^3.0.1",
+    "prettier": "2.6.1"
   },
   "resolutions": {
     "netlify-cms-app/**/trim": "0.0.3"
