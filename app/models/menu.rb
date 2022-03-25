@@ -36,7 +36,7 @@ class Menu
     items = (data["items"] || []).map { |i|
       page = Page.find_by_slug(i["page"], pages)
       if page
-        self::Item.new(page, i["text"], i["include_children"])
+        Item.new(page, i["text"], i["include_children"])
       end
     }
 

@@ -5,8 +5,11 @@ RSpec.describe Menu, type: :model do
     allow(Rails).to receive(:root).and_return(file_fixture("_pages").join("..").cleanpath)
   }
 
+  let(:pages) {
+    Page.build_hierarchy(file_fixture("_pages"))
+  }
+
   subject {
-    pages = Page.build_hierarchy(file_fixture("_pages"))
     described_class.load(
       file_fixture("_settings/navigation.yml").cleanpath,
       pages

@@ -20,14 +20,16 @@ RSpec.describe Page, type: :model do
   end
 
   describe ".find_by_slug" do
+    let(:pages) {
+      described_class.build_hierarchy(file_fixture("_pages").cleanpath)
+    }
+
     it "finds a root-level page" do
-      pages = described_class.build_hierarchy(file_fixture("_pages").cleanpath)
       page = described_class.find_by_slug("page-one/index", pages)
       expect(page).not_to be(nil)
       expect(page.filename.to_s).to eq("page-one")
     end
     it "finds a child page" do
-      pages = described_class.build_hierarchy(file_fixture("_pages").cleanpath)
       page = described_class.find_by_slug("page-one/child-one/index", pages)
       expect(page).not_to be(nil)
       expect(page.filename.to_s).to eq("page-one/child-one")
