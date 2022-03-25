@@ -104,6 +104,14 @@ class Page
     parsed_file["expires_at"]
   end
 
+  def has_sidebar?
+    parsed_file["sidebar"].present?
+  end
+
+  def sidebar_blocks
+    parsed_file["sidebar"].map { |b| ContentBlock.find_by_path(b["block"]) } if has_sidebar?
+  end
+
   def title
     parsed_file["title"]
   end

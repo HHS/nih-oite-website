@@ -1,14 +1,32 @@
-<h1><%= @page.title %></h1>
+<div class="grid-row grid-gap">
+  <div class="grid-col-12">
+    <h1><%= @page.title %></h1>
 
-<% if @page.expired? %>
-  <div class="usa-alert usa-alert--warning">
-    <div class="usa-alert__body">
-      <h4 class="usa-alert__heading">This page has expired</h4>
-      <p class="usa-alert__text">
-        This page expired on <%= @page.expires_at.strftime("%B %d, %Y") %>
-      </p>
-    </div>
+    <% if @page.expired? %>
+      <div class="usa-alert usa-alert--warning">
+        <div class="usa-alert__body">
+          <h4 class="usa-alert__heading">This page has expired</h4>
+          <p class="usa-alert__text">
+            This page expired on <%= @page.expires_at.strftime("%B %d, %Y") %>
+          </p>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
-<%= @page.rendered_content %>
+<div class="grid-row grid-gap">
+  <div class="grid-col-<%= @page.has_sidebar? ? "8" : "12" %>">
+    <%= @page.rendered_content %>
+  </div>
+
+  <% if @page.has_sidebar? %>
+    <div class="grid-col-4 nih-sidebar">
+      <% @page.sidebar_blocks.each do |block| %>
+        <div>
+          <%= block.rendered_content %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

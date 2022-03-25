@@ -2,3 +2,15 @@
 @import "uswds-settings.scss";
 @import "../../../node_modules/uswds/dist/scss/uswds.scss";
 @import "uswds-tweaks.scss";
+
+.nih-sidebar {
+  border: 1px solid color("primary");
+
+  & > div {
+    border-bottom: 1px solid color("gray-50");
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

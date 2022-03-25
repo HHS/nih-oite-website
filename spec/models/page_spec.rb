@@ -104,6 +104,13 @@ RSpec.describe Page, type: :model do
     end
   end
 
+  describe "#has_sidebar?" do
+    subject { described_class.find_by_path "page-one/index.md", false }
+    it "returns true when sidebar blocks have been added" do
+      expect(subject).to have_sidebar
+    end
+  end
+
   describe "#title" do
     it "returns the Page title" do
       expect(subject.title).to eq "Page Two"
