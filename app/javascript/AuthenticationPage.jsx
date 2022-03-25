@@ -1,12 +1,12 @@
-import React from 'react'
-import { AuthenticationPage as GitGatewayAuthenticationPage } from 'netlify-cms-backend-git-gateway'
+import React from "react";
+import { AuthenticationPage as GitGatewayAuthenticationPage } from "netlify-cms-backend-git-gateway";
 import {
   AuthenticationPage,
   buttons,
   shadows,
   colors,
-} from 'netlify-cms-ui-default'
-import styled from '@emotion/styled'
+} from "netlify-cms-ui-default";
+import styled from "@emotion/styled";
 
 const LoginButton = styled.button`
   ${buttons.button};
@@ -29,19 +29,19 @@ const ErrorMessage = styled.p`
 
 export default class NihGatewayAuthenticationPage extends GitGatewayAuthenticationPage {
   constructor(...args) {
-    super(...args)
-    this.doSSOLogin()
+    super(...args);
+    this.doSSOLogin();
   }
 
-  handleFormLogin = async e => {
+  handleFormLogin = async (e) => {
     e.preventDefault();
-    return this.doSSOLogin()
+    return this.doSSOLogin();
   };
 
   doSSOLogin = async () => {
     try {
       const client = await GitGatewayAuthenticationPage.authClient();
-      const user = await client.login()
+      const user = await client.login();
       this.props.onLogin(user);
     } catch (error) {
       this.setState({
@@ -65,11 +65,13 @@ export default class NihGatewayAuthenticationPage extends GitGatewayAuthenticati
                 <ErrorMessage>{String(errors.server)}</ErrorMessage>
                 <LoginButton>{t("auth.login")}</LoginButton>
               </>
-            ) : <p>Logging in...</p>}
+            ) : (
+              <p>Logging in...</p>
+            )}
           </AuthForm>
         )}
         t={t}
       />
-    )
+    );
   }
 }
