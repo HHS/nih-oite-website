@@ -1,3 +1,5 @@
+require "#{Rails.root}/lib/kramdown/parser/custom_parser"
+
 class Page
   def self.find_by_path(path, try_index = true)
     dirname = Pathname(path).dirname
@@ -109,7 +111,7 @@ class Page
   end
 
   def rendered_content
-    Kramdown::Document.new(parsed_file.content).to_html.html_safe
+    Kramdown::Document.new(parsed_file.content, input: "CustomParser").to_html.html_safe
   end
 
   class NotFound < StandardError; end
