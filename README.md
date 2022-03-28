@@ -106,7 +106,7 @@ When new pages are added to the application, ensure they are added to `./.pa11yc
 
 ### Automatic linting and formatting
 
-Linting and formatting is wired up using [Husky][husky] and [lint-staged][lint-staged]. Running `yarn install` will install a [git pre-commit hook][git-hooks] that will lint and format code commit using the following tools:
+Linting and formatting is wired up using [Husky][husky] and [lint-staged][lint-staged]. Running `yarn install` will install a [git pre-commit hook][git-hooks] that will lint and format code in the commit using the following tools:
 
 | Files                    | Formatter / linter   |
 | ------------------------ | -------------------- |
