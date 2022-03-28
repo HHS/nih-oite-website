@@ -22,7 +22,7 @@ module NetlifyContent
   end
 
   def rendered_content
-    Kramdown::Document.new(parsed_file.content).to_html.html_safe
+    Kramdown::Document.new(parsed_file.content, input: "CustomParser").to_html.html_safe
   end
 
   class NotFound < StandardError; end
