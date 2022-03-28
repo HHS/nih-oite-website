@@ -1,0 +1,4 @@
+.frame-content [class*="-PreviewContainer"] {
+  // These styles are applied only inside the Netlify preview container.
+  padding: 3rem 1rem;
+}
