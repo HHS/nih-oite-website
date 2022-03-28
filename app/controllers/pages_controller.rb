@@ -6,6 +6,10 @@ class PagesController < ApplicationController
     policy.connect_src :self, :blob
   end
 
+  content_security_policy do |policy|
+    policy.frame_src "https://www.youtube-nocookie.com"
+  end
+
   def home
   end
 
