@@ -12,7 +12,7 @@ RSpec.describe ContentBlock, type: :model do
     it "raises a NotFound error when the path can't be found" do
       expect {
         described_class.find_by_path("missing", base: base)
-      }.to raise_error(ContentBlock::NotFound)
+      }.to raise_error(NetlifyContent::NotFound)
     end
   end
 
