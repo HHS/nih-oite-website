@@ -1,6 +1,9 @@
 ---
 title: Public page
 public: true
+expires_at: ""
+sidebar:
+  - block: hours-location/block
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra tristique eros luctus malesuada. Suspendisse consectetur imperdiet eros, eget varius metus pulvinar in. Maecenas eget risus quis ipsum bibendum ornare vitae eu tellus. Pellentesque posuere eros mauris, tempor finibus lorem varius nec. Praesent tristique ipsum nisl, id posuere augue sollicitudin eget. Quisque ultrices luctus diam, sed pulvinar ante finibus at. Sed congue vulputate felis in maximus. Sed vitae tortor non libero eleifend dictum.
 

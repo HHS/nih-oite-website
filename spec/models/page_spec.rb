@@ -1,21 +1,19 @@
 require "rails_helper"
 
 RSpec.describe Page, type: :model do
-  before {
-    allow(Rails).to receive(:root).and_return(file_fixture("_pages").join("..").cleanpath)
-  }
+  let(:base_dir) { file_fixture("_pages").cleanpath }
 
   describe ".find_by_path" do
     it "finds an index file when given the directory path" do
-      page = described_class.find_by_path("page-one/child-one")
+      page = described_class.find_by_path("page-one/child-one", base: base_dir)
       expect(page.title).to eq "Child One"
       expect(page.filename).to eq Pathname.new("page-one/child-one")
     end
 
     it "raises a NotFound error when the path can't be found" do
       expect {
-        described_class.find_by_path("missing")
-      }.to raise_error(Page::NotFound)
+        described_class.find_by_path("missing", base: base_dir)
+      }.to raise_error(NetlifyContent::NotFound)
     end
   end
 
@@ -55,18 +53,18 @@ RSpec.describe Page, type: :model do
     end
   end
 
-  subject { described_class.find_by_path "page-two/index.md", false }
+  subject { described_class.find_by_path "page-two/index.md", base: base_dir }
 
   describe "#has_children?" do
     it "returns true when the children array has been filled" do
       expect(subject).to_not have_children
-      subject.children = [described_class.new(Pathname.new("path"), Pathname.new("file"), nil)]
+      subject.children = [described_class.find_by_path("page-one/index.md", base: base_dir)]
       expect(subject).to have_children
     end
   end
 
   describe "#public?" do
-    let(:public_page) { described_class.find_by_path "page-one/index.md", false }
+    let(:public_page) { described_class.find_by_path "page-one/index.md", base: base_dir }
 
     it "returns true when the parsed metadata is true" do
       expect(subject).to_not be_public
@@ -75,7 +73,7 @@ RSpec.describe Page, type: :model do
   end
 
   describe "#obsolete?" do
-    let(:no_redirect) { described_class.find_by_path "page-one/index.md", false }
+    let(:no_redirect) { described_class.find_by_path "page-one/index.md", base: base_dir }
 
     it "returns true when redirect_to metadata is set" do
       expect(subject).to be_obsolete
@@ -90,7 +88,7 @@ RSpec.describe Page, type: :model do
   end
 
   describe "#expired?" do
-    let(:blank_expired) { described_class.find_by_path "page-one/index.md", false }
+    let(:blank_expired) { described_class.find_by_path "page-one/index.md", base: base_dir }
 
     it "returns true when expired is set and in the past" do
       expect(subject).to be_expired
@@ -101,6 +99,13 @@ RSpec.describe Page, type: :model do
   describe "#expires_at" do
     it "returns the parsed expires_at Time" do
       expect(subject.expires_at).to eq Time.parse("2022-03-17T20:30:00.000Z")
+    end
+  end
+
+  describe "#has_sidebar?" do
+    subject { described_class.find_by_path "page-one/index.md", base: base_dir }
+    it "returns true when sidebar blocks have been added" do
+      expect(subject).to have_sidebar
     end
   end
 
