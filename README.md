@@ -116,6 +116,7 @@ Linting and formatting is wired up using [Husky][husky] and [lint-staged][lint-s
 | Terraform (.tf)          | `terraform fmt`      |
 
 [husky]: https://github.com/typicode/husky
+[lint-staged]: https://github.com/okonet/lint-staged
 [git-hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
 [standard]: https://github.com/testdouble/standard
 [prettier]: https://github.com/prettier/prettier
