@@ -1,5 +1,4 @@
 require "rails_helper"
-require "#{Rails.root}/lib/kramdown/parser/custom_parser"
 
 RSpec.describe "Custom Kramdown Parser" do
   describe "YouTube" do
@@ -57,7 +56,6 @@ RSpec.describe "Custom Kramdown Parser" do
     it "outputs an error message" do
       expect(element.value).to eql("div")
       expect(element.attr["class"]).to eql("video video--error")
-      puts element.inspect
     end
   end
 end

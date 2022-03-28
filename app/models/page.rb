@@ -1,5 +1,3 @@
-require "#{Rails.root}/lib/kramdown/parser/custom_parser"
-
 class Page
   def self.find_by_path(path, try_index = true)
     dirname = Pathname(path).dirname
