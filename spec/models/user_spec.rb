@@ -31,10 +31,18 @@ RSpec.describe User, type: :model do
   end
 
   describe "#admin?" do
-    it "returns true when the role is set to admin" do
+    it "returns true when roles contains admin" do
       expect(subject).to_not be_admin
-      subject.role = "admin"
+      subject.roles << "admin"
       expect(subject).to be_admin
+    end
+  end
+
+  describe "#_role?" do
+    subject { build_stubbed :user, :cms }
+
+    it "returns true if the user has a role matching the method" do
+      expect(subject.cms_role?).to be true
     end
   end
 end

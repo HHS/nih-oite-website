@@ -10,6 +10,22 @@ class User < ApplicationRecord
   end
 
   def admin?
-    role == "admin"
+    roles.include?("admin")
+  end
+
+  def method_missing(method_name, *arguments, &block)
+    if method_name.to_s =~ /^(.*)_role\?$/
+      roles.include?($1)
+    else
+      super
+    end
+  end
+
+  def respond_to_missing?(method_name, include_private = false)
+    if method_name.to_s.ends_with?("_role?")
+      true
+    else
+      super
+    end
   end
 end
