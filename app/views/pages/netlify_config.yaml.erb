@@ -21,7 +21,7 @@ collections:
     label: "Event"
     folder: "_events/"
     create: true
-    slug: "{{date.year}}/{{date.month}}/{{date.day}}/{{slug}}"
+    slug: "{{date.year}}{{date.month}}{{date.day}}-{{slug}}"
     fields:
       - {label: "Name", name: "title"}
       - label: "Event Date"
