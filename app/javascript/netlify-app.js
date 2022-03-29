@@ -9,7 +9,7 @@ class NihGateway extends GitGatewayBackend {
   }
 }
 
-const stylesheetUrl = [].slice
+[].slice
   .call(
     document.querySelectorAll("link[rel=stylesheet][data-netlify-preview-style")
   )
