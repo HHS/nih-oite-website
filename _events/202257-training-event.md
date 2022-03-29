@@ -4,8 +4,8 @@ date:
   month: 5
   day: 7
   year: 2022
-start: 2022-03-29T13:30:24.441Z
-end: 2022-03-29T15:00:24.486Z
+start: 9:30 am
+end: 11:00 am
 speakers:
   - name: Ryan Ahearn, Esq
 audience:

@@ -47,8 +47,8 @@ collections:
               - {label: "December", value: 12}
           - {label: "Day", name: day, widget: number, min: 1, max: 31}
           - {label: "Year", name: year, widget: number}
-      - {label: "Start Time", name: "start", widget: "datetime", date_format: false, time_format: true}
-      - {label: "End Time", name: "end", widget: "datetime", date_format: false, time_format: true}
+      - {label: "Start Time", name: "start", widget: "string", pattern: ['\d{1,2}:\d{1,2} (?:AM|am|PM|pm)', '"hour:minute am/pm"']}
+      - {label: "End Time", name: "end", widget: "string", pattern: ['\d{1,2}:\d{1,2} (?:AM|am|PM|pm)', '"hour:minute am/pm"']}
       - label: "Speakers"
         name: "speakers"
         widget: list
@@ -59,6 +59,7 @@ collections:
       - label: "Intended Audience"
         name: "audience"
         widget: "select"
+        required: false
         multiple: true
         options:
           - Summer Interns
