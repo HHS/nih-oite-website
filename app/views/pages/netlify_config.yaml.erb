@@ -16,6 +16,58 @@ collections:
     fields:
       - {label: "Content Name", name: "name"}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: event
+    label: "Event"
+    folder: "_events/"
+    create: true
+    slug: "{{date.year}}/{{date.month}}/{{date.day}}/{{slug}}"
+    fields:
+      - {label: "Name", name: "title"}
+      - label: "Event Date"
+        name: "date"
+        widget: "object"
+        summary: "{{fields.month}} / {{fields.day}} / {{fields.year}}"
+        fields:
+          - label: "Month"
+            name: month
+            widget: select
+            options:
+              - {label: "January", value: 1}
+              - {label: "February", value: 2}
+              - {label: "March", value: 3}
+              - {label: "April", value: 4}
+              - {label: "May", value: 5}
+              - {label: "June", value: 6}
+              - {label: "July", value: 7}
+              - {label: "August", value: 8}
+              - {label: "September", value: 9}
+              - {label: "October", value: 10}
+              - {label: "November", value: 11}
+              - {label: "December", value: 12}
+          - {label: "Day", name: day, widget: number, min: 1, max: 31}
+          - {label: "Year", name: year, widget: number}
+      - {label: "Start Time", name: "start", widget: "datetime", date_format: false, time_format: true}
+      - {label: "End Time", name: "end", widget: "datetime", date_format: false, time_format: true}
+      - label: "Speakers"
+        name: "speakers"
+        widget: list
+        min: 0
+        fields:
+          - label: "Full Name"
+            name: name
+      - label: "Intended Audience"
+        name: "audience"
+        widget: "select"
+        multiple: true
+        options:
+          - Summer Interns
+          - Postbacs
+          - Graduate Students
+          - Postdocs/Fellows
+          - NIH Staff Scientist/Staff Clinician
+      - {label: "Description", name: "body", widget: "markdown"}
+
   - name: page
     label: "Page"
     folder: "_pages/"
@@ -51,9 +103,7 @@ collections:
     label: Site settings
     editor:
       preview: false
-
     files:
-
       - name: "navigation"
         label: "Navigation"
         description: "Configure primary navigation at the top of every page."
@@ -64,7 +114,7 @@ collections:
             label_singular: Primary navigation item
             widget: list
             summary: "{{fields.page}}"
-            fields: 
+            fields:
               - name: page
                 widget: relation
                 collection: page
@@ -77,7 +127,7 @@ collections:
               - name: include_children
                 label: "Include children?"
                 widget: boolean
-                
+
       - name: footer
         label: "Site footer"
         description: "Configure the footer at the bottom of every page."
@@ -105,4 +155,3 @@ collections:
                 widget: string
               - name: text
                 widget: string
-
