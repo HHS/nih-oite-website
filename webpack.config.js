@@ -29,6 +29,7 @@ module.exports = {
     }),
   ],
   resolve: {
+    extensions: [".js", ".jsx"],
     fallback: {
       path: require.resolve("path-browserify"),
     },

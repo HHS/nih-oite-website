@@ -16,16 +16,35 @@ const VIDEO_TYPES = [
           height="315"
           src={embedUrl}
           title={alt}
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+          allowFullScreen
+        />
       );
     },
   },
 ];
 
-export const VideoEditorComponent = {
+/**
+ * Escapes user input for storage in a Kramdown extension attribute.
+ * Note that this _does not_ do sanitization--that'll be the job of
+ * whatever's rendering the Markdown to HTML.
+ * @param {any} input
+ * @returns {string}
+ */
+function escapeForKramdownExtensionAttribute(input) {
+  return String(input ?? "").replace(/"/g, '\\"');
+}
+
+/**
+ * @param {any} value
+ * @returns {string}
+ */
+function unescapeFromKramdownExtensionAttribute(value) {
+  return String(value ?? "").replace(/\\"/g, '"');
+}
+
+const VideoEditorComponent = {
   id: "video",
   label: "Video",
   fields: [
@@ -73,22 +92,4 @@ export const VideoEditorComponent = {
   },
 };
 
-/**
- * Escapes user input for storage in a Kramdown extension attribute.
- * Note that this _does not_ do sanitization--that'll be the job of
- * whatever's rendering the Markdown to HTML.
- * @param {any} input
- * @returns {string}
- */
-function escapeForKramdownExtensionAttribute(input) {
-  input = String(input ?? "");
-  return input.replace(/\"/g, '\\"');
-}
-
-/**
- * @param {any} value
- * @returns {string}
- */
-function unescapeFromKramdownExtensionAttribute(value) {
-  return String(value ?? "").replace(/\\"/g, '"');
-}
+export default VideoEditorComponent;
