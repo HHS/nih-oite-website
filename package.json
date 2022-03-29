@@ -29,12 +29,24 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "build:dev": "yarn build --mode=development",
-    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
+    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css",
+    "lint:js": "prettier --check app/javascript",
+    "lint:css": "prettier --check app/assets/stylesheets",
+    "prettify": "prettier --write app/javascript app/assets/stylesheets",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "pa11y-ci": "^3.0.1"
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "pa11y-ci": "^3.0.1",
+    "prettier": "2.6.1"
   },
   "resolutions": {
     "netlify-cms-app/**/trim": "0.0.3"
+  },
+  "lint-staged": {
+    "*.{css,js,jsx,scss}": "prettier --write",
+    "*.rb": "bundle exec standardrb --fix",
+    "*.tf": "terraform fmt"
   }
 }

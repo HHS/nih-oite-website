@@ -1,0 +1,23 @@
+name: Frontend linting
+
+on:
+  pull_request:
+    paths:
+      - "**/*.jsx?"
+      - "**/*.s?css"
+
+jobs:
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby & Javascript
+        uses: ./.github/actions/setup-languages
+
+      - name: Check JS
+        run: yarn lint:js
+
+      - name: Check CSS
+        run: yarn lint:css

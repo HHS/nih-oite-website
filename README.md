@@ -104,9 +104,22 @@ Run everything: `bundle exec rake`
 
 When new pages are added to the application, ensure they are added to `./.pa11yci` so that they can be scanned.
 
-### Automatic linting and terraform formatting
+### Automatic linting and formatting
 
-To enable automatic ruby linting and terraform formatting on every `git commit` follow the instructions at the top of `.githooks/pre-commit`
+Linting and formatting is wired up using [Husky][husky] and [lint-staged][lint-staged]. Running `yarn install` will install a [git pre-commit hook][git-hooks] that will lint and format code in the commit using the following tools:
+
+| Files                    | Formatter / linter   |
+| ------------------------ | -------------------- |
+| Ruby (.rb)               | [Standard][standard] |
+| CSS / SCSS (.css, .scss) | [Prettier][prettier] |
+| Javascript (.js, .jsx)   | [Prettier][prettier] |
+| Terraform (.tf)          | `terraform fmt`      |
+
+[husky]: https://github.com/typicode/husky
+[lint-staged]: https://github.com/okonet/lint-staged
+[git-hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+[standard]: https://github.com/testdouble/standard
+[prettier]: https://github.com/prettier/prettier
 
 ## CI/CD
 
