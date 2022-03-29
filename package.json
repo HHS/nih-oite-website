@@ -45,7 +45,7 @@
     "netlify-cms-app/**/trim": "0.0.3"
   },
   "lint-staged": {
-    "*.{jsx?,s?css}": "prettier --write",
+    "*.{css,js,jsx,scss}": "prettier --write",
     "*.rb": "bundle exec standardrb --fix",
     "*.tf": "terraform fmt"
   }
