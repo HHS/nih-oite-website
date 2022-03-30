@@ -10,5 +10,8 @@ FactoryBot.define do
     trait :cms do
       roles { ["cms"] }
     end
+    trait :events do
+      roles { ["events"] }
+    end
   end
 end

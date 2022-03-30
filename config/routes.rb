@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get "settings" => "proxy#gateway_settings"
       scope "github" do
         put "issues/:id/labels" => "proxy#git_labels"
+        post "git/trees" => "proxy#create_tree"
         match "*path" => "proxy#git_gateway", :via => :all
       end
     end

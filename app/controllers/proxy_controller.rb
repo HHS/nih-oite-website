@@ -18,6 +18,13 @@ class ProxyController < ApplicationController
     render json: {message: "Only administrators can approve posts for publishing"}, status: :forbidden
   end
 
+  def create_tree
+    authorize @git_request
+    reverse_proxy ENV["GIT_GATEWAY_HOST"], path: original_path, headers: proxy_headers
+  rescue Pundit::NotAuthorizedError
+    render json: {message: "You do not have the appropriate role to save this file"}, status: :forbidden
+  end
+
   def git_gateway
     authorize @git_request
     reverse_proxy ENV["GIT_GATEWAY_HOST"], path: original_path, headers: proxy_headers

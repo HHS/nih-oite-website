@@ -12,6 +12,15 @@ class GitRequestPolicy < ApplicationPolicy
     !record.approve_publish? || user.admin?
   end
 
+  def create_tree?
+    return true if user.admin?
+    if record.events_tree?
+      user.events_role?
+    else
+      user.cms_role?
+    end
+  end
+
   def git_gateway?
     true
   end
