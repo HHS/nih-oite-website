@@ -10,6 +10,14 @@ class NihGateway extends GitGatewayBackend {
   }
 }
 
+[].slice
+  .call(
+    document.querySelectorAll("link[rel=stylesheet][data-netlify-preview-style")
+  )
+  .forEach((link) => {
+    CMS.registerPreviewStyle(link.href);
+  });
+
 CMS.registerBackend("nih-gateway", NihGateway);
 CMS.registerEditorComponent(VideoEditorComponent);
 CMS.init();
