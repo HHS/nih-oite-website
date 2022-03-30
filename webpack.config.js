@@ -1,11 +1,11 @@
-const path    = require("path")
-const webpack = require("webpack")
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   devtool: "source-map",
   entry: {
     application: "./app/javascript/application.js",
-    "netlify-app": "./app/javascript/netlify-app.js"
+    "netlify-app": "./app/javascript/netlify-app.js",
   },
   output: {
     filename: "[name].js",
@@ -18,19 +18,20 @@ module.exports = {
         test: /\.jsx$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
-      }
-    ]
+          loader: "babel-loader",
+        },
+      },
+    ],
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
-    })
+      maxChunks: 1,
+    }),
   ],
   resolve: {
+    extensions: [".js", ".jsx"],
     fallback: {
       path: require.resolve("path-browserify"),
-    }
-  }
-}
+    },
+  },
+};

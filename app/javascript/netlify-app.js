@@ -1,9 +1,10 @@
 import CMS from "netlify-cms-app";
 import { GitGatewayBackend } from "netlify-cms-backend-git-gateway";
-import AuthenticationPage from "./AuthenticationPage.jsx";
-import { VideoEditorComponent } from "./VideoEditorComponent.jsx";
+import AuthenticationPage from "./AuthenticationPage";
+import VideoEditorComponent from "./VideoEditorComponent";
 
 class NihGateway extends GitGatewayBackend {
+  // eslint-disable-next-line class-methods-use-this
   authComponent() {
     return AuthenticationPage;
   }
