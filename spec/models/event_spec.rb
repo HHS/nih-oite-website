@@ -42,6 +42,18 @@ RSpec.describe Event, type: :model do
     end
   end
 
+  describe "#start" do
+    it "returns the date combined with the start time for the event" do
+      expect(subject.start).to eq Time.new(2022, 5, 7, 9, 30)
+    end
+  end
+
+  describe "#end" do
+    it "returns the date combined with the end time for the event" do
+      expect(subject.end).to eq Time.new(2022, 5, 7, 11, 0)
+    end
+  end
+
   describe "#speaker_names" do
     it "returns a list of speaker names" do
       expect(subject.speaker_names).to eq ["Ryan Ahearn, Esq"]

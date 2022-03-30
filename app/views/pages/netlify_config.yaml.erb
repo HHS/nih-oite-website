@@ -52,12 +52,7 @@ collections:
         widget: "select"
         required: false
         multiple: true
-        options:
-          - Summer Interns
-          - Postbacs
-          - Graduate Students
-          - Postdocs/Fellows
-          - NIH Staff Scientist/Staff Clinician
+        options: <%= raw JSON.generate(Event.audiences) %>
       - {label: "Description", name: "body", widget: "markdown"}
 <% end %>
 <% if policy(:netlify).cms? %>
