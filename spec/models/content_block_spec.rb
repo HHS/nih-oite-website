@@ -4,7 +4,7 @@ RSpec.describe ContentBlock, type: :model do
   describe ".find_by_path" do
     let(:base) { file_fixture("_blocks").cleanpath }
 
-    it "finds a the content block when given the directory path" do
+    it "finds the content block when given the directory path" do
       block = described_class.find_by_path("hours-location/block", base: base)
       expect(block.name).to eq "Hours"
     end

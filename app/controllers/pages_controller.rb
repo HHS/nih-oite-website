@@ -39,6 +39,10 @@ class PagesController < ApplicationController
   end
 
   def netlify_config
+    authorize :netlify
     @target_branch = ENV["NETLIFY_BRANCH"]
+  rescue Pundit::NotAuthorizedError
+    store_location_for(:user, "/admin/")
+    redirect_to root_path
   end
 end

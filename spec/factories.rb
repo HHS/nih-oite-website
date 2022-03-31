@@ -3,12 +3,15 @@ FactoryBot.define do
     sequence(:email) { |n| "user#{n}@example.com" }
     provider { "sso" }
     sequence(:uid) { |n| "1234#{n}" }
-    role { "" }
+    roles { [] }
     trait :admin do
-      role { "admin" }
+      roles { ["admin"] }
     end
     trait :cms do
-      role { "cms" }
+      roles { ["cms"] }
+    end
+    trait :events do
+      roles { ["events"] }
     end
   end
 end

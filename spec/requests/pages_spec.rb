@@ -65,9 +65,23 @@ RSpec.describe "Pages", type: :request do
   end
 
   describe "GET /admin/config.yml" do
-    it "renders the config page" do
-      get "/admin/config.yml"
-      expect(response).to render_template(:netlify_config)
+    context "guest user" do
+      it "redirects back to root_path" do
+        get "/admin/config.yml"
+        expect(response).to redirect_to(root_path)
+      end
+    end
+
+    %w[admin cms events].each do |cms_role|
+      context "#{cms_role} user" do
+        let(:user) { create :user, roles: [cms_role] }
+        before { sign_in user }
+
+        it "renders the config page" do
+          get "/admin/config.yml"
+          expect(response).to render_template(:netlify_config)
+        end
+      end
     end
   end
 end

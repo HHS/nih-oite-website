@@ -14,7 +14,7 @@ class User {
   * email : string
   * provider : string
   * uid : string
-  * role : string
+  * roles : string[]
   * created_at : datetime
   * updated_at : datetime
 }
