@@ -7,8 +7,8 @@ on:
       - "**/*.s?css"
 
 jobs:
-  prettier:
-    name: Prettier
+  frontend-linting:
+    name: Frontend linting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
