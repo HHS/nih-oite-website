@@ -1,0 +1,15 @@
+@use "sass:math";
+
+.video {
+  // XXX: Assume 16:9 for all video.
+  padding-top: (math.div(9, 16) * 100%);
+  position: relative;
+
+  > iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

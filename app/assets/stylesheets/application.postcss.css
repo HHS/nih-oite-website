@@ -2,6 +2,7 @@
 @import "uswds-settings.scss";
 @import "../../../node_modules/uswds/dist/scss/uswds.scss";
 @import "uswds-tweaks.scss";
+@import "video.scss";
 @import "netlify-preview.scss";
 
 .nih-sidebar {
