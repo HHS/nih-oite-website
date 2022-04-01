@@ -1,13 +1,11 @@
 class PagesController < ApplicationController
+  include VideoEmbeddable
+
   content_security_policy only: :netlify do |policy|
     policy.script_src :self, "'unsafe-eval'"
     policy.style_src :self, "'unsafe-inline'"
     policy.img_src :self, :data, :blob
     policy.connect_src :self, :blob
-  end
-
-  content_security_policy do |policy|
-    policy.frame_src "https://www.youtube-nocookie.com"
   end
 
   def home
