@@ -59,7 +59,7 @@ const VideoEditorComponent = {
       widget: "string",
     },
   ],
-  pattern: /{::video url="(.*?)" alt=".*?" \/}/,
+  pattern: /{::video url="(.*)" alt="(.*)" \/}/,
   /**
    * @param {string[]} match
    * @returns {{alt: string, url: string}}

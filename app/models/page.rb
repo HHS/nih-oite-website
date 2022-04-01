@@ -33,7 +33,7 @@ class Page
     md_files = []
     index_md = nil
 
-    Dir.each_child(dir) do |f|
+    Dir.each_child(dir).sort.each do |f|
       full_path = dir.join(f)
 
       if File.directory? full_path
