@@ -67,11 +67,10 @@ class Event
   private
 
   def date_with_time(time)
-    m = /^(\d+)(?::(\d+))\s*(am|pm)$/i.match time
-    return date unless m
+    m = /^(\d+):(\d+)\s*(am|pm)$/i.match time
 
     hour = m[1].to_i
-    minute = m[2] ? m[2].to_i : 0
+    minute = m[2].to_i
     ampm = m[3].downcase
 
     hour += 12 if ampm == "pm"

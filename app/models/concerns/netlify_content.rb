@@ -3,8 +3,7 @@ module NetlifyContent
 
   class_methods do
     def all(base:)
-      puts base.inspect
-      Dir.glob(base.join("*.md")).map do |file|
+      Dir.glob("*.md", base: base).map do |file|
         full_path = base.join file
         new full_path, base: base
       end
