@@ -1,5 +1,7 @@
 items:
   - page: home/index
+    include_children: false
   - page: wellness/index
     include_children: true
   - page: contact/index
+    include_children: false
