@@ -30,4 +30,10 @@ RSpec.describe EventsController do
       ev.audiences.empty? || ev.audiences.include?("Summer Interns")
     }
   end
+
+  it "picks up content from the /events page" do
+    get :index
+    expect(assigns(:page)).not_to be_nil
+    expect(assigns(:page)).to have_attributes filename: Pathname.new("events")
+  end
 end
