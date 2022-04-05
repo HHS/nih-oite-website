@@ -80,8 +80,7 @@
               </div>
               <div class="oite-event__audiences margin-y-1">
                 <% event.audiences.each do |audience| %>
-
-                      <a class="usa-button usa-button--accent-cool text-bold text-uppercase font-ui-2xs" href="<%= events_page_url :audience => [audience] %>"><%= audience %></a>
+                  <%= link_to audience, events_page_url(audience: [audience]), class: "usa-button usa-button--accent-cool text-bold text-uppercase font-ui-2xs" %>
                 <% end %>
               </div>
             </div>
