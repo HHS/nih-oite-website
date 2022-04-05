@@ -2,6 +2,13 @@ module NetlifyContent
   extend ActiveSupport::Concern
 
   class_methods do
+    def all(base:)
+      Dir.glob("*.md", base: base).map do |file|
+        full_path = base.join file
+        new full_path, base: base
+      end
+    end
+
     def find_by_path(path, base:, try_index:)
       dirname = Pathname(path).dirname
       filename = Pathname(path).basename(".md")

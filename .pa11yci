@@ -2,10 +2,14 @@
   "defaults": {
     "standard": "WCAG2AA",
     "runners": ["axe"],
-    "hideElements": ".usa-nav__primary-item > .usa-accordion__button > span"
+    "hideElements": [
+      ".usa-nav__primary-item > .usa-accordion__button > span",
+      "iframe[src^=\"https://www.youtube\"]"
+    ]
   },
   "urls": [
     "http://localhost:3000",
+    "http://localhost:3000/events",
     "http://localhost:3000/public-page",
     "http://localhost:3000/404"
   ]
