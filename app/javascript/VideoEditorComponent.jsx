@@ -1,4 +1,5 @@
 import React from "react";
+import createKramdownExtensionEditorComponent from "./kramdown";
 
 const VIDEO_TYPES = [
   {
@@ -27,26 +28,7 @@ const VIDEO_TYPES = [
   },
 ];
 
-/**
- * Escapes user input for storage in a Kramdown extension attribute.
- * Note that this _does not_ do sanitization--that'll be the job of
- * whatever's rendering the Markdown to HTML.
- * @param {any} input
- * @returns {string}
- */
-function escapeForKramdownExtensionAttribute(input) {
-  return String(input ?? "").replace(/"/g, '\\"');
-}
-
-/**
- * @param {any} value
- * @returns {string}
- */
-function unescapeFromKramdownExtensionAttribute(value) {
-  return String(value ?? "").replace(/\\"/g, '"');
-}
-
-const VideoEditorComponent = {
+const VideoEditorComponent = createKramdownExtensionEditorComponent({
   id: "video",
   label: "Video",
   fields: [
@@ -61,26 +43,6 @@ const VideoEditorComponent = {
       widget: "string",
     },
   ],
-  pattern: /{::video url="(.*)" alt="(.*)" \/}/,
-  /**
-   * @param {string[]} match
-   * @returns {{alt: string, url: string}}
-   */
-  fromBlock(match) {
-    return {
-      url: unescapeFromKramdownExtensionAttribute(match[1]),
-      alt: unescapeFromKramdownExtensionAttribute(match[2]),
-    };
-  },
-  /**
-   *
-   * @param {{alt: string, url: string}} data
-   */
-  toBlock({ url, alt }) {
-    return `{::video url="${escapeForKramdownExtensionAttribute(
-      url
-    )}" alt="${escapeForKramdownExtensionAttribute(alt)}" /}`;
-  },
   toPreview({ url, alt }) {
     const provider = VIDEO_TYPES.find(({ pattern }) => {
       const rx = new RegExp(`^${pattern}$`, "i");
@@ -92,6 +54,6 @@ const VideoEditorComponent = {
 
     return provider.generatePreview(url, alt);
   },
-};
+});
 
 export default VideoEditorComponent;
