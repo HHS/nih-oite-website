@@ -22,7 +22,4 @@ class EventsController < ApplicationController
       nil
     end
   end
-
-  def view
-  end
 end
