@@ -6,13 +6,7 @@ class Event
 
     events = super base: base
 
-    events = events.select { |event|
-      event.date >= after
-    }
-
-    events.sort_by! { |event| event.date }
-
-    events
+    events.select { |event| event.date >= after }.sort_by(&:date)
   end
 
   def self.audiences(file = Rails.root.join("_settings/audiences.yml"))
