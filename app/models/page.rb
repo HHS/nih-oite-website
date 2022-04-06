@@ -59,6 +59,8 @@ class Page
 
   attr_reader :filename, :base
   attr_writer :children
+  has_field :expires_at, :title, :redirect_to
+  has_field :sidebar, default: []
 
   def initialize(full_path, base:)
     @filename = if full_path.basename(".md").to_s == "index"
@@ -88,8 +90,8 @@ class Page
   end
 
   def redirect_page
-    if parsed_file["redirect_to"].present?
-      @redirect_page ||= self.class.find_by_path(parsed_file["redirect_to"], base: base, try_index: false).filename
+    if redirect_to.present?
+      @redirect_page ||= self.class.find_by_path(redirect_to, base: base, try_index: false).filename
     end
   end
 
@@ -97,19 +99,11 @@ class Page
     expires_at.present? && expires_at.past?
   end
 
-  def expires_at
-    parsed_file["expires_at"]
-  end
-
   def has_sidebar?
-    parsed_file["sidebar"].present?
+    sidebar.present?
   end
 
   def sidebar_blocks
-    parsed_file["sidebar"].map { |b| ContentBlock.find_by_path(b["block"]) } if has_sidebar?
-  end
-
-  def title
-    parsed_file["title"]
+    sidebar.map { |b| ContentBlock.find_by_path(b["block"]) } if has_sidebar?
   end
 end

@@ -27,7 +27,7 @@ RSpec.describe EventsController do
     expect(assigns(:events)).not_to be_empty
 
     expect(assigns(:events)).to all satisfy { |ev|
-      ev.audiences.empty? || ev.audiences.include?("Summer Interns")
+      ev.audience.empty? || ev.audience.include?("Summer Interns")
     }
   end
 

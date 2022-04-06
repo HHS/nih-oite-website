@@ -11,8 +11,8 @@ class EventsController < ApplicationController
     end
 
     @events = Event.all.select { |event|
-      event.audiences.empty? || @selected_audiences.any? { |el|
-        event.audiences.include? el
+      event.audience.empty? || @selected_audiences.any? { |el|
+        event.audience.include? el
       }
     }
 

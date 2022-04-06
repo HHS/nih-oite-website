@@ -18,13 +18,13 @@ class Event
     super path, base: base, try_index: try_index
   end
 
+  has_field :title
+  has_field :speakers, :audience, default: []
+  has_field :accommodations, default: {}
+
   def initialize(path, base: nil)
     loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time])
     @parsed_file = FrontMatterParser::Parser.parse_file(path, loader: loader)
-  end
-
-  def title
-    parsed_file["title"]
   end
 
   def date
@@ -54,8 +54,16 @@ class Event
     speakers.map { |speaker| speaker["name"] }
   end
 
-  def audiences
-    parsed_file["audience"] || []
+  def accommodations_poc
+    accommodations["name"]
+  end
+
+  def accommodations_email
+    accommodations["email"]
+  end
+
+  def accommodations_phone
+    accommodations["phone"]
   end
 
   private
@@ -76,9 +84,5 @@ class Event
       hour,
       minute
     )
-  end
-
-  def speakers
-    parsed_file["speakers"] || []
   end
 end
