@@ -11,15 +11,17 @@ const VIDEO_TYPES = [
       const videoId = u.searchParams.get("v");
       const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
       return (
-        <iframe
-          width="560"
-          height="315"
-          src={embedUrl}
-          title={alt}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+        <div className="video">
+          <iframe
+            width="560"
+            height="315"
+            src={embedUrl}
+            title={alt}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
       );
     },
   },
