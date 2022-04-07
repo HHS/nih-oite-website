@@ -53,6 +53,14 @@ collections:
         required: false
         multiple: true
         options: <%= raw JSON.generate(Event.audiences) %>
+      - label: "Reasonable Accommodations Point of Contact"
+        name: accommodations
+        widget: "object"
+        summary: "{{fields.name}} <{{fields.email}}> ({{fields.phone}})"
+        fields:
+          - {label: "Name", name: name}
+          - {label: "Email", name: email, required: false}
+          - {label: "Phone Number", name: phone, required: false}
       - {label: "Description", name: "body", widget: "markdown"}
 <% end %>
 <% if policy(:netlify).cms? %>

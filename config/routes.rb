@@ -30,9 +30,9 @@ Rails.application.routes.draw do
   get "admin/config", format: "yml", to: "pages#netlify_config"
   get "admin/", to: "pages#netlify"
 
-  root "pages#home"
+  resources :events, only: %i[index show]
 
-  get "events/", to: "events#index", as: :events_page
+  root "pages#home"
 
   get "*path", to: "pages#page", as: :content_page
 

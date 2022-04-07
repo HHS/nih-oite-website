@@ -11,8 +11,8 @@ class EventsController < ApplicationController
     end
 
     @events = Event.all.select { |event|
-      event.audiences.empty? || @selected_audiences.any? { |el|
-        event.audiences.include? el
+      event.audience.empty? || @selected_audiences.any? { |el|
+        event.audience.include? el
       }
     }
 
@@ -21,5 +21,9 @@ class EventsController < ApplicationController
     rescue Page::NotFound
       nil
     end
+  end
+
+  def show
+    @event = Event.find_by_path(params[:id])
   end
 end

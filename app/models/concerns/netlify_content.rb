@@ -22,6 +22,14 @@ module NetlifyContent
         fail NotFound
       end
     end
+
+    def has_field(*fields, default: nil)
+      fields.each do |field_name|
+        define_method field_name do
+          parsed_file[field_name.to_s] || default
+        end
+      end
+    end
   end
 
   included do
