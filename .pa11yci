@@ -10,6 +10,7 @@
   "urls": [
     "http://localhost:3000",
     "http://localhost:3000/events",
+    "http://localhost:3000/events/202257-training-event",
     "http://localhost:3000/public-page",
     "http://localhost:3000/404"
   ]

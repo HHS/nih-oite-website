@@ -1,0 +1,55 @@
+<div class="grid-row grid-gap">
+  <div class="grid-col-12">
+    <h1><%= @event.title %></h1>
+  </div>
+</div>
+
+<div class="grid-row grid-gap">
+  <div class="grid-col-12 desktop:grid-col-5">
+    <div class="usa-collection__heading">
+      <div class="oite-event__time text-italic">
+        <time datetime="<%= @event.start.strftime("%F") %>"><%= @event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
+        –
+        <time datetime="<%= @event.end.strftime("%F") %>"><%= @event.end.strftime("%l:%M %p") %></time>
+      </div>
+      <% unless @event.speaker_names.empty? %>
+        <div class="oite-event__speakers margin-y-1">
+          <h4>Speakers</h4>
+          <ul class="usa-list">
+            <% @event.speaker_names.each do |speaker| %>
+              <li><%= speaker%></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <% unless @event.audience.empty? %>
+        <div class="oite-event__audiences margin-y-1">
+          <h4>This event is recommended for</h4>
+          <ul class="usa-list--unstyled">
+            <% @event.audience.each do |audience| %>
+              <li><span class="usa-tag"><%= audience %></span></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <% unless @event.accommodations_poc.blank? %>
+        <div class="oite-event__accommodations">
+          <h4>Accommodations</h4>
+          <p>
+            If you require any assistance or accommodations to attend this event, please contact
+            <%= @event.accommodations_poc %> at <%= accommodations_poc_contact(@event) %>.
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="grid-col-12 desktop:grid-col-7">
+    <div class="usa-collection__body">
+      <div class="usa-collection__description">
+        <div class="usa-prose p-summary">
+          <%= @event.rendered_content%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

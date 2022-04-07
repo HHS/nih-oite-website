@@ -18,13 +18,19 @@ class Event
     super path, base: base, try_index: try_index
   end
 
+  attr_reader :filename
   has_field :title
   has_field :speakers, :audience, default: []
   has_field :accommodations, default: {}
 
   def initialize(path, base: nil)
+    @filename = path.basename(".md")
     loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time])
     @parsed_file = FrontMatterParser::Parser.parse_file(path, loader: loader)
+  end
+
+  def to_param
+    filename
   end
 
   def date

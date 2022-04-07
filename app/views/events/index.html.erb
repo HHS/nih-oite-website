@@ -54,7 +54,7 @@
           <div class="usa-collection__body">
             <div class="usa-collection__heading">
               <h3 class="margin-0">
-                <%= event.title %>
+                <%= link_to event.title, event_path(event), class: "usa-link" %>
               </h3>
               <div class="oite-event__time text-italic">
                 <time datetime="<%= event.start.strftime("%F") %>"><%= event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
@@ -80,7 +80,7 @@
               </div>
               <div class="oite-event__audiences margin-y-1">
                 <% event.audience.each do |audience| %>
-                  <%= link_to audience, events_page_url(audience: [audience]), class: "usa-button usa-button--accent-cool text-bold text-uppercase font-ui-2xs" %>
+                  <%= link_to audience, events_path(audience: [audience]), class: "usa-button usa-button--accent-cool text-bold text-uppercase font-ui-2xs" %>
                 <% end %>
               </div>
             </div>
@@ -89,3 +89,4 @@
       <% end %>
     </ul>
   </div>
+</div>

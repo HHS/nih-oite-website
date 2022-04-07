@@ -22,4 +22,8 @@ class EventsController < ApplicationController
       nil
     end
   end
+
+  def show
+    @event = Event.find_by_path(params[:id])
+  end
 end
