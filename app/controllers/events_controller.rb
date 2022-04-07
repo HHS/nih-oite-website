@@ -3,18 +3,23 @@ class EventsController < ApplicationController
 
   def index
     @audiences = Event.audiences
+    @topics = Event.topics
 
-    @selected_audiences = if params[:audience].nil? || params[:audience].size == 0
-      @audiences
+    @events = Event.all
+
+    if params[:audience] && params[:audience].size > 0
+      @selected_audiences = params[:audience]
+      @events = @events.select { |event| @selected_audiences.any? { |el| event.audience.include? el } }
     else
-      params[:audience]
+      @selected_audiences = []
     end
 
-    @events = Event.all.select { |event|
-      event.audience.empty? || @selected_audiences.any? { |el|
-        event.audience.include? el
-      }
-    }
+    if params[:topic] && params[:topic].size > 0
+      @selected_topics = params[:topic]
+      @events = @events.select { |event| @selected_topics.any? { |el| event.topic.include? el } }
+    else
+      @selected_topics = []
+    end
 
     @page = begin
       Page.find_by_path "events"

@@ -13,27 +13,37 @@
   <fieldset class="usa-fieldset">
     <legend class="usa-legend"><h3>Filter by audience</h3></legend>
     <% @audiences.each do |audience| %>
-      <%
-        is_selected = @selected_audiences.include?(audience)
-        is_only_one_selected = is_selected && @selected_audiences.size == 1
-      %>
-      <% if is_only_one_selected then %>
-        <% # We're disabling the checkbox, but we need to persist the value on form submit %>
-        <input type="hidden" name="audience[]" value="<%= audience %>">
-      <% end %>
       <div class="usa-checkbox">
         <input
-          class="usa-checkbox__input usa-checkbox__input--tile"
+          class="usa-checkbox__input"
           id="filter-<%= audience.parameterize %>"
           type="checkbox"
           name="audience[]"
           value="<%= audience %>"
-          <%= if is_selected then "checked" end %>
-          <%= if is_only_one_selected then "disabled" end %>
+          <%= if is_selected = @selected_audiences.include?(audience) then "checked" end %>
           data-submit-form-on-click
         />
         <label class="usa-checkbox__label" for="filter-<%= audience.parameterize %>">
           <%= audience %>
+        </label>
+      </div>
+    <% end %>
+  </fieldset>
+  <fieldset class="usa-fieldset">
+    <legend class="usa-legend"><h3>Filter by topic</h3></legend>
+    <% @topics.each do |topic| %>
+      <div class="usa-checkbox">
+        <input
+          class="usa-checkbox__input"
+          id="filter-topic-<%= topic.parameterize %>"
+          type="checkbox"
+          name="topic[]"
+          value="<%= topic %>"
+          <%= if @selected_topics.include?(topic) then "checked" end %>
+          data-submit-form-on-click
+        />
+        <label class="usa-checkbox__label" for="filter-topic-<%= topic.parameterize %>">
+          <%= topic %>
         </label>
       </div>
     <% end %>
@@ -78,9 +88,11 @@
               <div class="usa-prose p-summary">
                 <%= event.rendered_content%>
               </div>
-              <div class="oite-event__audiences margin-y-1">
+              <div class="oite-event__tags margin-y-1">
                 <% event.audience.each do |audience| %>
                   <%= link_to audience, events_path(audience: [audience]), class: "usa-button usa-button--accent-cool text-bold text-uppercase font-ui-2xs" %>
+                <% end %>
+                <% event.topic.each do |topic| %>
                 <% end %>
               </div>
             </div>

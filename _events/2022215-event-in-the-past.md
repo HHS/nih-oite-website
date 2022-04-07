@@ -6,6 +6,7 @@ date:
   year: 2022
 start: 10:00 AM
 end: 11:30 am
+topic: []
 ---
 **This event occurs in the past. It should not show up in the event listing.**
 
