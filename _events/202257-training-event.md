@@ -11,6 +11,9 @@ speakers:
 audience:
   - Summer Interns
   - Postbacs
+accommodations:
+  name: Ryan Ahearn
+  email: ryan.ahearn@gsa.gov
 ---
 This is the **formatted** description of the training event.
 
