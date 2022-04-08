@@ -27,7 +27,7 @@ class Event
   has_field :title
   has_field :speakers, :audience, default: []
   has_field :accommodations, default: {}
-  has_field :topic
+  has_field :topic, default: []
 
   def initialize(path, base: nil)
     @filename = path.basename(".md")
