@@ -36,8 +36,12 @@ module NetlifyContent
     attr_reader :parsed_file
   end
 
+  def content_document
+    Kramdown::Document.new(parsed_file.content, input: "CustomParser")
+  end
+
   def rendered_content
-    Kramdown::Document.new(parsed_file.content, input: "CustomParser").to_html.html_safe
+    content_document.to_html.html_safe
   end
 
   class NotFound < StandardError; end

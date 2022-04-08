@@ -1,6 +1,7 @@
 import CMS from "netlify-cms-app";
 import { GitGatewayBackend } from "netlify-cms-backend-git-gateway";
 import AuthenticationPage from "./AuthenticationPage";
+import ContentBlockEditorComponent from "./ContentBlockEditorComponent";
 import VideoEditorComponent from "./VideoEditorComponent";
 
 class NihGateway extends GitGatewayBackend {
@@ -19,5 +20,6 @@ class NihGateway extends GitGatewayBackend {
   });
 
 CMS.registerBackend("nih-gateway", NihGateway);
+CMS.registerEditorComponent(ContentBlockEditorComponent);
 CMS.registerEditorComponent(VideoEditorComponent);
 CMS.init();
