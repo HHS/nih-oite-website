@@ -15,6 +15,8 @@ collections:
     slug: "{{date.year}}{{date.month}}{{date.day}}-{{slug}}"
     fields:
       - {label: "Name", name: "title"}
+      - {name: "updated_by", widget: hidden}
+      - {name: "updated_at", widget: hidden}
       - label: "Event Date"
         name: "date"
         widget: "object"
@@ -78,6 +80,8 @@ collections:
     meta: {path: {widget: string, label: "Folder", index_file: "block"}}
     fields:
       - {label: "Content Name", name: "name"}
+      - {name: "updated_by", widget: hidden}
+      - {name: "updated_at", widget: hidden}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: page
     label: "Page"
@@ -87,6 +91,8 @@ collections:
     meta: {path: {widget: string, label: "Path", index_file: "index"}}
     fields:
       - {label: "Title", name: "title"}
+      - {name: "updated_by", widget: hidden}
+      - {name: "updated_at", widget: hidden}
       - {label: "Public", name: "public", widget: "boolean", default: true}
       - {label: "Expires At", name: "expires_at", widget: "datetime", default: "", required: false}
       - label: "Replaced By Page"
@@ -119,6 +125,8 @@ collections:
         description: "Configure primary navigation at the top of every page."
         file: "_settings/navigation.yml"
         fields:
+          - {name: "updated_by", widget: hidden}
+          - {name: "updated_at", widget: hidden}
           - name: items
             label: Primary navigation items
             label_singular: Primary navigation item
@@ -142,6 +150,8 @@ collections:
         description: "Configure the footer at the bottom of every page."
         file: "_settings/footer.yml"
         fields:
+          - {name: "updated_by", widget: hidden}
+          - {name: "updated_at", widget: hidden}
           - name: agency_name
             label: Agency name
             widget: string

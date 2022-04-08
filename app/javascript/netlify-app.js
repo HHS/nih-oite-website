@@ -22,4 +22,18 @@ class NihGateway extends GitGatewayBackend {
 CMS.registerBackend("nih-gateway", NihGateway);
 CMS.registerEditorComponent(ContentBlockEditorComponent);
 CMS.registerEditorComponent(VideoEditorComponent);
+
+CMS.registerEventListener({
+  name: "preSave",
+  handler: ({ entry }) => {
+    return entry.get("data").set("updated_at", new Date().toISOString());
+  },
+});
+CMS.registerEventListener({
+  name: "preSave",
+  handler: ({ entry, author: { login } }) => {
+    return entry.get("data").set("updated_by", `${login}`);
+  },
+});
+
 CMS.init();
