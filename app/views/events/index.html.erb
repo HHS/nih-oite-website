@@ -52,54 +52,60 @@
   </aside>
   <div class="grid-col-12 desktop:grid-col-8">
 
-    <ul class="usa-collection oite-events">
-      <% @events.each do |event| %>
-        <li class="usa-collection__item oite-event">
-          <div class="usa-collection__calendar-date">
-            <time datetime="<%= event.date %>">
-              <span class="usa-collection__calendar-date-month"><%= event.date.strftime("%b").upcase %></span>
-              <span class="usa-collection__calendar-date-day"><%= event.date.strftime("%d") %></span>
-            </time>
-          </div>
-          <div class="usa-collection__body">
-            <div class="usa-collection__heading">
-              <h3 class="margin-0">
-                <%= link_to event.title, event_path(event), class: "usa-link" %>
-              </h3>
-              <div class="oite-event__time text-italic">
-                <time datetime="<%= event.start.strftime("%F") %>"><%= event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
-                –
-                <time datetime="<%= event.end.strftime("%F") %>"><%= event.end.strftime("%l:%M %p") %></time>
-              </div>
+    <% if !@events.empty? %>
+      <ul class="usa-collection oite-events">
+        <% @events.each do |event| %>
+          <li class="usa-collection__item oite-event">
+            <div class="usa-collection__calendar-date">
+              <time datetime="<%= event.date %>">
+                <span class="usa-collection__calendar-date-month"><%= event.date.strftime("%b").upcase %></span>
+                <span class="usa-collection__calendar-date-day"><%= event.date.strftime("%d") %></span>
+              </time>
             </div>
-            <div class="usa-collection__description">
-              <% unless event.speaker_names.empty? %>
-                <div class="oite-event__speakers margin-y-1">
-                  <h4 class="margin-0">Speakers</h4>
-                  <ul class="usa-list">
-                    <% event.speaker_names.each do |speaker| %>
-                    <li>
-                      <%= speaker%>
-                    </li>
-                    <% end %>
-                  </ul>
+            <div class="usa-collection__body">
+              <div class="usa-collection__heading">
+                <h3 class="margin-0">
+                  <%= link_to event.title, event_path(event), class: "usa-link" %>
+                </h3>
+                <div class="oite-event__time text-italic">
+                  <time datetime="<%= event.start.strftime("%F") %>"><%= event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
+                  –
+                  <time datetime="<%= event.end.strftime("%F") %>"><%= event.end.strftime("%l:%M %p") %></time>
                 </div>
-              <% end %>
-              <div class="usa-prose p-summary">
-                <%= event.rendered_content%>
               </div>
-              <div class="oite-event__tags margin-y-1">
-                <% event.audience.each do |audience| %>
-                  <%= link_to audience, events_path(audience: [audience]), class: "usa-button usa-button--accent-cool text-bold text-uppercase font-ui-3xs margin-1" %>
+              <div class="usa-collection__description">
+                <% unless event.speaker_names.empty? %>
+                  <div class="oite-event__speakers margin-y-1">
+                    <h4 class="margin-0">Speakers</h4>
+                    <ul class="usa-list">
+                      <% event.speaker_names.each do |speaker| %>
+                      <li>
+                        <%= speaker%>
+                      </li>
+                      <% end %>
+                    </ul>
+                  </div>
                 <% end %>
-                <% event.topic.each do |topic| %>
-                  <%= link_to topic, events_path(topic: [topic]), class: "usa-button usa-button--accent-cool text-bold text-uppercase font-ui-3xs margin-1" %>
-                <% end %>
+                <div class="usa-prose p-summary">
+                  <%= event.rendered_content%>
+                </div>
+                <div class="oite-event__tags margin-y-1">
+                  <% event.audience.each do |audience| %>
+                    <%= link_to audience, events_path(audience: [audience]), class: "usa-button usa-button--accent-cool text-bold text-uppercase font-ui-3xs margin-1" %>
+                  <% end %>
+                  <% event.topic.each do |topic| %>
+                    <%= link_to topic, events_path(topic: [topic]), class: "usa-button usa-button--accent-cool text-bold text-uppercase font-ui-3xs margin-1" %>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <% if @not_found %>
+        <%= @not_found.rendered_content %>
       <% end %>
-    </ul>
+    <% end %>
   </div>
 </div>

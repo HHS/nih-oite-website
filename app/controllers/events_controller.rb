@@ -34,6 +34,12 @@ class EventsController < ApplicationController
     rescue Page::NotFound
       nil
     end
+
+    @not_found = begin
+      ContentBlock.find_by_path "no-events-found/block"
+    rescue ContentBlock::NotFound
+      nil
+    end
   end
 
   def show
