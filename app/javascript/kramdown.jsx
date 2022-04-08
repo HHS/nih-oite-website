@@ -49,7 +49,7 @@ function makeExtensionRegex(name, attrNames) {
  * @returns {{
  *  id: string,
  *  label: string,
- *  fields: {name: string, label: string, widget: string; [key: string]: any},
+ *  fields: {name: string, label: string, widget: string; [key: string]: any}[],
  *  pattern: RegExp,
  *  fromBlock: (match: string[]) => Record<string,any>,
  *  toBlock: (data: Record<string,any>) => string,
