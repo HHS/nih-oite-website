@@ -1,7 +1,7 @@
 module CustomParserExtensions
   def handle_content_block_extension(opts, body, type, line)
     block = begin
-      ContentBlock.find_by_slug opts["slug"]
+      ContentBlock.find_by_path opts["slug"]
     rescue ContentBlock::NotFound
       nil
     end

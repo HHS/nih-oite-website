@@ -23,16 +23,6 @@ module NetlifyContent
       end
     end
 
-    def find_by_slug(slug, base:)
-      full_path = Pathname(base).join "#{slug}.md"
-      if File.exist?(full_path)
-        new full_path, base: base
-      else
-        Rails.logger.error "Failed to find NetlifyContent path: #{full_path}"
-        fail NotFound
-      end
-    end
-
     def has_field(*fields, default: nil)
       fields.each do |field_name|
         define_method field_name do
