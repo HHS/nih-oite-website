@@ -14,5 +14,7 @@ audience:
 accommodations:
   name: Ryan Ahearn
   email: ryan.ahearn@gsa.gov
+topic:
+  - Graduate School
 ---
 This is the **formatted** description of the training event.

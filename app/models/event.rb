@@ -14,6 +14,11 @@ class Event
     data["audiences"] || []
   end
 
+  def self.topics(file = Rails.root.join("_settings/topics.yml"))
+    data = YAML.safe_load File.read(file), fallback: {}
+    data["topics"] || []
+  end
+
   def self.find_by_path(path, base: Rails.root.join("_events"), try_index: false)
     super path, base: base, try_index: try_index
   end
@@ -22,6 +27,7 @@ class Event
   has_field :title
   has_field :speakers, :audience, default: []
   has_field :accommodations, default: {}
+  has_field :topic, default: []
 
   def initialize(path, base: nil)
     @filename = path.basename(".md")

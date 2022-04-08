@@ -47,6 +47,12 @@ collections:
         fields:
           - label: "Full Name"
             name: name
+      - label: Topic
+        name: "topic"
+        widget: "select"
+        required: false
+        multiple: true
+        options: <%= raw JSON.generate Event.topics %>
       - label: "Intended Audience"
         name: "audience"
         widget: "select"
