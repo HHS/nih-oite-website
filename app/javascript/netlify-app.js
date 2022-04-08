@@ -25,15 +25,13 @@ CMS.registerEditorComponent(VideoEditorComponent);
 
 CMS.registerEventListener({
   name: "preSave",
-  handler: ({ entry }) => {
-    return entry.get("data").set("updated_at", new Date().toISOString());
-  },
+  handler: ({ entry }) =>
+    entry.get("data").set("updated_at", new Date().toISOString()),
 });
 CMS.registerEventListener({
   name: "preSave",
-  handler: ({ entry, author: { login } }) => {
-    return entry.get("data").set("updated_by", `${login}`);
-  },
+  handler: ({ entry, author: { login } }) =>
+    entry.get("data").set("updated_by", `${login}`),
 });
 
 CMS.init();
