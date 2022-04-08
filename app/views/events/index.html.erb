@@ -20,7 +20,7 @@
           type="checkbox"
           name="audience[]"
           value="<%= audience %>"
-          <%= if is_selected = @selected_audiences.include?(audience) then "checked" end %>
+          <%= if @selected_audiences.include?(audience) then "checked" end %>
           data-submit-form-on-click
         />
         <label class="usa-checkbox__label" for="filter-<%= audience.parameterize %>">
