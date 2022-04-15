@@ -9,6 +9,14 @@ module.exports = {
     "plugin:react/recommended",
     "prettier",
   ],
+  overrides: [
+    {
+      files: ["**/*.test.{js,jsx}"],
+      env: { "jest/globals": true },
+      plugins: ["jest"],
+      extends: ["plugin:jest/recommended"],
+    },
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -16,6 +24,6 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["prettier", "react"],
+  plugins: ["jest", "prettier", "react"],
   rules: {},
 };
