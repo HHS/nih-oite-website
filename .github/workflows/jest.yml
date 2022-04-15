@@ -9,10 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - id: setup
-        uses: ./.github/actions/setup-project
-        with:
-          rails_env: test
+      - name: Setup Javascript
+        uses: ./.github/actions/setup-javascript
 
       - name: Run Jest
         run: yarn test
