@@ -15,8 +15,6 @@ collections:
     slug: "{{date.year}}{{date.month}}{{date.day}}-{{slug}}"
     fields:
       - {label: "Name", name: "title"}
-      - {name: "updated_by", widget: hidden}
-      - {name: "updated_at", widget: hidden}
       - label: "Event Date"
         name: "date"
         widget: "object"
@@ -70,6 +68,8 @@ collections:
           - {label: "Email", name: email, required: false}
           - {label: "Phone Number", name: phone, required: false}
       - {label: "Description", name: "body", widget: "markdown"}
+      - {name: "updated_by", label: "Last Updated By", hide_preview: true, required: false, widget: "readonly"}
+      - {name: "updated_at", label: "Last Updated At", hide_preview: false, required: false, widget: "readonly"}
 <% end %>
 <% if policy(:netlify).cms? %>
   - name: block
@@ -79,9 +79,9 @@ collections:
     nested: {depth: 2}
     meta: {path: {widget: string, label: "Folder", index_file: "block"}}
     fields:
+      - {name: "updated_by", label: "Last Updated By", hide_preview: true, required: false, widget: "readonly"}
+      - {name: "updated_at", label: "Last Updated At", hide_preview: true, required: false, widget: "readonly"}
       - {label: "Content Name", name: "name"}
-      - {name: "updated_by", widget: hidden}
-      - {name: "updated_at", widget: hidden}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: page
     label: "Page"
@@ -91,8 +91,6 @@ collections:
     meta: {path: {widget: string, label: "Path", index_file: "index"}}
     fields:
       - {label: "Title", name: "title"}
-      - {name: "updated_by", widget: hidden}
-      - {name: "updated_at", widget: hidden}
       - {label: "Public", name: "public", widget: "boolean", default: true}
       - {label: "Expires At", name: "expires_at", widget: "datetime", default: "", required: false}
       - label: "Replaced By Page"
@@ -115,6 +113,8 @@ collections:
             value_field: "{{slug}}"
             display_fields: ["name"]
       - {label: "Body", name: "body", widget: "markdown"}
+      - {name: "updated_by", label: "Last Updated By", hide_preview: true, required: false, widget: "readonly"}
+      - {name: "updated_at", label: "Last Updated At", hide_preview: false, required: false, widget: "readonly"}
   - name: settings
     label: Site settings
     editor:
@@ -125,8 +125,8 @@ collections:
         description: "Configure primary navigation at the top of every page."
         file: "_settings/navigation.yml"
         fields:
-          - {name: "updated_by", widget: hidden}
-          - {name: "updated_at", widget: hidden}
+          - {name: "updated_by", label: "Last Updated By", hide_preview: true, required: false, widget: "readonly"}
+          - {name: "updated_at", label: "Last Updated At", hide_preview: true, required: false, widget: "readonly"}
           - name: items
             label: Primary navigation items
             label_singular: Primary navigation item
@@ -150,8 +150,8 @@ collections:
         description: "Configure the footer at the bottom of every page."
         file: "_settings/footer.yml"
         fields:
-          - {name: "updated_by", widget: hidden}
-          - {name: "updated_at", widget: hidden}
+          - {name: "updated_by", label: "Last Updated By", hide_preview: true, required: false, widget: "readonly"}
+          - {name: "updated_at", label: "Last Updated At", hide_preview: true, required: false, widget: "readonly"}
           - name: agency_name
             label: Agency name
             widget: string

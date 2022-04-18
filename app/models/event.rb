@@ -31,8 +31,7 @@ class Event
 
   def initialize(path, base: nil)
     @filename = path.basename(".md")
-    loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time])
-    @parsed_file = FrontMatterParser::Parser.parse_file(path, loader: loader)
+    @parsed_file = FrontMatterParser::Parser.parse_file(path, loader: yaml_loader)
   end
 
   def to_param

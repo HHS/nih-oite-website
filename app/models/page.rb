@@ -69,8 +69,7 @@ class Page
       full_path
     end.relative_path_from(base)
     @base = base
-    loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time])
-    @parsed_file = FrontMatterParser::Parser.parse_file(full_path, loader: loader)
+    @parsed_file = FrontMatterParser::Parser.parse_file(full_path, loader: yaml_loader)
   end
 
   def children
