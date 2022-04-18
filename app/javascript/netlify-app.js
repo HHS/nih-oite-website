@@ -34,7 +34,7 @@ CMS.registerEventListener({
 CMS.registerEventListener({
   name: "preSave",
   handler: ({ entry, author: { login } }) =>
-    entry.get("data").set("updated_by", `${login}`),
+    entry.get("data").set("updated_by", login),
 });
 
 CMS.init();
