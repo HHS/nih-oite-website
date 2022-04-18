@@ -8,6 +8,6 @@ class ContentBlock
   has_field :name
 
   def initialize(path, base: nil)
-    @parsed_file = FrontMatterParser::Parser.parse_file(path)
+    @parsed_file = FrontMatterParser::Parser.parse_file(path, loader: yaml_loader)
   end
 end

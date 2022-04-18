@@ -3,6 +3,8 @@ import { GitGatewayBackend } from "netlify-cms-backend-git-gateway";
 import AuthenticationPage from "./AuthenticationPage";
 import ContentBlockEditorComponent from "./ContentBlockEditorComponent";
 import VideoEditorComponent from "./VideoEditorComponent";
+import ReadOnlyControl from "./ReadOnlyControl";
+import ReadOnlyPreview from "./ReadOnlyPreview";
 
 class NihGateway extends GitGatewayBackend {
   // eslint-disable-next-line class-methods-use-this
@@ -22,4 +24,17 @@ class NihGateway extends GitGatewayBackend {
 CMS.registerBackend("nih-gateway", NihGateway);
 CMS.registerEditorComponent(ContentBlockEditorComponent);
 CMS.registerEditorComponent(VideoEditorComponent);
+CMS.registerWidget("readonly", ReadOnlyControl, ReadOnlyPreview);
+
+CMS.registerEventListener({
+  name: "preSave",
+  handler: ({ entry }) =>
+    entry.get("data").set("updated_at", new Date().toISOString()),
+});
+CMS.registerEventListener({
+  name: "preSave",
+  handler: ({ entry, author: { login } }) =>
+    entry.get("data").set("updated_by", login),
+});
+
 CMS.init();

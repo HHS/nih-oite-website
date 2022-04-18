@@ -36,6 +36,10 @@ module NetlifyContent
     attr_reader :parsed_file
   end
 
+  def yaml_loader
+    FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time])
+  end
+
   def content_document
     Kramdown::Document.new(parsed_file.content, input: "CustomParser")
   end
