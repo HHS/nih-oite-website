@@ -1,0 +1,16 @@
+name: jest tests
+
+on: [pull_request]
+
+jobs:
+  jest:
+    name: Jest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Javascript
+        uses: ./.github/actions/setup-javascript
+
+      - name: Run Jest
+        run: yarn test

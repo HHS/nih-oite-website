@@ -1,5 +1,9 @@
 import React from "react";
 
+const attrNameRegex = "[a-z0-9_]+";
+const attrValueRegex = '(\\\\"|[^"])*';
+const attrRegex = `(${attrNameRegex})\\s*=\\s*"(${attrValueRegex})"`;
+
 /**
  * Escapes user input for storage in a Kramdown extension attribute.
  * Note that this _does not_ do sanitization--that'll be the job of
@@ -27,19 +31,14 @@ function unescapeExtensionAttribute(value) {
  * ```
  *
  * @param {name} {string}
- * @param {attrNames} {string[]} Names of attributes expected (in order)
  * @returns {RegExp} A regular expression that will match a kramdown extension tag.
  */
-function makeExtensionRegex(name, attrNames) {
-  // NOTE: This pattern is quite fragile and depends on exact ordering of attributes.
-  const attrPatterns = attrNames
-    .map((attrName) => `${attrName}="(.*)"`)
-    .join(" ");
-  return new RegExp(`{::${name}${attrPatterns ? ` ${attrPatterns}` : ""} \\/}`);
+function makeExtensionRegex(name) {
+  return new RegExp(`{::${name}\\s+((${attrRegex}\\s*)*)\\s*/}`, "gi");
 }
 
 /**
- * Creates a Netlify Markdown editor component that is represented in markdown
+ * Creates a Netlify Markdown editor component that is represented in Markdown
  * using Kramdown's extension syntax.
  * @param options {Object}
  * @param options.id {string}
@@ -65,14 +64,24 @@ export default function createKramdownExtensionEditorComponent(options) {
   );
 
   // Convert a regex match back to an object whose keys are the field names and values are the field values
-  const fromBlock = (match) =>
-    fields.reduce(
-      (result, field, index) => ({
-        ...result,
-        [field.name]: unescapeExtensionAttribute(match[index + 1]),
-      }),
-      {}
-    );
+  const fromBlock = (match) => {
+    const attrs = match[1];
+    const rx = new RegExp(attrRegex, "gi");
+
+    const parsed = {};
+
+    for (let m = rx.exec(attrs); m; m = rx.exec(attrs)) {
+      const attrName = m[1];
+      const attrValue = m[2];
+      parsed[attrName] = unescapeExtensionAttribute(attrValue);
+    }
+
+    return fields.reduce((result, field) => {
+      // eslint-disable-next-line no-param-reassign
+      result[field.name] = parsed[field.name] ?? "";
+      return result;
+    }, {});
+  };
 
   // Convert attribute values into the Markdown representation
   const toBlock = (data) =>
@@ -82,7 +91,9 @@ export default function createKramdownExtensionEditorComponent(options) {
         (f) => `${f.name}="${escapeForExtensionAttribute(data[f.name] ?? "")}"`
       ),
       `/}`,
-    ].join(" ");
+    ]
+      .filter((x) => x.length > 0)
+      .join(" ");
 
   const toPreview =
     options.toPreview ??

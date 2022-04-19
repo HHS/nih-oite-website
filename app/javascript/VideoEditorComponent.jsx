@@ -5,7 +5,7 @@ const VIDEO_TYPES = [
   {
     id: "youtube",
     // e.g. https://www.youtube.com/watch?v=SAK117AmzSE
-    pattern: "https:\\/\\/www.youtube.com\\/watch\\?v=[\\w\\d]+(&|$)",
+    pattern: "https:\\/\\/www.youtube.com\\/watch\\?.+",
     generatePreview(url, alt) {
       // NOTE: Any changes here need to be kept in sync with renderer
       const u = new URL(url);
@@ -49,7 +49,7 @@ const VideoEditorComponent = createKramdownExtensionEditorComponent({
       return rx.test(url);
     });
     if (!provider) {
-      return <div>Unrecognized video url: {url}</div>;
+      return <div>Unrecognized video url</div>;
     }
 
     return provider.generatePreview(url, alt);

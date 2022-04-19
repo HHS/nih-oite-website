@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Ruby & Javascript
-        uses: ./.github/actions/setup-languages
+      - name: Set up Javascript
+        uses: ./.github/actions/setup-javascript
 
       - name: Check JS
         run: yarn lint:js
