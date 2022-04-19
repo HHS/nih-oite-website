@@ -1,9 +1,11 @@
+updated_by: matthinz@gmail.com
+updated_at: 2022-04-19T18:08:42.486Z
 items:
   - page: home/index
     include_children: false
-  - page: events/index
-    include_children: false
   - page: wellness/index
     include_children: true
+  - page: events/index
+    include_children: false
   - page: contact/index
     include_children: false
