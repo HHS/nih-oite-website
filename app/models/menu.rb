@@ -32,7 +32,7 @@ class Menu
   end
 
   def self.load(file, pages)
-    data = YAML.safe_load File.read(file), fallback: {}
+    data = YAML.safe_load File.read(file), [Time], fallback: {}
     items = (data["items"] || []).map { |i|
       page = Page.find_by_slug(i["page"], pages)
       if page
