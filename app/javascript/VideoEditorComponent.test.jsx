@@ -2,6 +2,27 @@ import React from "react";
 import VideoEditorComponent from "./VideoEditorComponent";
 
 describe("VideoEditorComponent", () => {
+  test("#fromBlock", () => {
+    const input = `
+
+    This is the home page!
+
+    {::video url="https://www.youtube.com/watch?v=SAK117AmzSE" alt="" /}
+
+    {::content_block slug="hours-location/block" /}
+
+  `;
+
+    const match = input.match(VideoEditorComponent.pattern);
+
+    const data = VideoEditorComponent.fromBlock(match);
+
+    expect(data).toEqual({
+      url: "https://www.youtube.com/watch?v=SAK117AmzSE",
+      alt: "",
+    });
+  });
+
   describe("#toPreview", () => {
     const tests = [
       {
