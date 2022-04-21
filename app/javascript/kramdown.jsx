@@ -34,7 +34,7 @@ function unescapeExtensionAttribute(value) {
  * @returns {RegExp} A regular expression that will match a kramdown extension tag.
  */
 function makeExtensionRegex(name) {
-  return new RegExp(`{::${name}\\s+((${attrRegex}\\s*)*)\\s*/}`, "gi");
+  return new RegExp(`{::${name}\\s+((${attrRegex}\\s*)*)\\s*/}`, "i");
 }
 
 /**
@@ -65,12 +65,11 @@ export default function createKramdownExtensionEditorComponent(options) {
 
   // Convert a regex match back to an object whose keys are the field names and values are the field values
   const fromBlock = (match) => {
-    const attrs = match[1];
     const rx = new RegExp(attrRegex, "gi");
 
     const parsed = {};
 
-    for (let m = rx.exec(attrs); m; m = rx.exec(attrs)) {
+    for (let m = rx.exec(match[0]); m; m = rx.exec(match[0])) {
       const attrName = m[1];
       const attrValue = m[2];
       parsed[attrName] = unescapeExtensionAttribute(attrValue);
