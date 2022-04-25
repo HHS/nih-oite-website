@@ -46,11 +46,27 @@ RSpec.describe Event, type: :model do
     it "returns the date combined with the start time for the event" do
       expect(subject.start).to eq Time.new(2022, 5, 7, 9, 30)
     end
+    describe "12:00 PM edge case" do
+      subject {
+        described_class.new file_fixture("_events/202267-starts-at-noon.md").cleanpath
+      }
+      it "interpreted correctly" do
+        expect(subject.start).to eq Time.new(2022, 6, 7, 12, 0)
+      end
+    end
   end
 
   describe "#end" do
     it "returns the date combined with the end time for the event" do
       expect(subject.end).to eq Time.new(2022, 5, 7, 11, 0)
+    end
+    describe "12:00 PM edge case" do
+      subject {
+        described_class.new file_fixture("_events/202267-ends-at-noon.md").cleanpath
+      }
+      it "interpreted correctly" do
+        expect(subject.end).to eq Time.new(2022, 6, 7, 12, 0)
+      end
     end
   end
 

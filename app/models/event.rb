@@ -86,7 +86,7 @@ class Event
     minute = m[2].to_i
     ampm = m[3].downcase
 
-    hour += 12 if ampm == "pm"
+    hour += 12 if ampm == "pm" && hour < 12
 
     Time.new(
       date.year,

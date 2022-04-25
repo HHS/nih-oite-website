@@ -1,10 +1,10 @@
 ---
-title: Training Event
+title: Event that ends at noon
 date:
-  month: 5
+  month: 6
   day: 7
   year: 2022
-start: 9:30 AM
-end: 12:00 pm
+start: 11:00 AM
+end: 12:00 PM
 ---
 This event has no speaker or intended audience specified.
