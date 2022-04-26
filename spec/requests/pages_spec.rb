@@ -84,4 +84,18 @@ RSpec.describe "Pages", type: :request do
       end
     end
   end
+
+  describe "GET /robots.txt" do
+    it "renders the robots file" do
+      get "/robots.txt"
+      expect(response).to render_template(:robots)
+    end
+  end
+
+  describe "GET /sitemap.xml" do
+    it "renders the sitemap template" do
+      get "/sitemap.xml"
+      expect(response).to render_template(:sitemap)
+    end
+  end
 end

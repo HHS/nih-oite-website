@@ -34,6 +34,7 @@ module NetlifyContent
 
   included do
     attr_reader :parsed_file
+    has_field :updated_by, :updated_at
   end
 
   def yaml_loader
