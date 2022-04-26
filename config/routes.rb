@@ -32,6 +32,9 @@ Rails.application.routes.draw do
 
   resources :events, only: %i[index show]
 
+  get "sitemap", to: "pages#sitemap"
+  get "robots", to: "pages#robots"
+
   root "pages#home"
 
   get "*path", to: "pages#page", as: :content_page

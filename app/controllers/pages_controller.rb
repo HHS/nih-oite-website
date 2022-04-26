@@ -27,6 +27,14 @@ class PagesController < ApplicationController
     raise ActionController::RoutingError.new("Not Found")
   end
 
+  def sitemap
+    render :sitemap, formats: :xml
+  end
+
+  def robots
+    render :robots, formats: :text
+  end
+
   def netlify
     if user_signed_in?
       render layout: false
