@@ -11,6 +11,9 @@ applications:
     RAILS_SERVE_STATIC_FILES: true
     NETLIFY_BRANCH: ((netlify_branch))
     GIT_GATEWAY_HOST: ((git_gateway_host))
+  routes:
+    - route: nih_oite_experiments-((env)).app.cloud.gov
+    - route: nih-oite-experiments-((env)).app.cloud.gov
   processes:
   - type: web
     instances: ((web_instances))
