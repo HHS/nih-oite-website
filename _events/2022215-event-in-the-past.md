@@ -7,6 +7,7 @@ date:
 start: 10:00 AM
 end: 11:30 am
 topic: []
+updated_at: 2022-04-26T00:00:00.000Z
 ---
 **This event occurs in the past. It should not show up in the event listing.**
 

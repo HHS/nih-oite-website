@@ -16,6 +16,7 @@ accommodations:
   email: ryan.ahearn@gsa.gov
 topic:
   - Management
+updated_at: 2022-04-26T00:00:00.000Z
 ---
 This is the **formatted** description of the training event.
 
