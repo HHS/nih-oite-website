@@ -8,7 +8,7 @@ Rails.application.configure do
   config.content_security_policy do |policy|
     policy.default_src :self
     policy.font_src :self
-    policy.form_action :self, "https://github.com/login/oauth/authorize"
+    policy.form_action :self, "https://github.com/login/oauth/authorize", "https://search.usa.gov"
     policy.frame_ancestors :none
     policy.img_src :self, :data
     policy.object_src :none
