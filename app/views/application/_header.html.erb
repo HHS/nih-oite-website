@@ -54,7 +54,7 @@
           </ul>
           <section aria-label="Search component">
             <form id="search_form" action="https://search.usa.gov/search" accept-charset="UTF-8" method="get" class="usa-search usa-search--small" role="search">
-              <input type="hidden" name="affiliate" id="affiliate" value="nihoitestaging" autocomplete="off" />
+              <%= hidden_field_tag "affiliate", ENV["SEARCH_GOV_AFFILIATE"], autocomplete: "off" %>
               <label class="usa-sr-only" for="query">Enter Search Terms</label>
               <input type="search" name="query" id="query" autocomplete="off" class="usa-input usagov-search-autocomplete" />
               <button class="usa-button" type="submit">

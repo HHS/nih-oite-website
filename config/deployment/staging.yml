@@ -5,3 +5,4 @@ worker_instances: 1
 worker_memory: 256M
 netlify_branch: main
 git_gateway_host: http://nih_oite_experiments-staging-gateway.apps.internal:8080/
+search_gov_affiliate: nihoitestaging
