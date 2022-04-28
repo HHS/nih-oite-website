@@ -62,7 +62,7 @@ def build_front_matter event, front_matter = nil
       "start" => parse_time(event["start_time"]),
       "end" => parse_time(event["end_time"]),
       "audience" => [],
-      "topic" => [],
+      "topic" => []
       # "original_data" => JSON.generate(event)
     }
   end
