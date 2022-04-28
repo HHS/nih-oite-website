@@ -16,5 +16,6 @@ accommodations:
   email: ryan.ahearn@gsa.gov
 topic:
   - Graduate School
+updated_at: 2015-04-24T21:41:11Z
 ---
 This is the **formatted** description of the training event.

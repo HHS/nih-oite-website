@@ -115,6 +115,12 @@ RSpec.describe Event, type: :model do
     end
   end
 
+  describe "#updated_at" do
+    it "returns a Time" do
+      expect(subject.updated_at).to be_an_instance_of(Time)
+    end
+  end
+
   describe "#approximate_date_from_filename" do
     tests = {
       "202221-feb-1.md" => "2022-02-01",
