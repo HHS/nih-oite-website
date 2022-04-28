@@ -16,7 +16,10 @@ task :import_events do
     end
 
     event = headers.each_with_object({}) { |field, r|
-      r[field] = row[headers.find_index field]
+      index = headers.find_index field
+      value = row[index]
+      value = nil if value == "NULL"
+      r[field] = value
     }
 
     if event["start_time"].nil? || event["end_time"].nil?
@@ -59,7 +62,8 @@ def build_front_matter event, front_matter = nil
       "start" => parse_time(event["start_time"]),
       "end" => parse_time(event["end_time"]),
       "audience" => [],
-      "topic" => []
+      "topic" => [],
+      # "original_data" => JSON.generate(event)
     }
   end
 
@@ -70,7 +74,7 @@ def build_front_matter event, front_matter = nil
 end
 
 def add_thing_to_list thing, list
-  if thing.nil? || thing == "" || thing == "NULL"
+  if thing.nil? || thing == ""
     return
   end
   list.push thing unless list.include? thing
@@ -90,7 +94,7 @@ end
 
 def prep_original_data event
   event.select do |key, value|
-    key != "body" && !value.nil? && value.strip != "" && value != "NULL"
+    key != "body" && !value.nil? && value.strip != ""
   end
 end
 
