@@ -44,6 +44,7 @@ RSpec.describe EventsController do
     expect(assigns(:events)).not_to be_nil
     expect(assigns(:events)).not_to be_empty
     expect(assigns(:events)).to satisfy { |events| events.length == 1 }
+    expect(assigns(:limit)).to eql(1)
   end
 
   it "picks up content from the /events page" do
@@ -60,5 +61,6 @@ RSpec.describe EventsController do
     expect(assigns(:events)).to satisfy { |events|
       events[0].date == Date.parse("2022-02-01")
     }
+    expect(assigns(:from)).to eql(Date.parse("2022-02-01"))
   end
 end

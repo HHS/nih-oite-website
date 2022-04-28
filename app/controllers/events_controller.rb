@@ -5,17 +5,15 @@ class EventsController < ApplicationController
     @audiences = Event.audiences
     @topics = Event.topics
 
-    from = if params[:from]
+    @from = if params[:from]
       begin
         Date.parse params[:from]
       rescue Date::Error
-        Date.today
+        nil
       end
-    else
-      Date.today
     end
 
-    @events = Event.all from: from
+    @events = Event.all from: @from
 
     if params[:audience] && params[:audience].size > 0
       @selected_audiences = params[:audience]
@@ -39,13 +37,13 @@ class EventsController < ApplicationController
       @selected_topics = []
     end
 
-    limit = if params[:limit]
+    @limit = if params[:limit]
       params[:limit].to_i
     else
       25
     end
 
-    @events = @events.slice(0, limit)
+    @events = @events.slice(0, @limit)
 
     @page = begin
       Page.find_by_path "events"

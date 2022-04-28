@@ -9,7 +9,10 @@
 
 <div class="grid-row grid-gap">
   <aside class="grid-col-12 desktop:grid-col-4">
-<%= form_with method: :get, class: "usa-form margin-x-auto margin-bottom-1" do |form| %>
+<%= form_with method: :get, url: events_path, class: "usa-form margin-x-auto margin-bottom-1" do |form| %>
+  <% if @from %>
+    <%= form.hidden_field(nil, name: "from", value: @from) %>
+  <% end %>
   <fieldset class="usa-fieldset">
     <legend class="usa-legend"><h3>Filter by audience</h3></legend>
     <% @audiences.each do |audience| %>
