@@ -114,4 +114,24 @@ RSpec.describe Event, type: :model do
       EOHTML
     end
   end
+
+  describe "#approximate_date_from_filename" do
+    tests = {
+      "202221-feb-1.md" => "2022-02-01",
+      "2022127-ambiguous.md" => "2022-12-7",
+      "202311-jan-1.md" => "2023-01-01",
+      "2022112-ambiguous.md" => "2022-11-02",
+      "20220112-jan12.md" => "2022-01-12",
+      "2023913-sep-13.md" => "2023-09-13",
+      "20231018-oct-18.md" => "2023-10-18",
+      "2023130-jan-30.md" => "2023-01-30",
+      "2020110-jan-10.md" => "2020-01-10"
+    }
+    tests.each { |input, expected|
+      it "interprets '#{input}' as '#{expected}'" do
+        actual = Event.approximate_date_from_filename(Pathname.new(input))
+        expect(actual).to eql(Date.parse(expected))
+      end
+    }
+  end
 end

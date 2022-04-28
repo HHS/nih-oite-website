@@ -2,8 +2,18 @@ module NetlifyContent
   extend ActiveSupport::Concern
 
   class_methods do
-    def all(base:)
-      Dir.glob("*.md", base: base).map do |file|
+    def all(base:, limit: nil, **args)
+      filenames = Dir.glob("*.md", base: base)
+
+      # Allow content types that may contain a large number of files to provide a shortcut
+      # around reading and parsing _every_ one.
+      if respond_to?(:should_parse_content_file)
+        filenames = filenames.select do |filename|
+          send(:should_parse_content_file, filename, **args)
+        end
+      end
+
+      filenames.map do |file|
         full_path = base.join file
         new full_path, base: base
       end
