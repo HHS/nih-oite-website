@@ -65,7 +65,7 @@
   },
   "lint-staged": {
     "*.{css,js,jsx,scss}": "prettier --write",
-    "*.rb": "bundle exec standardrb --fix",
+    "*.{rake,rb}": "bundle exec standardrb --fix",
     "*.tf": "terraform fmt"
   }
 }
