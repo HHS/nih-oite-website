@@ -52,8 +52,8 @@
               </li>
             <% end %>
           </ul>
-          <section aria-label="Search component">
-            <% if ENV["SEARCH_GOV_AFFILIATE"].present? %>
+          <% if ENV["SEARCH_GOV_AFFILIATE"].present? %>
+            <section aria-label="Search component">
               <form id="search_form" action="https://search.usa.gov/search" accept-charset="UTF-8" method="get" class="usa-search usa-search--small" role="search">
                 <%= hidden_field_tag "affiliate", ENV["SEARCH_GOV_AFFILIATE"], autocomplete: "off" %>
                 <label class="usa-sr-only" for="query">Enter Search Terms</label>
@@ -62,8 +62,8 @@
                   <%= image_tag "uswds/dist/img/usa-icons-bg/search--white.svg", class: "usa-search__submit-icon", alt: "Search" %>
                 </button>
               </form>
-            <% end %>
-          </section>
+            </section>
+          <% end %>
         </div>
       </div>
     </nav>
