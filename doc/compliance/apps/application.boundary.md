@@ -38,11 +38,14 @@ Boundary(aws, "AWS GovCloud") {
     }
 }
 
-' Boundary(gsa_saas, "GSA-authorized SaaS") {
-' }
+Boundary(gsa_saas, "GSA-authorized SaaS") {
+  System_Ext(search, "Search.gov", "Web content indexing and search service")
+}
+Rel(browser, search, "Views search results", "https GET (443)")
+Rel(search, aws_alb, "Crawl site content", "https GET (443)")
 
 Boundary(cicd, "CI/CD Pipeline") {
-    System_Ext(githuball, "GitHub w/ Github Actions", "GSA-controlled code repository and Continuous Integration Service")
+    System_Ext(githuball, "GitHub w/ Github Actions", "HHS-controlled code repository and Continuous Integration Service")
 }
 
 Rel(browser, aws_alb, "request info, submit requests", "https GET/POST (443)")
