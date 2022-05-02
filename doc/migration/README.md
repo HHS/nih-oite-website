@@ -18,7 +18,7 @@ To run this script, you'll need:
 
 To run the exporter:
 
-1. Obtain a database dump in `.tar.gz` format.
+1. Obtain a database dump in `.tar.gz` format from OITE.
 2. Run `./export-data.sh path/to/the/dump.tar.gz`, substituting the appropriate path for the file obtained in step 1.
 3. The script will export relevant data to .csv files.
 
