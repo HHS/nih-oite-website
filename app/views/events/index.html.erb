@@ -9,7 +9,10 @@
 
 <div class="grid-row grid-gap">
   <aside class="grid-col-12 desktop:grid-col-4">
-<%= form_with method: :get, class: "usa-form margin-x-auto margin-bottom-1" do |form| %>
+<%= form_with method: :get, url: events_path, class: "usa-form margin-x-auto margin-bottom-1" do |form| %>
+  <% if @from %>
+    <%= form.hidden_field(nil, name: "from", value: @from) %>
+  <% end %>
   <fieldset class="usa-fieldset">
     <legend class="usa-legend"><h3>Filter by audience</h3></legend>
     <% @audiences.each do |audience| %>
@@ -68,9 +71,9 @@
                   <%= link_to event.title, event_path(event), class: "usa-link" %>
                 </h3>
                 <div class="oite-event__time text-italic">
-                  <time datetime="<%= event.start.strftime("%F") %>"><%= event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
+                  <time datetime="<%= event.start.strftime("%F %R") %>"><%= event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
                   –
-                  <time datetime="<%= event.end.strftime("%F") %>"><%= event.end.strftime("%l:%M %p") %></time>
+                  <time datetime="<%= event.end.strftime("%F %R") %>"><%= event.end.strftime("%l:%M %p") %></time>
                 </div>
               </div>
               <div class="usa-collection__description">

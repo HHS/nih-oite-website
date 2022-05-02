@@ -8,9 +8,9 @@
   <div class="grid-col-12 desktop:grid-col-5">
     <div class="usa-collection__heading">
       <div class="oite-event__time text-italic">
-        <time datetime="<%= @event.start.strftime("%F") %>"><%= @event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
+        <time datetime="<%= @event.start.strftime("%F %R") %>"><%= @event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
         –
-        <time datetime="<%= @event.end.strftime("%F") %>"><%= @event.end.strftime("%l:%M %p") %></time>
+        <time datetime="<%= @event.end.strftime("%F %R") %>"><%= @event.end.strftime("%l:%M %p") %></time>
       </div>
       <% unless @event.speaker_names.empty? %>
         <div class="oite-event__speakers margin-y-1">

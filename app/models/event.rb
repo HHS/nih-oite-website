@@ -1,12 +1,37 @@
 class Event
   include NetlifyContent
 
-  def self.all(after: nil, base: Rails.root.join("_events"))
-    after ||= Date.today
+  def self.all(from: nil, base: Rails.root.join("_events"))
+    from ||= Date.today
 
-    events = super base: base
+    events = super base: base, from: from
 
-    events.select { |event| event.date >= after }.sort_by(&:date)
+    events.select { |event| event.date >= from }.sort_by(&:date)
+  end
+
+  def self.should_parse_content_file(file, from:)
+    date = approximate_date_from_filename(file)
+    # Month + day are potentially ambiguous in our file naming scheme, so we
+    # limit ourselves to year-level resolution here.
+    date.year >= from.year
+  end
+
+  def self.approximate_date_from_filename(filename)
+    m = /^(\d{4})([0-9]{1,2})([0-9]{1,2})-/.match File.basename(filename)
+
+    return nil if m.nil?
+
+    year = m[1].to_i
+    month = m[2].to_i
+    day = m[3].to_i
+
+    if month > 12 || day == 0
+      s = month.to_s
+      month = s[0].to_i
+      day = "#{s[1]}#{day}".to_i
+    end
+
+    Date.new year, month, day
   end
 
   def self.audiences(file = Rails.root.join("_settings/audiences.yml"))
@@ -86,7 +111,7 @@ class Event
     minute = m[2].to_i
     ampm = m[3].downcase
 
-    hour += 12 if ampm == "pm"
+    hour += 12 if ampm == "pm" && hour < 12
 
     Time.new(
       date.year,

@@ -46,11 +46,27 @@ RSpec.describe Event, type: :model do
     it "returns the date combined with the start time for the event" do
       expect(subject.start).to eq Time.new(2022, 5, 7, 9, 30)
     end
+    describe "12:00 PM edge case" do
+      subject {
+        described_class.new file_fixture("_events/202267-starts-at-noon.md").cleanpath
+      }
+      it "interpreted correctly" do
+        expect(subject.start).to eq Time.new(2022, 6, 7, 12, 0)
+      end
+    end
   end
 
   describe "#end" do
     it "returns the date combined with the end time for the event" do
       expect(subject.end).to eq Time.new(2022, 5, 7, 11, 0)
+    end
+    describe "12:00 PM edge case" do
+      subject {
+        described_class.new file_fixture("_events/202267-ends-at-noon.md").cleanpath
+      }
+      it "interpreted correctly" do
+        expect(subject.end).to eq Time.new(2022, 6, 7, 12, 0)
+      end
     end
   end
 
@@ -97,5 +113,31 @@ RSpec.describe Event, type: :model do
         <p>This is the <strong>formatted</strong> description of the training event.</p>
       EOHTML
     end
+  end
+
+  describe "#updated_at" do
+    it "returns a Time" do
+      expect(subject.updated_at).to be_an_instance_of(Time)
+    end
+  end
+
+  describe "#approximate_date_from_filename" do
+    tests = {
+      "202221-feb-1.md" => "2022-02-01",
+      "2022127-ambiguous.md" => "2022-12-7",
+      "202311-jan-1.md" => "2023-01-01",
+      "2022112-ambiguous.md" => "2022-11-02",
+      "20220112-jan12.md" => "2022-01-12",
+      "2023913-sep-13.md" => "2023-09-13",
+      "20231018-oct-18.md" => "2023-10-18",
+      "2023130-jan-30.md" => "2023-01-30",
+      "2020110-jan-10.md" => "2020-01-10"
+    }
+    tests.each { |input, expected|
+      it "interprets '#{input}' as '#{expected}'" do
+        actual = Event.approximate_date_from_filename(Pathname.new(input))
+        expect(actual).to eql(Date.parse(expected))
+      end
+    }
   end
 end

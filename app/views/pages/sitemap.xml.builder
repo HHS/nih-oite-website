@@ -6,7 +6,7 @@ xml.urlset do
   pages.each do |page|
     page_sitemap(page, xml)
   end
-  Event.all.each do |event|
+  Event.all(from: Date.today - 90).each do |event|
     xml.url do
       xml.loc event_url(event)
       xml.lastmod event.updated_at&.xmlschema
