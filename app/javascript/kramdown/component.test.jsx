@@ -1,4 +1,4 @@
-import createKramdownExtensionEditorComponent from "./kramdown";
+import createKramdownExtensionEditorComponent from "./component";
 
 describe("#createKramdownExtensionEditorComponent", () => {
   /**
