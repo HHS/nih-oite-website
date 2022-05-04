@@ -126,7 +126,14 @@ Here is some preamble text
 
     const parsed = parseKramdownExtensions(input);
 
-    expect(parsed).toStrictEqual(["{::outer}{::inner}test{:/outer}{:/inner}"]);
+    expect(parsed).toStrictEqual([
+      "{::outer}",
+      {
+        name: "inner",
+        attributes: [],
+        children: ["test{:/outer}"],
+      },
+    ]);
   });
 
   it("does not support unescaped right braces in attributes", () => {
