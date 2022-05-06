@@ -16,6 +16,7 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "netlify-cms-app": "^2.15.67",
+    "netlify-cms-widget-markdown": "^2.15.1",
     "path-browserify": "^1.0.1",
     "postcss": "^8.4.7",
     "postcss-cli": "^9.1.0",
@@ -53,7 +54,8 @@
     "jest": "^27.5.1",
     "lint-staged": ">=10",
     "pa11y-ci": "^3.0.1",
-    "prettier": "2.6.1"
+    "prettier": "2.6.1",
+    "stream-browserify": "^3.0.0"
   },
   "peerDependencies": {
     "@emotion/styled": "^10.3.0",

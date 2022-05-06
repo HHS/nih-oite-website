@@ -5,7 +5,11 @@ import ContentBlockEditorComponent from "./ContentBlockEditorComponent";
 import VideoEditorComponent from "./VideoEditorComponent";
 import ReadOnlyControl from "./ReadOnlyControl";
 import ReadOnlyPreview from "./ReadOnlyPreview";
-import ColumnEditorComponent from "./ColumnsEditorComponent";
+import {
+  TwoColumns,
+  ThreeColumns,
+  FourColumns,
+} from "./ColumnsEditorComponent";
 
 class NihGateway extends GitGatewayBackend {
   // eslint-disable-next-line class-methods-use-this
@@ -23,7 +27,9 @@ class NihGateway extends GitGatewayBackend {
   });
 
 CMS.registerBackend("nih-gateway", NihGateway);
-CMS.registerEditorComponent(ColumnEditorComponent);
+CMS.registerEditorComponent(TwoColumns);
+CMS.registerEditorComponent(ThreeColumns);
+CMS.registerEditorComponent(FourColumns);
 CMS.registerEditorComponent(ContentBlockEditorComponent);
 CMS.registerEditorComponent(VideoEditorComponent);
 CMS.registerWidget("readonly", ReadOnlyControl, ReadOnlyPreview);

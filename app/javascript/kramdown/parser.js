@@ -36,7 +36,9 @@ const ELEMENT = [
   `(${FULL_ELEMENT_NAME})`,
   `(?:\\s+${ATTR_NAME_AND_VALUE})*`,
   `\\s*}`,
-  "([\\s\\S]*)",
+  // This is the "inbetween the open and close tags" bit.
+  // Guidance from Netlify is to make these non-greedy.
+  "([\\s\\S]*?)",
   "{:/\\1}",
 ].join("");
 
@@ -44,6 +46,63 @@ export const KramdownExtensionRegex = new RegExp(
   ["(?:", ELEMENT, "|", SELF_CLOSING_ELEMENT, ")"].join(""),
   "m"
 );
+
+/**
+ * Creates a regular expression that matches a Kramdown extension tag.
+ * @param {string|undefined} tagName
+ * @param {*} requiredAttributes
+ * @returns {RegExp}
+ */
+export function createKramdownExtensionRegex(
+  tagName = undefined,
+  requiredAttributeName = undefined,
+  requiredAttributeValue = undefined
+) {
+  const elementName = tagName == null ? FULL_ELEMENT_NAME : tagName;
+
+  // If we have a required attribute name / value, then we need to build
+  // a pattern that can match : (any number of attrs)(required attr)(any number of attrs)
+  const anyAttributesPattern = `(?:\\s+${ATTR_NAME_AND_VALUE})*`;
+
+  let attributesPattern;
+
+  if (requiredAttributeName == null) {
+    attributesPattern = anyAttributesPattern;
+  } else {
+    attributesPattern = [
+      anyAttributesPattern,
+      `(?:\\s+${requiredAttributeName}\\s*=\\s*${
+        requiredAttributeValue == null
+          ? ATTR_VALUE
+          : `"${requiredAttributeValue}"`
+      })`,
+      anyAttributesPattern,
+    ].join("");
+  }
+
+  const element = [
+    "{::",
+    `(${elementName})`,
+    attributesPattern,
+    `\\s*}`,
+    // This is the "inbetween the open and close tags" bit.
+    // Guidance from Netlify is to make these non-greedy.
+    "([\\s\\S]*?)",
+    "{:/\\1}",
+  ].join("");
+
+  const selfClosingElement = [
+    "{::",
+    `(${elementName})`,
+    attributesPattern,
+    `\\s*/}`,
+  ].join("");
+
+  return new RegExp(
+    ["(?:", element, "|", selfClosingElement, ")"].join(""),
+    "m"
+  );
+}
 
 /**
  * @typedef {object} KramdownExtensionAttribute
