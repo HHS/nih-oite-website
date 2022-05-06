@@ -23,26 +23,49 @@ In the Markdown, columns are stored like so:
 */
 
 /**
+ * @typedef {Object} ColumnSpec
+ * @property {string} name
+ * @property {number} span
  */
-function createColumnsComponent({ id, label, columnNames }) {
+
+/**
+ * @typedef {Object} CreateColumnsComponentOptions
+ * @property {string} label Friendly label describing the component.
+ * @property {ColumnSpec[]} columns
+ * @property {string[]} editorComponents IDs of editor components allowed.
+ */
+
+/**
+ * @param {CreateColumnsComponentOptions} options
+ */
+export default function createColumnsComponent({
+  label,
+  columns,
+  editorComponents,
+}) {
+  // "span" is a comma-delimited string of the individual column spans used.
+  // In Markdown it is stored as an attribute on the {::columns} element.
+  const span = columns.map((col) => col.span).join(",");
+
   return {
-    id,
+    id: `columns-${span.replace(/,/g, "-")}`,
     label,
     fields: [
-      ...columnNames.map((name) => ({
+      ...columns.map(({ name }) => ({
         name,
         widget: "markdown",
+        editor_components: editorComponents,
       })),
     ],
-    pattern: createKramdownExtensionRegex("columns", "type", id),
+    pattern: createKramdownExtensionRegex("columns", "span", span),
     toPreview(data, getAsset) {
-      const columnContents = columnNames.map((name) =>
+      const columnContents = columns.map(({ name }) =>
         String(data[name] ?? "")
       );
 
       return (
         <Preview
-          columnNames={columnNames}
+          columns={columns}
           columnContents={columnContents}
           getAsset={getAsset}
         />
@@ -60,50 +83,28 @@ function createColumnsComponent({ id, label, columnNames }) {
             (t) => typeof t === "object" && t.name === "column"
           );
 
-          const result = {
-            type: id,
-          };
-          columnNames.forEach((type, index) => {
-            result[type] = serializeKramdownExtensionNodes(
-              columnElements[index]?.children ?? []
-            );
-          });
-
-          return result;
+          return columns.reduce(
+            (result, { name }, index) => ({
+              ...result,
+              [name]: serializeKramdownExtensionNodes(
+                columnElements[index]?.children ?? []
+              ),
+            }),
+            {}
+          );
         }
       }
 
-      const defaultResult = {
-        type: id,
-      };
-      columnNames.forEach((type) => {
-        defaultResult[type] = "";
-      });
-      return defaultResult;
+      return columns.reduce(
+        (result, { name }) => ({ ...result, [name]: "" }),
+        {}
+      );
     },
     toBlock: (data) =>
-      `{::columns type="${data.type}"}
-${columnNames
-  .map((type) => `{::column}${data[type] ?? ""}{:/column}`)
+      `{::columns span="${span}"}
+${columns
+  .map(({ name }) => `{::column}\n${data[name] ?? ""}\n{:/column}`)
   .join("\n")}
 {:/columns}`,
   };
 }
-
-export const TwoColumns = createColumnsComponent({
-  id: "columns-2",
-  label: "Two Columns (50/50)",
-  columnNames: ["left", "right"],
-});
-
-export const ThreeColumns = createColumnsComponent({
-  id: "columns-3",
-  label: "Three Columns",
-  columnNames: ["left", "center", "right"],
-});
-
-export const FourColumns = createColumnsComponent({
-  id: "columns-4",
-  label: "Four Columns",
-  columnNames: ["Column 1", "Column 2", "Column 3", "Column 4"],
-});

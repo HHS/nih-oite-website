@@ -5,11 +5,15 @@ import ContentBlockEditorComponent from "./ContentBlockEditorComponent";
 import VideoEditorComponent from "./VideoEditorComponent";
 import ReadOnlyControl from "./ReadOnlyControl";
 import ReadOnlyPreview from "./ReadOnlyPreview";
-import {
-  TwoColumns,
-  ThreeColumns,
-  FourColumns,
-} from "./ColumnsEditorComponent";
+import createColumnsComponent from "./ColumnsEditorComponent";
+
+// Restrict the editor components permitted inside columns to prevent
+// nesting etc.
+const EDITOR_COMPONENTS_ALLOWED_IN_COLUMNS = [
+  "image",
+  "video",
+  "content_block",
+];
 
 class NihGateway extends GitGatewayBackend {
   // eslint-disable-next-line class-methods-use-this
@@ -27,9 +31,30 @@ class NihGateway extends GitGatewayBackend {
   });
 
 CMS.registerBackend("nih-gateway", NihGateway);
-CMS.registerEditorComponent(TwoColumns);
-CMS.registerEditorComponent(ThreeColumns);
-CMS.registerEditorComponent(FourColumns);
+CMS.registerEditorComponent(
+  createColumnsComponent({
+    id: "columns-2",
+    label: "Two Columns (50/50)",
+    columnNames: ["left", "right"],
+    editorComponents: EDITOR_COMPONENTS_ALLOWED_IN_COLUMNS,
+  })
+);
+CMS.registerEditorComponent(
+  createColumnsComponent({
+    id: "columns-3",
+    label: "Three Columns",
+    columnNames: ["left", "center", "right"],
+    editorComponents: EDITOR_COMPONENTS_ALLOWED_IN_COLUMNS,
+  })
+);
+CMS.registerEditorComponent(
+  createColumnsComponent({
+    id: "columns-4",
+    label: "Four Columns",
+    columnNames: ["one", "two", "three", "four"],
+    editorComponents: EDITOR_COMPONENTS_ALLOWED_IN_COLUMNS,
+  })
+);
 CMS.registerEditorComponent(ContentBlockEditorComponent);
 CMS.registerEditorComponent(VideoEditorComponent);
 CMS.registerWidget("readonly", ReadOnlyControl, ReadOnlyPreview);

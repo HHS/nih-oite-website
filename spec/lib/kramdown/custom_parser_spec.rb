@@ -118,4 +118,40 @@ RSpec.describe "Custom Kramdown Parser" do
       expect(element.children[0].value).to start_with("{::unknown_tag attr=")
     end
   end
+
+  describe "Columns" do
+    describe "Two column" do
+      it "renders correct HTML" do
+        input = "
+This is preamble text
+
+{::columns span=\"8,4\"}
+{::column}
+Left column
+{:/column}
+{::column}
+**Right** column!
+Here is more content
+{:/column}
+{:/columns}
+        "
+        expected = "<p>This is preamble text</p>
+
+<div class=\"grid-row\">
+  <div class=\"tablet:grid-col-8\">
+    <p>Left column</p>
+  </div>
+  <div class=\"tablet:grid-col-4\">
+    <p><strong>Right</strong> column!
+Here is more content</p>
+  </div>
+</div>
+"
+
+        doc = Kramdown::Document.new(input.strip, input: "CustomParser")
+
+        expect(doc.to_html).to eql(expected)
+      end
+    end
+  end
 end

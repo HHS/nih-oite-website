@@ -17,7 +17,7 @@ if (typeof window.process?.cwd !== "function") {
 
 /**
  * @typedef {Object} PreviewProps
- * @property {string[]} columnNames
+ * @property {{name: string, span: number}[]} columns
  * @property {string[]} columnContents
  * @property {() => any} getAsset
  */
@@ -26,26 +26,37 @@ if (typeof window.process?.cwd !== "function") {
  * Renders a preview of a column component.
  * @param {PreviewProps} props
  */
-export default function Preview({ columnNames, columnContents, getAsset }) {
+export default function Preview({ columns, columnContents, getAsset }) {
   const MarkdownPreviewComponent = NetlifyCmsWidgetMarkdown.previewComponent;
 
   return (
     <div className="grid-row">
-      {columnNames.map((name, index) => (
-        <div key={name} className={`grid-col grid-col--${name}`}>
-          <MarkdownPreviewComponent
-            value={columnContents[index] ?? ""}
-            getAsset={getAsset}
-            resolveWidget={NetlifyCmsApp.resolveWidget}
-          />
-        </div>
-      ))}
+      {columns.map(({ name, span }, index) => {
+        const classes = [
+          `grid-col--${name}`,
+          span == null ? "tablet:grid-col" : `tablet:grid-col-${span}`,
+        ].join(" ");
+        return (
+          <div key={name} className={classes}>
+            <MarkdownPreviewComponent
+              value={columnContents[index] ?? ""}
+              getAsset={getAsset}
+              resolveWidget={NetlifyCmsApp.resolveWidget}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
 
 Preview.propTypes = {
-  columnNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      span: PropTypes.number,
+    })
+  ).isRequired,
   columnContents: PropTypes.arrayOf(PropTypes.string).isRequired,
   getAsset: PropTypes.func.isRequired,
 };

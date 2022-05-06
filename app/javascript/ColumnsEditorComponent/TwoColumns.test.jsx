@@ -1,16 +1,28 @@
+// XXX: This "mocks" include is required to monkey-patch some browser APIs not
+//      available in Node.
 import "./mocks";
-import { TwoColumns } from ".";
+import createColumnsComponent from ".";
 
 describe("TwoColumns", () => {
+  const TwoColumns = createColumnsComponent({
+    label: "Two Columns",
+    columns: [
+      { name: "left", span: 8 },
+      { name: "right", span: 4 },
+    ],
+  });
+
   const example = `
 Here is some preamble text
 
-{::columns type="two-columns"}
+{::columns span="8,4"}
 {::column}
 Here is the left column content
 It is spread across multiple lines.
 {:/column}
-{::column}Here is the right column content{:/column}
+{::column}
+Here is the right column content
+{:/column}
 {:/columns}
 
 `;
@@ -20,28 +32,28 @@ It is spread across multiple lines.
       expect(m).toBeTruthy();
       const data = TwoColumns.fromBlock(m);
       expect(data).toStrictEqual({
-        type: "columns-2",
         left: "\nHere is the left column content\nIt is spread across multiple lines.\n",
-        right: "Here is the right column content",
+        right: "\nHere is the right column content\n",
       });
     });
   });
   describe("#toBlock", () => {
     it("can serialize a two-column layout", () => {
       const data = {
-        type: "columns-2",
-        left: "\nHere is the left column content\nIt is spread across multiple lines.\n",
+        left: "Here is the left column content\nIt is spread across multiple lines.",
         right: "Here is the right column content",
       };
       const actual = TwoColumns.toBlock(data);
       expect(actual).toStrictEqual(
         `
-{::columns type="columns-2"}
+{::columns span="8,4"}
 {::column}
 Here is the left column content
 It is spread across multiple lines.
 {:/column}
-{::column}Here is the right column content{:/column}
+{::column}
+Here is the right column content
+{:/column}
 {:/columns}
 `.trim()
       );
