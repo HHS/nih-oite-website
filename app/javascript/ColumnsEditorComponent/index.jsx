@@ -33,6 +33,7 @@ In the Markdown, columns are stored like so:
  * @property {string} label Friendly label describing the component.
  * @property {ColumnSpec[]} columns
  * @property {string[]} editorComponents IDs of editor components allowed.
+ * @property {any} cms The Netlify CMS object in use.
  */
 
 /**
@@ -42,6 +43,7 @@ export default function createColumnsComponent({
   label,
   columns,
   editorComponents,
+  cms,
 }) {
   // "span" is a comma-delimited string of the individual column spans used.
   // In Markdown it is stored as an attribute on the {::columns} element.
@@ -64,11 +66,15 @@ export default function createColumnsComponent({
         String(data[name] ?? "")
       );
 
+      const markdownWidget = cms.getWidget("markdown");
+
       return (
         <Preview
           columns={columns}
           columnContents={columnContents}
+          NetlifyMarkdownPreview={markdownWidget.preview}
           getAsset={getAsset}
+          resolveWidget={cms.resolveWidget}
         />
       );
     },

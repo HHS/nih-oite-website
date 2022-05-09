@@ -39,6 +39,7 @@ CMS.registerEditorComponent(
       span: 6,
     })),
     editorComponents: EDITOR_COMPONENTS_ALLOWED_IN_COLUMNS,
+    cms: CMS,
   })
 );
 CMS.registerEditorComponent(
@@ -49,6 +50,7 @@ CMS.registerEditorComponent(
       span: 4,
     })),
     editorComponents: EDITOR_COMPONENTS_ALLOWED_IN_COLUMNS,
+    cms: CMS,
   })
 );
 CMS.registerEditorComponent(
@@ -59,6 +61,7 @@ CMS.registerEditorComponent(
       span: 3,
     })),
     editorComponents: EDITOR_COMPONENTS_ALLOWED_IN_COLUMNS,
+    cms: CMS,
   })
 );
 CMS.registerEditorComponent(ContentBlockEditorComponent);
