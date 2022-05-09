@@ -33,25 +33,31 @@ class NihGateway extends GitGatewayBackend {
 CMS.registerBackend("nih-gateway", NihGateway);
 CMS.registerEditorComponent(
   createColumnsComponent({
-    id: "columns-2",
     label: "Two Columns (50/50)",
-    columnNames: ["left", "right"],
+    columns: ["left", "right"].map((name) => ({
+      name,
+      span: 6,
+    })),
     editorComponents: EDITOR_COMPONENTS_ALLOWED_IN_COLUMNS,
   })
 );
 CMS.registerEditorComponent(
   createColumnsComponent({
-    id: "columns-3",
     label: "Three Columns",
-    columnNames: ["left", "center", "right"],
+    columns: ["left", "center", "right"].map((name) => ({
+      name,
+      span: 4,
+    })),
     editorComponents: EDITOR_COMPONENTS_ALLOWED_IN_COLUMNS,
   })
 );
 CMS.registerEditorComponent(
   createColumnsComponent({
-    id: "columns-4",
     label: "Four Columns",
-    columnNames: ["one", "two", "three", "four"],
+    columns: ["one", "two", "three", "four"].map((name) => ({
+      name,
+      span: 3,
+    })),
     editorComponents: EDITOR_COMPONENTS_ALLOWED_IN_COLUMNS,
   })
 );

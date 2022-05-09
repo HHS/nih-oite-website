@@ -53,6 +53,7 @@ export default function createColumnsComponent({
     fields: [
       ...columns.map(({ name }) => ({
         name,
+        label: name,
         widget: "markdown",
         editor_components: editorComponents,
       })),
