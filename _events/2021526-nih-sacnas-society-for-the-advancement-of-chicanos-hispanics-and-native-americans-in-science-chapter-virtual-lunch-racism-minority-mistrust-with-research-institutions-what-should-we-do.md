@@ -33,8 +33,7 @@ historically neglected.
 
 Speaker\'s Biographies: 
 
-<span style="font-size: 8pt;"><span style="text-decoration:
-underline;">Ms. Nicole Coco Villaluz</span>
+<span><span>Ms. Nicole Coco Villaluz</span>
 (Hidatsa/Assiniboine/Chamorro), the Director of Health Equity Programs
 at ClearWay Minnesota. She has over eighteen years of experience in all
 phases of community development, capacity building and mobilizing. CoCo
@@ -48,8 +47,7 @@ her home community. She is also the recipient of the Minnesota Public
 Health Association's Paul and Sheila Wellstone Public Health Achievement
 Award for 2020.</span>
 
-<span style="font-size: 8pt;"><span style="text-decoration:
-underline;">Dr. Kelvin Choi,</span> PhD, MPH, is a Senior Investigator
+<span><span>Dr. Kelvin Choi,</span> PhD, MPH, is a Senior Investigator
 and Head of the Social and Behavioral Sciences Section at the Division
 of Intramural Research, National Institute on Minority Health and Health
 Disparities (NIMHD). He was recruited to the NIH as an Earl Stadtman
@@ -83,7 +81,7 @@ event.
 For any questions, please contact Dr. Natasha Lugo-Escobar at
 lugoescobarn@mail.nih.gov.  
 
-<span style="font-size: 8pt;">Who are we?: We are a professional SACNAS
+<span>Who are we?: We are a professional SACNAS
 chapter that provides a supportive and welcoming environment for
 Hispanics/Chicanos and Native Americans trainees and staff at the NIH to
 get together, exchange ideas, network, share successes, and strategize

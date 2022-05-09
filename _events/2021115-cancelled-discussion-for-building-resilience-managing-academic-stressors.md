@@ -13,10 +13,10 @@ topic:
 - Wellness
 updated_at: 2021-01-11 21:10:12.000000000 Z
 ---
-<span style="font-size: 10pt;">This event conflicts with the NIH Town
+<span>This event conflicts with the NIH Town
 Hall and has been canceled.  </span>
 
-<span style="font-size: 10pt;">So many of our postbacs are currently
+<span>So many of our postbacs are currently
 studying for and worried about MCATs, GREs, and other standardized tests
 coupled with applications and interviews. The pandemic has also brought
 many changes to the current testing and application season. Not only are

@@ -15,13 +15,13 @@ topic:
 - Wellness
 updated_at: 2021-01-29 16:52:13.000000000 Z
 ---
-<span style="font-family: arial, helvetica, sans-serif;">This event is
+<span>This event is
 only for NIH Intramural Trainees currently in our postbac, graduate
 student, and postdoc programs. Zoom link will be distributed via NIH
 Trainee Listservs the morning of the event. If you need the link
 immediately please email OITE@nih.gov.</span>
 
-<span style="font-family: arial, helvetica, sans-serif;">Winter is
+<span>Winter is
 here.  The colder weather, shorter days, and social distancing will
 begin to present us with new challenges for our wellness. Additionally,
 the persistent feelings of uncertainty about the future continue
@@ -31,7 +31,7 @@ COVID winter may disrupt them again. This discussion will focus on how
 to reevaluate coping tools for the winter and continued
 uncertainty.   </span>
 
-<span style="font-family: arial, helvetica, sans-serif;">Please join us
+<span>Please join us
 for a discussion with OITE Wellness Advisor, Liann Seiter. The
 discussion group provides a welcoming and confidential space to explore
 positive and proactive ways to build resilience and self-care

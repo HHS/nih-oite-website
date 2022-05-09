@@ -23,7 +23,7 @@ environment.  The topics covered will be applicable to all sectors
 This course requires a commitment of multiple days. Directions for
 applying to the course are below.   
 
-<span style="text-decoration: underline;">**This will be offered via
+<span>**This will be offered via
 zoom**</span>
 
 **Course Schedule:**

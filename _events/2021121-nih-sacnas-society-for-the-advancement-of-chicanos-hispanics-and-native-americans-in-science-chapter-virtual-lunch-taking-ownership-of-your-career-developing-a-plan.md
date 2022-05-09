@@ -35,7 +35,7 @@ prior to the event.
 For any questions, please contact Dr. Natasha Lugo-Escobar at
 lugoescobarn@mail.nih.gov.  
 
-<span style="font-size: 8pt;">Who are we?: We are a professional SACNAS
+<span>Who are we?: We are a professional SACNAS
 chapter that provides a supportive and welcoming environment for
 Hispanics/Chicanos and Native Americans trainees and staff at the NIH to
 get together, exchange ideas, network, share successes, and strategize

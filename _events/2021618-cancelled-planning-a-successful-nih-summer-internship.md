@@ -12,7 +12,7 @@ topic:
 - Orientation
 updated_at: 2021-06-18 15:43:06.000000000 Z
 ---
-<span style="color: #800000;">**CANCELLED: In recognition of
+<span>**CANCELLED: In recognition of
 Juneteenth, "Planning a Successful NIH Summer Internship" scheduled for
 June 18, 2021 is cancelled.  We look forward to seeing you at the next
 one (June 25, 2021).**</span>

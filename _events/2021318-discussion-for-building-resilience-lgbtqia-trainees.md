@@ -37,8 +37,7 @@ space to explore positive and proactive ways to build resilience and
 self-care skills. Even if you can\'t join us for the entire hour, we
 encourage you to still attend. 
 
-<span style="font-family: arial, helvetica, sans-serif; font-size:
-10pt;"> </span>
+<span> </span>
 
  
 

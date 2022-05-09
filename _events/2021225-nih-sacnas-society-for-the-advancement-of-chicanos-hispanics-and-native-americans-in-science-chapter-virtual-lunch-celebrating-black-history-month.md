@@ -31,8 +31,8 @@ biography below. 
 For any questions, please contact Dr. Natasha Lugo-Escobar at
 lugoescobarn@mail.nih.gov.  
 
-<span style="font-size: 8pt;">**Joanna Mountain, PhD**</span>  
-<span style="font-size: 8pt;"> <em>Senior Director of Research.
+<span>**Joanna Mountain, PhD**</span>
+<span> <em>Senior Director of Research.
 </em>Joanna Mountain is Senior Director of Research, where she is
 responsible for overseeing research projects, ensuring the protection of
 research participants, and developing approaches to evaluate and
@@ -42,8 +42,8 @@ and Genetics Departments at Stanford University. Joanna spent two years
 in Kenya as a Peace Corps volunteer and continues to be particularly
 interested in the genetic diversity of Africa.</span>
 
-<span style="font-size: 8pt;">**Steven Micheletti, PhD**</span>  
-<span style="font-size: 8pt;"> <em>Scientist II, Population Genetics.
+<span>**Steven Micheletti, PhD**</span>
+<span> <em>Scientist II, Population Genetics.
 </em>Steven is a Population Geneticist who works on Ancestry-related
 features and diversity initiatives. As an expert in using tools from
 genetics to study migrations, he also uses participant data to research
@@ -59,7 +59,7 @@ Washington State University (PhD).</span>
 
  
 
-<span style="font-size: 8pt;">Who are we?: We are a professional SACNAS
+<span>Who are we?: We are a professional SACNAS
 chapter that provides a supportive and welcoming environment for
 Hispanics/Chicanos and Native Americans trainees and staff at the NIH to
 get together, exchange ideas, network, share successes, and strategize

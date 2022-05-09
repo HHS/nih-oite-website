@@ -25,7 +25,7 @@ yourself and how you relate to others. Good communication skills.
 Developing yourself as a leader without power. This session is
 specifically for scientists at the undergraduate level.
 
-<span style="color: #ff0000;">** **</span>
+<span>** **</span>
 
 
 

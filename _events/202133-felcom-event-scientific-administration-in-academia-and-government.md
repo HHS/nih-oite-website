@@ -26,9 +26,9 @@ also  be available for a question answer session. Come and join us to
 learn more about those fascinating careers and get tips for making
 successful career transition!
 
-<span style="font-size: 12px;">This event is sponsored by Felcom.</span>
+<span>This event is sponsored by Felcom.</span>
 
-<span style="font-size: 12px;">Register via
+<span>Register via
 zoom: https://nih.zoomgov.com/meeting/register/vJItcOuoqTMsHXLSbYgy3CUtsyixhdT1B\_Q</span>
 
  
