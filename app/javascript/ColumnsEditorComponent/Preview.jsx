@@ -30,7 +30,7 @@ export default function Preview({ columns, columnContents, getAsset }) {
   const MarkdownPreviewComponent = NetlifyCmsWidgetMarkdown.previewComponent;
 
   return (
-    <div className="grid-row">
+    <div className="grid-row grid-gap">
       {columns.map(({ name, span }, index) => {
         const classes = [
           `grid-col--${name}`,

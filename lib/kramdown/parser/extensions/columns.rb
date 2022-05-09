@@ -28,7 +28,7 @@ module CustomParserExtensions
       :html_element,
       "div",
       {
-        "class" => "grid-row"
+        "class" => "grid-row grid-gap"
       },
       category: :block,
       content_model: :block,
@@ -39,14 +39,8 @@ module CustomParserExtensions
 
     spans = (opts["span"] || "").split(",").map(&:to_i)
 
-    puts content_doc.root.children.inspect
-
     content_doc.root.children.each do |el|
       is_column = el.type == :html_element && el.value == "div" && el.attr[:class] == "grid-col"
-
-      puts spans.inspect
-      puts el.inspect
-      puts is_column.inspect
 
       if is_column
         span = spans.shift
