@@ -3,6 +3,8 @@ updated_at: 2022-04-19T18:08:42.486Z
 items:
   - page: home/index
     include_children: false
+  - page: training/index
+    include_children: false
   - page: wellness/index
     include_children: true
   - page: events/index
