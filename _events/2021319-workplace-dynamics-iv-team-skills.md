@@ -15,7 +15,7 @@ topic:
 - Personal Development
 updated_at: 2020-12-11 21:35:17.000000000 Z
 ---
-<span style="font-size: 12px;">ONLINE
+<span>ONLINE
 ONLY-[https://attendee.gotowebinar.com/register/8599383106991652111][1]{:
 #share-reg-url .plAwLUVihzEw9Kyd target="_blank" rel="noopener
 noreferrer"}</span>

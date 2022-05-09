@@ -18,12 +18,12 @@ updated_at: 2021-05-21 23:00:30.000000000 Z
 ---
 <!--StartFragment-->
 
-<span style="color: #262626;"><span style="font-size: 100%;">First in
+<span>First in
 the series of lectures specifically arranged for trainees in the NIH
 Summer Internship Program.</span></span>
 {: .MsoNormal}
 
-<span style="color: #262626;"><span style="font-size: 100%;">**Event
+<span>**Event
 Link: **[https://nih.zoomgov.com/webinar/register/WN\_35ffLcIeQ-mLGUh6eYliTg][1]
 
 </span></span>

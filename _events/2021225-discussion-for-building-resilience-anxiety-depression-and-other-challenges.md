@@ -34,8 +34,8 @@ Kelly Donahue.  The discussion group provides a confidential and
 welcoming space to explore positive and proactive methods to build
 resilience and self-care skills with other trainees having similar
 experiences.  Even if you can\'t join us for the entire hour, we
-encourage you to still attend. <span style="font-size: 10pt;"> </span>
+encourage you to still attend. <span> </span>
 
-<span style="font-size: 10pt;"> </span>
+<span> </span>
 
  

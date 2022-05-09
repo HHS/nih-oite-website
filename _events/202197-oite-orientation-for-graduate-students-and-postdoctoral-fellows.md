@@ -16,8 +16,7 @@ updated_at: 2021-05-12 16:59:32.000000000 Z
 **We will be doing this orientation virtually, please register here and
 we will make sure you get the link to join.**
 
-**\*\*NOTE: This Orientation is for <span style="text-decoration:
-underline;">Graduate Students and Postdocs </span>\*\***
+**\*\*NOTE: This Orientation is for <span>Graduate Students and Postdocs </span>\*\***
 
 Just arrived at the NIH? Wondering how to make the most of your time
 here? Want to set goals and establish expectations with your mentor?

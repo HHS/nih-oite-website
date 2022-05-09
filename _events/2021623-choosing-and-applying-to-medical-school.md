@@ -22,8 +22,7 @@ the application, asking for references, and developing your timeline.
 
 [Resources for Pre-Med][2]
 
-[Identifying Medical Schools for Your AMCAS Application][3]{:
-style="font-size: 11.5052px;"}
+[Identifying Medical Schools for Your AMCAS Application][3]
 
  
 

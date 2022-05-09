@@ -15,15 +15,13 @@ topic:
 - Wellness
 updated_at: 2020-12-28 20:39:15.000000000 Z
 ---
-<span style="font-family: arial, helvetica, sans-serif; font-size:
-10pt;">This event is only for NIH Intramural Trainees currently in our
+<span>This event is only for NIH Intramural Trainees currently in our
 postbac, graduate student, and postdoc programs.  This session will be
 held online via Zoom and the link will be distributed in NIH Trainee
 Listserv announcements. If you need the link immediately please email
 OITE@nih.gov. </span>
 
-<span style="font-family: arial, helvetica, sans-serif; font-size:
-10pt;">Networking, career planning and job searches take an enormous
+<span>Networking, career planning and job searches take an enormous
 amount of time and energy, with many ups and downs throughout. The
 coronavirus pandemic adds layers of difficulty to this process. When
 folks are in the process, the focus is often on the search itself rather
@@ -35,8 +33,7 @@ or in the final negotiations for a new job, it is always a good time to
 build resilience and self-care skills that will help you successfully
 navigate through periods of transition and change.  </span>
 
-<span style="font-family: arial, helvetica, sans-serif; font-size:
-10pt;">Please join us for a discussion with OITE Wellness Advisor, Kelly
+<span>Please join us for a discussion with OITE Wellness Advisor, Kelly
 Donahue. The discussion group provides a welcoming and confidential
 space to explore positive and proactive ways to build resilience and
 self-care skills.</span>

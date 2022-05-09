@@ -13,7 +13,7 @@ topic:
 - Teaching/Mentoring
 updated_at: 2021-02-01 21:40:22.000000000 Z
 ---
-<span style="font-size: 11.5052px;">Are you interested in learning the
+<span>Are you interested in learning the
 basics of successful teaching? Are you considering a career in
 education? If you answered \'yes\' to either of these questions then
 register for the OITE workshop \"Scientists Teaching Science: An
