@@ -1,6 +1,6 @@
 /* Entry point for your PostCSS build */
 @import "uswds-settings.scss";
-@import "../../../node_modules/uswds/dist/scss/uswds.scss";
+@import "uswds";
 @import "uswds-tweaks.scss";
 @import "video.scss";
 @import "netlify-preview.scss";

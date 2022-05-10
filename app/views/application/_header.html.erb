@@ -13,7 +13,7 @@
     <nav aria-label="<%= t('shared.header.primary') %>" class="usa-nav">
       <div class="usa-nav__inner">
         <button class="usa-nav__close">
-          <%= image_tag "uswds/dist/img/usa-icons/close.svg", role: "img", alt: t('shared.header.close') %>
+          <%= image_tag "@uswds/uswds/dist/img/usa-icons/close.svg", role: "img", alt: t('shared.header.close') %>
         </button>
         <ul class="usa-nav__primary usa-accordion">
           <% menu.items.each_with_index do |item, index| %>
@@ -59,7 +59,7 @@
                 <label class="usa-sr-only" for="query">Enter Search Terms</label>
                 <input type="search" name="query" id="query" autocomplete="off" class="usa-input usagov-search-autocomplete" />
                 <button class="usa-button" type="submit">
-                  <%= image_tag "uswds/dist/img/usa-icons-bg/search--white.svg", class: "usa-search__submit-icon", alt: "Search" %>
+                  <%= image_tag "@uswds/uswds/dist/img/usa-icons-bg/search--white.svg", class: "usa-search__submit-icon", alt: "Search" %>
                 </button>
               </form>
             </section>
