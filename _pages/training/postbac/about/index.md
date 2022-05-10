@@ -1,6 +1,9 @@
 ---
-title: About
+title: About the program
+order: 0
 ---
+
+# Postbac Research Training Program
 
 > Work side-by-side with leading scientists in an environment devoted to biomedical research
 

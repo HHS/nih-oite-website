@@ -106,6 +106,6 @@ class Page
   end
 
   def sidebar_blocks
-    sidebar.map { |b| ContentBlock.find_by_path(b["block"]) } if has_sidebar?
+    sidebar.map { |b| ContentBlock.find_by_path(b["block"]) }
   end
 end

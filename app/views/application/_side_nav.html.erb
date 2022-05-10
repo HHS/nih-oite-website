@@ -1,37 +1,20 @@
-<nav aria-label="Side navigation">
-  <ul class="usa-sidenav">
-    <% @side_nav_items.each do |item| %>
-      <li class="usa-sidenav__item">
-        <a href="<%= item.path %>" class="<%= "usa-current" if item.is_for_page_or_ancestor?(@page) %>"><%= item.text %></a>
-        <% if item.is_for_page_or_ancestor? @page %>
-          <ul class="usa-sidenav__sublist">
-          <% item.children.each do |child| %>
-            <li class="usa-sidenav__item <%= "usa-current" if child.is_for_page?(@page) %>">
-              <a href="<%= child.path %>"><%= child.text %></a>
-            </li>
+<% if @side_nav_items.length > 0 %>
+  <nav aria-label="Side navigation">
+    <ul class="usa-sidenav">
+      <% @side_nav_items.each do |item| %>
+        <li class="usa-sidenav__item">
+          <a href="<%= item.path %>" class="<%= "usa-current" if item.is_for_page_or_ancestor?(@page) %>"><%= item.text %></a>
+          <% if item.is_for_page_or_ancestor? @page %>
+            <ul class="usa-sidenav__sublist">
+            <% item.children.each do |child| %>
+              <li class="usa-sidenav__item <%= "usa-current" if child.is_for_page?(@page) %>">
+                <a href="<%= child.path %>"><%= child.text %></a>
+              </li>
+            <% end %>
+            </ul>
           <% end %>
-          </ul>
-        <% end %>
-      </li>
-    <% end %>
-    <!--
-    <li class="usa-sidenav__item">
-      <a href="javascript:void(0);" class="usa-current">Current page</a>
-      <ul class="usa-sidenav__sublist">
-        <li class="usa-sidenav__item">
-          <a href="javascript:void(0);">Child link</a>
         </li>
-        <li class="usa-sidenav__item">
-          <a href="javascript:void(0);">Child link</a>
-        </li>
-        <li class="usa-sidenav__item">
-          <a href="javascript:void(0);" class="usa-current">Child link</a>
-        </li>
-      </ul>
-    </li>
-    <li class="usa-sidenav__item">
-      <a href="javascript:void(0);">Parent link</a>
-    </li>
-    -->
-  </ul>
-</nav>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>

@@ -22,6 +22,8 @@ class PagesController < ApplicationController
 
     @side_nav_items = Menu.build_side_nav @pages, @page
 
+    @show_sidebar = @page.has_sidebar? || @side_nav_items.length > 0
+
     if @page.obsolete?
       redirect_to content_page_path(path: @page.redirect_page)
       return

@@ -1,7 +1,5 @@
 <div class="grid-row grid-gap">
   <div class="grid-col-12">
-    <h1><%= @page.title %></h1>
-
     <% if @page.expired? %>
       <div class="usa-alert usa-alert--warning">
         <div class="usa-alert__body">
@@ -15,20 +13,21 @@
   </div>
 </div>
 
-<%= render "application/side_nav" %>
-
 <div class="grid-row grid-gap">
-  <div class="grid-col-<%= @page.has_sidebar? ? "8" : "12" %>">
-    <%= @page.rendered_content %>
-  </div>
+    <% if @show_sidebar %>
+      <aside class="grid-col-4">
+        <%= render "application/side_nav" %>
 
-  <% if @page.has_sidebar? %>
-    <div class="grid-col-4 nih-sidebar">
-      <% @page.sidebar_blocks.each do |block| %>
-        <div>
-          <%= block.rendered_content %>
-        </div>
+        <% @page.sidebar_blocks.each do |block| %>
+          <div class="sidebar-block">
+            <%= block.rendered_content %>
+          </div>
+        <% end %>
+      </aside>
       <% end %>
-    </div>
-  <% end %>
+
+  <main class="grid-col-<%= if @show_sidebar then 8 else 12 end %> usa-prose">
+    <%= @page.rendered_content %>
+  </main>
+
 </div>
