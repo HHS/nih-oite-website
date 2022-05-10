@@ -1,3 +1,4 @@
+require_relative "extensions/columns"
 require_relative "extensions/content_block"
 require_relative "extensions/video"
 

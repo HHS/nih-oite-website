@@ -19,7 +19,7 @@ module CustomParserExtensions
         "class" => "video video--error"
       },
       category: :block,
-      content_model: :raw,
+      content_model: :block,
       location: line
     )
     add_text "Invalid video URL: #{url}", div

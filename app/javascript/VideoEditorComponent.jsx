@@ -1,5 +1,5 @@
 import React from "react";
-import createKramdownExtensionEditorComponent from "./kramdown";
+import { createKramdownExtensionEditorComponent } from "./kramdown";
 
 const VIDEO_TYPES = [
   {
