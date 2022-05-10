@@ -24,7 +24,7 @@ class Page
   end
 
   # constructs a hierarchy of Page objects from the filesystem at <dir>.
-  def self.build_hierarchy(dir, parent_path = "", base: nil)
+  def self.build_hierarchy(dir = Rails.root.join("_pages"), parent_path = "", base: nil)
     dir = Pathname(dir)
     parent_path = Pathname(parent_path)
     base ||= dir
@@ -51,6 +51,7 @@ class Page
     if index_md
       index = find_by_path parent_path.join(index_md), base: base, try_index: false
       index.children = children
+      children.each { |child| child.parent = index }
       pages.push index
     else
       pages.push(*children)
@@ -59,8 +60,10 @@ class Page
 
   attr_reader :filename, :base
   attr_writer :children
+  attr_accessor :parent
   has_field :expires_at, :title, :redirect_to
   has_field :sidebar, default: []
+  has_field :order, default: 0
 
   def initialize(full_path, base:)
     @filename = if full_path.basename(".md").to_s == "index"
