@@ -174,8 +174,7 @@ describe("Kramdown extension lexer", () => {
   ];
 
   tests.forEach(({ input, expected }) => {
-    // eslint-disable-next-line
-    test(input, () => {
+    test(`lexing '${input}'`, () => {
       const actual = lex(input);
       expect(actual).toStrictEqual(expected);
     });
