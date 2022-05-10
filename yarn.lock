@@ -1018,10 +1018,9 @@
     sass "^1.49.7"
     source-map "~0.7.3"
 
-"@csstools/sass-import-resolve@^1.0.0":
+"@csstools/sass-import-resolve@^1.0.0", "@csstools/sass-import-resolve@https://github.com/rahearn/sass-import-resolve":
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@csstools/sass-import-resolve/-/sass-import-resolve-1.0.0.tgz#32c3cdb2f7af3cd8f0dca357b592e7271f3831b5"
-  integrity sha512-pH4KCsbtBLLe7eqUrw8brcuFO8IZlN36JjdKlOublibVdAIPHCzEnpBWOVUXK5sCf+DpBi8ZtuWtjF0srybdeA==
+  resolved "https://github.com/rahearn/sass-import-resolve#e2414ce43a3330cd8f2ea208e19a1a872b6153ff"
 
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.7"
@@ -1801,6 +1800,17 @@
   dependencies:
     "@typescript-eslint/types" "5.23.0"
     eslint-visitor-keys "^3.0.0"
+
+"@uswds/uswds@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@uswds/uswds/-/uswds-3.0.1.tgz#3aa3ebc813c9f8cbd0b628259a1139e243360bef"
+  integrity sha512-O2WHvWjKJwy10UJV9srimCBFMHenvnWDtP3LelMpTCV2AxgO1j/zYPn2SWpK116X/SuiIZk9hycbBroJQ6eH4w==
+  dependencies:
+    classlist-polyfill "1.0.3"
+    domready "1.0.8"
+    object-assign "4.1.1"
+    receptor "1.0.0"
+    resolve-id-refs "0.1.0"
 
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
@@ -8512,17 +8522,6 @@ use-latest@^1.0.0:
   integrity sha512-xA+AVm/Wlg3e2P/JiItTziwS7FK92LWrDB0p+hgXloIMuVCeJJ8v6f0eeHyPZaJrM+usM1FkFfbNCrJGs8A/zw==
   dependencies:
     use-isomorphic-layout-effect "^1.1.1"
-
-uswds@^2.13.1:
-  version "2.13.3"
-  resolved "https://registry.yarnpkg.com/uswds/-/uswds-2.13.3.tgz#f2a0623b496941ff30ad3a0ea1610407d35a6b14"
-  integrity sha512-qCblljeaRvS3+PrSxoHqQwmMnp746+Y1YZA34BkTzJknvo2bhhdzGE21yJaInumzIqV3glLD13TFdRwrwikMMQ==
-  dependencies:
-    classlist-polyfill "1.0.3"
-    domready "1.0.8"
-    object-assign "4.1.1"
-    receptor "1.0.0"
-    resolve-id-refs "0.1.0"
 
 utf8-byte-length@^1.0.1:
   version "1.0.4"
