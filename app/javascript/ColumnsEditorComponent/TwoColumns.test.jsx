@@ -7,15 +7,15 @@ describe("TwoColumns", () => {
   const TwoColumns = createColumnsComponent({
     label: "Two Columns",
     columns: [
-      { name: "left", span: 8 },
-      { name: "right", span: 4 },
+      { name: "left", span: 6 },
+      { name: "right", span: 6 },
     ],
   });
 
   const example = `
 Here is some preamble text
 
-{::columns span="8,4"}
+{::columns span="6,6"}
 {::column}
 Here is the left column content
 It is spread across multiple lines.
@@ -46,7 +46,7 @@ Here is the right column content
       const actual = TwoColumns.toBlock(data);
       expect(actual).toStrictEqual(
         `
-{::columns span="8,4"}
+{::columns span="6,6"}
 {::column}
 Here is the left column content
 It is spread across multiple lines.
