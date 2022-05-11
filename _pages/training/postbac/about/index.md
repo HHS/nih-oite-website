@@ -1,5 +1,6 @@
 ---
 title: About the program
+public: true
 order: 0
 ---
 
