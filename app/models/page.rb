@@ -30,7 +30,6 @@ class Page
     base ||= dir
 
     children = []
-    md_files = []
     index_md = nil
 
     Dir.each_child(dir).sort.each do |f|
@@ -41,21 +40,21 @@ class Page
         children.push(*c)
       elsif f == "index.md"
         index_md = f
-      elsif f.ends_with? ".md"
-        md_files.push(f)
       end
     end
-
-    pages = md_files.map { |f| find_by_path parent_path.join(f), base: base, try_index: false }
 
     if index_md
       index = find_by_path parent_path.join(index_md), base: base, try_index: false
       index.children = children
       children.each { |child| child.parent = index }
-      pages.push index
+      [index]
     else
-      pages.push(*children)
+      children
     end
+  end
+
+  def self.normalize_path(path)
+    "/#{path.gsub(/^\/+/, "")}"
   end
 
   attr_reader :filename, :base
@@ -71,6 +70,7 @@ class Page
     else
       full_path
     end.relative_path_from(base)
+
     @base = base
     @parsed_file = FrontMatterParser::Parser.parse_file(full_path, loader: yaml_loader)
   end

@@ -41,16 +41,16 @@ RSpec.describe Page, type: :model do
 
       expect(h.length).to eql(4)
 
-      expect(h[0].title).to eql("Root File")
-      expect(h[1].title).to eql("Events")
-      expect(h[2].title).to eql("Page One")
-      expect(h[3].title).to eql("Page Two")
+      expect(h[0].title).to eql("Events")
+      expect(h[1].title).to eql("Page One")
+      expect(h[2].title).to eql("Page Two")
+      expect(h[3].title).to eql("Private Page")
 
-      expect(h[2].children.length).to eql(1)
-      expect(h[3].children.length).to eql(0)
+      expect(h[1].children.length).to eql(1)
+      expect(h[2].children.length).to eql(0)
 
-      expect(h[2].children[0].title).to eql("Child One")
-      expect(h[2].children[0].children[0].title).to eql("Child Two")
+      expect(h[1].children[0].title).to eql("Child One")
+      expect(h[1].children[0].children[0].title).to eql("Child Two")
     end
   end
 
