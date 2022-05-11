@@ -6,6 +6,7 @@ class Menu
     attr_reader :page, :text
     delegate :public?, to: :page
     delegate :order, to: :page
+    delegate :filename, to: :page
 
     def initialize(page, text = nil, include_children = false)
       @page = page
@@ -26,10 +27,8 @@ class Menu
     end
 
     def is_for_page?(page)
-      page_path = (page.is_a?(Page) ? page.filename : page.to_s)
-        .sub(/^\/+/, "")
-      page_path = "/#{page_path}"
-      path == page_path
+      page_path = Page.normalize_path(page.is_a?(Page) ? page.filename.to_s : page.to_s)
+      Page.normalize_path(filename.to_s) == page_path
     end
 
     # Does this menu item represent the given page or one of its ancestors?
@@ -55,18 +54,16 @@ class Menu
     def has_children?
       include_children? && page.has_children?
     end
-
-    def path
-      "/#{page.filename.to_s.sub(/^\/+/, "")}"
-    end
   end
 
   def self.load(file, pages)
     data = YAML.safe_load File.read(file), permitted_classes: [Time], fallback: {}
     items = (data["items"] || []).map { |i|
-      page = Page.find_by_slug(i["page"], pages)
-      if page
+      begin
+        page = Page.find_by_slug(i["page"], pages)
         Item.new(page, i["text"], i["include_children"])
+      rescue Page::NotFound
+        nil
       end
     }
 

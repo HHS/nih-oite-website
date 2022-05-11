@@ -14,20 +14,16 @@ class PagesController < ApplicationController
   def page
     @pages = Page.build_hierarchy
 
-    @page = find_by_path params[:path], @pages
-
-    if @page.nil?
-      raise ActionController::RoutingError.new("Not Found")
-    end
-
-    @side_nav_items = Menu.build_side_nav @pages, @page
-
-    @show_sidebar = @page.has_sidebar? || @side_nav_items.length > 0
+    @page = Page.find_by_path params[:path], hierarchy: @pages
 
     if @page.obsolete?
       redirect_to content_page_path(path: @page.redirect_page)
       return
     end
+
+    @side_nav_items = Menu.build_side_nav @pages, @page
+
+    @show_sidebar = @page.has_sidebar? || @side_nav_items.length > 0
 
     if @page.public? || user_signed_in?
       render formats: :html
@@ -35,6 +31,8 @@ class PagesController < ApplicationController
       store_location_for(:user, "/#{params[:path]}")
       redirect_to root_path
     end
+  rescue Page::NotFound
+    raise ActionController::RoutingError.new("Not Found")
   end
 
   def sitemap
@@ -60,14 +58,5 @@ class PagesController < ApplicationController
   rescue Pundit::NotAuthorizedError
     store_location_for(:user, "/admin/")
     redirect_to root_path
-  end
-
-  def find_by_path(path, pages)
-    pages.each { |page|
-      return page if page.filename.to_s == path
-      child = find_by_path path, page.children
-      return child unless child.nil?
-    }
-    nil
   end
 end
