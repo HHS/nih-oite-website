@@ -12,7 +12,7 @@ guide for an introduction to the framework.
 
 * Get `config/master.key` from Ryan
 * Install Ruby 3.0.3
-* Install NodeJS 16.13.1
+* Install NodeJS 16.14.2
 * Install PostgreSQL: `brew install postgresql`
   * Add postgres to your PATH if it wasn't done automatically
   `echo 'export PATH="/usr/local/opt/postgresql/bin:$PATH"' >> ~/.zshrc`
