@@ -92,12 +92,12 @@
                 <div class="usa-prose p-summary">
                   <%= event.rendered_content%>
                 </div>
-                <div class="oite-event__tags margin-y-1">
+                <div class="oite-event__tags">
                   <% event.audience.each do |audience| %>
-                    <%= link_to audience, events_path(audience: [audience]), class: "usa-button usa-button--accent-cool text-bold text-uppercase font-ui-3xs margin-1" %>
+                    <%= link_to audience, events_path(audience: [audience]), class: "usa-button usa-button--accent-cool text-uppercase font-ui-3xs margin-y-05" %>
                   <% end %>
                   <% event.topic.each do |topic| %>
-                    <%= link_to topic, events_path(topic: [topic]), class: "usa-button usa-button--accent-cool text-bold text-uppercase font-ui-3xs margin-1" %>
+                    <%= link_to topic, events_path(topic: [topic]), class: "usa-button usa-button--accent-cool text-uppercase font-ui-3xs margin-y-05" %>
                   <% end %>
                 </div>
               </div>

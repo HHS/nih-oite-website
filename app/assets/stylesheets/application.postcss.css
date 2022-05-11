@@ -1,18 +1,7 @@
 /* Entry point for your PostCSS build */
-@import "uswds-settings.scss";
-@import "../../../node_modules/uswds/dist/scss/uswds.scss";
-@import "uswds-tweaks.scss";
-@import "video.scss";
-@import "netlify-preview.scss";
-
-.nih-sidebar {
-  border: 1px solid color("primary");
-
-  & > div {
-    border-bottom: 1px solid color("gray-50");
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-}
+@forward "uswds-settings.scss";
+@forward "uswds-components.scss";
+// NIH OITE styles
+@forward "sidebar.scss";
+@forward "video.scss";
+@forward "netlify-preview.scss";

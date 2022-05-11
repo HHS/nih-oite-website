@@ -1,7 +1,9 @@
 module.exports = {
-  syntax: 'postcss-scss',
+  syntax: "postcss-scss",
   plugins: [
-    require('@csstools/postcss-sass'),
-    require('autoprefixer'),
+    require("@csstools/postcss-sass")({
+      includePaths: ["./node_modules/@uswds/uswds/packages"],
+    }),
+    require("autoprefixer"),
   ],
-}
+};

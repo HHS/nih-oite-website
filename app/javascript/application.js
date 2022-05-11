@@ -1,6 +1,6 @@
 // Entry point for the build script in your package.json
 
-import "uswds";
+import "@uswds/uswds";
 
 // Auto-submit forms on element clicks
 document.addEventListener("click", (evt) => {
