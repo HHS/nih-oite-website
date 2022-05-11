@@ -1,0 +1,13 @@
+@use "uswds-core" as *;
+
+.nih-sidebar {
+  border: 1px solid color("primary");
+
+  & > div {
+    border-bottom: 1px solid color("gray-50");
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
