@@ -26,7 +26,6 @@ module.exports = {
       ],
     },
     production: {
-      only: ["src"],
       plugins: [
         [
           "transform-react-remove-prop-types",

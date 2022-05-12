@@ -28,10 +28,10 @@ Boundary(aws, "AWS GovCloud") {
         System_Ext(cloudgov_router, "<&layers> cloud.gov routers", "Cloud Foundry traffic service")
         Boundary(atob, "ATO boundary") {
             System_Boundary(inventory, "Application") {
-                Container(app, "<&layers> NIH OITE Experiments", "Ruby 3.0.3, Rails 7.0.2.3", "OITE Website")
+                Container(app, "<&layers> NIH OITE Experiments", "Ruby 3.1.1, Rails 7.0.3", "OITE Website")
                 ContainerDb(app_db, "Application DB", "AWS RDS (PostgreSQL)", "Primary data storage")
                 Container(gateway, "Git Gateway", "Proxy app to make calls to github api")
-                ' Container(worker, "<&layers> Sidekiq workers", "Ruby 3.0.3, Sidekiq", "Perform background work and data processing")
+                ' Container(worker, "<&layers> Sidekiq workers", "Ruby 3.1.1, Sidekiq", "Perform background work and data processing")
                 ' ContainerDb(redis, "Redis Database", "AWS ElastiCache (Redis)", "Background job queue")
             }
         }
