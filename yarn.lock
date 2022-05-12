@@ -2966,6 +2966,11 @@ csscolorparser@~1.0.2:
   resolved "https://registry.yarnpkg.com/csscolorparser/-/csscolorparser-1.0.3.tgz#b34f391eea4da8f3e98231e2ccd8df9c041f171b"
   integrity sha1-s085HupNqPPpgjHizNjfnAQfFxs=
 
+cssesc@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
+  integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+
 cssom@^0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/cssom/-/cssom-0.4.4.tgz#5a66cf93d2d0b661d80bf6a44fb65f5c2e4e0a10"
@@ -6588,6 +6593,14 @@ postcss-load-config@^3.0.0:
     lilconfig "^2.0.5"
     yaml "^1.10.2"
 
+postcss-minify@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-minify/-/postcss-minify-1.1.0.tgz#3b1bf92c27c7503ccd8d9c7db9e4272b97c099f2"
+  integrity sha512-9D64ueIW0DL2FdLajQTlXrnTN8Ox9NjuXqigKMmB819RhdClNPYx5Zp3i5x0ghjjy3vGrLBBYEYvJjY/1eMNbw==
+  dependencies:
+    postcss-selector-parser "^6.0"
+    postcss-value-parser "^4.1"
+
 postcss-reporter@^7.0.0:
   version "7.0.5"
   resolved "https://registry.yarnpkg.com/postcss-reporter/-/postcss-reporter-7.0.5.tgz#e55bd0fdf8d17e4f25fb55e9143fcd79349a2ceb"
@@ -6601,7 +6614,15 @@ postcss-scss@^4.0.3:
   resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-4.0.4.tgz#aa8f60e19ee18259bc193db9e4b96edfce3f3b1f"
   integrity sha512-aBBbVyzA8b3hUL0MGrpydxxXKXFZc5Eqva0Q3V9qsBOLEMsjb6w49WfpsoWzpEgcqJGW4t7Rio8WXVU9Gd8vWg==
 
-postcss-value-parser@^4.2.0:
+postcss-selector-parser@^6.0:
+  version "6.0.10"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz#79b61e2c0d1bfc2602d549e11d0876256f8df88d"
+  integrity sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==
+  dependencies:
+    cssesc "^3.0.0"
+    util-deprecate "^1.0.2"
+
+postcss-value-parser@^4.1, postcss-value-parser@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
@@ -8528,7 +8549,7 @@ utf8-byte-length@^1.0.1:
   resolved "https://registry.yarnpkg.com/utf8-byte-length/-/utf8-byte-length-1.0.4.tgz#f45f150c4c66eee968186505ab93fcbb8ad6bf61"
   integrity sha1-9F8VDExm7uloGGUFq5P8u4rWv2E=
 
-util-deprecate@^1.0.1:
+util-deprecate@^1.0.1, util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
