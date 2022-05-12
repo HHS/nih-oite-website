@@ -7,7 +7,7 @@
           <% if item.is_for_page_or_ancestor? @page %>
             <ul class="usa-sidenav__sublist">
             <% item.children.each do |child| %>
-              <li class="usa-sidenav__item <%= "usa-current" if child.is_for_page?(@page) %>">
+              <li class="usa-sidenav__item <%= "usa-current" if child.is_for_page_or_descendant?(@page) %>">
                 <a href="<%= content_page_path child.filename %>"><%= child.text %></a>
               </li>
             <% end %>

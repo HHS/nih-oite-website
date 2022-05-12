@@ -27,18 +27,20 @@ class Menu
     end
 
     def is_for_page?(page)
-      page_path = Page.normalize_path(page.is_a?(Page) ? page.filename.to_s : page.to_s)
+      return false if page.nil?
+      page_path = Page.normalize_path(page.filename.to_s)
       Page.normalize_path(filename.to_s) == page_path
     end
 
-    # Does this menu item represent the given page or one of its ancestors?
     def is_for_page_or_ancestor?(page)
-      until page.nil?
-        return true if is_for_page?(page)
-        page = page.parent
-      end
+      is_for_page?(page) || (!page.nil? && is_for_page_or_ancestor?(page.parent))
+    end
 
-      false
+    # Does this menu item represent the given page or one of its children, grandchildren, etc.?
+    def is_for_page_or_descendant?(page)
+      return false if page.nil?
+      return true if is_for_page?(page)
+      page.children.any? { |child| is_for_page_or_descendant?(child) }
     end
 
     def children
