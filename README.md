@@ -11,7 +11,7 @@ guide for an introduction to the framework.
 ### Local Setup
 
 * Get `config/master.key` from Ryan
-* Install Ruby 3.0.3
+* Install Ruby 3.1.1
 * Install NodeJS 16.14.2
 * Install PostgreSQL: `brew install postgresql`
   * Add postgres to your PATH if it wasn't done automatically

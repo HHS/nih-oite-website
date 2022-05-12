@@ -11,7 +11,7 @@ class Footer
   attr_reader :data
 
   def self.load(file = Rails.root.join("_settings", "footer.yml"))
-    data = YAML.safe_load File.read(file), [Time], fallback: {}
+    data = YAML.safe_load File.read(file), permitted_classes: [Time], fallback: {}
     new data
   end
 
