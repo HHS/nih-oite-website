@@ -78,15 +78,12 @@ class Menu
     side_nav_pages = if current_page.parent.nil?
       # We are at one of the top-level pages in the navigation hierarchy
       # We'll use that as our navigation root.
-      puts "using current page children"
       current_page.children
     elsif current_page.parent.parent.nil?
       # We're one level deep in the navigation hierarchy
       # We will use this page + our siblings
-      puts "using current page siblings"
       current_page.parent.children
     else
-      puts "using current page parent's siblings"
       current_page.parent.parent.children
     end
 
