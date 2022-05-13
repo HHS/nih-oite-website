@@ -2,23 +2,44 @@
   // Point the asset pipline to the correct locations
   $theme-font-path: "@uswds/uswds/dist/fonts",
   $theme-image-path: "@uswds/uswds/dist/img",
-
   $theme-show-notifications: false,
 
-  // Put your USWDS Theme settings here
-  $output-these-utilities:
-    (
-      "background-color",
-      "color",
-      "display",
-      "font",
-      "font-style",
-      "line-height",
-      "margin",
-      "margin-horizontal",
-      "margin-vertical",
-      "padding",
-      "text-align",
-      "text-transform"
-    )
+  $theme-global-content-styles: true,
+
+  // Sizing
+  $theme-footer-max-width: "desktop-lg",
+  $theme-grid-container-max-width: "desktop-lg",
+  $theme-header-max-width: "desktop-lg",
+
+  // Colors
+  $theme-color-primary: "cyan-50",
+  $theme-color-primary-darker: "cyan-70",
+  $theme-text-color: "gray-cool-80",
+
+  // Font settings
+  $theme-font-type-cond: false,
+  $theme-font-type-icon: false,
+  $theme-font-type-lang: false,
+  $theme-font-type-mono: "roboto-mono",
+  $theme-font-type-sans: "helvetica",
+  $theme-font-type-serif: "merriweather",
+  $theme-font-role-heading: "sans",
+
+  // Card
+  $theme-card-border-radius: 0,
+
+  $output-these-utilities: (
+    "background-color",
+    "color",
+    "display",
+    "font",
+    "font-style",
+    "line-height",
+    "margin",
+    "margin-horizontal",
+    "margin-vertical",
+    "padding",
+    "text-align",
+    "text-transform"
+  )
 );

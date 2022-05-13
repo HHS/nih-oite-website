@@ -2,5 +2,7 @@
 @forward "uswds-settings.scss";
 @forward "uswds-components.scss";
 // NIH OITE styles
+@forward "hr.scss";
+@forward "typeography.scss";
 @forward "video.scss";
 @forward "netlify-preview.scss";

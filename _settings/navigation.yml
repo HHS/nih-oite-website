@@ -5,9 +5,13 @@ items:
     include_children: false
   - page: training/index
     include_children: false
+  - page: career-services/index
+    include_children: false
   - page: wellness/index
-    include_children: true
+    include_children: false
   - page: events/index
     include_children: false
-  - page: contact/index
+  - page: news/index
+    include_children: false
+  - page: about/index
     include_children: false

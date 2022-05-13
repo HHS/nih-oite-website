@@ -1,5 +1,5 @@
 ---
-title: NIH training programs
+title: News
 access:
   public: true
 ---
