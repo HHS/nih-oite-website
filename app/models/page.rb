@@ -67,7 +67,7 @@ class Page
   attr_writer :children
   attr_accessor :parent
   has_field :expires_at, through: :lifecycle
-  has_field :public, through: :access, default: false
+  has_field :public?, through: :access, default: false
   has_field :title, :redirect_to
   has_field :sidebar, default: []
 

@@ -43,7 +43,9 @@ module NetlifyContent
             return default unless container
           end
 
-          container[field_name.to_s] || default
+          field_name = field_name.to_s.sub "?", ""
+
+          container[field_name] || default
         end
       end
     end
