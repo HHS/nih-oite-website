@@ -83,27 +83,31 @@ collections:
       - {name: "updated_at", label: "Last Updated At", hide_preview: true, required: false, widget: "readonly"}
       - {label: "Content Name", name: "name"}
       - {label: "Body", name: "body", widget: "markdown"}
-  - name: page
-    label: "Page"
+  - name: pages
+    label: "Pages"
+    label_singular: Page
     folder: "_pages/"
     create: true
     nested: {depth: 4}
-    meta: {path: {widget: string, label: "Path", index_file: "index"}}
+    meta:
+      path:
+        label: "Path"
+        widget: string
+        index_file: "index"
     fields:
-      - {label: "Title", name: "title"}
-      - {label: "Public", name: "public", widget: "boolean", default: true}
-      - {label: "Expires At", name: "expires_at", widget: "datetime", default: "", required: false}
-      - label: "Replaced By Page"
-        name: "redirect_to"
-        widget: "relation"
+      - label: "Title"
+        name: "title"
+      - label: Content
+        name: body
+        widget: markdown
         required: false
-        collection: "page"
-        search_fields: ["title", "{{slug}}"]
-        value_field: "{{slug}}"
-        display_fields: ["title", "{{slug}}"]
-      - label: "Sidebar contents"
+      - label: "Sidebar items"
         name: "sidebar"
         widget: list
+        label_singular: item
+        label_plural: items
+        hint: |
+          Sidebar items will be displayed below site navigation in the sidebar.
         min: 0
         fields:
           - name: block
@@ -112,7 +116,6 @@ collections:
             search_fields: ["name", "{{slug}}"]
             value_field: "{{slug}}"
             display_fields: ["name"]
-      - {label: "Body", name: "body", widget: "markdown"}
       - label: Navigation
         name: nav
         widget: object
@@ -132,6 +135,37 @@ collections:
               Order in which this item should be sorted in navigation menus.
               Higher numbers sort after lower numbers.
               If two pages have the same Order, they're sorted alphabetically by title.
+      - label: "Lifecycle"
+        name: "lifecycle"
+        widget: object
+        collapsed: true
+        summary: "Expires: {{fields.expires_at | default('never')}}"
+        fields:
+        - label: "Expires At"
+          name: expires_at
+          widget: "datetime"
+          default: ""
+          required: false
+        - label: "Replaced by Page"
+          name: "redirect_to"
+          widget: "relation"
+          required: false
+          collection: "page"
+          search_fields: ["title", "{{slug}}"]
+          value_field: "{{slug}}"
+          display_fields: ["title", "{{slug}}"]
+      - label: "Access control"
+        name: access
+        widget: object
+        collapsed: true
+        summary: "{{fields.public | ternary('Public','Private (visible to logged-in users only)')}}"
+        fields:
+        - label: Public
+          name: public
+          widget: boolean
+          default: true
+          hint: |
+            Public pages are visible to all users. Private pages are only visible to logged-in users.
       - {name: "updated_by", label: "Last Updated By", hide_preview: true, required: false, widget: "readonly"}
       - {name: "updated_at", label: "Last Updated At", hide_preview: false, required: false, widget: "readonly"}
   - name: settings

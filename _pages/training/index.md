@@ -1,4 +1,5 @@
 ---
 title: Training
-public: true
+access:
+  public: true
 ---

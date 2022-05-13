@@ -1,7 +1,9 @@
 ---
 title: "Page One"
-public: true
-expires_at: ""
+access:
+  public: true
+lifecycle:
+  expires_at: ""
 sidebar:
   - block: hours-location/block
 ---

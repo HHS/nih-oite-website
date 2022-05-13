@@ -66,7 +66,9 @@ class Page
   attr_reader :filename, :base
   attr_writer :children
   attr_accessor :parent
-  has_field :expires_at, :title, :redirect_to
+  has_field :expires_at, through: :lifecycle
+  has_field :public, through: :access, default: false
+  has_field :title, :redirect_to
   has_field :sidebar, default: []
 
   def initialize(full_path, base:)
@@ -92,10 +94,6 @@ class Page
     children.any? { |child| child.normalized_path == other_page.normalized_path || child.contains?(other_page) }
   end
 
-  def public?
-    parsed_file["public"]
-  end
-
   def normalized_path
     Page.normalize_path filename
   end
@@ -117,13 +115,19 @@ class Page
   end
 
   def redirect_page
-    if redirect_to.present?
-      @redirect_page ||= self.class.find_by_path(redirect_to, base: base, try_index: false).filename
+    lifecycle = parsed_file["lifecycle"]
+    return nil if lifecycle.nil?
+
+    if lifecycle["redirect_to"].present?
+      @redirect_page ||= self.class.find_by_path(lifecycle["redirect_to"], base: base, try_index: false).filename
     end
   end
 
   def expired?
-    expires_at.present? && expires_at.past?
+    lifecycle = parsed_file["lifecycle"]
+    return false if lifecycle.nil?
+
+    lifecycle["expires_at"].present? && lifecycle["expires_at"].past?
   end
 
   def has_sidebar?
