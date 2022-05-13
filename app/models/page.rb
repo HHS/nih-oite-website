@@ -68,7 +68,6 @@ class Page
   attr_accessor :parent
   has_field :expires_at, :title, :redirect_to
   has_field :sidebar, default: []
-  has_field :order, default: 0
 
   def initialize(full_path, base:)
     @filename = if full_path.basename(".md").to_s == "index"
@@ -95,6 +94,18 @@ class Page
 
   def public?
     parsed_file["public"]
+  end
+
+  def nav_order
+    nav = parsed_file["nav"]
+    return 0 if nav.nil?
+    nav["order"] || 0
+  end
+
+  def nav_title
+    nav = parsed_file["nav"]
+    return nil if nav.nil?
+    nav["title"]
   end
 
   def obsolete?

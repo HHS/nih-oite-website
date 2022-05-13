@@ -1,7 +1,9 @@
 ---
-title: About the program
+title: About the National Institutes of Health (NIH) Postbaccalaureate Research Training Program
 public: true
-order: 0
+nav:
+  title: About
+  order: 0
 ---
 
 # Postbac Research Training Program

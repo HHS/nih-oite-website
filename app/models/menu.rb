@@ -3,14 +3,13 @@ class Menu
   class Item
     include Comparable
 
-    attr_reader :page, :text
+    attr_reader :page
     delegate :public?, to: :page
-    delegate :order, to: :page
     delegate :filename, to: :page
 
     def initialize(page, text = nil, include_children = false)
       @page = page
-      @text = text || page.title
+      @text = text
       @include_children = include_children
     end
 
@@ -55,6 +54,14 @@ class Menu
 
     def has_children?
       include_children? && page.has_children?
+    end
+
+    def order
+      page.nav_order
+    end
+
+    def text
+      @text || page.nav_title || page.title
     end
   end
 

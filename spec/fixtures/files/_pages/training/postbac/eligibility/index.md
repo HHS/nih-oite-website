@@ -1,6 +1,7 @@
 ---
 title: Eligibility
-order: 20
+nav:
+  order: 20
 ---
 
 "Eligibility" page

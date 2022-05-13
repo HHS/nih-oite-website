@@ -1,6 +1,24 @@
 require "rails_helper"
 
 RSpec.describe Menu::Item, type: :model do
+  describe ".text" do
+    it "defaults to page title" do
+      page = double("Page")
+      allow(page).to receive_messages(title: "My page", nav_title: nil)
+
+      item = described_class.new(page)
+      expect(item.text).to eql("My page")
+    end
+
+    it "supports custom nav title" do
+      page = double("Page")
+      allow(page).to receive_messages(title: "My page", nav_title: "Custom nav title")
+
+      item = described_class.new(page)
+      expect(item.text).to eql("Custom nav title")
+    end
+  end
+
   describe "#is_for_page?" do
     let(:parent_page) {
       parent_page = double("Parent")
@@ -154,10 +172,10 @@ RSpec.describe Menu::Item, type: :model do
   describe "<=>" do
     it "compares by order" do
       page_a = double("Page A")
-      allow(page_a).to receive_messages(title: "Page A", order: 20)
+      allow(page_a).to receive_messages(title: "Page A", nav_order: 20)
 
       page_b = double("Page B")
-      allow(page_b).to receive_messages(title: "Page B", order: 10)
+      allow(page_b).to receive_messages(title: "Page B", nav_order: 10)
 
       a = Menu::Item.new(page_a)
       b = Menu::Item.new(page_b)
@@ -168,10 +186,10 @@ RSpec.describe Menu::Item, type: :model do
 
     it "falls back to comparison by title" do
       page_a = double("Page A")
-      allow(page_a).to receive_messages(title: "Page A", order: nil)
+      allow(page_a).to receive_messages(title: "Page A", nav_order: nil)
 
       page_b = double("Page B")
-      allow(page_b).to receive_messages(title: "Page B", order: nil)
+      allow(page_b).to receive_messages(title: "Page B", nav_order: nil)
 
       a = Menu::Item.new(page_a, "Sort me second!")
       b = Menu::Item.new(page_b, "Sort me first!")
@@ -182,10 +200,10 @@ RSpec.describe Menu::Item, type: :model do
 
     it "falls further back to comparison by page title" do
       page_a = double("Page A")
-      allow(page_a).to receive_messages(title: "Sort me second!", order: nil)
+      allow(page_a).to receive_messages(title: "Sort me second!", nav_order: nil, nav_title: nil)
 
       page_b = double("Page B")
-      allow(page_b).to receive_messages(title: "Sort me first!", order: nil)
+      allow(page_b).to receive_messages(title: "Sort me first!", nav_order: nil, nav_title: nil)
 
       a = Menu::Item.new(page_a)
       b = Menu::Item.new(page_b)

@@ -113,6 +113,25 @@ collections:
             value_field: "{{slug}}"
             display_fields: ["name"]
       - {label: "Body", name: "body", widget: "markdown"}
+      - label: Navigation
+        name: nav
+        widget: object
+        summary: "Title: {{fields.title | default('<use page title>')}}, order: {{fields.order | default('0')}}"
+        collapsed: true
+        fields:
+          - name: title
+            label: Title
+            widget: string
+            required: false
+            hint: Title used in navigation menus. If not set, the page title will be used.
+          - name: order
+            label: Order
+            widget: number
+            required: false
+            hint: |
+              Order in which this item should be sorted in navigation menus.
+              Higher numbers sort after lower numbers.
+              If two pages have the same Order, they're sorted alphabetically by title.
       - {name: "updated_by", label: "Last Updated By", hide_preview: true, required: false, widget: "readonly"}
       - {name: "updated_at", label: "Last Updated At", hide_preview: false, required: false, widget: "readonly"}
   - name: settings
