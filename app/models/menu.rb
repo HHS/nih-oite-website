@@ -73,19 +73,27 @@ class Menu
   end
 
   def self.build_side_nav(pages, current_page)
+    return [] if current_page.nil?
+
     side_nav_pages = if current_page.parent.nil?
       # We are at one of the top-level pages in the navigation hierarchy
       # We'll use that as our navigation root.
+      puts "using current page children"
       current_page.children
     elsif current_page.parent.parent.nil?
       # We're one level deep in the navigation hierarchy
       # We will use this page + our siblings
+      puts "using current page siblings"
       current_page.parent.children
     else
+      puts "using current page parent's siblings"
       current_page.parent.parent.children
     end
 
-    side_nav_pages.map { |page| Item.new(page, nil, true) }
+    side_nav_pages.map { |page|
+      include_children = page.filename == current_page.filename || page.contains(current_page)
+      Item.new(page, nil, include_children)
+    }
   end
 
   attr_reader :items
