@@ -18,7 +18,8 @@ Here is some preamble text
 {::columns span="6,6"}
 {::column}
 Here is the left column content
-It is spread across multiple lines.
+{::video url="https://www.youtube.com/watch?v=SAK117AmzSE" /}
+(That was a video)
 {:/column}
 {::column}
 Here is the right column content
@@ -32,7 +33,7 @@ Here is the right column content
       expect(m).toBeTruthy();
       const data = TwoColumns.fromBlock(m);
       expect(data).toStrictEqual({
-        left: "\nHere is the left column content\nIt is spread across multiple lines.\n",
+        left: '\nHere is the left column content\n{::video url="https://www.youtube.com/watch?v=SAK117AmzSE"/}\n(That was a video)\n',
         right: "\nHere is the right column content\n",
       });
     });

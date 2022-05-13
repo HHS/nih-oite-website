@@ -23,7 +23,7 @@ export function serializeKramdownExtensionNodes(nodes) {
         return node;
       }
       const attributes = node.attributes
-        .map(({ name, value }) => `${name}="${escape(value)}"`)
+        .map(({ name, value }) => `${name}="${escapeForAttribute(value)}"`)
         .join(" ");
       const startOpen = `{::${node.name}${
         attributes === "" ? "" : " "
