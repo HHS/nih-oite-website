@@ -50,3 +50,5 @@ spec/examples.txt
 secrets.auto.tfvars
 terraform.tfstate
 terraform.tfstate.backup
+
+.DS_Store
