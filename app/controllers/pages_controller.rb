@@ -21,18 +21,16 @@ class PagesController < ApplicationController
       return
     end
 
-    @side_nav_items = Menu.build_side_nav @pages, @page
-
-    @show_sidebar = @page.has_sidebar? || @side_nav_items.length > 0
-
     if @page.public? || user_signed_in?
+      @side_nav_items = Menu.build_side_nav @pages, @page
+
+      @show_sidebar = @page.has_sidebar? || @side_nav_items.length > 0
+
       render formats: :html
     else
       store_location_for(:user, "/#{params[:path]}")
       redirect_to root_path
     end
-  rescue Page::NotFound
-    raise ActionController::RoutingError.new("Not Found")
   end
 
   def sitemap

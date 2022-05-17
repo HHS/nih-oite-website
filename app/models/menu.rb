@@ -6,6 +6,7 @@ class Menu
     attr_reader :page
     delegate :public?, to: :page
     delegate :filename, to: :page
+    delegate :normalized_path, to: :page
 
     def initialize(page, text = nil, include_children = false)
       @page = page
@@ -26,9 +27,7 @@ class Menu
     end
 
     def is_for_page?(page)
-      return false if page.nil?
-      page_path = Page.normalize_path(page.filename.to_s)
-      Page.normalize_path(filename.to_s) == page_path
+      !page.nil? && page.normalized_path == normalized_path
     end
 
     def is_for_page_or_ancestor?(page)

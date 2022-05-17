@@ -21,27 +21,19 @@ RSpec.describe Menu::Item, type: :model do
 
   describe "#is_for_page?" do
     let(:parent_page) {
-      parent_page = double("Parent")
-      allow(parent_page).to receive_messages(title: "Parent page", filename: "/parent")
-      parent_page
+      double(title: "Parent page", normalized_path: "/parent")
     }
 
     let(:page) {
-      page = double("Page")
-      allow(page).to receive_messages(title: "Page", filename: "/parent/page", parent: parent_page)
-      page
+      double(title: "Page", normalized_path: "/parent/page", parent: parent_page)
     }
 
     let(:child_page) {
-      child_page = double("Child")
-      allow(child_page).to receive_messages(title: "Child page", filename: "/parent/page/child", parent: page)
-      child_page
+      double(title: "Child page", normalized_path: "/parent/page/child", parent: page)
     }
 
     let(:unrelated_page) {
-      unrelated_page = double("Unrelated page")
-      allow(unrelated_page).to receive_messages(title: "Unrelated page", filename: "/unrelated/page")
-      unrelated_page
+      double(title: "Unrelated page", normalized_path: "/unrelated/page")
     }
 
     subject {
@@ -71,27 +63,19 @@ RSpec.describe Menu::Item, type: :model do
 
   describe "#is_for_page_or_ancestor?" do
     let(:parent_page) {
-      parent_page = double("Parent")
-      allow(parent_page).to receive_messages(title: "Parent page", filename: Pathname.new("/parent"), parent: nil)
-      parent_page
+      double(title: "Parent page", normalized_path: "/parent", parent: nil)
     }
 
     let(:page) {
-      page = double("Page")
-      allow(page).to receive_messages(title: "Page", filename: Pathname.new("/parent/page"), parent: parent_page)
-      page
+      double(title: "Page", normalized_path: "/parent/page", parent: parent_page)
     }
 
     let(:child_page) {
-      child_page = double("Child")
-      allow(child_page).to receive_messages(title: "Child page", filename: Pathname.new("/parent/page/child"), parent: page)
-      child_page
+      double(title: "Child page", normalized_path: "/parent/page/child", parent: page)
     }
 
     let(:unrelated_page) {
-      unrelated_page = double("Unrelated page")
-      allow(unrelated_page).to receive_messages(title: "Unrelated page", filename: Pathname.new("/unrelated/page"), parent: nil)
-      unrelated_page
+      double(title: "Unrelated page", normalized_path: "/unrelated/page", parent: nil)
     }
 
     subject {
@@ -122,25 +106,25 @@ RSpec.describe Menu::Item, type: :model do
   describe "#is_for_page_or_descendant?" do
     let(:child_page) {
       child_page = double("Child")
-      allow(child_page).to receive_messages(title: "Child page", filename: "/parent/page/child", children: [])
+      allow(child_page).to receive_messages(title: "Child page", normalized_path: "/parent/page/child", children: [])
       child_page
     }
 
     let(:page) {
       page = double("Page")
-      allow(page).to receive_messages(title: "Page", filename: "/parent/page", children: [child_page])
+      allow(page).to receive_messages(title: "Page", normalized_path: "/parent/page", children: [child_page])
       page
     }
 
     let(:parent_page) {
       parent_page = double("Parent")
-      allow(parent_page).to receive_messages(title: "Parent page", filename: "/parent", children: [page])
+      allow(parent_page).to receive_messages(title: "Parent page", normalized_path: "/parent", children: [page])
       parent_page
     }
 
     let(:unrelated_page) {
       unrelated_page = double("Unrelated page")
-      allow(unrelated_page).to receive_messages(title: "Unrelated page", filename: "/unrelated/page", children: [])
+      allow(unrelated_page).to receive_messages(title: "Unrelated page", normalized_path: "/unrelated/page", children: [])
       unrelated_page
     }
 

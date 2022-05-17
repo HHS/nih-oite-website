@@ -60,7 +60,7 @@ class Page
   end
 
   def self.normalize_path(path)
-    "/#{path.gsub(/^\/+/, "")}"
+    "/#{path.to_s.gsub(/^\/+/, "")}"
   end
 
   attr_reader :filename, :base
@@ -94,6 +94,10 @@ class Page
 
   def public?
     parsed_file["public"]
+  end
+
+  def normalized_path
+    Page.normalize_path filename
   end
 
   def nav_order
