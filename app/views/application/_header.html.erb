@@ -25,12 +25,12 @@
                   <ul id="extended-nav-section-<%= index %>" class="usa-nav__submenu" hidden="">
                     <% item.children.each do |child| %>
                       <li class="usa-nav__submenu-item">
-                        <%= link_to child.text, content_page_path(child.page.filename), class: "usa-nav__link" %>
+                        <%= link_to child.text, content_page_path(child.filename), class: "usa-nav__link" %>
                       </li>
                     <% end %>
                   </ul>
                 <% else %>
-                  <%= link_to item.text, content_page_path(item.page.filename), class: "usa-nav__link #{"usa-current" if item.is_for_page_or_descendant?(@page)}" %>
+                  <%= link_to item.text, content_page_path(item.filename), class: "usa-nav__link #{"usa-current" if item.is_for_page_or_descendant?(@page)}" %>
                 <% end %>
               </li>
             <% end %>

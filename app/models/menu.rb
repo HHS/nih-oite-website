@@ -4,9 +4,7 @@ class Menu
     include Comparable
 
     attr_reader :page
-    delegate :public?, to: :page
-    delegate :filename, to: :page
-    delegate :normalized_path, to: :page
+    delegate :filename, :public?, :normalized_path, to: :page
 
     def initialize(page, text = nil, include_children = false)
       @page = page
@@ -94,7 +92,7 @@ class Menu
     end
 
     side_nav_pages.map { |page|
-      include_children = page.filename == current_page.filename || page.contains(current_page)
+      include_children = page.filename == current_page.filename || page.contains?(current_page)
       Item.new(page, nil, include_children)
     }
   end

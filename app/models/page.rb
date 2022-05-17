@@ -88,8 +88,8 @@ class Page
     children.length > 0
   end
 
-  def contains(other_page)
-    children.any? { |child| child.filename == other_page.filename || child.contains(other_page) }
+  def contains?(other_page)
+    children.any? { |child| child.normalized_path == other_page.normalized_path || child.contains?(other_page) }
   end
 
   def public?
