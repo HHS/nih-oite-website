@@ -46,6 +46,14 @@ RSpec.describe "Pages", type: :request do
     end
   end
 
+  describe "GET missing page" do
+    it "raises a routing error" do
+      expect {
+        get "/missing-page"
+      }.to raise_error(ActionController::RoutingError)
+    end
+  end
+
   describe "GET /admin/" do
     context "guest user" do
       it "redirects back to root_path" do
