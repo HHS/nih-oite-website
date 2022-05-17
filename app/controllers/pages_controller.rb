@@ -31,6 +31,8 @@ class PagesController < ApplicationController
       store_location_for(:user, "/#{params[:path]}")
       redirect_to root_path
     end
+  rescue Page::NotFound
+    raise ActionController::RoutingError.new("Not Found")
   end
 
   def sitemap
