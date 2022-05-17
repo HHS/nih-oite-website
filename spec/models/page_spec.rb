@@ -55,6 +55,22 @@ RSpec.describe Page, type: :model do
     end
   end
 
+  describe ".normalize_path" do
+    tests = [
+      ["foo/bar/baz", "/foo/bar/baz"],
+      ["/foo/bar/baz", "/foo/bar/baz"],
+      ["////foo/bar/baz", "/foo/bar/baz"],
+      [Pathname.new("/foo/bar/baz"), "/foo/bar/baz"],
+      [Pathname.new("foo/bar/baz"), "/foo/bar/baz"]
+    ]
+
+    tests.each { |input, expected|
+      it "turns '#{input}' into '#{expected}'" do
+        expect(Page.normalize_path(input)).to eql(expected)
+      end
+    }
+  end
+
   subject { described_class.find_by_path "page-two/index.md", base: base_dir }
 
   describe "#has_children?" do
