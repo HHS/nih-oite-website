@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def home
+    @page_title = "Home"
   end
 
   def page
@@ -23,9 +24,9 @@ class PagesController < ApplicationController
 
     if @page.public? || user_signed_in?
       @side_nav_items = Menu.build_side_nav @pages, @page
-
       @show_sidebar = @page.has_sidebar? || @side_nav_items.length > 0
 
+      @page_title = @page.title
       render formats: :html
     else
       store_location_for(:user, "/#{params[:path]}")

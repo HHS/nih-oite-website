@@ -1,6 +1,10 @@
 require "yaml"
 
 module ApplicationHelper
+  def page_title
+    "#{@page_title || params[:controller].titleize} | NIH OITE"
+  end
+
   def pages
     @pages ||= Page.build_hierarchy Rails.root.join "_pages"
   end
