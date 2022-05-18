@@ -70,6 +70,8 @@ class Page
   has_field :public?, through: :access, default: false
   has_field :title
   has_field :sidebar, default: []
+  has_field :top_content, default: []
+  has_field :bottom_content, default: []
 
   def initialize(full_path, base:)
     @filename = if full_path.basename(".md").to_s == "index"
@@ -132,5 +134,13 @@ class Page
 
   def sidebar_blocks
     sidebar.map { |b| ContentBlock.find_by_path(b["block"]) }
+  end
+
+  def top_blocks
+    top_content.map { |b| ContentBlock.find_by_path(b["block"]) }
+  end
+
+  def bottom_blocks
+    bottom_content.map { |b| ContentBlock.find_by_path(b["block"]) }
   end
 end

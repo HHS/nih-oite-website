@@ -19,6 +19,8 @@
 
       <%= yield(:hero) %>
 
+      <%= yield(:above_content) %>
+
       <div class="grid-container usa-section">
 
         <% content_top = yield(:content_top) %>
@@ -48,6 +50,8 @@
 
       <%= yield(:content_bottom) %>
     </main>
+
+    <%= yield(:below_content) %>
 
     <%= render "application/footer" %>
   </body>

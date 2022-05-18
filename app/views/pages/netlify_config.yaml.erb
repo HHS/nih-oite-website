@@ -97,10 +97,6 @@ collections:
     fields:
       - label: "Title"
         name: "title"
-      - label: Content
-        name: body
-        widget: markdown
-        required: false
       - label: "Hero"
         name: "hero"
         widget: object
@@ -122,6 +118,25 @@ collections:
             name: image_2x
             required: false
             hint: Hero image used for high-DPI screens. This image should be 2400 pixels wide and no more than 960 pixels high.
+      - label: "Top Blocks"
+        name: top_blocks
+        widget: list
+        label_singular: item
+        label_plural: items
+        hint: |
+          These blocks will be displayed above the page content
+        min: 0
+        fields:
+          - name: block
+            widget: relation
+            collection: "block"
+            search_fields: ["name", "{{slug}}"]
+            value_field: "{{slug}}"
+            display_fields: ["name"]
+      - label: Content
+        name: body
+        widget: markdown
+        required: false
       - label: "Sidebar items"
         name: "sidebar"
         widget: list
@@ -129,6 +144,21 @@ collections:
         label_plural: items
         hint: |
           Sidebar items will be displayed below site navigation in the sidebar.
+        min: 0
+        fields:
+          - name: block
+            widget: relation
+            collection: "block"
+            search_fields: ["name", "{{slug}}"]
+            value_field: "{{slug}}"
+            display_fields: ["name"]
+      - label: "Bottom Blocks"
+        name: bottom_blocks
+        widget: list
+        label_singular: item
+        label_plural: items
+        hint: |
+          These blocks will be displayed below the page content
         min: 0
         fields:
           - name: block

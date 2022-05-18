@@ -17,6 +17,19 @@
   <% end %>
 <% end %>
 
+<% if @page.top_blocks.length > 0 %>
+  <% content_for :above_content do %>
+    <div class="oite-page-above-content">
+      <% @page.top_blocks.each do |block| %>
+        <div class="oite-block">
+          <%= block.rendered_content %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+
 <% if @show_sidebar %>
   <% content_for :sidebar do %>
     <%= render "application/side_nav" %>
@@ -28,6 +41,19 @@
   <% end %>
 <% end %>
 
+
 <div class="oite-page-content">
   <%= @page.rendered_content %>
 </div>
+
+<% if @page.bottom_blocks.length > 0 %>
+  <% content_for :below_content do %>
+    <div class="oite-page-above-content">
+      <% @page.bottom_blocks.each do |block| %>
+        <div class="oite-block">
+          <%= block.rendered_content %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
