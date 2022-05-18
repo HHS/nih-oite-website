@@ -28,7 +28,7 @@ module CustomParserExtensions
       :html_element,
       "div",
       {
-        "class" => "grid-row grid-gap"
+        "class" => "grid-row grid-gap grid-row--cms-columns"
       },
       category: :block,
       content_model: :block,
