@@ -1,4 +1,3 @@
 ---
 title: Training
-public: true
 ---

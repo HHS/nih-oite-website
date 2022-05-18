@@ -1,0 +1,20 @@
+<% if @side_nav_items.length > 0 %>
+  <nav aria-label="Side navigation">
+    <ul class="usa-sidenav">
+      <% @side_nav_items.each do |item| %>
+        <li class="usa-sidenav__item">
+          <a href="<%= content_page_path item.filename %>" class="<%= "usa-current" if item.is_for_page_or_ancestor?(@page) %>"><%= item.text %></a>
+          <% if item.children.length > 0 %>
+            <ul class="usa-sidenav__sublist">
+            <% item.children.each do |child| %>
+              <li class="usa-sidenav__item <%= "usa-current" if child.is_for_page_or_descendant?(@page) %>">
+                <a href="<%= content_page_path child.filename %>"><%= child.text %></a>
+              </li>
+            <% end %>
+            </ul>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>

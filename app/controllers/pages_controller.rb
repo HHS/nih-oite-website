@@ -12,12 +12,20 @@ class PagesController < ApplicationController
   end
 
   def page
-    @page = Page.find_by_path params[:path]
+    @pages = Page.build_hierarchy
+
+    @page = Page.find_by_path params[:path], hierarchy: @pages
+
     if @page.obsolete?
       redirect_to content_page_path(path: @page.redirect_page)
       return
     end
+
     if @page.public? || user_signed_in?
+      @side_nav_items = Menu.build_side_nav @pages, @page
+
+      @show_sidebar = @page.has_sidebar? || @side_nav_items.length > 0
+
       render formats: :html
     else
       store_location_for(:user, "/#{params[:path]}")

@@ -1,5 +1,4 @@
 <%= render "application/demo_site_banner" if Rails.configuration.x.show_demo_banner %>
-
 <div class="usa-overlay"></div>
 <header class="usa-header usa-header--extended">
     <div class="usa-navbar">
@@ -20,18 +19,18 @@
             <% if user_signed_in? || item.public? %>
               <li class="usa-nav__primary-item">
                 <% if item.has_children? %>
-                  <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="extended-nav-section-<%= index %>">
+                  <button class="usa-accordion__button usa-nav__link <%= if item.is_for_page_or_descendant?(@page) then "usa-current" end %>" aria-expanded="false" aria-controls="extended-nav-section-<%= index %>">
                     <span><%= item.text %></span>
                   </button>
                   <ul id="extended-nav-section-<%= index %>" class="usa-nav__submenu" hidden="">
                     <% item.children.each do |child| %>
                       <li class="usa-nav__submenu-item">
-                        <%= link_to child.text, content_page_path(child.path), class: "usa-nav__link" %>
+                        <%= link_to child.text, content_page_path(child.filename), class: "usa-nav__link" %>
                       </li>
                     <% end %>
                   </ul>
                 <% else %>
-                  <%= link_to item.text, content_page_path(item.path), class: "usa-nav__link" %>
+                  <%= link_to item.text, content_page_path(item.filename), class: "usa-nav__link #{"usa-current" if item.is_for_page_or_descendant?(@page)}" %>
                 <% end %>
               </li>
             <% end %>

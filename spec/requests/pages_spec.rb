@@ -23,7 +23,7 @@ RSpec.describe "Pages", type: :request do
     describe "GET private page" do
       context "guest user" do
         it "redirects to root_path" do
-          get "/root-file"
+          get "/private-page"
           expect(response).to redirect_to(root_path)
         end
       end
@@ -31,7 +31,7 @@ RSpec.describe "Pages", type: :request do
       context "logged in user" do
         before { sign_in create(:user) }
         it "returns http success" do
-          get "/root-file"
+          get "/private-page"
           expect(response).to have_http_status(:success)
         end
       end
@@ -43,6 +43,14 @@ RSpec.describe "Pages", type: :request do
         get "/page-two"
         expect(response).to redirect_to("http://www.example.com/page-one")
       end
+    end
+  end
+
+  describe "GET missing page" do
+    it "raises a routing error" do
+      expect {
+        get "/missing-page"
+      }.to raise_error(ActionController::RoutingError)
     end
   end
 

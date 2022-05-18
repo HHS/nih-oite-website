@@ -11,6 +11,7 @@
     "http://localhost:3000",
     "http://localhost:3000/events",
     "http://localhost:3000/events/202114-answering-the-tell-me-about-yourself-question-during-interviews",
+    "http://localhost:3000/training/postbac/about",
     "http://localhost:3000/public-page",
     "http://localhost:3000/404"
   ]

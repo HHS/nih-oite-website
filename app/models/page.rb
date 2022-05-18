@@ -1,36 +1,41 @@
 class Page
   include NetlifyContent
 
-  def self.find_by_path(path, base: Rails.root.join("_pages"), try_index: true)
-    super path, base: base, try_index: try_index
-  end
-
-  # Recursively searches a page hierarchy for a particular slug.
-  # Netlify slugs don't have leading or trailing '/' characters, and may
-  # end in `/index`.
-  def self.find_by_slug(slug, pages)
-    filename = Pathname(slug.to_s.gsub(/\/index$/, ""))
-
-    pages.each do |p|
-      if p.filename == filename
-        return p
-      else
-        child = find_by_slug slug, p.children
-        return child unless child.nil?
-      end
+  def self.find_by_path(path, base: Rails.root.join("_pages"), try_index: true, hierarchy: nil)
+    if hierarchy.nil?
+      # Preserve functionality inherited from NetlifyContent...
+      return super path, base: base, try_index: try_index
     end
 
-    nil
+    # ...but also allow searching a pre-built hierarchy
+    path = normalize_path path
+
+    hierarchy.each do |page|
+      return page if normalize_path(page.filename.to_s) == path
+      child = find_by_path path, hierarchy: page.children
+      return child unless child.nil?
+    rescue NotFound
+      nil
+    end
+
+    fail NotFound
+  end
+
+  # "slug" is how Netlify identifies an item in a collection.
+  # It is the path to the item's .md file, relative to the collection root,
+  # without the ".md" extension. If it ends in "/index", that bit is ignored.
+  def self.find_by_slug(slug, hierarchy)
+    path = "/#{slug.gsub(/\/index$/, "")}"
+    find_by_path path, hierarchy: hierarchy
   end
 
   # constructs a hierarchy of Page objects from the filesystem at <dir>.
-  def self.build_hierarchy(dir, parent_path = "", base: nil)
+  def self.build_hierarchy(dir = Rails.root.join("_pages"), parent_path = "", base: nil)
     dir = Pathname(dir)
     parent_path = Pathname(parent_path)
     base ||= dir
 
     children = []
-    md_files = []
     index_md = nil
 
     Dir.each_child(dir).sort.each do |f|
@@ -41,24 +46,26 @@ class Page
         children.push(*c)
       elsif f == "index.md"
         index_md = f
-      elsif f.ends_with? ".md"
-        md_files.push(f)
       end
     end
-
-    pages = md_files.map { |f| find_by_path parent_path.join(f), base: base, try_index: false }
 
     if index_md
       index = find_by_path parent_path.join(index_md), base: base, try_index: false
       index.children = children
-      pages.push index
+      children.each { |child| child.parent = index }
+      [index]
     else
-      pages.push(*children)
+      children
     end
+  end
+
+  def self.normalize_path(path)
+    "/#{path.to_s.gsub(/^\/+/, "")}"
   end
 
   attr_reader :filename, :base
   attr_writer :children
+  attr_accessor :parent
   has_field :expires_at, :title, :redirect_to
   has_field :sidebar, default: []
 
@@ -68,6 +75,7 @@ class Page
     else
       full_path
     end.relative_path_from(base)
+
     @base = base
     @parsed_file = FrontMatterParser::Parser.parse_file(full_path, loader: yaml_loader)
   end
@@ -80,8 +88,28 @@ class Page
     children.length > 0
   end
 
+  def contains?(other_page)
+    children.any? { |child| child.normalized_path == other_page.normalized_path || child.contains?(other_page) }
+  end
+
   def public?
     parsed_file["public"]
+  end
+
+  def normalized_path
+    Page.normalize_path filename
+  end
+
+  def nav_order
+    nav = parsed_file["nav"]
+    return 0 if nav.nil?
+    nav["order"] || 0
+  end
+
+  def nav_title
+    nav = parsed_file["nav"]
+    return nil if nav.nil?
+    nav["title"]
   end
 
   def obsolete?
@@ -103,6 +131,6 @@ class Page
   end
 
   def sidebar_blocks
-    sidebar.map { |b| ContentBlock.find_by_path(b["block"]) } if has_sidebar?
+    sidebar.map { |b| ContentBlock.find_by_path(b["block"]) }
   end
 end
