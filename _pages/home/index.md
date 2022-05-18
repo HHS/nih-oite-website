@@ -1,13 +1,18 @@
 ---
 title: Home
+hero:
+  enabled: true
+  title: |
+    Build your career,
+    shape the future.
+  image: /images/home/hero-fpo.jpg
+  image_2x: /images/home/hero-fpo@2x.jpg
 access:
   public: true
 lifecycle:
   expires_at: ""
 updated_at: 2022-04-26T00:00:00.000Z
 ---
-
-(Hero will go here.)
 
 ---
 

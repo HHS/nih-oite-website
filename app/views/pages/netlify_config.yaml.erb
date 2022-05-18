@@ -101,6 +101,27 @@ collections:
         name: body
         widget: markdown
         required: false
+      - label: "Hero"
+        name: "hero"
+        widget: object
+        collapsed: true
+        fields:
+          - label: "Show hero"
+            name: enabled
+            widget: boolean
+            default: false
+          - label: "Title"
+            name: title
+            widget: string
+            required: false
+          - label: "Image (1x)"
+            name: image
+            required: false
+            hint: Hero image used for standard screens. This image should be 1200 pixels wide and no more than 480 pixels high.
+          - label: "Image (2x)"
+            name: image_2x
+            required: false
+            hint: Hero image used for high-DPI screens. This image should be 2400 pixels wide and no more than 960 pixels high.
       - label: "Sidebar items"
         name: "sidebar"
         widget: list

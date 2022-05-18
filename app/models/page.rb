@@ -63,7 +63,7 @@ class Page
     "/#{path.to_s.gsub(/^\/+/, "")}"
   end
 
-  attr_reader :filename, :base
+  attr_reader :filename, :base, :hero
   attr_writer :children
   attr_accessor :parent
   has_field :expires_at, :redirect_to, through: :lifecycle
@@ -80,6 +80,8 @@ class Page
 
     @base = base
     @parsed_file = FrontMatterParser::Parser.parse_file(full_path, loader: yaml_loader)
+
+    @hero = Hero.new(@parsed_file["hero"]) if @parsed_file["hero"]
   end
 
   def children

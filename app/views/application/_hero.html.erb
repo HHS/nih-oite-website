@@ -1,0 +1,8 @@
+<div class="oite-hero">
+  <div class="oite-hero__title">
+    <%= sanitize hero.title.gsub("\n", "<br>"), tags: %w(br) %>
+  </div>
+  <div class="oite-hero__image">
+    <%= image_tag hero.image_src, srcset: hero.image_srcset, alt: "", skip_pipeline: true %>
+  </div>
+</div>
