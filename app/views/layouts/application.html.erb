@@ -12,12 +12,41 @@
 
   <body>
     <%= render "application/usa_banner" %>
+
     <%= render "application/header" %>
+
     <main id="main-content">
+
       <div class="grid-container usa-section">
-        <%= yield %>
+
+        <% content_top = yield(:content_top) %>
+        <% if content_top.present? %>
+          <div class="grid-row">
+            <div class="tablet:grid-col-12">
+              <%= content_top %>
+            </div>
+          </div>
+        <% end %>
+
+        <% sidebar = yield(:sidebar) %>
+        <% if sidebar.present? %>
+          <div class="grid-row grid-gap">
+            <aside class="tablet:grid-col-4">
+              <%= sidebar%>
+            </aside>
+            <div class="tablet:grid-col-8">
+              <%= yield %>
+            </div>
+          </div>
+        <% else %>
+          <%= yield %>
+        <% end %>
+
       </div>
+
+      <%= yield(:content_bottom) %>
     </main>
+
     <%= render "application/footer" %>
   </body>
 </html>

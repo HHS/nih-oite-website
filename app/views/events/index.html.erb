@@ -1,114 +1,109 @@
-<div class="grid-row grid-gap">
-  <div class="grid-col-12">
-    <h1>Events</h1>
-    <% if @page %>
+<% if @page %>
+  <% content_for :content_top do %>
       <%= @page.rendered_content %>
-    <% end %>
-  </div>
-</div>
-
-<div class="grid-row grid-gap">
-  <aside class="grid-col-12 desktop:grid-col-4">
-<%= form_with method: :get, url: events_path, class: "usa-form margin-x-auto margin-bottom-1" do |form| %>
-  <% if @from %>
-    <%= form.hidden_field(nil, name: "from", value: @from) %>
   <% end %>
-  <fieldset class="usa-fieldset">
-    <legend class="usa-legend"><h3>Filter by audience</h3></legend>
-    <% @audiences.each do |audience| %>
-      <div class="usa-checkbox">
-        <input
-          class="usa-checkbox__input"
-          id="filter-<%= audience.parameterize %>"
-          type="checkbox"
-          name="audience[]"
-          value="<%= audience %>"
-          <%= if @selected_audiences.include?(audience) then "checked" end %>
-          data-submit-form-on-click
-        />
-        <label class="usa-checkbox__label" for="filter-<%= audience.parameterize %>">
-          <%= audience %>
-        </label>
-      </div>
-    <% end %>
-  </fieldset>
-  <fieldset class="usa-fieldset">
-    <legend class="usa-legend"><h3>Filter by topic</h3></legend>
-    <% @topics.each do |topic| %>
-      <div class="usa-checkbox">
-        <input
-          class="usa-checkbox__input"
-          id="filter-topic-<%= topic.parameterize %>"
-          type="checkbox"
-          name="topic[]"
-          value="<%= topic %>"
-          <%= if @selected_topics.include?(topic) then "checked" end %>
-          data-submit-form-on-click
-        />
-        <label class="usa-checkbox__label" for="filter-topic-<%= topic.parameterize %>">
-          <%= topic %>
-        </label>
-      </div>
-    <% end %>
-  </fieldset>
 <% end %>
-  </aside>
-  <div class="grid-col-12 desktop:grid-col-8">
 
-    <% if !@events.empty? %>
-      <ul class="usa-collection oite-events">
-        <% @events.each do |event| %>
-          <li class="usa-collection__item oite-event">
-            <div class="usa-collection__calendar-date">
-              <time datetime="<%= event.date %>">
-                <span class="usa-collection__calendar-date-month"><%= event.date.strftime("%b").upcase %></span>
-                <span class="usa-collection__calendar-date-day"><%= event.date.strftime("%d") %></span>
-              </time>
-            </div>
-            <div class="usa-collection__body">
-              <div class="usa-collection__heading">
-                <h3 class="margin-0">
-                  <%= link_to event.title, event_path(event), class: "usa-link" %>
-                </h3>
-                <div class="oite-event__time text-italic">
-                  <time datetime="<%= event.start.strftime("%F %R") %>"><%= event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
-                  –
-                  <time datetime="<%= event.end.strftime("%F %R") %>"><%= event.end.strftime("%l:%M %p") %></time>
-                </div>
-              </div>
-              <div class="usa-collection__description">
-                <% unless event.speaker_names.empty? %>
-                  <div class="oite-event__speakers margin-y-1">
-                    <h4 class="margin-0">Speakers</h4>
-                    <ul class="usa-list">
-                      <% event.speaker_names.each do |speaker| %>
-                      <li>
-                        <%= speaker%>
-                      </li>
-                      <% end %>
-                    </ul>
-                  </div>
-                <% end %>
-                <div class="usa-prose p-summary">
-                  <%= event.rendered_content%>
-                </div>
-                <div class="oite-event__tags">
-                  <% event.audience.each do |audience| %>
-                    <%= link_to audience, events_path(audience: [audience]), class: "usa-button usa-button--accent-cool text-uppercase font-ui-3xs margin-y-05" %>
-                  <% end %>
-                  <% event.topic.each do |topic| %>
-                    <%= link_to topic, events_path(topic: [topic]), class: "usa-button usa-button--accent-cool text-uppercase font-ui-3xs margin-y-05" %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <% if @not_found %>
-        <%= @not_found.rendered_content %>
-      <% end %>
+<% content_for :sidebar do %>
+  <%= form_with method: :get, url: events_path, class: "usa-form margin-x-auto margin-bottom-1" do |form| %>
+    <% if @from %>
+      <%= form.hidden_field(nil, name: "from", value: @from) %>
     <% end %>
-  </div>
-</div>
+    <fieldset class="usa-fieldset">
+      <legend class="usa-legend"><h3>Filter by audience</h3></legend>
+      <% @audiences.each do |audience| %>
+        <div class="usa-checkbox">
+          <input
+            class="usa-checkbox__input"
+            id="filter-<%= audience.parameterize %>"
+            type="checkbox"
+            name="audience[]"
+            value="<%= audience %>"
+            <%= if @selected_audiences.include?(audience) then "checked" end %>
+            data-submit-form-on-click
+          />
+          <label class="usa-checkbox__label" for="filter-<%= audience.parameterize %>">
+            <%= audience %>
+          </label>
+        </div>
+      <% end %>
+    </fieldset>
+    <fieldset class="usa-fieldset">
+      <legend class="usa-legend"><h3>Filter by topic</h3></legend>
+      <% @topics.each do |topic| %>
+        <div class="usa-checkbox">
+          <input
+            class="usa-checkbox__input"
+            id="filter-topic-<%= topic.parameterize %>"
+            type="checkbox"
+            name="topic[]"
+            value="<%= topic %>"
+            <%= if @selected_topics.include?(topic) then "checked" end %>
+            data-submit-form-on-click
+          />
+          <label class="usa-checkbox__label" for="filter-topic-<%= topic.parameterize %>">
+            <%= topic %>
+          </label>
+        </div>
+      <% end %>
+    </fieldset>
+  <% end %>
+<% end %>
+
+
+
+<% if !@events.empty? %>
+  <ul class="usa-collection oite-events">
+    <% @events.each do |event| %>
+      <li class="usa-collection__item oite-event">
+        <div class="usa-collection__calendar-date">
+          <time datetime="<%= event.date %>">
+            <span class="usa-collection__calendar-date-month"><%= event.date.strftime("%b").upcase %></span>
+            <span class="usa-collection__calendar-date-day"><%= event.date.strftime("%d") %></span>
+          </time>
+        </div>
+        <div class="usa-collection__body">
+          <div class="usa-collection__heading">
+            <h3 class="margin-0">
+              <%= link_to event.title, event_path(event), class: "usa-link" %>
+            </h3>
+            <div class="oite-event__time text-italic">
+              <time datetime="<%= event.start.strftime("%F %R") %>"><%= event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
+              –
+              <time datetime="<%= event.end.strftime("%F %R") %>"><%= event.end.strftime("%l:%M %p") %></time>
+            </div>
+          </div>
+          <div class="usa-collection__description">
+            <% unless event.speaker_names.empty? %>
+              <div class="oite-event__speakers margin-y-1">
+                <h4 class="margin-0">Speakers</h4>
+                <ul class="usa-list">
+                  <% event.speaker_names.each do |speaker| %>
+                  <li>
+                    <%= speaker%>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="usa-prose p-summary">
+              <%= event.rendered_content%>
+            </div>
+            <div class="oite-event__tags">
+              <% event.audience.each do |audience| %>
+                <%= link_to audience, events_path(audience: [audience]), class: "usa-button usa-button--accent-cool text-uppercase font-ui-3xs margin-y-05" %>
+              <% end %>
+              <% event.topic.each do |topic| %>
+                <%= link_to topic, events_path(topic: [topic]), class: "usa-button usa-button--accent-cool text-uppercase font-ui-3xs margin-y-05" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <% if @not_found %>
+    <%= @not_found.rendered_content %>
+  <% end %>
+<% end %>
