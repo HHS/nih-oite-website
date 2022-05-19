@@ -99,6 +99,12 @@ RSpec.describe Page, type: :model do
     end
   end
 
+  describe "#redirect_to" do
+    it "returns the slug of the redirected-to page" do
+      expect(subject.redirect_to).to eq("page-one/index")
+    end
+  end
+
   describe "#redirect_page" do
     it "returns the filename of the redirected-to page" do
       expect(subject.redirect_page).to eq Pathname.new("page-one")
