@@ -139,7 +139,7 @@ collections:
         name: "lifecycle"
         widget: object
         collapsed: true
-        summary: "Expires: {{fields.expires_at | default('never')}}"
+        summary: "Expires: {{fields.expires_at | default('never')}}, replaced by: {{fields.redirect_to | default('nothing')}}"
         fields:
         - label: "Expires At"
           name: expires_at
