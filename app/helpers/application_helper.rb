@@ -1,6 +1,10 @@
 require "yaml"
 
 module ApplicationHelper
+  def page_title
+    "#{@page_title || params[:controller].titleize} | NIH OITE"
+  end
+
   def pages
     @pages ||= Page.build_hierarchy Rails.root.join "_pages"
   end
@@ -17,11 +21,16 @@ module ApplicationHelper
     unless page.obsolete? || !page.public?
       builder.url do
         builder.loc content_page_url(path: page.filename)
-        builder.lastmod page.updated_at&.xmlschema
+        builder.lastmod overridden_last_modified_date(page.updated_at)
       end
     end
     page.children.each do |child|
       page_sitemap(child, builder)
     end
+  end
+
+  def overridden_last_modified_date(updated_at = nil)
+    override = Time.parse(ENV["SITEMAP_LAST_MOD_OVERRIDE"]) if ENV["SITEMAP_LAST_MOD_OVERRIDE"].present?
+    [override, updated_at].compact.max&.xmlschema
   end
 end

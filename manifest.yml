@@ -13,6 +13,7 @@ applications:
     NETLIFY_BRANCH: ((netlify_branch))
     GIT_GATEWAY_HOST: ((git_gateway_host))
     SEARCH_GOV_AFFILIATE: ((search_gov_affiliate))
+    SITEMAP_LAST_MOD_OVERRIDE: ((sitemap_last_mod_override))
   routes:
     - route: nih_oite_experiments-((env)).app.cloud.gov
     - route: nih-oite-experiments-((env)).app.cloud.gov

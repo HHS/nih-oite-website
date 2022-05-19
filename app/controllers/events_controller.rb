@@ -60,5 +60,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_path(params[:id])
+    @page_title = "#{@event.title} | #{@event.date.strftime("%-m/%-d/%Y")}"
   end
 end
