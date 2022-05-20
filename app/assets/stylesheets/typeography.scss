@@ -19,3 +19,8 @@ h6 {
 h3 {
   font-weight: 300;
 }
+
+// Don't add extra margin to the <h1> at the top of a content page.
+.oite-page-content > h1:first-child {
+  margin-top: 0;
+}
