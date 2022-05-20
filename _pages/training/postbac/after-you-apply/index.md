@@ -3,5 +3,6 @@ title: Next steps after you apply to the National Institutes of Health (NIH) Pos
 nav:
   title: After you apply
   order: 30
-public: true
+access:
+  public: true
 ---

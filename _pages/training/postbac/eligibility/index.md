@@ -3,5 +3,6 @@ title: Eligiblity requirements for National Institutes of Health (NIH) Postbacca
 nav:
   title: Eligiblity
   order: 10
-public: true
+access:
+  public: true
 ---

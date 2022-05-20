@@ -33,10 +33,19 @@ module NetlifyContent
       end
     end
 
-    def has_field(*fields, default: nil)
+    def has_field(*fields, through: nil, default: nil)
       fields.each do |field_name|
         define_method field_name do
-          parsed_file[field_name.to_s] || default
+          container = parsed_file
+
+          if through.present?
+            container = parsed_file[through.to_s]
+            return default unless container
+          end
+
+          field_name = field_name.to_s.sub "?", ""
+
+          container[field_name] || default
         end
       end
     end

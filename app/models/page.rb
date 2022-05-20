@@ -66,7 +66,9 @@ class Page
   attr_reader :filename, :base
   attr_writer :children
   attr_accessor :parent
-  has_field :expires_at, :title, :redirect_to
+  has_field :expires_at, :redirect_to, through: :lifecycle
+  has_field :public?, through: :access, default: false
+  has_field :title
   has_field :sidebar, default: []
 
   def initialize(full_path, base:)
@@ -90,10 +92,6 @@ class Page
 
   def contains?(other_page)
     children.any? { |child| child.normalized_path == other_page.normalized_path || child.contains?(other_page) }
-  end
-
-  def public?
-    parsed_file["public"]
   end
 
   def normalized_path

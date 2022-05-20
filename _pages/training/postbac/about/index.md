@@ -1,6 +1,7 @@
 ---
 title: About the National Institutes of Health (NIH) Postbaccalaureate Research Training Program
-public: true
+access:
+  public: true
 nav:
   title: About
   order: 0

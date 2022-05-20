@@ -3,5 +3,6 @@ title: How applicants are selected for National Institutes of Health (NIH) Postb
 nav:
   title: How applicants are selected
   order: 20
-public: true
+access:
+  public: true
 ---
