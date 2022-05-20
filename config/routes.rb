@@ -35,7 +35,9 @@ Rails.application.routes.draw do
   get "sitemap", to: "pages#sitemap"
   get "robots", to: "pages#robots"
 
-  root "pages#home"
+  root "pages#page", defaults: {path: "home"}
+
+  get "home", to: redirect("/")
 
   get "*path", to: "pages#page", as: :content_page
 

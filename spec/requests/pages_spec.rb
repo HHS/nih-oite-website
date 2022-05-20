@@ -6,6 +6,18 @@ RSpec.describe "Pages", type: :request do
       get "/"
       expect(response).to have_http_status(:success)
     end
+
+    it "renders page template" do
+      get "/"
+      expect(response).to render_template(:page)
+    end
+  end
+
+  describe "GET /home" do
+    it "redirects to root" do
+      get "/home"
+      expect(response).to redirect_to("/")
+    end
   end
 
   context "_pages routes" do

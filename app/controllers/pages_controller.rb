@@ -8,10 +8,6 @@ class PagesController < ApplicationController
     policy.connect_src :self, :blob
   end
 
-  def home
-    @page_title = "Home"
-  end
-
   def page
     @pages = Page.build_hierarchy
 
