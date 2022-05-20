@@ -5,6 +5,7 @@
 @forward "columns.scss";
 @forward "hero.scss";
 @forward "hr.scss";
+@forward "testimonials.scss";
 @forward "typeography.scss";
 @forward "video.scss";
 @forward "netlify-preview.scss";
