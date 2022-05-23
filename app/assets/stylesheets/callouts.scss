@@ -1,0 +1,25 @@
+@use "uswds" as *;
+
+.oite-callout {
+  > a {
+    background: color("primary-dark");
+    background-image: url("callout-heart.svg");
+    background-position: 105% 120%;
+    background-repeat: no-repeat;
+    background-size: 140px 110px;
+    color: color("white");
+    display: block;
+    padding: units(3);
+    text-decoration: none;
+
+    > h3 {
+      color: color("white");
+      font-size: font-size("heading", 14);
+      font-weight: 700;
+    }
+
+    > p {
+      font-size: font-size("body", "lg");
+    }
+  }
+}
