@@ -12,6 +12,7 @@
   $theme-header-max-width: "desktop-lg",
 
   // Colors
+  $theme-color-accent-warm-dark: "gold-50",
   $theme-color-primary: "cyan-50",
   $theme-color-primary-darker: "cyan-70",
   $theme-color-primary-dark: "mint-cool-60",
@@ -43,5 +44,9 @@
     "padding",
     "text-align",
     "text-transform"
-  )
+  ),
+  // Add !important to USWDS utility classes.
+  // This is _not_ recommended if you're doing Atomic CSS-type styling with
+  // utility classes, but that's not what we're doing here.
+  $utilities-use-important: true
 );

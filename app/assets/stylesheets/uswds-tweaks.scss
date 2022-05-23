@@ -1,5 +1,10 @@
 @use "uswds-core" as uswds;
 
+// Don't add top border to collection items
+.usa-collection__item {
+  border-top: none;
+}
+
 // Constrain logo vertically inside navbar
 .usa-navbar .usa-logo img {
   max-height: uswds.units(4);

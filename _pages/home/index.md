@@ -43,9 +43,7 @@ Clinical fellows and other health professionals affiliated with Duke or the NIH 
 
 ### Upcoming events
 
-(This will be a dynamic listing of upcoming events)
-
-
+{::content_block slug="upcoming-events/block" /}
 
 {:/column}
 {:/columns}
