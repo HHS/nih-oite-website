@@ -6,15 +6,12 @@ title: Wellness (Homepage)
 
 ---
 
-{::columns span="6,6"}
-{::column}
-
 ## Focus on wellness
 
-### Get help now
+{::columns span="4,4,4"}
+{::column}
 
-Are you stressed?
-Let us help
+{::content_block slug="get-help-now/block" /}
 
 {:/column}
 {::column}
