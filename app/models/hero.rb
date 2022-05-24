@@ -18,7 +18,7 @@ class Hero
 
   def image_srcset
     srcset = {}
-    srcset["1x"] = @image if @image
+    srcset["1x"] = @image if @image.present?
     srcset["2x"] = @image_2x if @image
     srcset
   end
