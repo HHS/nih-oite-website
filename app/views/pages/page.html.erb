@@ -1,4 +1,4 @@
-<% if @page.hero.present? && @page.hero.enabled? %>
+<% if @page.hero_enabled? %>
     <% content_for :hero do %>
       <%= render partial: "application/hero", locals: { hero: @page.hero } %>
     <% end %>

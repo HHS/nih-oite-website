@@ -97,6 +97,10 @@ class Page
     children.any? { |child| child.normalized_path == other_page.normalized_path || child.contains?(other_page) }
   end
 
+  def hero_enabled?
+    @hero.present? && @hero.enabled?
+  end
+
   def normalized_path
     Page.normalize_path filename
   end
