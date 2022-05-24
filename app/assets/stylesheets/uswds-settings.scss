@@ -46,7 +46,7 @@
     "text-transform"
   ),
   // Add !important to USWDS utility classes.
-  // This is _not_ recommended if you're doing Atomic CSS-type styling with
-  // utility classes, but that's not what we're doing here.
+  // This is _not_ recommended if you're doing Atomic CSS-type styling (like
+  // Tailwind) with utility classes, but that's not what we're doing here.
   $utilities-use-important: true
 );
