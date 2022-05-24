@@ -1,5 +1,5 @@
 ---
-title: Wellness (Homepage)
+name: Wellness (Homepage)
 ---
 
 <div class="grid-container" markdown="1">

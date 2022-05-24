@@ -1,5 +1,5 @@
 ---
-title: Testimonials (Homepage)
+name: Testimonials (Homepage)
 ---
 
 <div class="oite-testimonials usa-section usa-section--dark">

@@ -1,5 +1,5 @@
 ---
-title: Get Help Now callout
+name: Get Help Now callout
 ---
 
 <div class="oite-callout oite-callout--get-help-now">

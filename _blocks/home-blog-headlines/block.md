@@ -1,5 +1,5 @@
 ---
-title: Blog Headlines (homepage)
+name: Blog Headlines (homepage)
 ---
 
 <div class="grid-container" markdown="1">
