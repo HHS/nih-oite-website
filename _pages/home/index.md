@@ -7,12 +7,12 @@ hero:
   image: /images/home/hero-fpo.jpg
   image_2x: /images/home/hero-fpo@2x.jpg
   enabled: true
-sidebar: []
+sidebar_blocks: []
 lifecycle:
   expires_at: ""
 access:
   public: true
-bottom_content:
+bottom_blocks:
   - block: "home-testimonials/block"
   - block: "home-blog-headlines/block"
   - block: "home-wellness/block"

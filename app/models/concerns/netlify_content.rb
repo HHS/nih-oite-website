@@ -33,6 +33,17 @@ module NetlifyContent
       end
     end
 
+    def has_blocks(*names)
+      names.each do |name|
+        define_method name do
+          blocks = parsed_file[name.to_s]
+          (blocks || []).map do |block|
+            ContentBlock.find_by_path(block["block"])
+          end
+        end
+      end
+    end
+
     def has_field(*fields, through: nil, default: nil)
       fields.each do |field_name|
         define_method field_name do
