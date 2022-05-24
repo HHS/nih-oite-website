@@ -63,13 +63,14 @@ class Page
     "/#{path.to_s.gsub(/^\/+/, "")}"
   end
 
-  attr_reader :filename, :base
+  attr_reader :filename, :base, :hero
   attr_writer :children
   attr_accessor :parent
   has_field :expires_at, :redirect_to, through: :lifecycle
   has_field :public?, through: :access, default: false
   has_field :title
-  has_field :sidebar, default: []
+
+  has_blocks :top_blocks, :bottom_blocks, :sidebar_blocks
 
   def initialize(full_path, base:)
     @filename = if full_path.basename(".md").to_s == "index"
@@ -80,6 +81,8 @@ class Page
 
     @base = base
     @parsed_file = FrontMatterParser::Parser.parse_file(full_path, loader: yaml_loader)
+
+    @hero = Hero.new(@parsed_file["hero"]) if @parsed_file["hero"]
   end
 
   def children
@@ -92,6 +95,10 @@ class Page
 
   def contains?(other_page)
     children.any? { |child| child.normalized_path == other_page.normalized_path || child.contains?(other_page) }
+  end
+
+  def hero_enabled?
+    @hero.present? && @hero.enabled?
   end
 
   def normalized_path
@@ -125,10 +132,6 @@ class Page
   end
 
   def has_sidebar?
-    sidebar.present?
-  end
-
-  def sidebar_blocks
-    sidebar.map { |b| ContentBlock.find_by_path(b["block"]) }
+    sidebar_blocks.length > 0
   end
 end

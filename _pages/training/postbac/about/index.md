@@ -5,6 +5,8 @@ access:
 nav:
   title: About
   order: 0
+sidebar_blocks:
+- block: "get-help-now/block"
 ---
 
 # Postbac Research Training Program

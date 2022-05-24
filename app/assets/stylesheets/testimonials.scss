@@ -1,0 +1,41 @@
+@use "uswds" as *;
+
+.oite-testimonials {
+  line-height: line-height("body", 5);
+  text-align: center;
+
+  @include at-media("tablet") {
+    line-height: line-height("body", 6);
+  }
+
+  &__item {
+    margin: units(2) 0;
+
+    > blockquote > q {
+      font-size: font-size("body", "md");
+
+      @include at-media("tablet") {
+        font-size: font-size("body", "lg");
+      }
+    }
+
+    > blockquote > cite {
+      display: block;
+      color: color("primary-lighter");
+    }
+  }
+
+  &__image {
+    border: 2px solid #fff;
+    border-radius: 100%;
+    display: block;
+    margin: 0 auto;
+    width: units("card");
+  }
+
+  .usa-link,
+  .usa-link:visited {
+    color: color("primary-lighter");
+    font-size: font-size("body", "md");
+  }
+}

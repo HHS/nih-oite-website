@@ -1,9 +1,13 @@
 {
   "defaults": {
     "standard": "WCAG2AA",
-    "runners": ["axe"],
+    "runners": [
+      "axe"
+    ],
     "hideElements": [
       ".usa-nav__primary-item > .usa-accordion__button > span",
+      ".oite-callout > a > *",
+      ".oite-hero__title",
       "iframe[src^=\"https://www.youtube\"]"
     ]
   },

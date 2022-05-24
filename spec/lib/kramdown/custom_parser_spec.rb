@@ -137,7 +137,7 @@ Here is more content
         "
         expected = "<p>This is preamble text</p>
 
-<div class=\"grid-row grid-gap\">
+<div class=\"grid-row grid-gap grid-row--cms-columns\">
   <div class=\"tablet:grid-col-8\">
     <p>Left column</p>
   </div>

@@ -1,0 +1,76 @@
+@use "uswds";
+
+.oite-hero {
+  background-color: uswds.color("primary");
+  color: #fff;
+  margin: 0;
+  position: relative;
+
+  &__image {
+    margin: 0 auto;
+    max-width: 100%;
+    position: relative;
+
+    // .oite-hero__image--contained keeps the image inside the grid container boundaries
+    &--contained {
+      @include uswds.at-media("desktop") {
+        max-width: uswds.units("desktop");
+      }
+      @include uswds.at-media("desktop-lg") {
+        max-width: uswds.units("desktop-lg");
+      }
+    }
+
+    > img {
+      display: block;
+      width: 100%;
+    }
+
+    &::after {
+      display: block;
+      content: " ";
+      background-image: url("hero-accent.svg"),
+        linear-gradient(
+          90deg,
+          rgba(0, 75, 71, 0.9) 0%,
+          rgba(0, 75, 71, 0.3) 66.15%
+        );
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+    }
+  }
+
+  &__title {
+    font-size: uswds.size("heading", 11);
+    font-weight: 700;
+    padding: 0 uswds.units(2);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    @include uswds.at-media("tablet") {
+      font-size: uswds.size("heading", 16);
+      padding: 0 uswds.units(4);
+      left: 0;
+      right: 0;
+    }
+    @include uswds.at-media("desktop") {
+      font-size: uswds.size("heading", 17);
+      left: calc((100vw - uswds.units("desktop")) / 2);
+      right: calc((100vw - uswds.units("desktop")) / 2);
+    }
+    @include uswds.at-media("desktop-lg") {
+      left: calc((100vw - uswds.units("desktop-lg")) / 2);
+      right: calc((100vw - uswds.units("desktop-lg")) / 2);
+    }
+  }
+}

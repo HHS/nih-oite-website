@@ -22,7 +22,7 @@ export default function Preview({
   NetlifyMarkdownPreview,
 }) {
   return (
-    <div className="grid-row grid-gap">
+    <div className="grid-row grid-gap grid-row--cms-columns">
       {columns.map(({ name, span }, index) => {
         const classes = [
           `grid-col--${name}`,

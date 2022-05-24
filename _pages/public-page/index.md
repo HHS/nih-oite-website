@@ -4,7 +4,7 @@ access:
   public: true
 lifecycle:
   expires_at: ""
-sidebar:
+sidebar_blocks:
   - block: hours-location/block
 updated_at: 2022-04-26T00:00:00.000Z
 ---

@@ -4,7 +4,7 @@ access:
   public: true
 lifecycle:
   expires_at: ""
-sidebar:
+sidebar_blocks:
   - block: hours-location/block
 ---
 
