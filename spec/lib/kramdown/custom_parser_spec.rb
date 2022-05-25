@@ -2,40 +2,56 @@ require "rails_helper"
 
 RSpec.describe "Custom Kramdown Parser" do
   describe "Video Embeds" do
-    describe "YouTube" do
-      let(:element) {
-        doc = Kramdown::Document.new(
-          "
-  # Test
-
-  {::video url=\"https://www.youtube.com/watch?v=SAK117AmzSE\" alt=\"This is the alt text\" /}
-          ".strip,
-          input: "CustomParser"
-        )
-
-        # doc.root.children.each { |c| puts c.inspect }
-        doc.root.children.find { |e| e.type == :html_element }
+    tests = [
+      {
+        name: "Youtube",
+        video_url: "https://www.youtube.com/watch?v=SAK117AmzSE",
+        expected_embed_url: "https://www.youtube-nocookie.com/embed/SAK117AmzSE"
+      },
+      {
+        name: "NIH Videocast",
+        video_url: "https://videocast.nih.gov/watch=44332",
+        expected_embed_url: "https://videocast.nih.gov/embed.asp?live=44332"
       }
+    ]
 
-      let(:iframe) {
-        element.children.first
-      }
+    tests.each do |t|
+      describe t[:name] do
+        let(:doc) {
+          Kramdown::Document.new(
+            "
+# Test
 
-      it "puts iframe in a wrapper" do
-        expect(element.value).to eql("div")
-        expect(element.block?).to be_truthy
-        expect(element.attr["class"]).to eql("video")
+{::video url=\"#{t[:video_url]}\" alt=\"This is the alt text\" /}
+            ".strip,
+            input: "CustomParser"
+          )
+        }
 
-        expect(iframe.type).to eql(:html_element)
-        expect(iframe.value).to eql("iframe")
-      end
+        let(:element) {
+          doc.root.children.find { |e| e.type == :html_element }
+        }
 
-      it "includes alt text as iframe title" do
-        expect(iframe.attr["title"]).to eql("This is the alt text")
-      end
+        let(:iframe) {
+          element.children.first
+        }
 
-      it "embeds youtube using -nocookie domain" do
-        expect(iframe.attr["src"]).to eql("https://www.youtube-nocookie.com/embed/SAK117AmzSE")
+        it "puts iframe in a wrapper" do
+          expect(element.value).to eql("div")
+          expect(element.block?).to be_truthy
+          expect(element.attr["class"]).to eql("video")
+
+          expect(iframe.type).to eql(:html_element)
+          expect(iframe.value).to eql("iframe")
+        end
+
+        it "includes alt text as iframe title" do
+          expect(iframe.attr["title"]).to eql("This is the alt text")
+        end
+
+        it "embeds using correct url" do
+          expect(iframe.attr["src"]).to eql(t[:expected_embed_url])
+        end
       end
     end
 
