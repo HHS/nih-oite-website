@@ -8,9 +8,10 @@ start: 9:30 AM
 end: 11:00 am
 speakers:
   - name: Ryan Ahearn, Esq
-audience:
+open_to:
   - Summer Interns
   - Postbacs
+required: true
 accommodations:
   name: Ryan Ahearn
   email: ryan.ahearn@gsa.gov

@@ -1,12 +1,29 @@
 class Event
   include NetlifyContent
 
-  def self.all(from: nil, base: Rails.root.join("_events"))
+  def self.all(from: nil, filters: nil, base: Rails.root.join("_events"))
     from ||= Date.today
 
     events = super base: base, from: from
 
-    events.select { |event| event.date >= from }.sort_by(&:date)
+    events = events.select do |event|
+      in_date_range = event.date >= from
+
+      next false unless in_date_range
+
+      filters.nil? || filters.keys.all? { |filter_name|
+        filter_method = "filter_by_#{filter_name}"
+        options = filters[filter_name]
+
+        if respond_to? filter_method
+          send filter_method, event, options
+        else
+          filter_by_field filter_name, event, options
+        end
+      }
+    end
+
+    events.sort_by(&:date)
   end
 
   def self.should_parse_content_file(file, from:)
@@ -34,23 +51,56 @@ class Event
     Date.new year, month, day
   end
 
-  def self.audiences(file = Rails.root.join("_settings/audiences.yml"))
+  def self.audiences(file = Rails.root.join("_settings/event_audiences.yml"))
     data = YAML.safe_load File.read(file), fallback: {}
-    data["audiences"] || []
+    data["event_audiences"] || []
   end
 
-  def self.topics(file = Rails.root.join("_settings/topics.yml"))
+  def self.locations(file = Rails.root.join("_settings/event_locations.yml"))
     data = YAML.safe_load File.read(file), fallback: {}
-    data["topics"] || []
+    data["event_locations"] || []
+  end
+
+  def self.topics(file = Rails.root.join("_settings/event_topics.yml"))
+    data = YAML.safe_load File.read(file), fallback: {}
+    data["event_topics"] || []
+  end
+
+  def self.types(file = Rails.root.join("_settings/event_types.yml"))
+    data = YAML.safe_load File.read(file), fallback: {}
+    data["event_types"] || []
   end
 
   def self.find_by_path(path, base: Rails.root.join("_events"), try_index: false)
     super path, base: base, try_index: try_index
   end
 
+  def self.filter_by_required_for(event, options)
+    return true if options.length == 0
+    return false unless event.required?
+    filter_by_field "open_to", event, options
+  end
+
+  def self.filter_by_field(field, event, options)
+    return true if options.length == 0
+
+    value = event.send(field)
+
+    if value.is_a?(Enumerable)
+      # For multi-value fields, match if _all_ of the filter options match
+      options.all? { |option|
+        value.any? { |value| value == option.value }
+      }
+    else
+      # For single-value fields, match if the field value is one of the
+      # filters we're using
+      options.any? { |option| option.value == value }
+    end
+  end
+
   attr_reader :filename
-  has_field :title
-  has_field :speakers, :audience, default: []
+  has_field :title, :type, :location
+  has_field :speakers, :open_to, :required_for, default: []
   has_field :accommodations, default: {}
   has_field :topic, default: []
 
@@ -100,6 +150,14 @@ class Event
 
   def accommodations_phone
     accommodations["phone"]
+  end
+
+  def nih_only?
+    open_to.include?("NIH-only")
+  end
+
+  def required?
+    open_to.length > 0 && parsed_file["required"]
   end
 
   private

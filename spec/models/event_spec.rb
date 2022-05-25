@@ -84,16 +84,30 @@ RSpec.describe Event, type: :model do
     end
   end
 
-  describe "#audience" do
+  describe "#open_to" do
     it "returns a list of the intended audience" do
-      expect(subject.audience).to eq ["Summer Interns", "Postbacs"]
+      expect(subject.open_to).to eq ["Summer Interns", "Postbacs"]
     end
 
     context "no audience given" do
       subject { described_class.new file_fixture("_events/202257-slim-event.md").cleanpath }
 
       it "returns an empty array" do
-        expect(subject.audience).to eq []
+        expect(subject.open_to).to eq []
+      end
+    end
+  end
+
+  describe "#required" do
+    it "returns true" do
+      expect(subject.required?).to be(true)
+    end
+
+    context "no audience given" do
+      subject { described_class.new file_fixture("_events/202257-slim-event.md").cleanpath }
+
+      it "returns false" do
+        expect(subject.required?).to be(false)
       end
     end
   end

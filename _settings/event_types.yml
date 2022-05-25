@@ -1,0 +1,7 @@
+event_types:
+  - Course
+  - Lecture
+  - Major public event
+  - Series
+  - Small group
+  - Workshop

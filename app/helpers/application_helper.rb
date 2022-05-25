@@ -33,4 +33,18 @@ module ApplicationHelper
     override = Time.parse(ENV["SITEMAP_LAST_MOD_OVERRIDE"]) if ENV["SITEMAP_LAST_MOD_OVERRIDE"].present?
     [override, updated_at].compact.max&.xmlschema
   end
+
+  def uswds_icon(name, options = {})
+    options = options.symbolize_keys
+    options[:class] = "usa-icon #{options[:class]}"
+    options[:aria] = {hidden: true}
+    options[:focusable] = false
+    options[:role] = "img"
+
+    sprite_path = image_path("@uswds/uswds/dist/img/sprite.svg")
+
+    content_tag "svg", options do
+      tag "use", {"xlink:href": "#{sprite_path}##{name}"}
+    end
+  end
 end

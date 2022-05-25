@@ -2,8 +2,30 @@ class EventsController < ApplicationController
   include VideoEmbeddable
 
   def index
-    @audiences = Event.audiences
-    @topics = Event.topics
+    @event_filters = [
+      EventFilter.new(
+        "type",
+        Event.types.map { |type| EventFilter::Option.new(type) }
+      ),
+      EventFilter.new(
+        "open_to",
+        Event.audiences.map { |audience| EventFilter::Option.new(audience) }
+      ),
+      EventFilter.new(
+        "required_for",
+        Event.audiences.map { |audience| EventFilter::Option.new(audience) }
+      ),
+      EventFilter.new(
+        "topic",
+        Event.topics.map { |topic| EventFilter::Option.new(topic) }
+      ),
+      EventFilter.new(
+        "location",
+        Event.locations.map { |location| EventFilter::Option.new(location) }
+      )
+    ]
+
+    @open_accordions = (params[:accordion] || {}).transform_values { |value| value == "true" }
 
     @from = if params[:from]
       begin
@@ -13,29 +35,16 @@ class EventsController < ApplicationController
       end
     end
 
-    @events = Event.all from: @from
-
-    if params[:audience] && params[:audience].size > 0
-      @selected_audiences = params[:audience]
-      @events = @events.select { |event|
-        event.audience.size > 0 && @selected_audiences.any? { |audience|
-          event.audience.include? audience
+    @selected_filters = {}
+    @event_filters.each do |filter|
+      @selected_filters[filter.name] = (params[filter.name] || [])
+        .map { |value|
+          filter.options.find { |opt| opt.value == value }
         }
-      }
-    else
-      @selected_audiences = []
+        .select { |option| !option.nil? }
     end
 
-    if params[:topic] && params[:topic].size > 0
-      @selected_topics = params[:topic]
-      @events = @events.select { |event|
-        event.topic.size > 0 && @selected_topics.any? { |topic|
-          event.topic.include? topic
-        }
-      }
-    else
-      @selected_topics = []
-    end
+    @events = Event.all from: @from, filters: @selected_filters
 
     @limit = if params[:limit]
       params[:limit].to_i

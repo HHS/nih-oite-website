@@ -79,4 +79,10 @@ CMS.registerEventListener({
     entry.get("data").set("updated_by", login),
 });
 
+CMS.registerRemarkPlugin({
+  settings: {
+    rule: "-",
+  },
+});
+
 CMS.init();

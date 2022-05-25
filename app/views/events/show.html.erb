@@ -32,11 +32,11 @@
           </ul>
         </div>
       <% end %>
-      <% unless @event.audience.empty? %>
-        <div class="oite-event__audiences margin-y-1">
-          <h4>This event is recommended for</h4>
+      <% unless @event.open_to.empty? %>
+        <div class="oite-event__open-to margin-y-1">
+          <h4>This event is open to</h4>
           <ul class="usa-list--unstyled">
-            <% @event.audience.each do |audience| %>
+            <% @event.open_to.each do |audience| %>
               <li><span class="usa-tag"><%= audience %></span></li>
             <% end %>
           </ul>

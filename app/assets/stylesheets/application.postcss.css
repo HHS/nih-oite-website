@@ -4,6 +4,7 @@
 // NIH OITE styles
 @forward "callouts.scss";
 @forward "columns.scss";
+@forward "events.scss";
 @forward "hero.scss";
 @forward "hr.scss";
 @forward "testimonials.scss";
