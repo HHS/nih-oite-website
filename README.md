@@ -1,7 +1,7 @@
-NIH OITE Experiments
-========================
+NIH OITE Website
+================
 
-This application will serve as (one of) the bases for experiments and prototypes for a new NIH OITE website.
+This application is one option for the groundwork fo the new NIH OITE website.
 
 ## Development
 
@@ -10,7 +10,7 @@ guide for an introduction to the framework.
 
 ### Local Setup
 
-* Get `config/master.key` from Ryan
+* Get `config/master.key` and the other credentials keys from Steve or Erica
 * Install Ruby 3.1.1
 * Install NodeJS 16.14.2
 * Install PostgreSQL: `brew install postgresql`
@@ -134,10 +134,9 @@ See [cloud.gov docs](https://cloud.gov/docs/services/relational-database/) for i
 
 #### Staging
 
-Deploys to staging, including applying changes in terraform, happen
-on every push to the `main` branch in Github.
+Deploys to staging happen on every push to the `main` branch in Github.
 
-The following secrets must be set within the `staging` [environment secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-environment)
+The following secrets must be set within the [actions secrets](https://docs.github.com/en/actions/reference/encrypted-secrets)
 to enable a deploy to work:
 
 | Secret Name | Description |
@@ -145,27 +144,22 @@ to enable a deploy to work:
 | `CF_USERNAME` | cloud.gov SpaceDeployer username |
 | `CF_PASSWORD` | cloud.gov SpaceDeployer password |
 | `RAILS_MASTER_KEY` | `config/master.key` |
-| `TERRAFORM_STATE_ACCESS_KEY` | Access key for terraform state bucket |
-| `TERRAFORM_STATE_SECRET_ACCESS_KEY` | Secret key for terraform state bucket |
-
+| `STAGING_RAILS_MASTER_KEY` | `config/credentials/staging.key` |
 
 
 #### Production
 
-Deploys to production, including applying changes in terraform, happen
-on every push to the `production` branch in Github.
+Deploys to production are not yet scripted.
 
-The following secrets must be set within the `production` [environment secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-environment)
+The following secrets must be set within the [actions secrets](https://docs.github.com/en/actions/reference/encrypted-secrets)
 to enable a deploy to work:
 
 | Secret Name | Description |
 | ----------- | ----------- |
 | `CF_USERNAME` | cloud.gov SpaceDeployer username |
 | `CF_PASSWORD` | cloud.gov SpaceDeployer password |
-| `RAILS_MASTER_KEY` | `config/credentials/production.key` |
-| `TERRAFORM_STATE_ACCESS_KEY` | Access key for terraform state bucket |
-| `TERRAFORM_STATE_SECRET_ACCESS_KEY` | Secret key for terraform state bucket |
-
+| `RAILS_MASTER_KEY` | `config/master.key` |
+| `PRODUCTION_RAILS_MASTER_KEY` | `config/credentials/production.key` |
 
 
 ### Configuring ENV variables in cloud.gov
@@ -179,7 +173,7 @@ Otherwise, they are set as a `((variable))` within `manifest.yml` and the variab
 
 #### Credentials and other Secrets
 
-1. Store variables that must be secret using [GitHub Environment Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-environment)
+1. Store variables that must be secret using [GitHub Action Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets)
 1. Add the secret to the `env:` block of the deploy action [as in this example](https://github.com/OHS-Hosting-Infrastructure/complaint-tracker/blob/a9e8d22aae2023a0afb631a6182251c04f597f7e/.github/workflows/deploy-stage.yml#L20)
 1. Add the appropriate `--var` addition to the `push_arguments` line on the deploy action [as in this example](https://github.com/OHS-Hosting-Infrastructure/complaint-tracker/blob/a9e8d22aae2023a0afb631a6182251c04f597f7e/.github/workflows/deploy-stage.yml#L27)
 
