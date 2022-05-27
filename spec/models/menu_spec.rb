@@ -35,6 +35,11 @@ RSpec.describe Menu, type: :model do
   end
 
   describe "#build_side_nav" do
+    it "does not build a nav for only 1 page" do
+      current_page = Page.find_by_path "page-two", hierarchy: pages
+      actual = _format_nav(Menu.build_side_nav(pages, current_page))
+      expect(actual).to eql([])
+    end
     it "provides Training nav at training root" do
       current_page = Page.find_by_path "/training", hierarchy: pages
       actual = _format_nav(Menu.build_side_nav(pages, current_page))

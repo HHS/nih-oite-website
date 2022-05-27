@@ -91,10 +91,17 @@ class Menu
       current_page.parent.parent.children
     end
 
-    side_nav_pages.map { |page|
+    side_nav_items = side_nav_pages.map { |page|
       include_children = page.filename == current_page.filename || page.contains?(current_page)
       Item.new(page, nil, include_children)
     }
+
+    # Don't show side nav when there's only one thing to show
+    if side_nav_items.length == 1 && side_nav_items[0].children.length == 0
+      []
+    else
+      side_nav_items
+    end
   end
 
   attr_reader :items
