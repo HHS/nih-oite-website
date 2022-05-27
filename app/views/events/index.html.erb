@@ -5,7 +5,7 @@
 <% end %>
 
 <% content_for :sidebar do %>
-  <%= form_with method: :get, url: events_path, class: "margin-x-auto margin-bottom-1" do |form| %>
+  <%= form_with method: :get, url: events_path, class: "oite-sidebar__item" do |form| %>
     <% if @from %>
       <%= form.hidden_field(nil, name: "from", value: @from) %>
     <% end %>
@@ -48,6 +48,9 @@
       <% end %>
     </div>
   <% end %>
+
+  <%= render "pages/sidebar_items" %>
+
 <% end %>
 
 <% if !@events.empty? %>

@@ -1,0 +1,7 @@
+@use "uswds" as *;
+
+.oite-sidebar {
+  &__item {
+    margin-bottom: units(4);
+  }
+}
