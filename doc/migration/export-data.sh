@@ -43,10 +43,10 @@ fi
 
 echo "Extracting ${TARFILE}..."
 mkdir -p "$SQL_DIR" || true
-# tar --cd "$SQL_DIR" -xzf "$TARFILE"
+tar --cd "$SQL_DIR" -xzf "$TARFILE"
 
 echo "Removing extraneous tables..."
-rm "$SQL_DIR"/oite-nih-schema-create.sql 2> /dev/null || true
+rm "$SQL_DIR"/oite-nih-schema-create* 2> /dev/null || true
 rm "$SQL_DIR"/oite-nih._eventlog* 2> /dev/null || true
 rm "$SQL_DIR"/oite-nih.event_[0123456789abcdef]* 2> /dev/null || true
 rm "$SQL_DIR"/oite-nih.survey_[0123456789abcdef]* 2> /dev/null || true
