@@ -125,6 +125,21 @@ RSpec.describe Event, type: :model do
     it "returns the kramdown-rendered content" do
       expect(subject.rendered_content).to eq <<~EOHTML
         <p>This is the <strong>formatted</strong> description of the training event.</p>
+
+        <p>There is an additional paragraph of information about this event, which we
+        can try and trim from an excerpt. Non enim anim voluptate in mollit sit irure
+        irure dolore id et cillum deserunt. Anim ad consequat Lorem aliqua. Eiusmod ut
+        cupidatat sit exercitation adipisicing mollit incididunt do commodo adipisicing
+        do laborum.</p>
+      EOHTML
+    end
+  end
+
+  describe "#rendered_content_excerpt" do
+    it "truncates HTML" do
+      expect(subject.rendered_content_excerpt(18)).to eq <<~EOHTML
+        <p>This is the...</p>
+
       EOHTML
     end
   end

@@ -79,5 +79,79 @@ module NetlifyContent
     content_document.to_html.html_safe
   end
 
+  def rendered_content_excerpt(max_length = 255)
+    excerpt_doc = content_document
+    trim_excerpt max_length, excerpt_doc.root
+    excerpt_doc.to_html.html_safe
+  end
+
+  def trim_excerpt(max_length, element, parent = nil, text_elements = [], length = 0, depth = 0)
+    if element.type == :text
+      if length >= max_length
+        parent.children.delete element
+      else
+        text_elements.push element
+        length += element.value.length
+      end
+    end
+
+    had_children = element.children.length > 0
+
+    element.children.each do |child|
+      length = trim_excerpt max_length, child, element, text_elements, length, depth + 1
+    end
+
+    if !parent.nil? && had_children && element.children.length == 0
+      # All the children were removed from this element
+      parent.children.delete element
+    end
+
+    elements_to_delete = []
+
+    if parent.nil? && length > max_length
+      # We need to trim down our actual text
+      text_elements.reverse_each do |el|
+        # Find the _last_ position in this text where we could insert our ellipsis
+        m = el.value.reverse.match(/\b/)
+        if m.nil? || m.begin(0) == 0
+          # We can't do anything with this one
+          el.value = ""
+          elements_to_delete.push(el)
+        else
+          pos = el.value.length - m.begin(0)
+          el.value = el.value.slice(0, pos) + "..."
+          break
+        end
+      end
+    end
+
+    if parent.nil?
+      clean_up_elements element, elements_to_delete
+    end
+
+    length
+  end
+
+  def clean_up_elements(element, elements_to_delete)
+    # Remove any of element's children that appear in elements_to_delete
+    # If this results in element not having any children left, the element
+    # should be marked to be removed itself
+
+    had_children = element.children.length > 0
+
+    element.children = element.children.select { |child|
+      if elements_to_delete.include? child
+        next false
+      end
+
+      clean_up_elements child, elements_to_delete
+    }.to_a
+
+    still_has_children = element.children.length > 0
+
+    # Keep if we had children + still have them, or never had them
+    !had_children || (had_children && still_has_children)
+  end
+
   class NotFound < StandardError; end
 end
