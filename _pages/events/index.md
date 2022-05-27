@@ -1,5 +1,7 @@
 ---
 title: Events
+sidebar_blocks:
+  - block: events-subnav/block
 access:
   public: true
 lifecycle:

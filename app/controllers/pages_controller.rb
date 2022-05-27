@@ -9,9 +9,13 @@ class PagesController < ApplicationController
   end
 
   def page
+    # :path_prefix is a parameter used to support serving content pages
+    # from routes handled by other controllers, e.g. `events/about`.
+    path = "#{params[:path_prefix]}#{params[:path]}"
+
     @pages = Page.build_hierarchy
 
-    @page = Page.find_by_path params[:path], hierarchy: @pages
+    @page = Page.find_by_path path, hierarchy: @pages
 
     if @page.obsolete?
       redirect_to content_page_path(path: @page.redirect_page)
@@ -25,7 +29,7 @@ class PagesController < ApplicationController
       @page_title = @page.title
       render formats: :html
     else
-      store_location_for(:user, "/#{params[:path]}")
+      store_location_for(:user, "/#{path}")
       redirect_to root_path
     end
   rescue Page::NotFound

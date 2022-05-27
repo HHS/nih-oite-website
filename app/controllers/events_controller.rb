@@ -54,10 +54,16 @@ class EventsController < ApplicationController
 
     @events = @events.slice(0, @limit)
 
+    @pages = Page.build_hierarchy
     @page = begin
-      Page.find_by_path "events"
+      Page.find_by_path "events", hierarchy: @pages
     rescue Page::NotFound
       nil
+    end
+
+    if @page.present?
+      @side_nav_items = Menu.build_side_nav @pages, @page
+      @show_sidebar = @page.has_sidebar? || @side_nav_items.length > 0
     end
 
     @not_found = begin
