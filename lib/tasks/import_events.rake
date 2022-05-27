@@ -61,15 +61,16 @@ def build_front_matter event, front_matter = nil
       },
       "start" => parse_time(event["start_time"]),
       "end" => parse_time(event["end_time"]),
-      "audience" => [],
+      "open_to" => [],
       "topic" => [],
+      "type" => normalize_type(event["type_name"]),
       "updated_at" => Time.strptime(event["modified"], "%Y-%m-%d %H:%M:%S").utc
       # "original_data" => JSON.generate(event)
     }
   end
 
   add_thing_to_list event["topic"], front_matter["topic"]
-  add_thing_to_list event["audience"], front_matter["audience"]
+  add_thing_to_list event["audience"], front_matter["open_to"]
 
   front_matter
 end
@@ -82,6 +83,8 @@ def add_thing_to_list thing, list
 end
 
 def write_event front_matter, body
+  front_matter["topic"] = normalize_topics(front_matter["topic"])
+
   slug = front_matter["title"].parameterize
   filename = Pathname.new "_events/#{front_matter["date"]["year"]}#{front_matter["date"]["month"]}#{front_matter["date"]["day"]}-#{slug}.md"
 
@@ -91,6 +94,71 @@ def write_event front_matter, body
   File.write filename, "#{YAML.dump front_matter}---
 #{body_doc.to_kramdown.to_s.strip}
 "
+end
+
+def normalize_topics(topics)
+  old_topics_to_new_topics = {
+    "American Culture" => nil,
+    "Academic Careers" => "Career readiness",
+    "Career Exploration" => "Career readiness",
+    "Ethics, Responsible Conduct of Research" => "Rules and regulations",
+    "Graduate School" => "Career readiness",
+    "Grants and Grant Writing" => "Communication",
+    "Industry Careers" => "Career readiness",
+    "Informational Session" => nil,
+    "Job Search Skills" => "Career readiness",
+    "Leadership - Personal/Group Interactions" => "Leadership/management",
+    "Management" => "Leadership/management",
+    "Networking Opportunities" => "Communication",
+    "Orientation" => "Orientation",
+    "Personal Development" => nil,
+    "Professional (Medical/Dental) School" => "Career readiness",
+    "Science Skills" => "Science",
+    "Science" => "Science",
+    "Speaking" => "Communication",
+    "Teaching/mentoring" => "Teaching/mentoring",
+    "Teaching/Mentoring" => "Teaching/mentoring",
+    "Wellness" => "Wellness/resilience",
+    "Writing" => "Communication"
+  }
+
+  return nil if topics.nil?
+
+  topics
+    .map { |topic|
+      if !old_topics_to_new_topics.has_key?(topic)
+        puts "Warning: unknown topic '#{topic}'"
+      end
+      old_topics_to_new_topics[topic]
+    }
+    .compact
+    .uniq
+end
+
+def normalize_type(type)
+  return nil if type.nil?
+
+  old_types_to_new_types = {
+    "Course" => "Course",
+    "Discussion Group/Brown Bag" => "Small group",
+    "Lecture" => "Lecture",
+    "Major Event" => "Major public event",
+    "Major public event" => "Major public event",
+    "Poster Day" => "Major public event",
+    "Recruiting Event" => "Major public event",
+    "Series" => "Series",
+    "Small group" => "Small group",
+    "Small Group" => "Small group",
+    "Special Event" => "Major public event",
+    "Workshop" => "Workshop",
+    "Workshop/Seminar" => "Workshop"
+  }
+
+  if !old_types_to_new_types.has_key?(type)
+    puts "Warning unknown type '#{type}'"
+  end
+
+  old_types_to_new_types[type]
 end
 
 def prep_original_data event

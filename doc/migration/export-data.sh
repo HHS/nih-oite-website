@@ -120,10 +120,12 @@ echo "Exporting event data to 'events.csv'..."
 echo "
 SELECT
     site_event.*,
+    picklist_event_type.value AS type_name,
     picklist_event_topic.value AS topic,
     picklist_trainee_type.value AS audience
 FROM
     site_event
+    LEFT JOIN picklist_event_type ON picklist_event_type.id = site_event.type
     LEFT JOIN _ObjectPicks _TopicsPick ON (_TopicsPick.object_id = site_event.id AND _TopicsPick.field_name = 'topics')
     LEFT JOIN picklist_event_topic ON picklist_event_topic.id = _TopicsPick.field_value
     LEFT JOIN _ObjectPicks _AudiencePick ON (_AudiencePick.object_id = site_event.id AND _AudiencePick.field_name = 'audience')
