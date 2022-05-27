@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get "admin/config", format: "yml", to: "pages#netlify_config"
   get "admin/", to: "pages#netlify"
 
+  get "events/*path", to: "pages#page", defaults: {path_prefix: "events/"}
   resources :events, only: %i[index show]
 
   get "sitemap", to: "pages#sitemap"
