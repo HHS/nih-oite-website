@@ -6,13 +6,14 @@ date:
   day: 31
 start: 4:00 PM
 end: 5:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Wellness
+- Wellness/resilience
+type: Major public event
 updated_at: 2021-03-24 18:24:34.000000000 Z
 ---
 This month's OITE community wellness event will be Painting with

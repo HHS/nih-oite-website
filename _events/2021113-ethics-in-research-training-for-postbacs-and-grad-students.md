@@ -6,17 +6,18 @@ date:
   day: 13
 start: 10:00 AM
 end: 4:30 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 topic:
-- Science Skills
-- Ethics, Responsible Conduct of Research
+- Science
+- Rules and regulations
+type: Course
 updated_at: 2020-11-17 16:51:22.000000000 Z
 ---
  
 
-<span>Training in
+<span style="font-size: 11.5052px; line-height: 17.833px;">Training in
 Responsible Conduct of Research is an essential component of your
 development as a scientist.</span>
 
@@ -45,20 +46,22 @@ Topics to be covered include:
 
 **\*This course is only for postbacs and grad students.  Note: If you
 took this course at NIH last year, you do not need to take it again.**
+{: style="font-size: 11.5052px; line-height: 17.833px;"}
 
-
-<span>The Following IC offers and requires
-their own ethics training: **<span>NIEHS</span>**. *<span>This course will not substitute for those
-requirements.</span>*</span>
-
+<span style="font-size: 8.5pt;">The Following IC offers and requires
+their own ethics training: **<span style="font-size:
+11.5052px;">NIEHS</span>**{: style="font-size: 11.5052px;"}. *<span
+style="font-size: 11.5052px;">This course will not substitute for those
+requirements.</span>*{: style="font-size: 11.5052px;"}</span>
+{: style="margin: 0in 0in 0.0001pt; font-size: 11.5052px; color: #333333; text-size-adjust: auto; line-height: 13.35pt;"}
 
  
-
+{: style="margin: 0in 0in 0.0001pt; font-size: 11.5052px; color: #333333; text-size-adjust: auto; line-height: 13.35pt;"}
 
 The following IC\'s **require** this training: CC, NCATS, NCCIH,
 NCI-CCR, NCI-DCEG, NEI, NHLBI, NIA, NIAID, NIAMS, NIBIB, NICHD, NIDA,
 NIDCD, NIDDK, NIMH, NINR.  
-
+{: style="margin: 0in 0in 0.0001pt; font-size: 11.5052px; color: #333333; text-size-adjust: auto; line-height: 13.35pt;"}
 
  
 
@@ -70,10 +73,13 @@ address should contact [Dr. Andrea Naranjo
 Erazo](mailto:andrea.naranjo-erazo@nih.gov) to register for this
 training.
 
-<span>If you have further questions, please
-contact your institute\'s [<span>Training Director</span>][1] or <span>[Dr. Andrea Naranjo
+<span style="font-size: 8.5pt;">If you have further questions, please
+contact your institute\'s [<span style="padding: 0in; font-size:
+11.5052px; border: 1pt none windowtext;">Training Director</span>][1]{:
+style="font-size: 11.5052px;"} or <span style="padding: 0in; font-size:
+11.5052px; border: 1pt none windowtext;">[Dr. Andrea Naranjo
 Erazo](mailto:andrea.naranjo-erazo@nih.gov).</span></span>
-
+{: style="font-size: 11.5052px; color: #333333; text-size-adjust: auto; line-height: 17.833px;"}
 
 
 

@@ -6,10 +6,11 @@ date:
   day: 21
 start: 10:30 AM
 end: 2:30 PM
-audience:
+open_to:
 - Summer Interns
 topic:
 - Orientation
+type: Workshop
 updated_at: 2021-05-13 05:56:01.000000000 Z
 ---
 High school summer interns at the NIH must attend a required orientation

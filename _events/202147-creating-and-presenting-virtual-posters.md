@@ -6,13 +6,14 @@ date:
   day: 7
 start: 2:00 PM
 end: 3:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Science Skills
-- Speaking
+- Science
+- Communication
+type: Workshop
 updated_at: 2021-03-03 06:27:09.000000000 Z
 ---
 This event is online only. Register

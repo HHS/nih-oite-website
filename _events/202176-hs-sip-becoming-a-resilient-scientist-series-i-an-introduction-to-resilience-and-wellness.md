@@ -7,15 +7,15 @@ date:
   day: 6
 start: 2:00 PM
 end: 3:30 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Workshop
 updated_at: 2021-05-15 16:28:26.000000000 Z
 ---
 **Register:** [https://nih.zoomgov.com/webinar/register/WN\_LCZbjMkVQ3-yw4nAhJw6qA][1]
@@ -47,12 +47,12 @@ for high school students and recent high school graduates (July 8-27).
 Each series will consist of four workshops and four small group
 discussions:
 
-| <span>**Group Discussion**</span> |
+| <span style="color: #003300;">**For Students in College and Above**</span> | <span style="color: #003300;">**Workshop**</span> | <span style="color: #003300;">**Group Discussion**</span> |
 | Week 1 - I. An Introduction to Resilience and Wellness | 6/8/2021 | 6/10/2021 |
 | Week 2 - II. Exploring Our Self-Talk: Cognitive Distortions and Imposter Fears | 6/15/2021 | 6/17/2021 |
 | Week 3 - III. Self-Advocacy and Assertiveness | 6/22/2021 | 6/24/2021 |
 | Week 4 - IV. Feedback Resilience | 6/29/2021 | 7/1/2021 |
-| <span>**Group Discussion**</span> |
+| <span style="color: #003300;">**For High School Students and Recent Graduates**</span> | <span style="color: #003300;">**Workshop**</span> | <span style="color: #003300;">**Group Discussion**</span> |
 | Week 1 - I. An Introduction to Resilience and Wellness | 7/6/2021 | 7/8/2021 |
 | Week 2 - II. Exploring Our Self-Talk: Cognitive Distortions and Imposter Fears | 7/13/2021 | 7/15/2021 |
 | Week 3 - III. Self-Advocacy and Assertiveness | 7/20/2021 | 7/22/2021 |

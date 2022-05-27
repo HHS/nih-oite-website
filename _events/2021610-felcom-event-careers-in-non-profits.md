@@ -6,11 +6,12 @@ date:
   day: 10
 start: 12:00 PM
 end: 1:30 PM
-audience:
+open_to:
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Career Exploration
+- Career readiness
+type: Workshop
 updated_at: 2021-06-04 20:48:15.000000000 Z
 ---
 Working as a scientist in a non-profit organization combines the passion

@@ -6,13 +6,13 @@ date:
   day: 3
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-06-01 21:53:32.000000000 Z
 ---
 Words have power. The way we talk to ourselves and others can shape

@@ -6,11 +6,12 @@ date:
   day: 28
 start: 12:30 PM
 end: 2:00 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 topic:
-- Professional (Medical/Dental) School
+- Career readiness
+type: Workshop
 updated_at: 2021-07-23 00:39:23.000000000 Z
 ---
 Event

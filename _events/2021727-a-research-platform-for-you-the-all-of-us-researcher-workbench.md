@@ -6,13 +6,14 @@ date:
   day: 27
 start: 12:00 PM
 end: 1:30 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2021-07-21 17:53:20.000000000 Z
 ---
 This workshop is geared towards NIH trainees interested in building a

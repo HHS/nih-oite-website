@@ -6,15 +6,15 @@ date:
   day: 12
 start: 2:00 PM
 end: 4:00 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Workshop
 updated_at: 2020-09-04 06:44:11.000000000 Z
 ---
 Register
@@ -65,7 +65,7 @@ Session 5 -- Jan: V. Developing Feedback Resilience
 
 Session 6 -- Feb: VI. Managing Up to Maximize Mentoring Relationships
 
-<span> </span>
+<span style="font-size: 11px;"> </span>
 
 
 

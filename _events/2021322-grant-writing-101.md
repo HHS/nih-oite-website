@@ -6,12 +6,13 @@ date:
   day: 22
 start: 1:00 PM
 end: 4:00 PM
-audience:
+open_to:
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Academic Careers
-- Grants and Grant Writing
+- Career readiness
+- Communication
+type: Workshop
 updated_at: 2021-03-19 20:50:04.000000000 Z
 ---
 Understanding Grant Writing and Writing a Grant Application. Topics will

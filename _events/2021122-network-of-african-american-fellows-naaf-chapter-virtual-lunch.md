@@ -6,13 +6,14 @@ date:
   day: 22
 start: 12:15 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Networking Opportunities
+- Communication
+type: Major public event
 updated_at: 2021-03-30 15:54:09.000000000 Z
 ---
 Please join the Network of African American Fellows (NAAF)

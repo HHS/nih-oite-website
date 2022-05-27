@@ -6,13 +6,13 @@ date:
   day: 15
 start: 12:45 PM
 end: 1:45 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-06-30 18:36:08.000000000 Z
 ---
 This event is only for NIH Intramural Trainees currently in our postbac,
@@ -37,7 +37,8 @@ confidential space to explore positive and proactive ways to build
 resilience and self-care skills. Even if you can\'t join us for the
 entire hour, we encourage you to still attend. 
 
-<span> </span>
+<span style="font-family: arial, helvetica, sans-serif; font-size:
+10pt;"> </span>
 
  
 

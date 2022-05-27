@@ -7,12 +7,13 @@ date:
   day: 18
 start: 12:00 PM
 end: 1:30 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Networking Opportunities
+- Communication
+type: Small group
 updated_at: 2021-03-30 15:47:02.000000000 Z
 ---
 The NIH-SACNAS Chapter (Society for the Advancement of
@@ -35,9 +36,9 @@ prior to the event.
 For any questions, please contact Dr. Natasha Lugo-Escobar at
 lugoescobarn@mail.nih.gov.  
 
-<span>Speakers Biography</span>
+<span style="text-decoration: underline;">Speakers Biography</span>
 
-<span><strong>Dr. Asher Williams </strong>is
+<span style="font-size: 8pt;"><strong>Dr. Asher Williams </strong>is
 currently a Presidential Postdoctoral Fellow at Cornell University where
 her research is aimed at cell-free biosynthesis of conjugate vaccines
 against emerging pathogens. She is also a part of a global team of
@@ -56,7 +57,7 @@ was named an RPI Class of 2020 Changemaker and is listed as one of 1000
 Inspiring Black Scientists in America and a 2020 MIT Rising Star in
 Chemical Engineering.</span>
 
-<span>**Dr. Laura Lindenfeld **is the Executive
+<span style="font-size: 8pt;">**Dr. Laura Lindenfeld **is the Executive
 Director of the Alda Center, Dean of the School of Communication and
 Journalism, and Vice Provost for Academic Strategy and Planning, and a
 professor of journalism. She holds a PhD in cultural studies from the
@@ -80,7 +81,7 @@ communication. Her work seeks to understand how we can support effective
 stakeholder engagement and communicate science more effectively and
 persuasively. </span>
 
-<span>**Dr. Kelly Gonzales**, a citizen of the
+<span style="font-size: 8pt;">**Dr. Kelly Gonzales**, a citizen of the
 Cherokee Nation of Oklahoma, is an associate professor at Oregon Health
 &amp; Science University and Portland State University. Dr. Gonzalez
 studies health disparities, particularly those related to diabetes among
@@ -91,7 +92,7 @@ Authority's COVID-19 Vaccine Advisory Council to provide guidance on
 Oregon's vaccine distribution plan, including vaccine sequencing for
 phases 1b, 1c and 2 of the state's vaccine distribution plan.</span>
 
-<span>Who are we?: We are a professional SACNAS
+<span style="font-size: 8pt;">Who are we?: We are a professional SACNAS
 chapter that provides a supportive and welcoming environment for
 Hispanics/Chicanos and Native Americans trainees and staff at the NIH to
 get together, exchange ideas, network, share successes, and strategize

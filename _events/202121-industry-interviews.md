@@ -6,12 +6,12 @@ date:
   day: 1
 start: 3:30 PM
 end: 4:30 PM
-audience:
+open_to:
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Industry Careers
-- Job Search Skills
+- Career readiness
+type: Workshop
 updated_at: 2020-12-11 21:53:18.000000000 Z
 ---
 Join us to see how to navigate an interview in industry. We will explore

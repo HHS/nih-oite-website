@@ -6,10 +6,11 @@ date:
   day: 8
 start: 11:00 AM
 end: 12:00 PM
-audience:
+open_to:
 - Postbacs
 topic:
 - Orientation
+type: Workshop
 updated_at: 2021-02-02 20:47:22.000000000 Z
 ---
 Event Link: If you register for this event, you will get online meeting

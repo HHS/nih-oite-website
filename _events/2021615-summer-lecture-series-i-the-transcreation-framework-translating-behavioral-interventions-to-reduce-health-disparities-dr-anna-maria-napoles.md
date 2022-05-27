@@ -7,23 +7,24 @@ date:
   day: 15
 start: 11:00 AM
 end: 12:00 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
 - Science
+type: Lecture
 updated_at: 2021-05-21 23:00:30.000000000 Z
 ---
 <!--StartFragment-->
 
-<span>First in
+<span style="color: #262626;"><span style="font-size: 100%;">First in
 the series of lectures specifically arranged for trainees in the NIH
 Summer Internship Program.</span></span>
 {: .MsoNormal}
 
-<span>**Event
+<span style="color: #262626;"><span style="font-size: 100%;">**Event
 Link: **[https://nih.zoomgov.com/webinar/register/WN\_35ffLcIeQ-mLGUh6eYliTg][1]
 
 </span></span>

@@ -6,12 +6,12 @@ date:
   day: 14
 start: 1:00 PM
 end: 2:30 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 topic:
-- Personal Development
-- Graduate School
+- Career readiness
+type: Workshop
 updated_at: 2021-05-12 04:02:00.000000000 Z
 ---
 This workshop will guide you through the process of planning and writing

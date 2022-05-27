@@ -6,14 +6,14 @@ date:
   day: 15
 start: 11:00 AM
 end: 12:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Leadership - Personal/Group Interactions
-- Personal Development
+- Leadership/management
+type: Small group
 updated_at: 2020-12-11 21:26:50.000000000 Z
 ---
 Take a deeper dive into the material from Workplace Dynamics 1-2:

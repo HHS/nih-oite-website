@@ -6,15 +6,15 @@ date:
   day: 7
 start: 1:00 PM
 end: 2:30 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Workshop
 updated_at: 2021-05-12 19:08:36.000000000 Z
 ---
 Register

@@ -7,14 +7,14 @@ date:
   day: 9
 start: 2:00 PM
 end: 4:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Workshop
 updated_at: 2021-02-04 20:17:08.000000000 Z
 ---
 Register

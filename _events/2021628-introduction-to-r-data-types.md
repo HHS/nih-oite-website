@@ -6,10 +6,11 @@ date:
   day: 28
 start: 2:00 PM
 end: 3:30 PM
-audience:
+open_to:
 - Summer Interns
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2021-06-17 22:57:33.000000000 Z
 ---
 A companion course to Introduction to R\' and R\' studio.  Learn the

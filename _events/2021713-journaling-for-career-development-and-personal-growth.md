@@ -6,14 +6,14 @@ date:
   day: 13
 start: 4:00 PM
 end: 5:00 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-05-19 22:25:29.000000000 Z
 ---
 Journaling is a great way to tune into your thoughts and emotions, work

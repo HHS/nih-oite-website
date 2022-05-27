@@ -6,22 +6,23 @@ date:
   day: 1
 start: 1:00 PM
 end: 3:00 PM
-audience:
+open_to:
 - Summer Interns
 topic:
-- Science Skills
-- Ethics, Responsible Conduct of Research
+- Science
+- Rules and regulations
+type: Course
 updated_at: 2021-05-13 00:01:15.000000000 Z
 ---
-<span>Event
+<span style="font-size: 11.5052px;">Event
 Link: [https://attendee.gotowebinar.com/register/4212632981697587981][1]</span>
 
-<span>**NOTE: This workshop is part of
+<span style="font-size: 11.5052px;">**NOTE: This workshop is part of
 Virtual Summer Enrichment Curriculum; the target audience is NIH summer
 interns and students outside NIH. NIH Postbacs, Graduate students, and
 postdocs will NOT receive credit for this course.**</span>
 
-<span>Research Ethics is at the foundation
+<span style="font-size: 11.5052px;">Research Ethics is at the foundation
 of everything we do in the scientific endeavor, and training in
 Responsible Conduct of Research is an essential component of your
 development as a scientist as you train here at the NIH. The news is

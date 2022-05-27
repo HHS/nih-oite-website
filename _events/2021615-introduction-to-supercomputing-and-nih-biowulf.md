@@ -6,10 +6,11 @@ date:
   day: 15
 start: 10:00 AM
 end: 11:00 AM
-audience:
+open_to:
 - Summer Interns
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2021-06-15 15:52:21.000000000 Z
 ---
 Come learn a basic overview of what a supercomputer is and how it is

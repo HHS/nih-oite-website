@@ -6,14 +6,15 @@ date:
   day: 4
 start: 1:00 PM
 end: 2:00 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-05-24 20:57:18.000000000 Z
 ---
 When we read or hear about healthy habits our minds gravitate towards

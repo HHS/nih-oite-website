@@ -7,10 +7,11 @@ date:
   day: 30
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
 topic:
-- Graduate School
+- Career readiness
+type: Small group
 updated_at: 2021-04-27 18:44:42.000000000 Z
 ---
 During these virtual Q&amp;A sessions, dedicated OITE staff members will

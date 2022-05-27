@@ -6,10 +6,11 @@ date:
   day: 25
 start: 10:30 AM
 end: 12:00 PM
-audience:
+open_to:
 - Summer Interns
 topic:
 - Orientation
+type: Workshop
 updated_at: 2021-05-10 00:21:47.000000000 Z
 ---
 Your research project should be your number one priority, but there is

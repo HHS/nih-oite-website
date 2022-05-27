@@ -6,12 +6,13 @@ date:
   day: 8
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-03-30 15:04:59.000000000 Z
 ---
 many of us. With the changes of seasons, especially the warmer weather,

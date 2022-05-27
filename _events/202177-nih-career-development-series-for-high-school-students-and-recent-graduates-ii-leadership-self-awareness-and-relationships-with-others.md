@@ -7,12 +7,12 @@ date:
   day: 7
 start: 2:00 PM
 end: 3:30 PM
-audience:
+open_to:
 - Summer Interns
 topic:
-- Career Exploration
-- Leadership - Personal/Group Interactions
-- Personal Development
+- Career readiness
+- Leadership/management
+type: Workshop
 updated_at: 2021-05-13 00:03:25.000000000 Z
 ---
 Register: [https://attendee.gotowebinar.com/register/6345163271551551247][1]

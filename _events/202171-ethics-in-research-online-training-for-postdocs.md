@@ -6,10 +6,11 @@ date:
   day: 1
 start: 10:00 AM
 end: 4:30 PM
-audience:
+open_to:
 - Postdocs/Fellows
 topic:
-- Ethics, Responsible Conduct of Research
+- Rules and regulations
+type: Course
 updated_at: 2021-06-22 19:15:19.000000000 Z
 ---
 Research Ethics is at the foundation of everything we do in the

@@ -7,12 +7,12 @@ date:
   day: 28
 start: 2:00 PM
 end: 3:30 PM
-audience:
+open_to:
 - Summer Interns
 topic:
-- Career Exploration
-- Leadership - Personal/Group Interactions
-- Personal Development
+- Career readiness
+- Leadership/management
+type: Workshop
 updated_at: 2021-05-13 00:04:37.000000000 Z
 ---
 Event

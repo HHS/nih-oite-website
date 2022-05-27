@@ -6,12 +6,13 @@ date:
   day: 25
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-02-25 16:55:51.000000000 Z
 ---
 Each of us is deserving of kindness and care. However, internal and

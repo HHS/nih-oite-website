@@ -7,10 +7,11 @@ date:
   day: 14
 start: 12:00 PM
 end: 1:30 PM
-audience:
+open_to:
 - Postbacs
 topic:
-- Networking Opportunities
+- Communication
+type: Small group
 updated_at: 2021-04-13 03:35:10.000000000 Z
 ---
 The NIH-SACNAS Chapter (Society for the Advancement of
@@ -36,7 +37,7 @@ noreferrer"}.
 For any questions, please contact Dr. Natasha Lugo-Escobar at
 lugoescobarn@mail.nih.gov.  
 
-<span>Who are we?: We are a professional SACNAS
+<span style="font-size: 8pt;">Who are we?: We are a professional SACNAS
 chapter that provides a supportive and welcoming environment for
 Hispanics/Chicanos and Native Americans trainees and staff at the NIH to
 get together, exchange ideas, network, share successes, and strategize

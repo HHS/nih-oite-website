@@ -6,12 +6,13 @@ date:
   day: 21
 start: 2:00 PM
 end: 3:30 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2020-12-14 18:29:45.000000000 Z
 ---
 Event

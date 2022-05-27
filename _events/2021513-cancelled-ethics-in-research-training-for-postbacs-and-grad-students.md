@@ -6,12 +6,13 @@ date:
   day: 13
 start: 10:00 AM
 end: 4:30 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 topic:
-- Science Skills
-- Ethics, Responsible Conduct of Research
+- Science
+- Rules and regulations
+type: Course
 updated_at: 2021-05-11 23:42:44.000000000 Z
 ---
  Training in Responsible Conduct of Research is an essential component

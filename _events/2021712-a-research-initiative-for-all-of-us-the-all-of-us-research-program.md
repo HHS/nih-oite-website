@@ -6,14 +6,15 @@ date:
   day: 12
 start: 1:00 PM
 end: 2:00 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2021-07-08 19:09:20.000000000 Z
 ---
 This webinar event is an opportunity for trainees to learn about the

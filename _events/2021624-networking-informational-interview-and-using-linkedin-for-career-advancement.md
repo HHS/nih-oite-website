@@ -6,14 +6,15 @@ date:
   day: 24
 start: 1:00 PM
 end: 2:00 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Management
-- Job Search Skills
+- Leadership/management
+- Career readiness
+type: Workshop
 updated_at: 2021-05-10 06:53:54.000000000 Z
 ---
 **Event

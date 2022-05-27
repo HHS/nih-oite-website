@@ -6,13 +6,14 @@ date:
   day: 8
 start: 3:00 PM
 end: 3:45 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Job Search Skills
+- Career readiness
+type: Small group
 updated_at: 2021-01-08 21:26:30.000000000 Z
 ---
 Learn and practice how to answer these tough interview questions- \"Tell

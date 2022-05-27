@@ -6,10 +6,11 @@ date:
   day: 29
 start: 10:00 AM
 end: 12:00 PM
-audience:
+open_to:
 - Summer Interns
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2021-05-19 05:31:55.000000000 Z
 ---
 Learn about human genome and gene information at NCBI and how to find

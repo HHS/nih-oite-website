@@ -6,12 +6,12 @@ date:
   day: 30
 start: 1:00 PM
 end: 2:30 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 topic:
-- Informational Session
-- Graduate School
+- Career readiness
+type: Workshop
 updated_at: 2021-05-12 19:11:00.000000000 Z
 ---
 Register

@@ -6,15 +6,14 @@ date:
   day: 28
 start: 3:30 PM
 end: 5:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Leadership - Personal/Group Interactions
-- Management
-- Personal Development
+- Leadership/management
+type: Workshop
 updated_at: 2021-06-25 21:14:01.000000000 Z
 ---
 Let\'s explore themes of self-awareness and self-management. We will

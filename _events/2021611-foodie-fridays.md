@@ -6,12 +6,13 @@ date:
   day: 11
 start: 1:00 PM
 end: 2:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-06-09 16:51:21.000000000 Z
 ---
 When we consider healthy eating habits, most people think about

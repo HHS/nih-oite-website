@@ -6,11 +6,12 @@ date:
   day: 3
 start: 3:00 PM
 end: 4:30 PM
-audience:
+open_to:
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Career Exploration
+- Career readiness
+type: Workshop
 updated_at: 2021-02-23 22:26:37.000000000 Z
 ---
 With the advancement of science and increased research complexity, a
@@ -26,9 +27,9 @@ also  be available for a question answer session. Come and join us to
 learn more about those fascinating careers and get tips for making
 successful career transition!
 
-<span>This event is sponsored by Felcom.</span>
+<span style="font-size: 12px;">This event is sponsored by Felcom.</span>
 
-<span>Register via
+<span style="font-size: 12px;">Register via
 zoom: https://nih.zoomgov.com/meeting/register/vJItcOuoqTMsHXLSbYgy3CUtsyixhdT1B\_Q</span>
 
  

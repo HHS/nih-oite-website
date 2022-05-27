@@ -6,12 +6,12 @@ date:
   day: 23
 start: 10:00 AM
 end: 11:00 AM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
-topic:
-- Informational Session
+topic: []
+type: Workshop
 updated_at: 2021-03-06 00:54:03.000000000 Z
 ---
 OITE will provide a virtual mandatory training for all trainees (IRTAs,

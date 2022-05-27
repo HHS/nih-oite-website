@@ -6,12 +6,13 @@ date:
   day: 4
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-02-25 16:54:14.000000000 Z
 ---
 Emotional intelligence is our ability to discern our own emotional

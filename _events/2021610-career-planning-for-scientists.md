@@ -6,15 +6,14 @@ date:
   day: 10
 start: 1:00 PM
 end: 2:00 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 topic:
-- Career Exploration
-- Personal Development
-- Job Search Skills
+- Career readiness
+type: Workshop
 updated_at: 2021-05-10 06:30:29.000000000 Z
 ---
 Event

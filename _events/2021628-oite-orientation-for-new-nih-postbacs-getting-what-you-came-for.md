@@ -6,10 +6,11 @@ date:
   day: 28
 start: 11:00 AM
 end: 12:00 PM
-audience:
+open_to:
 - Postbacs
 topic:
 - Orientation
+type: Workshop
 updated_at: 2021-05-06 00:54:08.000000000 Z
 ---
 Event Registration

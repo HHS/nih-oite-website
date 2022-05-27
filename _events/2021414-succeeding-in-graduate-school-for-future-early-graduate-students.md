@@ -6,11 +6,12 @@ date:
   day: 14
 start: 2:00 PM
 end: 4:00 PM
-audience:
+open_to:
 - Postbacs
 - Graduate Students
 topic:
-- Graduate School
+- Career readiness
+type: Workshop
 updated_at: 2021-03-02 00:07:40.000000000 Z
 ---
 Event Link:

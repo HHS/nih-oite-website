@@ -6,14 +6,15 @@ date:
   day: 25
 start: 3:30 PM
 end: 4:30 PM
-audience:
+open_to:
 - Summer Interns
 - Postbacs
 - Graduate Students
 - Postdocs/Fellows
 - NIH Staff Scientist/Staff Clinician
 topic:
-- Networking Opportunities
+- Communication
+type: Major public event
 updated_at: 2021-06-16 19:15:08.000000000 Z
 ---
 One of the joys of the summer is when the summer interns get to interact
