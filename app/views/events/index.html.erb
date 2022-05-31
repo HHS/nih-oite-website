@@ -12,17 +12,12 @@
 
     <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
       <% @event_filters.each do |filter| %>
-        <input
-          id="<%= filter.name %>-accordion-input"
-          type="hidden"
-          name="accordion[<%= filter.name %>]"
-        >
         <h4 class="usa-accordion__heading">
           <button
             class="usa-accordion__button"
             aria-expanded="<%= @selected_filters[filter.name].length > 0 || @open_accordions[filter.name] %>"
             aria-controls="<%= filter.name %>-accordion-content"
-            data-accordion-state-input="<%= filter.name %>-accordion-input"
+            data-accordion-name="<%= filter.name %>"
           >
             <%= filter.name.titleize.capitalize %>
           </button>

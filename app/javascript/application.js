@@ -18,17 +18,27 @@ function disableInputsHiddenInAccordions(form) {
  * @param {HTMLFormElement} form
  */
 function preserveFormAccordionState(form) {
+  let accordionStateInput = form.querySelector("[name=acc]");
+  if (!accordionStateInput) {
+    accordionStateInput = document.createElement("input");
+    accordionStateInput.type = "hidden";
+    accordionStateInput.name = "acc";
+    form.appendChild(accordionStateInput);
+  }
+
   const accordionButtons = form.querySelectorAll(".usa-accordion__button");
-  [].forEach.call(accordionButtons, (button) => {
-    const inputId = button.getAttribute("data-accordion-state-input");
-    if (!inputId) {
-      return;
-    }
-    const input = document.getElementById(inputId);
-    if (input) {
-      input.value = button.getAttribute("aria-expanded");
-    }
-  });
+  accordionStateInput.value = [].map
+    .call(accordionButtons, (button) => {
+      const name = button.getAttribute("data-accordion-name");
+      if (!name) {
+        return undefined;
+      }
+
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
+      return isExpanded ? name : undefined;
+    })
+    .filter((x) => !!x)
+    .join(",");
 }
 
 document.addEventListener("click", (evt) => {
