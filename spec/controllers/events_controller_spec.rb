@@ -53,14 +53,6 @@ RSpec.describe EventsController do
     }
   end
 
-  it "can have results limited" do
-    get :index, params: {limit: 1}
-    expect(assigns(:events)).not_to be_nil
-    expect(assigns(:events)).not_to be_empty
-    expect(assigns(:events)).to satisfy { |events| events.length == 1 }
-    expect(assigns(:limit)).to eql(1)
-  end
-
   it "picks up content from the /events page" do
     get :index
     expect(assigns(:page)).not_to be_nil

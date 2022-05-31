@@ -17,6 +17,19 @@ module ApplicationHelper
     @menu ||= Menu.load(Rails.root.join("_settings", "navigation.yml"), pages)
   end
 
+  def filtered_events_path(from: nil, page: nil, filters: nil)
+    options = {
+      page: page,
+      from: from
+    }
+
+    (filters || {}).each do |name, values|
+      options[name] = values.map { |v| v.value }
+    end
+
+    events_path(options)
+  end
+
   def page_sitemap(page, builder)
     unless page.obsolete? || !page.public?
       builder.url do

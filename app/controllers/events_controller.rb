@@ -46,13 +46,26 @@ class EventsController < ApplicationController
 
     @events = Event.all from: @from, filters: @selected_filters
 
-    @limit = if params[:limit]
-      params[:limit].to_i
-    else
-      25
+    @page_size = 10
+    @page_index = (params[:page] || 1).to_i
+    @page_count = (@events.length / @page_size.to_f).ceil
+
+    start_page = @page_index - 2
+    end_page = @page_index + 2
+
+    if start_page < 1
+      end_page += 1 - start_page
+      start_page = 1
     end
 
-    @events = @events.slice(0, @limit)
+    if end_page > @page_count
+      end_page = @page_count
+    end
+
+    @page_range = (start_page..end_page)
+
+    start = (@page_index - 1) * @page_size
+    @events = @events.slice(start, @page_size) || []
 
     @pages = Page.build_hierarchy
     @page = begin
