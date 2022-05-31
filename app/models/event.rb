@@ -110,7 +110,7 @@ class Event
   end
 
   def to_param
-    filename
+    filename.to_s
   end
 
   def date
