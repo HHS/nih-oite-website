@@ -1,4 +1,6 @@
 class BlogHeadlinesBlock
+  OITE_BLOG_FEED = "https://oitecareersblog.od.nih.gov/feed/".freeze
+
   attr_reader :headlines
   def initialize(post_count)
     @post_count = post_count.to_i
@@ -12,7 +14,7 @@ class BlogHeadlinesBlock
   private
 
   def read_rss
-    response = Faraday.get(ENV["OITE_BLOG_FEED"])
+    response = Faraday.get(OITE_BLOG_FEED)
     if response.success?
       feed = RSS::Parser.parse(response.body)
       feed.items.take(@post_count).map { |item| BlogPost.new(item) }

@@ -10,7 +10,6 @@ applications:
     NODE_ENV: production
     RAILS_LOG_TO_STDOUT: true
     RAILS_SERVE_STATIC_FILES: true
-    OITE_BLOG_FEED: https://oitecareersblog.od.nih.gov/feed/
     NETLIFY_BRANCH: ((netlify_branch))
     GIT_GATEWAY_HOST: ((git_gateway_host))
     SEARCH_GOV_AFFILIATE: ((search_gov_affiliate))
