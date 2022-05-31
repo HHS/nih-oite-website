@@ -25,7 +25,8 @@ class EventsController < ApplicationController
       )
     ]
 
-    @open_accordions = (params[:accordion] || {}).transform_values { |value| value == "true" }
+    open_accordion_names = (params[:acc] || "").split(",")
+    @open_accordions = open_accordion_names.zip(open_accordion_names.map { true }).to_h
 
     @from = if params[:from]
       begin
