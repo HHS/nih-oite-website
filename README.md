@@ -1,7 +1,7 @@
 NIH OITE Website
 ================
 
-This application is one option for the groundwork fo the new NIH OITE website.
+This application is one option for the groundwork for the new NIH OITE website.
 
 ## Development
 
