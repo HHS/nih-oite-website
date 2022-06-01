@@ -26,9 +26,9 @@ class BlogHeadlinesBlock
   class BlogPost
     attr_reader :title, :blurb, :url
     def initialize(rss_entry)
-      @title = rss_entry.title
-      @blurb = rss_entry.description.truncate(150, separator: /\s/)
-      @url = rss_entry.link
+      @title = ERB::Util.html_escape_once rss_entry.title
+      @blurb = ERB::Util.html_escape_once rss_entry.description.truncate(150, separator: /\s/)
+      @url = ERB::Util.html_escape_once rss_entry.link
     end
   end
 end
