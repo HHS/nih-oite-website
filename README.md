@@ -129,9 +129,10 @@ Security scans are also run on a scheduled basis. Weekly for static code scans, 
 
 ### Deployment
 
+This repository supports automated deployment to <cloud.gov> via Github Actions. Before the app can be deployed, you must create the infrastructure using Terraform. See [documentation in the `terraform`](./terraform/README.md) directory for more information.
+
 Each environment has dependencies on a PostgreSQL RDS instance managed by cloud.gov.
 See [cloud.gov docs](https://cloud.gov/docs/services/relational-database/) for information on RDS.
-
 #### Staging
 
 Deploys to staging happen on every push to the `main` branch in Github.
@@ -141,11 +142,12 @@ to enable a deploy to work:
 
 | Secret Name | Description |
 | ----------- | ----------- |
-| `CF_USERNAME` | cloud.gov SpaceDeployer username |
-| `CF_PASSWORD` | cloud.gov SpaceDeployer password |
+| `CF_USERNAME` | cloud.gov [SpaceDeployer][spacedeployer] username |
+| `CF_PASSWORD` | cloud.gov [SpaceDeployer][spacedeployer] password |
 | `RAILS_MASTER_KEY` | `config/master.key` |
 | `STAGING_RAILS_MASTER_KEY` | `config/credentials/staging.key` |
 
+[spacedeployer]: ./terraform/README.md#spacedeployers
 
 #### Production
 
