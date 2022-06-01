@@ -284,6 +284,8 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
+    rss (0.2.9)
+      rexml
     rubocop (1.29.1)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
@@ -331,6 +333,7 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
+    vcr (6.1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -362,6 +365,7 @@ DEPENDENCIES
   devise (~> 4.8)
   dotenv-rails (~> 2.7)
   factory_bot_rails (~> 6.2)
+  faraday (~> 2.3)
   front_matter_parser (~> 1.0)
   i18n-tasks (~> 0.9)
   jbuilder
@@ -380,6 +384,7 @@ DEPENDENCIES
   rails-reverse-proxy (~> 0.11)
   rails_template_18f
   rspec-rails (~> 5.1)
+  rss (~> 0.2)
   secure_headers (~> 6.3)
   shoulda-matchers (~> 5.1)
   sidekiq (~> 6.4)
@@ -387,6 +392,7 @@ DEPENDENCIES
   sprockets-rails
   standard (~> 1.7)
   tzinfo-data
+  vcr (~> 6.1)
   web-console
   webmock (~> 3.14)
 

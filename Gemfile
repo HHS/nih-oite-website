@@ -73,6 +73,8 @@ gem "front_matter_parser", "~> 1.0"
 gem "kramdown", "~> 2.3"
 gem "rails-reverse-proxy", "~> 0.11"
 gem "jwt", "~> 2.3"
+gem "rss", "~> 0.2"
+gem "faraday", "~> 2.3"
 
 group :test do
   gem "climate_control", "~> 1.0"
@@ -80,4 +82,5 @@ group :test do
   gem "shoulda-matchers", "~> 5.1"
   gem "rails-controller-testing", "~> 1.0"
   gem "webmock", "~> 3.14"
+  gem "vcr", "~> 6.1"
 end
