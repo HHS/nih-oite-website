@@ -7,8 +7,8 @@ date:
 start: 12:00 PM
 end: 1:30 PM
 open_to:
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
 - Career readiness
 type: Workshop

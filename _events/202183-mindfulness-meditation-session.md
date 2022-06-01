@@ -8,8 +8,8 @@ start: 12:00 PM
 end: 12:30 PM
 open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
 - Wellness/resilience
 type: Small group

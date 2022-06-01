@@ -8,9 +8,9 @@ start: 2:00 PM
 end: 3:30 PM
 open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
 - Leadership/management
 type: Workshop

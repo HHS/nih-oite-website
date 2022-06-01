@@ -7,9 +7,9 @@ date:
 start: 4:00 PM
 end: 5:00 PM
 open_to:
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
 - Career readiness
 type: Small group

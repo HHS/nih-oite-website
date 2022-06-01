@@ -8,7 +8,7 @@ start: 2:00 PM
 end: 4:00 PM
 open_to:
 - Postbacs
-- Graduate Students
+- Graduate students
 topic:
 - Career readiness
 type: Workshop

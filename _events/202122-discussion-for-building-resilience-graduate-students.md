@@ -7,7 +7,7 @@ date:
 start: 3:00 PM
 end: 4:00 PM
 open_to:
-- Graduate Students
+- Graduate students
 topic:
 - Wellness/resilience
 type: Small group

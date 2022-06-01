@@ -7,8 +7,8 @@ date:
 start: 9:00 AM
 end: 10:30 AM
 open_to:
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
 - Teaching/mentoring
 type: Workshop

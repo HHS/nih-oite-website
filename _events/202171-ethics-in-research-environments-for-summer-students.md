@@ -7,7 +7,7 @@ date:
 start: 1:00 PM
 end: 3:00 PM
 open_to:
-- Summer Interns
+- Summer interns
 topic:
 - Science
 - Rules and regulations

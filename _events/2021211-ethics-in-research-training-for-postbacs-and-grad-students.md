@@ -8,7 +8,7 @@ start: 9:00 AM
 end: 3:30 PM
 open_to:
 - Postbacs
-- Graduate Students
+- Graduate students
 topic:
 - Science
 - Rules and regulations

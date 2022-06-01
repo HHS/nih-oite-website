@@ -7,7 +7,7 @@ date:
 start: 1:00 PM
 end: 2:30 PM
 open_to:
-- Summer Interns
+- Summer interns
 - Postbacs
 topic:
 - Career readiness

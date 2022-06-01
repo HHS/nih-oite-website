@@ -7,7 +7,7 @@ date:
 start: 12:00 PM
 end: 1:00 PM
 open_to:
-- Graduate Students
+- Graduate students
 topic:
 - Teaching/mentoring
 - Communication

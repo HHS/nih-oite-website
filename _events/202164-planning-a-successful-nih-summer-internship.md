@@ -7,7 +7,7 @@ date:
 start: 10:30 AM
 end: 12:00 PM
 open_to:
-- Summer Interns
+- Summer interns
 topic:
 - Orientation
 type: Workshop

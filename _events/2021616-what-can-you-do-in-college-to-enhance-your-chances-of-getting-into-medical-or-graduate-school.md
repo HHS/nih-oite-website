@@ -8,7 +8,7 @@ date:
 start: 1:00 PM
 end: 2:30 PM
 open_to:
-- Summer Interns
+- Summer interns
 topic:
 - Career readiness
 type: Small group

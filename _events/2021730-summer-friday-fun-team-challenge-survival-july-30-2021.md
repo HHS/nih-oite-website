@@ -7,11 +7,11 @@ date:
 start: 3:30 PM
 end: 4:30 PM
 open_to:
-- Summer Interns
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
 - Communication
 type: Major public event

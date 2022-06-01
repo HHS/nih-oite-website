@@ -7,7 +7,7 @@ date:
 start: 9:30 AM
 end: 4:00 PM
 open_to:
-- Postdocs/Fellows
+- Postdocs/fellows
 topic:
 - Rules and regulations
 type: Course

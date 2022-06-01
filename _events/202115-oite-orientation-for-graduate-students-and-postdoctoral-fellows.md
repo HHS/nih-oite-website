@@ -7,8 +7,8 @@ date:
 start: 11:00 AM
 end: 12:00 PM
 open_to:
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
 - Orientation
 type: Workshop

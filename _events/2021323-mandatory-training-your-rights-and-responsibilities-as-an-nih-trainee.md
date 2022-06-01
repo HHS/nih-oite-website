@@ -8,8 +8,8 @@ start: 10:00 AM
 end: 11:00 AM
 open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic: []
 type: Workshop
 updated_at: 2021-03-06 00:54:03.000000000 Z

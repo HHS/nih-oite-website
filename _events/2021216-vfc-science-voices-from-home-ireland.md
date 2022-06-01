@@ -7,9 +7,9 @@ date:
 start: 10:00 AM
 end: 11:00 AM
 open_to:
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic: []
 type: Major public event
 updated_at: 2021-02-15 20:20:40.000000000 Z

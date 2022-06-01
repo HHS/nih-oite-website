@@ -7,10 +7,10 @@ date:
 start: 1:30 PM
 end: 2:30 PM
 open_to:
-- Summer Interns
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
 - Career readiness
 type: Workshop

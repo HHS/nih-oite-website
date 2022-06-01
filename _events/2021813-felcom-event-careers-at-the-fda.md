@@ -7,9 +7,9 @@ date:
 start: 12:30 PM
 end: 2:00 PM
 open_to:
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
 - Career readiness
 type: Workshop

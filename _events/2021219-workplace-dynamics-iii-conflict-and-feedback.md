@@ -8,8 +8,8 @@ start: 2:00 PM
 end: 3:30 PM
 open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
 - Leadership/management
 type: Workshop

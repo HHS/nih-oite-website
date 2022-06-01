@@ -7,7 +7,7 @@ date:
 start: 2:00 PM
 end: 3:30 PM
 open_to:
-- Summer Interns
+- Summer interns
 topic:
 - Science
 type: Workshop

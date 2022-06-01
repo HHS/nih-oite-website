@@ -7,8 +7,8 @@ date:
 start: 3:30 PM
 end: 5:00 PM
 open_to:
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
 - Leadership/management
 type: Workshop
