@@ -3,6 +3,21 @@ NIH OITE Website
 
 This application is one option for the groundwork for the new NIH OITE website.
 
+## Docker use
+
+Docker files exist to make it easy to run the application via Docker, but it is not (yet) setup to be easy to do development inside the docker containers.
+
+To run the app via docker:
+
+1. Copy `env.gitgateway.example` to `.env.gitgateway.local`
+1. Update the two `CHANGE ME` values within `.env.gitgateway.local`
+1. Run `docker compose up --build`
+1. First time setup:
+    1. Run `docker compose run web bundle exec rake db:create`
+    1. Run `docker compose run web bundle exec rake db:migrate`
+1. Open <http://localhost:3000> in your web browser
+
+
 ## Development
 
 If you're new to Rails, see the [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html)

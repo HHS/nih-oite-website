@@ -1,0 +1,30 @@
+version: '3.6'
+services:
+  web:
+    build: .
+    environment:
+      DB_HOSTNAME: db
+      GIT_GATEWAY_HOST: "http://gateway:9999/"
+    volumes:
+    - dbrun:/var/run/postgresql
+    depends_on:
+      - db
+      - gateway
+    ports:
+    - "3000:3000"
+  db:
+    image: postgres:12.11
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+    - dbdata:/var/lib/postgresql/data
+    - dbrun:/var/run/postgresql
+  gateway:
+    image: rcahearngsa/netlify-git-gateway
+    env_file:
+      - .env.gitgateway.local
+
+volumes:
+  dbdata: {}
+  dbrun: {}
