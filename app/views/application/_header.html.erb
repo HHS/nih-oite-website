@@ -39,9 +39,11 @@
         <div class="usa-nav__secondary">
           <ul class="usa-nav__secondary-links">
             <% if user_signed_in? %>
-              <li class="usa-nav__secondary-item">
-                <%= link_to "Admin", "/admin/" %>
-              </li>
+              <% if policy(:netlify).netlify_config? %>
+                <li class="usa-nav__secondary-item">
+                  <%= link_to "Admin", "/admin/" %>
+                </li>
+              <% end %>
               <li class="usa-nav__secondary-item">
                 <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "usa-button usa-button--unstyled", form_class: "display-inline" %>
               </li>

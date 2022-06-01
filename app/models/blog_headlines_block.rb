@@ -16,7 +16,7 @@ class BlogHeadlinesBlock
   private
 
   def read_rss
-    response = Faraday.get(OITE_BLOG_FEED)
+    response = Timeout.timeout(2) { Faraday.get(OITE_BLOG_FEED) }
     if response.success?
       feed = RSS::Parser.parse(response.body)
       feed.items.take(@post_count).map { |item| BlogPost.new(item) }
