@@ -84,6 +84,7 @@ end
 
 def write_event front_matter, body
   front_matter["topic"] = normalize_topics(front_matter["topic"])
+  front_matter["open_to"] = normalize_audiences(front_matter["open_to"])
 
   slug = front_matter["title"].parameterize
   filename = Pathname.new "_events/#{front_matter["date"]["year"]}#{front_matter["date"]["month"]}#{front_matter["date"]["day"]}-#{slug}.md"
@@ -159,6 +160,35 @@ def normalize_type(type)
   end
 
   old_types_to_new_types[type]
+end
+
+def normalize_audiences(audiences)
+  old_audience_to_new_audience = {
+    "Graduate students" => "Graduate students",
+    "Graduate Students" => "Graduate students",
+    "NIH-only" => "NIH-only",
+    "NIH Staff Scientist/Staff Clinician" => "NIH staff scientists/clinicians",
+    "NIH Staff Scientists/Clinicians" => "NIH staff scientists/clinicians",
+    "NIH staff scientists/clinicians" => "NIH staff scientists/clinicians",
+    "Postbacs" => "Postbacs",
+    "Postdocs/Fellows" => "Postdocs/fellows",
+    "Postdocs/fellows" => "Postdocs/fellows",
+    "Public" => "Public",
+    "Summer interns" => "Summer interns",
+    "Summer Interns" => "Summer interns"
+  }
+
+  return nil if audiences.nil?
+
+  audiences
+    .map { |audience|
+      if !old_audience_to_new_audience.has_key?(audience)
+        puts "Warning: unknown audience '#{audience}'"
+      end
+      old_audience_to_new_audience[audience]
+    }
+    .compact
+    .uniq
 end
 
 def prep_original_data event
