@@ -138,9 +138,21 @@ RSpec.describe Event, type: :model do
   describe "#rendered_content_excerpt" do
     it "truncates HTML" do
       expect(subject.rendered_content_excerpt(18)).to eq <<~EOHTML
-        <p>This is the...</p>
-
+        <p>This is the…</p>
       EOHTML
+        .strip
+    end
+
+    context "example historical description" do
+      subject { described_class.new file_fixture("_events/2021318-ethics-in-research-online-training-for-postdocs.md").cleanpath }
+
+      it "truncates HTML leaving only first paragraph" do
+        expect(subject.rendered_content_excerpt(100)).to eq <<~EOHTML
+          <p>Research Ethics is at the foundation of everything we do in the
+          scientific endeavor, and training…</p>
+        EOHTML
+          .strip
+      end
     end
   end
 
