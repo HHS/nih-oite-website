@@ -1,10 +1,12 @@
 class BlogHeadlinesBlock
   OITE_BLOG_FEED = "https://oitecareersblog.od.nih.gov/feed/".freeze
 
-  attr_reader :headlines
   def initialize(post_count)
     @post_count = post_count.to_i
-    @headlines = read_rss
+  end
+
+  def headlines
+    @headlines ||= read_rss
   end
 
   def parse(template)
@@ -21,6 +23,9 @@ class BlogHeadlinesBlock
     else
       []
     end
+  rescue => ex
+    Rails.logger.error { "Error loading OITE Blog headlines: #{ex.message}" }
+    []
   end
 
   class BlogPost
