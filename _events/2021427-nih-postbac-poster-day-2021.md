@@ -6,15 +6,15 @@ date:
   day: 27
 start: 9:00 AM
 end: 5:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
 - Science
-- Science Skills
-- Networking Opportunities
+- Communication
+type: Major public event
 updated_at: 2021-04-23 16:24:47.000000000 Z
 ---
 Postbac Poster Day provides an opportunity for Postbacs to share the

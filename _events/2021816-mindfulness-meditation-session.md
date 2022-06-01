@@ -6,14 +6,14 @@ date:
   day: 16
 start: 5:00 PM
 end: 5:30 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-07-14 01:11:21.000000000 Z
 ---
 Research has shown many positive effects of mindfulness meditation,

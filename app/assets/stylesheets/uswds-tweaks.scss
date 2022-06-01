@@ -5,6 +5,11 @@
   border-top: none;
 }
 
+// Vertically center icons
+.usa-icon {
+  vertical-align: middle;
+}
+
 // Constrain logo vertically inside navbar
 .usa-navbar .usa-logo img {
   max-height: uswds.units(4);

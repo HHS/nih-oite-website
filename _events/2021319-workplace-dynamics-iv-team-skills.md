@@ -6,16 +6,15 @@ date:
   day: 19
 start: 2:00 PM
 end: 3:30 PM
-audience:
-- Graduate Students
-- Postdocs/Fellows
+open_to:
+- Graduate students
+- Postdocs/fellows
 topic:
-- Leadership - Personal/Group Interactions
-- Management
-- Personal Development
+- Leadership/management
+type: Workshop
 updated_at: 2020-12-11 21:35:17.000000000 Z
 ---
-<span>ONLINE
+<span style="font-size: 12px;">ONLINE
 ONLY-[https://attendee.gotowebinar.com/register/8599383106991652111][1]{:
 #share-reg-url .plAwLUVihzEw9Kyd target="_blank" rel="noopener
 noreferrer"}</span>

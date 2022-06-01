@@ -6,12 +6,12 @@ date:
   day: 16
 start: 3:00 PM
 end: 4:00 PM
-audience:
-- Graduate Students
-- Postdocs/Fellows
+open_to:
+- Graduate students
+- Postdocs/fellows
 topic:
-- Career Exploration
-- Industry Careers
+- Career readiness
+type: Workshop
 updated_at: 2021-04-07 20:51:05.000000000 Z
 ---
 This stellar panel of industry scientists will talk about their careers,

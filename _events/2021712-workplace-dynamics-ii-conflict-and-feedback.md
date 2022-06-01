@@ -6,12 +6,13 @@ date:
   day: 12
 start: 3:30 PM
 end: 5:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Leadership - Personal/Group Interactions
+- Leadership/management
+type: Workshop
 updated_at: 2021-06-25 21:13:41.000000000 Z
 ---
 Rooted in the Thomas and Kilmann Conflict Grid, this workshop provides

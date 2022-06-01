@@ -6,10 +6,11 @@ date:
   day: 4
 start: 2:00 PM
 end: 4:00 PM
-audience:
+open_to:
 - Postbacs
 topic:
-- Professional (Medical/Dental) School
+- Career readiness
+type: Workshop
 updated_at: 2020-09-03 01:10:10.000000000 Z
 ---
 Event Link:

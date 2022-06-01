@@ -6,11 +6,12 @@ date:
   day: 17
 start: 10:00 AM
 end: 11:00 AM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2021-06-02 00:34:42.000000000 Z
 ---
 **Register:**

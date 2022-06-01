@@ -6,12 +6,13 @@ date:
   day: 15
 start: 9:00 AM
 end: 3:30 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
+- Graduate students
 topic:
-- Science Skills
-- Ethics, Responsible Conduct of Research
+- Science
+- Rules and regulations
+type: Course
 updated_at: 2021-02-19 19:48:36.000000000 Z
 ---
  

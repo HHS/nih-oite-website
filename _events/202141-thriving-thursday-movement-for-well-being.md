@@ -6,12 +6,13 @@ date:
   day: 1
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-03-30 15:04:54.000000000 Z
 ---
 There is compelling research to show that exercise positively impacts

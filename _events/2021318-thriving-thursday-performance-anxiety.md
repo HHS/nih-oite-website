@@ -6,12 +6,13 @@ date:
   day: 18
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-02-25 16:55:46.000000000 Z
 ---
 Feeling anxiety in response to something major in our life, whether that

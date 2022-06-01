@@ -6,13 +6,13 @@ date:
   day: 26
 start: 4:00 PM
 end: 5:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-02-26 21:10:39.000000000 Z
 ---
 This event is only for NIH Intramural Trainees currently in our postbac,

@@ -6,10 +6,15 @@ RSpec.describe EventsController do
     allow(Date).to receive(:today).and_return(Date.new(2022, 4, 4))
   }
 
-  it "shows events for all audiences + topics by default" do
+  it "does not filter by default" do
     get :index
-    expect(assigns(:selected_audiences)).to eq([])
-    expect(assigns(:selected_topics)).to eq([])
+    expect(assigns(:selected_filters)).to eq({
+      "location" => [],
+      "open_to" => [],
+      "required_for" => [],
+      "topic" => [],
+      "type" => []
+    })
   end
 
   it "does not show events in the past" do
@@ -21,12 +26,21 @@ RSpec.describe EventsController do
     }
   end
 
-  it "can be filtered by audience" do
-    get :index, params: {audience: ["Summer Interns"]}
+  it "can be filtered by audience they're open to" do
+    get :index, params: {open_to: ["Summer Interns"]}
     expect(assigns(:events)).not_to be_nil
     expect(assigns(:events)).not_to be_empty
     expect(assigns(:events)).to all satisfy { |ev|
-      ev.audience.include? "Summer Interns"
+      ev.open_to.include? "Summer Interns"
+    }
+  end
+
+  it "can be filtered by audience they're required for" do
+    get :index, params: {required_for: ["Summer Interns"]}
+    expect(assigns(:events)).not_to be_nil
+    expect(assigns(:events)).not_to be_empty
+    expect(assigns(:events)).to all satisfy { |ev|
+      ev.open_to.include? "Summer Interns"
     }
   end
 
@@ -37,14 +51,6 @@ RSpec.describe EventsController do
     expect(assigns(:events)).to all satisfy { |ev|
       ev.topic.include? "Graduate School"
     }
-  end
-
-  it "can have results limited" do
-    get :index, params: {limit: 1}
-    expect(assigns(:events)).not_to be_nil
-    expect(assigns(:events)).not_to be_empty
-    expect(assigns(:events)).to satisfy { |events| events.length == 1 }
-    expect(assigns(:limit)).to eql(1)
   end
 
   it "picks up content from the /events page" do

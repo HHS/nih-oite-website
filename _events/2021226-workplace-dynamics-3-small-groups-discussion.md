@@ -6,14 +6,14 @@ date:
   day: 26
 start: 1:00 PM
 end: 2:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Leadership - Personal/Group Interactions
-- Personal Development
+- Leadership/management
+type: Small group
 updated_at: 2020-12-11 21:32:11.000000000 Z
 ---
 Take a deeper dive into the material from Workplace Dynamics 3: Conflict

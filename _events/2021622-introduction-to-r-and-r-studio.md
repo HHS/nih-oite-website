@@ -6,10 +6,11 @@ date:
   day: 22
 start: 12:00 PM
 end: 1:30 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2021-06-15 18:54:16.000000000 Z
 ---
 Learn the basics of using R\' and R\' studio to analyze large data

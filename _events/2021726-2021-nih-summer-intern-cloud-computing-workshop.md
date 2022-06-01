@@ -6,14 +6,15 @@ date:
   day: 26
 start: 10:00 AM
 end: 4:00 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Science Skills
+- Science
+type: Major public event
 updated_at: 2021-07-07 17:53:26.000000000 Z
 ---
 <div>

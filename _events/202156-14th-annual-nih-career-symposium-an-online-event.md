@@ -6,16 +6,14 @@ date:
   day: 6
 start: 10:00 AM
 end: 4:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Career Exploration
-- Academic Careers
-- Industry Careers
-- Job Search Skills
+- Career readiness
+type: Major public event
 updated_at: 2021-05-04 13:57:51.000000000 Z
 ---
 In 2021- the Career Symposium will be virtual. It will run from May 3 to

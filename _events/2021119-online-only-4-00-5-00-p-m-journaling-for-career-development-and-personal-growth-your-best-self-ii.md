@@ -7,14 +7,14 @@ date:
   day: 19
 start: 4:00 PM
 end: 5:00 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-03-30 15:52:50.000000000 Z
 ---
 <div markdown="1">

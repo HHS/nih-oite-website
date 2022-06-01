@@ -6,13 +6,14 @@ date:
   day: 8
 start: 1:00 PM
 end: 2:00 PM
-audience:
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+open_to:
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Leadership - Personal/Group Interactions
-- Teaching/Mentoring
+- Leadership/management
+- Teaching/mentoring
+type: Workshop
 updated_at: 2021-04-07 20:52:16.000000000 Z
 ---
 Soon the summer interns will join the NIH -- this year remotely! This

@@ -6,13 +6,14 @@ date:
   day: 1
 start: 3:30 PM
 end: 4:30 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Job Search Skills
+- Career readiness
+type: Workshop
 updated_at: 2021-02-25 00:18:03.000000000 Z
 ---
 Event

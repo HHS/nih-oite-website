@@ -6,13 +6,14 @@ date:
   day: 8
 start: 4:00 PM
 end: 5:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Industry Careers
+- Career readiness
+type: Small group
 updated_at: 2020-12-11 22:25:08.000000000 Z
 ---
 During these virtual Q&amp;A sessions the career counseling team will

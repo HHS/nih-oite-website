@@ -6,13 +6,13 @@ date:
   day: 20
 start: 4:00 PM
 end: 5:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-03-29 23:20:40.000000000 Z
 ---
 Journaling is a great way to tune into your thoughts and emotions, work

@@ -43,10 +43,10 @@ fi
 
 echo "Extracting ${TARFILE}..."
 mkdir -p "$SQL_DIR" || true
-# tar --cd "$SQL_DIR" -xzf "$TARFILE"
+tar --cd "$SQL_DIR" -xzf "$TARFILE"
 
 echo "Removing extraneous tables..."
-rm "$SQL_DIR"/oite-nih-schema-create.sql 2> /dev/null || true
+rm "$SQL_DIR"/oite-nih-schema-create* 2> /dev/null || true
 rm "$SQL_DIR"/oite-nih._eventlog* 2> /dev/null || true
 rm "$SQL_DIR"/oite-nih.event_[0123456789abcdef]* 2> /dev/null || true
 rm "$SQL_DIR"/oite-nih.survey_[0123456789abcdef]* 2> /dev/null || true
@@ -120,10 +120,12 @@ echo "Exporting event data to 'events.csv'..."
 echo "
 SELECT
     site_event.*,
+    picklist_event_type.value AS type_name,
     picklist_event_topic.value AS topic,
     picklist_trainee_type.value AS audience
 FROM
     site_event
+    LEFT JOIN picklist_event_type ON picklist_event_type.id = site_event.type
     LEFT JOIN _ObjectPicks _TopicsPick ON (_TopicsPick.object_id = site_event.id AND _TopicsPick.field_name = 'topics')
     LEFT JOIN picklist_event_topic ON picklist_event_topic.id = _TopicsPick.field_value
     LEFT JOIN _ObjectPicks _AudiencePick ON (_AudiencePick.object_id = site_event.id AND _AudiencePick.field_name = 'audience')

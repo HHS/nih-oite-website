@@ -6,12 +6,13 @@ date:
   day: 13
 start: 12:30 PM
 end: 2:00 PM
-audience:
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+open_to:
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Career Exploration
+- Career readiness
+type: Workshop
 updated_at: 2021-07-29 18:58:36.000000000 Z
 ---
 The FelCom Career Development subcommittee has put together a fantastic

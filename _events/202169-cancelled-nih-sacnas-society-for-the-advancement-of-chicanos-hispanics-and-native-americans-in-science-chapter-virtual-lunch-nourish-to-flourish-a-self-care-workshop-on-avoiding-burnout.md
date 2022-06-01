@@ -8,12 +8,13 @@ date:
   day: 9
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Networking Opportunities
+- Communication
+type: Small group
 updated_at: 2021-06-09 17:45:43.000000000 Z
 ---
 **Due to unforeseen reasons, this event will need to be rescheduled for
@@ -46,7 +47,7 @@ prior to the event.
 For any questions, please contact Dr. Natasha Lugo-Escobar at
 lugoescobarn@mail.nih.gov.  
 
-<span>Who are we?: We are a professional SACNAS
+<span style="font-size: 8pt;">Who are we?: We are a professional SACNAS
 chapter that provides a supportive and welcoming environment for
 Hispanics/Chicanos and Native Americans trainees and staff at the NIH to
 get together, exchange ideas, network, share successes, and strategize

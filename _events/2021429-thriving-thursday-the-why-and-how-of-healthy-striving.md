@@ -6,12 +6,13 @@ date:
   day: 29
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-03-30 15:05:36.000000000 Z
 ---
 In the field of biomedical research, we sometimes fall into the trap of

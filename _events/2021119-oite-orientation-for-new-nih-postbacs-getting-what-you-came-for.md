@@ -6,10 +6,11 @@ date:
   day: 19
 start: 2:00 PM
 end: 3:00 PM
-audience:
+open_to:
 - Postbacs
 topic:
 - Orientation
+type: Workshop
 updated_at: 2021-01-12 18:43:34.000000000 Z
 ---
 Event Link: Please send us an email (oite@mail.nih.gov) to get the

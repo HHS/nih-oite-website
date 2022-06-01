@@ -5,103 +5,200 @@
 <% end %>
 
 <% content_for :sidebar do %>
-  <%= form_with method: :get, url: events_path, class: "usa-form margin-x-auto margin-bottom-1" do |form| %>
+  <%= form_with method: :get, url: events_path, class: "oite-sidebar__item" do |form| %>
     <% if @from %>
       <%= form.hidden_field(nil, name: "from", value: @from) %>
     <% end %>
-    <fieldset class="usa-fieldset">
-      <legend class="usa-legend"><h3>Filter by audience</h3></legend>
-      <% @audiences.each do |audience| %>
-        <div class="usa-checkbox">
-          <input
-            class="usa-checkbox__input"
-            id="filter-<%= audience.parameterize %>"
-            type="checkbox"
-            name="audience[]"
-            value="<%= audience %>"
-            <%= if @selected_audiences.include?(audience) then "checked" end %>
-            data-submit-form-on-click
-          />
-          <label class="usa-checkbox__label" for="filter-<%= audience.parameterize %>">
-            <%= audience %>
-          </label>
+
+    <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+      <% @event_filters.each do |filter| %>
+        <h4 class="usa-accordion__heading">
+          <button
+            class="usa-accordion__button"
+            aria-expanded="<%= @selected_filters[filter.name].length > 0 || @open_accordions[filter.name] %>"
+            aria-controls="<%= filter.name %>-accordion-content"
+            data-accordion-name="<%= filter.name %>"
+          >
+            <%= filter.name.titleize.capitalize %>
+          </button>
+        </h4>
+        <div id="<%= filter.name %>-accordion-content" class="usa-accordion__content">
+          <% filter.options.each do |option| %>
+            <div class="usa-checkbox">
+              <input
+                class="usa-checkbox__input"
+                id="filter-<%= filter.name %>-<%= option.value.parameterize %>"
+                type="checkbox"
+                name="<%= filter.name %>[]"
+                value="<%= option.value %>"
+                data-submit-form-on-click
+                <%= "checked" if @selected_filters[filter.name].include?(option) %>
+              />
+              <label class="usa-checkbox__label" for="filter-<%= filter.name %>-<%= option.value.parameterize %>">
+                <%= option.label %>
+              </label>
+            </div>
+          <% end %>
         </div>
       <% end %>
-    </fieldset>
-    <fieldset class="usa-fieldset">
-      <legend class="usa-legend"><h3>Filter by topic</h3></legend>
-      <% @topics.each do |topic| %>
-        <div class="usa-checkbox">
-          <input
-            class="usa-checkbox__input"
-            id="filter-topic-<%= topic.parameterize %>"
-            type="checkbox"
-            name="topic[]"
-            value="<%= topic %>"
-            <%= if @selected_topics.include?(topic) then "checked" end %>
-            data-submit-form-on-click
-          />
-          <label class="usa-checkbox__label" for="filter-topic-<%= topic.parameterize %>">
-            <%= topic %>
-          </label>
-        </div>
-      <% end %>
-    </fieldset>
+    </div>
   <% end %>
+
+  <%= render "pages/sidebar_items" %>
+
 <% end %>
 
-
-
 <% if !@events.empty? %>
-  <ul class="usa-collection oite-events">
-    <% @events.each do |event| %>
-      <li class="usa-collection__item oite-event">
-        <div class="usa-collection__calendar-date">
-          <time datetime="<%= event.date %>">
-            <span class="usa-collection__calendar-date-month"><%= event.date.strftime("%b").upcase %></span>
-            <span class="usa-collection__calendar-date-day"><%= event.date.strftime("%d") %></span>
-          </time>
-        </div>
-        <div class="usa-collection__body">
-          <div class="usa-collection__heading">
-            <h3 class="margin-0">
-              <%= link_to event.title, event_path(event), class: "usa-link" %>
-            </h3>
-            <div class="oite-event__time text-italic">
-              <time datetime="<%= event.start.strftime("%F %R") %>"><%= event.start.strftime("%A, %B %-d, %Y %l:%M %p") %></time>
-              –
-              <time datetime="<%= event.end.strftime("%F %R") %>"><%= event.end.strftime("%l:%M %p") %></time>
-            </div>
-          </div>
-          <div class="usa-collection__description">
-            <% unless event.speaker_names.empty? %>
-              <div class="oite-event__speakers margin-y-1">
-                <h4 class="margin-0">Speakers</h4>
-                <ul class="usa-list">
-                  <% event.speaker_names.each do |speaker| %>
-                  <li>
-                    <%= speaker%>
-                  </li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
-            <div class="usa-prose p-summary">
-              <%= event.rendered_content%>
-            </div>
-            <div class="oite-event__tags">
-              <% event.audience.each do |audience| %>
-                <%= link_to audience, events_path(audience: [audience]), class: "usa-button usa-button--accent-cool text-uppercase font-ui-3xs margin-y-05" %>
-              <% end %>
-              <% event.topic.each do |topic| %>
-                <%= link_to topic, events_path(topic: [topic]), class: "usa-button usa-button--accent-cool text-uppercase font-ui-3xs margin-y-05" %>
-              <% end %>
-            </div>
+  <% current_date = nil %>
+  <% @events.each do |event| %>
+    <% is_new_date = current_date.nil? || event.date.strftime("%D") != current_date %>
+
+    <% if is_new_date %>
+      <% if current_date.present? %>
           </div>
         </div>
-      </li>
+      <% end %>
+      <div class="grid-row">
+        <div class="grid-col">
+          <hr>
+        </div>
+      </div>
+      <div class="grid-row">
+        <div class="tablet:grid-col-3">
+          <h2 class="font-heading-lg"><%= event.date.strftime("%b %e, %Y") %></h2>
+        </div>
+        <div class="tablet:grid-col-8">
     <% end %>
-  </ul>
+
+    <% current_date = event.date.strftime("%D") %>
+
+    <div class="oite-event">
+      <% if event.type %>
+        <div class="oite-event__type oite-event__type--<%= event.type.parameterize %>">
+          <span class="usa-tag"><%= event.type %></span>
+        </div>
+      <% end %>
+      <h3 class="oite-event__title margin-y-1">
+        <%= link_to event.title, event_path(event), class: "usa-link text-no-underline" %>
+      </h3>
+      <time datetime="<%= event.date %>" class="oite-event__time text-bold">
+        <%= uswds_icon "alarm", class: "text-primary-dark" %>
+        <span class="margin-right-1"><%= event.date.strftime("%a, %b %e, %Y") %></span>
+        |
+        <span class="margin-left-1"><%= event.start.strftime("%l:%M %p") %></span>
+        –
+        <%= event.end.strftime("%l:%M %p") %> ET
+      </time>
+      <% if event.location %>
+        <div class="oite-event__location line-height-sans-2">
+          <%= uswds_icon("location_on", class: "text-primary-dark") %>
+          <strong>Location:</strong>
+          <%= event.location %>
+        </div>
+      <% end %>
+      <% if event.open_to.length > 0 %>
+        <div class="oite-event__audience margin-y-1">
+          <%= uswds_icon("person", class: "text-primary-dark") %>
+          <strong>Intended audience:</strong>
+          <% event.open_to.sort.each do |audience| %>
+            <%= link_to audience, events_path(open_to: [audience], from: @from), class: "margin-x-05" %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if event.nih_only? || event.required? %>
+        <div class="oite-event__warnings">
+          <% if event.nih_only? %>
+            <div>
+              <%= uswds_icon "lock", class: "text-primary-darker" %>
+              You must be affiliated with the NIH to register for this event
+            </div>
+          <% end %>
+          <% if event.required? %>
+            <div class="text-warning-darker text-bold">
+              <%= uswds_icon "warning" %>
+              This event is required for the audience listed above
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="oite-event__description margin-y-1 p-summary">
+        <%= event.rendered_content_excerpt %>
+      </div>
+      <!--
+      <div class="oite-event__actions margin-y-1">
+        <button disabled class="usa-button">Register</button>
+        <button disabled class="usa-button usa-button--outline">Add to calendar</button>
+      </div>
+      -->
+      <% if event.topic.length > 0 %>
+        <div class="oite-event__topics">
+          <strong>Topics:</strong>
+          <% event.topic.each do |topic| %>
+            <%= link_to topic, events_path(topic: [topic], from: @from), class: "margin-x-05" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if current_date.present? %>
+    </div>
+  <% end %>
+  </div>
+
+    <nav aria-label="Pagination" class="usa-pagination">
+      <ul class="usa-pagination__list">
+        <% if @page_index > 1 %>
+          <li class="usa-pagination__item usa-pagination__arrow">
+            <%= link_to filtered_events_path(filters: @selected_filters, from: @from, page: @page_index - 1), class: "usa-pagination__link usa-pagination__previous-page", aria: { label: "Previous page" } do  %>
+              <%= uswds_icon "navigate_before" %><span class="usa-pagination__link-text">Previous</span></a
+            <% end %>
+          </li>
+        <% end %>
+
+        <% unless @page_range.include? 1 %>
+          <li class="usa-pagination__item usa-pagination__page-no">
+            <%= link_to filtered_events_path(filters: @selected_filters, from: @from, page: 1), class: "usa-pagination__button", aria: { label:"Page 1" } do %>
+              1
+            <% end %>
+          </li>
+          <li class="usa-pagination__item usa-pagination__overflow" role="presentation">
+            <span>…</span>
+          </li>
+        <% end %>
+
+        <% (@page_range).each do |index| %>
+          <li class="usa-pagination__item usa-pagination__page-no">
+            <%= link_to filtered_events_path(filters: @selected_filters, from: @from, page: index), class: "usa-pagination__button #{"usa-current" if index == @page_index}", aria: { current: ("page" if index == @page_index), label:"Page #{index}" } do %>
+              <%= index %>
+            <% end %>
+          </li>
+        <% end %>
+
+        <% unless @page_range.include? @page_count %>
+          <li class="usa-pagination__item usa-pagination__overflow" role="presentation">
+            <span>…</span>
+          </li>
+          <li class="usa-pagination__item usa-pagination__page-no">
+            <%= link_to filtered_events_path(filters: @selected_filters, from: @from, page: @page_count), class: "usa-pagination__button", aria: { label:"Page #{@page_count}" } do %>
+              <%= @page_count %>
+            <% end %>
+          </li>
+        <% end %>
+
+        <% if @page_index < @page_count %>
+          <li class="usa-pagination__item usa-pagination__arrow">
+            <%= link_to events_path(filters: @selected_filters, from: @from, page: @page_index + 1), class: "usa-pagination__link usa-pagination__next-page", aria: { label: "Next page " } do %>
+              <span class="usa-pagination__link-text">Next </span><%= uswds_icon "navigate_next" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+
+
+
+
 <% else %>
   <% if @not_found %>
     <%= @not_found.rendered_content %>

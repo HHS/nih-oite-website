@@ -6,13 +6,12 @@ date:
   day: 19
 start: 3:30 PM
 end: 5:00 PM
-audience:
-- Graduate Students
-- Postdocs/Fellows
+open_to:
+- Graduate students
+- Postdocs/fellows
 topic:
-- Leadership - Personal/Group Interactions
-- Management
-- Personal Development
+- Leadership/management
+type: Workshop
 updated_at: 2021-06-25 21:13:19.000000000 Z
 ---
 This is workshop focuses on team tools and group development insights, 

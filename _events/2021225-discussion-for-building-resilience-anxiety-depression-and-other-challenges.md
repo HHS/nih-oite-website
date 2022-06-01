@@ -6,13 +6,13 @@ date:
   day: 25
 start: 1:00 PM
 end: 2:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-02-03 19:27:08.000000000 Z
 ---
 This event is only for NIH Intramural Trainees currently in our postbac,
@@ -34,8 +34,8 @@ Kelly Donahue.  The discussion group provides a confidential and
 welcoming space to explore positive and proactive methods to build
 resilience and self-care skills with other trainees having similar
 experiences.  Even if you can\'t join us for the entire hour, we
-encourage you to still attend. <span> </span>
+encourage you to still attend. <span style="font-size: 10pt;"> </span>
 
-<span> </span>
+<span style="font-size: 10pt;"> </span>
 
  

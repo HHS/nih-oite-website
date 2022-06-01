@@ -6,13 +6,13 @@ date:
   day: 2
 start: 10:00 AM
 end: 11:00 AM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-03-30 15:05:41.000000000 Z
 ---
 <span class="TextRun SCXW187502204 BCX0" lang="EN-US" xml:lang="EN-US"

@@ -6,13 +6,14 @@ date:
   day: 11
 start: 2:00 PM
 end: 3:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Teaching/Mentoring
+- Teaching/mentoring
+type: Workshop
 updated_at: 2021-03-11 20:52:34.000000000 Z
 ---
 Are you considering mentoring a summer student, but not sure quite how

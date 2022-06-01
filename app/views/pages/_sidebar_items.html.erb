@@ -1,0 +1,7 @@
+<% if @page.present? && @page.has_sidebar? %>
+  <% @page.sidebar_blocks.each do |block| %>
+    <div class="oite-sidebar__item">
+      <%= block.rendered_content %>
+    </div>
+  <% end %>
+<% end %>

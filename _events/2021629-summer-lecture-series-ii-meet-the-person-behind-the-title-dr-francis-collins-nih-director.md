@@ -7,18 +7,19 @@ date:
   day: 29
 start: 1:00 PM
 end: 2:00 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
 - Science
+type: Lecture
 updated_at: 2021-06-25 17:17:13.000000000 Z
 ---
 <!--StartFragment-->
 
-<span>Second in
+<span style="color: #262626;"><span style="font-size: 100%;">Second in
 the series of lectures specifically arranged for trainees in the NIH
 Summer Internship Program.</span></span>
 {: .MsoNormal}
@@ -34,13 +35,14 @@ mission. Dr. Collins will give a short presentation and will then
 respond to questions submitted by trainees who register for the webinar
 in advance.
 
-<span>Event
+<span style="color: #262626;"><span style="font-size: 100%;">Event
 Link: [https://nih.zoomgov.com/webinar/register/WN\_RIoCdTKeRSqbyUPDNAudmA][1]</span></span>
 {: .MsoNormal}
 
-<span>For more information about the speaker,
+<span style="font-size: 11px;">For more information about the speaker,
 please visit this website:
-</span>[https://www.nih.gov/about-nih/who-we-are/nih-director/biographical-sketch-francis-s-collins-md-phd][2]
+</span>[https://www.nih.gov/about-nih/who-we-are/nih-director/biographical-sketch-francis-s-collins-md-phd][2]{:
+style="font-size: 11px;"}
 {: .MsoNormal}
 
  

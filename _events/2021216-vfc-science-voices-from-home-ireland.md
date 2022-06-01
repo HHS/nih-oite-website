@@ -6,12 +6,12 @@ date:
   day: 16
 start: 10:00 AM
 end: 11:00 AM
-audience:
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
-topic:
-- Informational Session
+open_to:
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
+topic: []
+type: Major public event
 updated_at: 2021-02-15 20:20:40.000000000 Z
 ---
 Interested in career opportunities abroad? Ever thought about getting a

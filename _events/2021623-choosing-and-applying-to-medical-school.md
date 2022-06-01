@@ -6,11 +6,12 @@ date:
   day: 23
 start: 1:00 PM
 end: 2:30 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
 topic:
-- Professional (Medical/Dental) School
+- Career readiness
+type: Workshop
 updated_at: 2021-05-10 06:49:36.000000000 Z
 ---
 Event
@@ -22,7 +23,8 @@ the application, asking for references, and developing your timeline.
 
 [Resources for Pre-Med][2]
 
-[Identifying Medical Schools for Your AMCAS Application][3]
+[Identifying Medical Schools for Your AMCAS Application][3]{:
+style="font-size: 11.5052px;"}
 
  
 

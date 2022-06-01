@@ -6,13 +6,14 @@ date:
   day: 21
 start: 1:00 PM
 end: 3:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Teaching/Mentoring
+- Teaching/mentoring
+type: Workshop
 updated_at: 2021-05-05 22:03:14.000000000 Z
 ---
 The summer is almost here and this year our influx of summer students

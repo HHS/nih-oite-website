@@ -6,11 +6,12 @@ date:
   day: 28
 start: 12:30 PM
 end: 1:30 PM
-audience:
+open_to:
 - Postbacs
 topic:
-- Science Skills
-- Speaking
+- Science
+- Communication
+type: Series
 updated_at: 2021-01-28 18:39:12.000000000 Z
 ---
 Science isn\'t complete until the results have been shared with others,

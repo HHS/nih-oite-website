@@ -6,11 +6,12 @@ date:
   day: 8
 start: 1:00 PM
 end: 4:00 PM
-audience:
-- Graduate Students
-- Postdocs/Fellows
+open_to:
+- Graduate students
+- Postdocs/fellows
 topic:
-- Leadership - Personal/Group Interactions
+- Leadership/management
+type: Workshop
 updated_at: 2021-06-10 18:24:27.000000000 Z
 ---
 Management of people and resources is a key component to being
@@ -23,7 +24,7 @@ environment.  The topics covered will be applicable to all sectors
 This course requires a commitment of multiple days. Directions for
 applying to the course are below.   
 
-<span>**This will be offered via
+<span style="text-decoration: underline;">**This will be offered via
 zoom**</span>
 
 **Course Schedule:**

@@ -84,16 +84,30 @@ RSpec.describe Event, type: :model do
     end
   end
 
-  describe "#audience" do
+  describe "#open_to" do
     it "returns a list of the intended audience" do
-      expect(subject.audience).to eq ["Summer Interns", "Postbacs"]
+      expect(subject.open_to).to eq ["Summer Interns", "Postbacs"]
     end
 
     context "no audience given" do
       subject { described_class.new file_fixture("_events/202257-slim-event.md").cleanpath }
 
       it "returns an empty array" do
-        expect(subject.audience).to eq []
+        expect(subject.open_to).to eq []
+      end
+    end
+  end
+
+  describe "#required" do
+    it "returns true" do
+      expect(subject.required?).to be(true)
+    end
+
+    context "no audience given" do
+      subject { described_class.new file_fixture("_events/202257-slim-event.md").cleanpath }
+
+      it "returns false" do
+        expect(subject.required?).to be(false)
       end
     end
   end
@@ -111,7 +125,34 @@ RSpec.describe Event, type: :model do
     it "returns the kramdown-rendered content" do
       expect(subject.rendered_content).to eq <<~EOHTML
         <p>This is the <strong>formatted</strong> description of the training event.</p>
+
+        <p>There is an additional paragraph of information about this event, which we
+        can try and trim from an excerpt. Non enim anim voluptate in mollit sit irure
+        irure dolore id et cillum deserunt. Anim ad consequat Lorem aliqua. Eiusmod ut
+        cupidatat sit exercitation adipisicing mollit incididunt do commodo adipisicing
+        do laborum.</p>
       EOHTML
+    end
+  end
+
+  describe "#rendered_content_excerpt" do
+    it "truncates HTML" do
+      expect(subject.rendered_content_excerpt(18)).to eq <<~EOHTML
+        <p>This is the…</p>
+      EOHTML
+        .strip
+    end
+
+    context "example historical description" do
+      subject { described_class.new file_fixture("_events/2021318-ethics-in-research-online-training-for-postdocs.md").cleanpath }
+
+      it "truncates HTML leaving only first paragraph" do
+        expect(subject.rendered_content_excerpt(100)).to eq <<~EOHTML
+          <p>Research Ethics is at the foundation of everything we do in the
+          scientific endeavor, and training…</p>
+        EOHTML
+          .strip
+      end
     end
   end
 

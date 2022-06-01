@@ -6,13 +6,14 @@ date:
   day: 21
 start: 1:00 PM
 end: 3:00 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2021-06-21 15:29:58.000000000 Z
 ---
 AnVIL is a tool for deploying your data science more easily.  Topics to

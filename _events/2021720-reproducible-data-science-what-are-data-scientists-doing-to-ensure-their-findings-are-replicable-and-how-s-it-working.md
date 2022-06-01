@@ -7,14 +7,15 @@ date:
   day: 20
 start: 11:00 AM
 end: 12:00 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2021-07-08 19:09:44.000000000 Z
 ---
 <div>

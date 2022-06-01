@@ -5,7 +5,7 @@
       "axe"
     ],
     "hideElements": [
-      ".usa-nav__primary-item > .usa-accordion__button > span",
+      ".usa-accordion__button",
       ".oite-callout > a > *",
       ".oite-hero__title",
       "iframe[src^=\"https://www.youtube\"]"

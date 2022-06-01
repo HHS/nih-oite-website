@@ -6,13 +6,12 @@ date:
   day: 17
 start: 1:00 PM
 end: 2:00 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
 topic:
-- Leadership - Personal/Group Interactions
-- Management
-- Personal Development
+- Leadership/management
+type: Workshop
 updated_at: 2021-05-10 06:39:27.000000000 Z
 ---
 Event
@@ -25,7 +24,7 @@ yourself and how you relate to others. Good communication skills.
 Developing yourself as a leader without power. This session is
 specifically for scientists at the undergraduate level.
 
-<span>** **</span>
+<span style="color: #ff0000;">** **</span>
 
 
 

@@ -7,14 +7,15 @@ date:
   day: 24
 start: 10:00 AM
 end: 12:00 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Science Skills
+- Science
+type: Workshop
 updated_at: 2021-06-23 18:07:30.000000000 Z
 ---
 This workshop will discuss how to quickly find and organize literature

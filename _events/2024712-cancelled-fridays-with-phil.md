@@ -6,15 +6,14 @@ date:
   day: 12
 start: 11:00 AM
 end: 12:00 PM
-audience:
-- Graduate Students
+open_to:
+- Graduate students
 topic:
-- Career Exploration
+- Career readiness
 - Science
-- Teaching/Mentoring
-- Wellness
-- Graduate School
-- Job Search Skills
+- Teaching/mentoring
+- Wellness/resilience
+type: Small group
 updated_at: 2021-07-12 12:00:24.000000000 Z
 ---
 Fridays with Phil is a dedicated time each week for NIH Graduate

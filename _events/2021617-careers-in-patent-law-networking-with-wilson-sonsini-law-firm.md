@@ -6,13 +6,14 @@ date:
   day: 17
 start: 3:00 PM
 end: 4:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Networking Opportunities
+- Communication
+type: Workshop
 updated_at: 2021-06-10 17:04:24.000000000 Z
 ---
 Interested in a career in intellectual property and patent law? Please

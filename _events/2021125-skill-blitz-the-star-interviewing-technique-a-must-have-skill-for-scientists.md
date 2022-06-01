@@ -6,13 +6,14 @@ date:
   day: 25
 start: 3:00 PM
 end: 3:45 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Job Search Skills
+- Career readiness
+type: Small group
 updated_at: 2021-01-08 21:24:44.000000000 Z
 ---
 Learn and practice the STAR behavioral interviewing technique. This will

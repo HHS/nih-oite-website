@@ -6,10 +6,11 @@ date:
   day: 11
 start: 12:30 PM
 end: 1:30 PM
-audience:
+open_to:
 - Postbacs
 topic:
-- Graduate School
+- Career readiness
+type: Small group
 updated_at: 2021-06-04 22:16:31.000000000 Z
 ---
 **NOTE:  MEETING TIME CHANGED: During the summer, these sessions will be

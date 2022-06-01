@@ -17,6 +17,19 @@ module ApplicationHelper
     @menu ||= Menu.load(Rails.root.join("_settings", "navigation.yml"), pages)
   end
 
+  def filtered_events_path(from: nil, page: nil, filters: nil)
+    options = {
+      page: page,
+      from: from
+    }
+
+    (filters || {}).each do |name, values|
+      options[name] = values.map { |v| v.value }
+    end
+
+    events_path(options)
+  end
+
   def page_sitemap(page, builder)
     unless page.obsolete? || !page.public?
       builder.url do
@@ -32,5 +45,19 @@ module ApplicationHelper
   def overridden_last_modified_date(updated_at = nil)
     override = Time.parse(ENV["SITEMAP_LAST_MOD_OVERRIDE"]) if ENV["SITEMAP_LAST_MOD_OVERRIDE"].present?
     [override, updated_at].compact.max&.xmlschema
+  end
+
+  def uswds_icon(name, options = {})
+    options = options.symbolize_keys
+    options[:class] = "usa-icon #{options[:class]}"
+    options[:aria] = {hidden: true}
+    options[:focusable] = false
+    options[:role] = "img"
+
+    sprite_path = image_path("@uswds/uswds/dist/img/sprite.svg")
+
+    content_tag "svg", options do
+      tag "use", {"xlink:href": "#{sprite_path}##{name}"}
+    end
   end
 end

@@ -6,10 +6,11 @@ date:
   day: 16
 start: 11:00 AM
 end: 0:00 AM
-audience:
+open_to:
 - Postbacs
 topic:
-- Professional (Medical/Dental) School
+- Career readiness
+type: Workshop
 updated_at: 2021-03-10 00:52:58.000000000 Z
 ---
 We will discuss tips for pre-writing and filling out medical school

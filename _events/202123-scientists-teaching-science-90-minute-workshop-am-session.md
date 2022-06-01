@@ -6,14 +6,15 @@ date:
   day: 3
 start: 9:00 AM
 end: 10:30 AM
-audience:
-- Graduate Students
-- Postdocs/Fellows
+open_to:
+- Graduate students
+- Postdocs/fellows
 topic:
-- Teaching/Mentoring
+- Teaching/mentoring
+type: Workshop
 updated_at: 2021-02-01 21:40:10.000000000 Z
 ---
-<span>Are you interested in learning the
+<span style="font-size: 11.5052px;">Are you interested in learning the
 basics of successful teaching? Are you considering a career in
 education? If you answered \'yes\' to either of these questions then
 register for the OITE workshop \"Scientists Teaching Science: An

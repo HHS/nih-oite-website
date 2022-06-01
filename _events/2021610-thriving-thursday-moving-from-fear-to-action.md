@@ -6,13 +6,13 @@ date:
   day: 10
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-06-01 21:54:42.000000000 Z
 ---
 In moments of high stress, it can be difficult to not be overwhelmed by

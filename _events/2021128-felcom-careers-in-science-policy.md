@@ -6,11 +6,12 @@ date:
   day: 28
 start: 4:00 PM
 end: 5:00 PM
-audience:
-- Graduate Students
-- Postdocs/Fellows
+open_to:
+- Graduate students
+- Postdocs/fellows
 topic:
-- Career Exploration
+- Career readiness
+type: Workshop
 updated_at: 2021-01-19 23:04:17.000000000 Z
 ---
 Does directing discussion on important science, technology, and national

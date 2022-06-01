@@ -7,12 +7,13 @@ date:
   day: 25
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Networking Opportunities
+- Communication
+type: Small group
 updated_at: 2021-03-30 15:47:02.000000000 Z
 ---
 The NIH-SACNAS Chapter (Society for the Advancement of
@@ -31,8 +32,8 @@ biography below. 
 For any questions, please contact Dr. Natasha Lugo-Escobar at
 lugoescobarn@mail.nih.gov.  
 
-<span>**Joanna Mountain, PhD**</span>
-<span> <em>Senior Director of Research.
+<span style="font-size: 8pt;">**Joanna Mountain, PhD**</span>  
+<span style="font-size: 8pt;"> <em>Senior Director of Research.
 </em>Joanna Mountain is Senior Director of Research, where she is
 responsible for overseeing research projects, ensuring the protection of
 research participants, and developing approaches to evaluate and
@@ -42,8 +43,8 @@ and Genetics Departments at Stanford University. Joanna spent two years
 in Kenya as a Peace Corps volunteer and continues to be particularly
 interested in the genetic diversity of Africa.</span>
 
-<span>**Steven Micheletti, PhD**</span>
-<span> <em>Scientist II, Population Genetics.
+<span style="font-size: 8pt;">**Steven Micheletti, PhD**</span>  
+<span style="font-size: 8pt;"> <em>Scientist II, Population Genetics.
 </em>Steven is a Population Geneticist who works on Ancestry-related
 features and diversity initiatives. As an expert in using tools from
 genetics to study migrations, he also uses participant data to research
@@ -59,7 +60,7 @@ Washington State University (PhD).</span>
 
  
 
-<span>Who are we?: We are a professional SACNAS
+<span style="font-size: 8pt;">Who are we?: We are a professional SACNAS
 chapter that provides a supportive and welcoming environment for
 Hispanics/Chicanos and Native Americans trainees and staff at the NIH to
 get together, exchange ideas, network, share successes, and strategize

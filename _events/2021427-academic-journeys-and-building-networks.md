@@ -6,12 +6,13 @@ date:
   day: 27
 start: 12:00 PM
 end: 1:00 PM
-audience:
-- Graduate Students
+open_to:
+- Graduate students
 topic:
-- Teaching/Mentoring
-- Networking Opportunities
-- Academic Careers
+- Teaching/mentoring
+- Communication
+- Career readiness
+type: Small group
 updated_at: 2021-04-20 16:51:32.000000000 Z
 ---
 Are you a graduate student and thinking about ways to maximize your

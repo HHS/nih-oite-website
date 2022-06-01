@@ -33,11 +33,7 @@
 <% if @show_sidebar %>
   <% content_for :sidebar do %>
     <%= render "application/side_nav" %>
-    <% @page.sidebar_blocks.each do |block| %>
-      <div class="sidebar-block">
-        <%= block.rendered_content %>
-      </div>
-    <% end %>
+    <%= render "pages/sidebar_items" %>
   <% end %>
 <% end %>
 

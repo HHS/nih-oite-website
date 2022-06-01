@@ -6,11 +6,12 @@ date:
   day: 5
 start: 11:00 AM
 end: 12:00 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
 topic:
-- Graduate School
+- Career readiness
+type: Small group
 updated_at: 2021-07-19 16:02:53.000000000 Z
 ---
 During these virtual Q&amp;A sessions, dedicated OITE staff members will

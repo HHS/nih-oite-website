@@ -6,13 +6,14 @@ date:
   day: 4
 start: 3:00 PM
 end: 3:45 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
-- NIH Staff Scientist/Staff Clinician
+- Graduate students
+- Postdocs/fellows
+- NIH staff scientists/clinicians
 topic:
-- Job Search Skills
+- Career readiness
+type: Small group
 updated_at: 2021-01-04 15:17:48.000000000 Z
 ---
 Learn and practice about how to answer the interview question, \"Tell me

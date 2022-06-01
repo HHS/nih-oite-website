@@ -30,7 +30,9 @@ Rails.application.routes.draw do
   get "admin/config", format: "yml", to: "pages#netlify_config"
   get "admin/", to: "pages#netlify"
 
-  resources :events, only: %i[index show]
+  resources :events, only: %i[index show], constraints: {id: /\d{6,8}-.*/}
+
+  get "events/*path", to: "pages#page", defaults: {path_prefix: "events/"}
 
   get "sitemap", to: "pages#sitemap"
   get "robots", to: "pages#robots"

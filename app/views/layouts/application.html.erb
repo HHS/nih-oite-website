@@ -25,7 +25,7 @@
 
         <% content_top = yield(:content_top) %>
         <% if content_top.present? %>
-          <div class="grid-row">
+          <div class="grid-row grid-gap">
             <div class="tablet:grid-col-12">
               <%= content_top %>
             </div>
@@ -36,7 +36,7 @@
         <% if sidebar.present? %>
           <div class="grid-row grid-gap">
             <aside class="tablet:grid-col-4">
-              <%= sidebar%>
+              <%= sidebar %>
             </aside>
             <div class="tablet:grid-col-8">
               <%= yield %>

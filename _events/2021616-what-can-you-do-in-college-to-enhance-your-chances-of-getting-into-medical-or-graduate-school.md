@@ -7,11 +7,11 @@ date:
   day: 16
 start: 1:00 PM
 end: 2:30 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 topic:
-- Professional (Medical/Dental) School
-- Graduate School
+- Career readiness
+type: Small group
 updated_at: 2021-05-10 06:36:46.000000000 Z
 ---
 Event

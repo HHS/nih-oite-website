@@ -6,11 +6,11 @@ date:
   day: 2
 start: 3:00 PM
 end: 4:00 PM
-audience:
-- Graduate Students
+open_to:
+- Graduate students
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-02-25 18:02:37.000000000 Z
 ---
 This event is only for NIH Intramural Trainees currently in our graduate

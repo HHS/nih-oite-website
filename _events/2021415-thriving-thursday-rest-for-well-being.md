@@ -6,12 +6,13 @@ date:
   day: 15
 start: 12:00 PM
 end: 1:00 PM
-audience:
+open_to:
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-03-30 15:05:26.000000000 Z
 ---
 ** **Despite our body and mind's best efforts to signal to us to

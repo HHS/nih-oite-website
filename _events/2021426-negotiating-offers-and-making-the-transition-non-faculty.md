@@ -6,12 +6,12 @@ date:
   day: 26
 start: 2:00 PM
 end: 3:00 PM
-audience:
-- Graduate Students
-- Postdocs/Fellows
+open_to:
+- Graduate students
+- Postdocs/fellows
 topic:
-- Industry Careers
-- Job Search Skills
+- Career readiness
+type: Workshop
 updated_at: 2021-04-19 14:01:00.000000000 Z
 ---
 This session will cover the basics of what to look for in a job offer

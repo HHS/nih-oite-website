@@ -6,14 +6,14 @@ date:
   day: 13
 start: 12:00 PM
 end: 1:00 PM
-audience:
-- Summer Interns
+open_to:
+- Summer interns
 - Postbacs
-- Graduate Students
-- Postdocs/Fellows
+- Graduate students
+- Postdocs/fellows
 topic:
-- Personal Development
-- Wellness
+- Wellness/resilience
+type: Small group
 updated_at: 2021-03-30 15:55:46.000000000 Z
 ---
 *Recent events at the Capitol have brought shock, anger, fear and many
