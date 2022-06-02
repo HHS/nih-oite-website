@@ -232,3 +232,7 @@ generating diagram updates.
 ## Story Acceptance
 
 TBD
+
+## Design documents
+Static PNG images of the designs can be found in the [design folder](designs/).
+In addition, you can refer to the designs in figma for the [wireframes](https://www.figma.com/file/nNkNwX2qRlnD5PUEAxDoJx/NIH-OITE%2FWireframes?node-id=579%3A12868), [clickable prototype](https://www.figma.com/proto/nNkNwX2qRlnD5PUEAxDoJx/NIH-OITE%2FWireframes?page-id=579%3A12835&node-id=579%3A12868&viewport=255%2C326%2C0.06&scaling=min-zoom&starting-point-node-id=579%3A12868), and [styled mockups](https://www.figma.com/file/wlCDz7OJt0XxbXgLESt15f/NIH-OITE%2FStylesDraft-%5BSHARE%5D?node-id=390%3A4011).
