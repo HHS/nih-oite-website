@@ -62,7 +62,7 @@ group :development do
 end
 
 gem "secure_headers", "~> 6.3"
-gem "sidekiq", "~> 6.4"
+gem "sidekiq", "~> 7.1"
 gem "devise", "~> 4.8"
 gem "omniauth", "~> 2.0"
 gem "omniauth-github", "~> 2.0"
