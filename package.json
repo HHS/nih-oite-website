@@ -19,7 +19,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "netlify-cms-app": "^2.15.67",
     "path-browserify": "^1.0.1",
-    "postcss": "^8.4.7",
+    "postcss": "^8.4.31",
     "postcss-cli": "^9.1.0",
     "postcss-minify": "^1.1.0",
     "postcss-scss": "^4.0.3",
